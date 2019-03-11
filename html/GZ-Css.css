@@ -1,0 +1,86 @@
+.logo{
+	float : left;
+	padding: 10px 30px;
+	width: 6%;
+	height: 6%;
+}
+
+nav{
+	float: right;
+	padding: 51px 0px;
+}
+
+nav ul{
+	margin: 0;
+}
+
+nav li{
+	display: inline-block;
+	font-size: 20px;
+	font-weight: 20px;
+}	
+
+nav a{
+	text-decoration: none;
+	color: rgb(125, 96, 228);          /* <!/////////////////CAMBIAR///////// */
+	padding: 51px 20px;
+}
+
+nav a:hover{
+	background-color: rgba(45, 31, 94, 0.521);
+	transition: .5s;
+}
+
+header{
+	background: #0A0A2A;   /* <!////////////////////CAMBIAR///////// */
+	position: sticky;
+	top: 0;
+}
+
+header::after{
+	content: '';
+	display: table;
+	clear: both;
+}
+
+
+body{
+	margin:0;
+	background: #222;  
+	font-family: sans-serif; /*<!/////////CAMBIAR ESTO Y ARRIBA/////////*/
+	
+}
+
+/* //////////////////////////// */
+  
+.grid-container {
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: 500px 500px 500px;
+  }
+  
+.grid-container > div {
+	text-align: center;
+	padding: 20px 0;
+  }
+
+.info{
+	  background-color: blue;
+  }
+
+.carta{
+	  background-color: pink;
+  }
+
+.galeria{
+	  background-color: green;
+  }
+
+footer{
+	background-color: yellow;
+	padding: 1px;
+}
+
+body{
+	margin: 0px
+}
