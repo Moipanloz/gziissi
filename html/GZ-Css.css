@@ -1,4 +1,6 @@
-/* Navegador */
+/*~~~~~~~~~~~~~~~~~~~~GAMERS ZONE~~~~~~~~~~~~~~~~~~~~*/
+
+/*=====================Navegador=====================*/
 
 .logo{
 	float : left;
@@ -29,22 +31,22 @@ nav li{
 
 nav a{
 	text-decoration: none;
-	color: rgb(125, 96, 228);          /* <!/////////////////CAMBIAR///////// */
+	color: rgb(41, 169, 255);          /* <!/////////////////CAMBIAR///////// */
 }
 
 nav a:hover{
-	color: rgba(255, 0, 0, 0.521);  /* <!/////////////////CAMBIAR///////// */
+	color: rgba(255, 255, 255, 0.815);  /* <!/////////////////CAMBIAR///////// */
 	transition: .5s;
 }
 
 header{
-	background: #0A0A2A;   /* <!////////////////////CAMBIAR///////// */
+	background: rgb(0, 1, 82);   /* <!////////////////////CAMBIAR///////// */
 	top: 0;
 	position: sticky;
 }
 
 header strong{
-	color: white;
+	color: rgb(0, 238, 255);
 }
 
 header::after{
@@ -53,8 +55,7 @@ header::after{
 	clear: both;
 }
 
-
-/* Body y grid */
+/*=====================Body y grid=====================*/
 
 body{
 	margin:0;
@@ -75,18 +76,19 @@ body{
   }
 
 .info{
-	  background-color: blue;
+	background-color: rgb(28, 76, 209);
+	
   }
 
 .carta{
-	  background-color: pink;
+	  background-color: rgb(255, 255, 255);
   }
 
-/* Galería y carrusel*/
+/*=====================Galería y carrusel=====================*/
 
 .galeria{
-	  background-color: green;
-  }
+	background-color: rgb(64, 183, 219);
+ }
 
 .titulo{
 	margin: 2%;
@@ -172,11 +174,15 @@ body{
 	background:  white;
 } 
 
-/* Footer */
+/*=====================Footer===================== */
 
 footer{
-	background-color: yellow;
-	padding: 1px;
+	background-color: rgb(0, 1, 82);
+	padding: 1px 30px;
+}
+
+footer p{
+	color: rgb(41, 169, 255);  
 }
 
 
