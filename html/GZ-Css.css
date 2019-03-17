@@ -1,40 +1,50 @@
+/* Navegador */
+
 .logo{
 	float : left;
-	padding: 10px 30px;
-	width: 6%;
-	height: 6%;
+	height: 100px;
+	width: 100px;
 }
 
 nav{
-	float: right;
-	padding: 51px 0px;
+	height: 100%;
+	position: absolute;
+	right: 0;
 }
 
 nav ul{
+	position: relative;
+	top: 35%;
 	margin: 0;
+	padding: 0;
 }
 
 nav li{
 	display: inline-block;
-	font-size: 20px;
-	font-weight: 20px;
+	font-size: 130%;
+	font-weight: 500;
+	position: relative;
+	padding-right: 20px;
 }	
 
 nav a{
 	text-decoration: none;
 	color: rgb(125, 96, 228);          /* <!/////////////////CAMBIAR///////// */
-	padding: 51px 20px;
 }
 
 nav a:hover{
-	background-color: rgba(45, 31, 94, 0.521);
+	color: rgba(255, 0, 0, 0.521);  /* <!/////////////////CAMBIAR///////// */
 	transition: .5s;
 }
 
 header{
 	background: #0A0A2A;   /* <!////////////////////CAMBIAR///////// */
-	position: sticky;
 	top: 0;
+	position: sticky;
+}
+
+header strong{
+	color: white;
 }
 
 header::after{
@@ -44,19 +54,19 @@ header::after{
 }
 
 
+/* Body y grid */
+
 body{
 	margin:0;
 	background: #222;  
 	font-family: sans-serif; /*<!/////////CAMBIAR ESTO Y ARRIBA/////////*/
 	
 }
-
-/* //////////////////////////// */
   
 .grid-container {
 	display: grid;
 	grid-template-columns: auto;
-	grid-template-rows: 500px 500px 500px;
+	grid-template-rows: 1000px 1000px 1000px;
   }
   
 .grid-container > div {
@@ -72,15 +82,101 @@ body{
 	  background-color: pink;
   }
 
+/* Galería y carrusel*/
+
 .galeria{
 	  background-color: green;
   }
+
+.titulo{
+	margin: 2%;
+	font-size: 250%;
+}
+
+.slider{
+	position: relative;
+	background-color: red;
+	width: 70%;
+	height: 80%;
+	top: 2%;
+	margin: auto; 
+}
+
+.slider_item{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.slider_item img{
+	width: 100%;
+	height: 100%;
+}
+
+#i1, #i2, #i3, #i4, #i5{
+	display:none;
+}
+
+.previous, .next{
+	width: 8%;
+	height: 100%;
+	top: 0;
+	position: absolute;
+	z-index: 99;
+	background: rgba(37, 37, 37, 0.034);
+	transition: .5s;
+}
+
+.previous:hover, .next:hover{
+	background: rgba(37, 37, 37, 0.438);
+}
+
+.previous{
+	left:0;
+}
+
+.next{
+	right:0;
+}
+
+.dotnav{
+	width: 100%;
+	height: 7%;
+	bottom: 2%;
+	z-index: 99;
+	position: absolute;
+}
+
+.dots{
+	background: rgba(37, 37, 37, 0.822);
+	top: 15%;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	position: relative;
+	display: inline-block;
+	transition: .5s;
+}
+
+.dots:hover{
+	background: rgba(155, 155, 155, 0.822);
+}
+
+#i1:checked ~ #uno, #i2:checked ~ #dos, #i3:checked ~ #tres,
+#i4:checked ~ #cuatro, #i5:checked ~ #cinco{
+	z-index: 50;
+} 
+
+#i1:checked ~ .dotnav #dot1, #i2:checked ~ .dotnav #dot2, #i3:checked ~ .dotnav #dot3,
+#i4:checked ~ .dotnav #dot4, #i5:checked ~ .dotnav #dot5{
+	background:  white;
+} 
+
+/* Footer */
 
 footer{
 	background-color: yellow;
 	padding: 1px;
 }
 
-body{
-	margin: 0px
-}
+
