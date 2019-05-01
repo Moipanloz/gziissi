@@ -60,7 +60,7 @@ header::after{
 
 body{
 	margin:0;
-	background: #222;  
+	background: rgb(172, 172, 172);  
 	font-family: sans-serif; /*<!/////////CAMBIAR ESTO Y ARRIBA/////////*/
 	
 }
@@ -84,6 +84,9 @@ body{
 .carta{
 	  background-color: rgb(255, 255, 255);
   }
+
+
+/*//////// BONOS ///////////*/
 
 .grid-container-bonos{
 	display: grid;
@@ -121,15 +124,38 @@ body{
 	text-align: right;
 }
 
-
-
-
 #c1{
 	background-color: white;
 }
 
 #c2{
 	background-color: grey;
+}
+
+/*//////////// TORNEOS /////////////*/
+
+#torneos{
+	justify-items: center;
+	width: 50%;
+	margin: 2% 25% 2% 25%;
+	text-align: center;
+
+}
+
+.grid-container-torneos{
+	display: grid;
+	grid-template-columns: 50% 50%;
+	margin: 0% 30%;
+}
+
+.grid-container-torneos img {
+	justify-self: center;
+	align-self: center;
+}
+
+.grid-container-torneos form{
+	width: 20%;
+	margin: auto;
 }
 
 
