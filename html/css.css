@@ -91,39 +91,45 @@ body{
 	grid-template-rows: 25% 25% 25% 25%;
 }
 
-.left{
+.subgrid{
+	display: grid;
+	align-self: center;
+	padding: 2% 15% 2% 15%;
+	grid-template-columns: 20% 60% 20%;
+}
+
+.subgrid img, form{
+	justify-self: center;
+	align-self: center;
+}
+
+.subgrid ul{
+	list-style: none;
+	padding: 1%;
+}
+
+#left{
+	justify-items: left;
+	align-items: auto;
+	margin-left: 6%; 
+}
+
+#right{
+	justify-items: right;
+	align-items: auto;
+	margin-right: 6%; 
+	text-align: right;
+}
+
+
+
+
+#c1{
 	background-color: white;
 }
 
-.left img, ul, form{
-	padding: 2%;
-}
-
-.right img, ul, form{
-	padding: 2%;
-}
-
-
-.left img{
-	float: left;
-	margin-left: 10%;
-}
-
-.left form{
-	float: right;
-}
-
-.right{
+#c2{
 	background-color: grey;
-}
-
-.right img{
-	float: right;
-	margin-right: 10%;
-}
-
-.right form{
-	float: left;
 }
 
 
