@@ -185,12 +185,26 @@ body{
 }
 
 .align input{
-	margin: 3% 45%;
+	margin: 4% 45%;
 }
 
 .align p{
 	margin: 0;
 	text-align: center;
+}
+
+/*======================REGISTRO==============================*/
+
+.grid-container-registro{
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 15% 15% 15% 15% 15% 15% 15%;
+	align-content: center;
+	justify-content: center;
+}
+
+.grid-container-registro *{
+	margin: 2%;
 }
 
 
