@@ -159,6 +159,42 @@ body{
 }
 
 
+/*=====================INICIA SESION==========================*/
+
+.login{
+	background-color: rgb(39, 87, 90);
+	padding: 1%;
+	max-width: 45%;
+	margin: auto;
+	color: white;
+}
+
+.grid-container-login{
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 50% 50%;
+	align-content: center;
+	justify-content: center;
+}
+
+.grid-container-login *{
+	margin: 2%;
+	padding: 2%;
+	justify-content: center;
+	align-content: center;
+}
+
+.align input{
+	margin: 3% 45%;
+}
+
+.align p{
+	margin: 0;
+	text-align: center;
+}
+
+
+
 /*=====================Galería y carrusel=====================*/
 
 .galeria{
