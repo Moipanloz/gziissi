@@ -2,6 +2,13 @@
 
 require_once ("gestionBD.php");
 require_once ("gestionBonos.php");
+require_once ("gestionConsumibles.php");
+
+
+$conexion = crearConexionBD();
+
+$todosLosBonos = consultarTodosBonos ($conexion);
+
 
 ?>
 
@@ -32,15 +39,21 @@ require_once ("gestionBonos.php");
 
 		<div class="grid-container-bonos">
 
-			<?php  foreach (consultarTodosBonos() as $b ) { ?> 
+			<?php  foreach ($todosLosBonos as $b ) { 
+
+                $todosLosConsumibles = consultarConsumiblesDeBono ($conexion, $b["BONO_ID"]);
+?> 
 
 				<div class="subgrid" id="c1">
 					<img src="imagenes\Telegram.png">
 					<div id="left">
-						<h3><?php print ($b) ?></h3>
+						<h3><?php print ($b ["NOMBREBONO"]) ?></h3>
 						<ul>
-							<li>Papas fritas</li>
-							<li>2 cocacolas</li>
+
+                        <?php foreach ($todosLosConsumibles as $c) { ?>
+							<li><?php out $b ["NOMBRECONSUMIBLE"]</li>
+                            <?php } ?>
+
 						</ul>
 					</div>
 					<form>
@@ -48,7 +61,10 @@ require_once ("gestionBonos.php");
 					</form>
 				</div>
 
-			<?php } ?>
+			<?php }
+            cerrarConexionBD($conexion);
+
+?>
 
 		</div>
 	</body>

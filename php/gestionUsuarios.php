@@ -10,14 +10,13 @@
 	//$fechaNacimiento = date('d/m/Y', strtotime($usuario["fechaNacimiento"]));
 
 	try {
-		$consulta = "CALL INSERTAR_USUARIO(:nif, :nombre :email, :pass, :perfil)";
+		$consulta = "CALL INSERTAR_USUARIO(:nif, :nombre :email, :pass)";
 		$stmt=$conexion->prepare($consulta);
 		$stmt->bindParam(':nif',$usuario["nif"]);
 		$stmt->bindParam(':nombre',$usuario["nombre"]);
 		//$stmt->bindParam(':fec',$fechaNacimiento);
 		$stmt->bindParam(':email',$usuario["email"]);
 		$stmt->bindParam(':pass',$usuario["pass"]);
-		$stmt->bindParam(':perfil',$usuario["perfil"]);
 		
 		$stmt->execute();
 		
