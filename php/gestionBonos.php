@@ -8,7 +8,7 @@
 
 function consultarTodosBonos($conexion) {
 	$consulta = "SELECT * FROM BONOS"
-		. " ORDER BY APELLIDOS, NOMBRE";
+		. " ORDER BY NOMBREBONO";
     return $conexion->query($consulta);
 }
 

@@ -23,31 +23,25 @@ $todosLosBonos = consultarTodosBonos ($conexion);
 		<link rel="icon" type="image/x-icon" href="faviconURL">
 	</head>
 	<body>
-		<header>
-			<div>
-				<a href="index.html"><img src="imagenes/GZ-logo.png" alt="Logo" class="logo"></a>
-				<nav>
-					<ul>
-						<li class="ul-item"><a href="bonos.php">Bonos</a></li>
-						<li class="ul-item"><a href="torneos.php">Torneos</a></li>
-						<li class="ul-item"><a href="iniciaSesion.php">Inicia sesión</a></li>
-						<li class="ul-item"><a href="registrate.php">Regístrate</a> </li>
-					</ul>				
-				</nav>
-			</div>
-		</header>
+
+    <?php include_once ("cabecera.php"); ?>
 
 		<div class="grid-container-bonos">
 
-            <?php  foreach ($todosLosBonos as $b ) {
+            <?php
 
-            $bonoId = $b ["BONO_ID"];
+            if (empty($todosLosBonos)) { ?> <?php } else {
 
-                $todosLosConsumibles = consultarConsumiblesDeBono ($conexion, $bonoId);
+                foreach ($todosLosBonos as $b ) {
+
+                $bonoId = $b ["BONOS_ID"];
+                $bonoAvailable = $b ["DISPONIBLE"];
+
+                if (!is_null($bonoId))$todosLosConsumibles = consultarConsumiblesDeBono ($conexion, $bonoId);
 
 
 
-            ?> 
+             ?>
 
 				<div class="subgrid" id="c1">
 					<img src="imagenes\Telegram.png">
@@ -66,7 +60,8 @@ $todosLosBonos = consultarTodosBonos ($conexion);
 					</form>
 				</div>
 
-			<?php }
+			<?php } }
+
             cerrarConexionBD($conexion);
 
 ?>

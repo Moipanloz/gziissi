@@ -1,6 +1,7 @@
 <?php 
 	session_start();
-	
+
+
 	$excepcion = $_SESSION["excepcion"];
 	unset($_SESSION["excepcion"]);
 	
