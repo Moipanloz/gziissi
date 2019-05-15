@@ -39,10 +39,15 @@ $todosLosBonos = consultarTodosBonos ($conexion);
 
 		<div class="grid-container-bonos">
 
-			<?php  foreach ($todosLosBonos as $b ) { 
+            <?php  foreach ($todosLosBonos as $b ) {
 
-                $todosLosConsumibles = consultarConsumiblesDeBono ($conexion, $b["BONO_ID"]);
-?> 
+            $bonoId = $b ["BONO_ID"];
+
+                $todosLosConsumibles = consultarConsumiblesDeBono ($conexion, $bonoId);
+
+
+
+            ?> 
 
 				<div class="subgrid" id="c1">
 					<img src="imagenes\Telegram.png">
@@ -51,7 +56,7 @@ $todosLosBonos = consultarTodosBonos ($conexion);
 						<ul>
 
                         <?php foreach ($todosLosConsumibles as $c) { ?>
-							<li><?php out $b ["NOMBRECONSUMIBLE"]</li>
+							<li><?php print ($c["NOMBRECONSUMIBLE"]) ?> </li>
                             <?php } ?>
 
 						</ul>

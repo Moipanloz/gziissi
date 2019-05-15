@@ -10,7 +10,7 @@
 	</head>
 	<body>
 		
-		<?php include_once cabecera.php ?>
+		<?php include_once ("cabecera.php") ?>
 
 		<div class="grid-container">
 			<div class="info">

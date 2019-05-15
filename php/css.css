@@ -1,0 +1,304 @@
+/*~~~~~~~~~~~~~~~~~~~~GAMERS ZONE~~~~~~~~~~~~~~~~~~~~*/
+
+/*=====================Navegador=====================*/
+
+.logo{
+	float : left;
+	height: 100px;
+	width: 100px;
+}
+
+nav{
+	height: 100%;
+	position: absolute;
+	right: 0;
+}
+
+nav ul{
+	position: relative;
+	top: 35%;
+	margin: 0;
+	padding: 0;
+}
+
+nav li{
+	display: inline-block;
+	font-size: 130%;
+	font-weight: 500;
+	position: relative;
+	padding-right: 20px;
+}	
+
+nav a{
+	text-decoration: none;
+	color: rgb(41, 169, 255);          /* <!/////////////////CAMBIAR///////// */
+}
+
+nav a:hover{
+	color: rgba(255, 255, 255, 0.815);  /* <!/////////////////CAMBIAR///////// */
+	transition: .5s;
+}
+
+header{
+	background: rgb(0, 1, 82);   /* <!////////////////////CAMBIAR///////// */
+	top: 0;
+	position: sticky;
+	z-index: 99;
+}
+
+header strong{
+	color: rgb(0, 238, 255);
+}
+
+header::after{
+	content: '';
+	display: table;
+	clear: both;
+}
+
+/*=====================Body y grid=====================*/
+
+body{
+	margin:0;
+	background: rgb(172, 172, 172);  
+	font-family: sans-serif; /*<!/////////CAMBIAR ESTO Y ARRIBA/////////*/
+	
+}
+  
+.grid-container {
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: 50% 50% 50% 50%;
+  }
+  
+.grid-container > div {
+	text-align: center;
+	padding: 20px 0;
+  }
+
+.info{
+	background-color: rgb(28, 76, 209);
+	
+  }
+
+.carta{
+	  background-color: rgb(255, 255, 255);
+  }
+
+
+/*//////// BONOS ///////////*/
+
+.grid-container-bonos{
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: 25% 25% 25% 25%;
+}
+
+.subgrid{
+	display: grid;
+	align-self: center;
+	padding: 2% 15% 2% 15%;
+	grid-template-columns: 20% 60% 20%;
+}
+
+.subgrid img, form{
+	justify-self: center;
+	align-self: center;
+}
+
+.subgrid ul{
+	list-style: none;
+	padding: 1%;
+}
+
+#left{
+	justify-items: left;
+	align-items: auto;
+	margin-left: 6%; 
+}
+
+#right{
+	justify-items: right;
+	align-items: auto;
+	margin-right: 6%; 
+	text-align: right;
+}
+
+#c1{
+	background-color: white;
+}
+
+#c2{
+	background-color: grey;
+}
+
+/*//////////// TORNEOS /////////////*/
+
+#torneos{
+	justify-items: center;
+	width: 50%;
+	margin: 2% 25% 2% 25%;
+	text-align: center;
+
+}
+
+.grid-container-torneos{
+	display: grid;
+	grid-template-columns: 50% 50%;
+	margin: 0% 30%;
+}
+
+.grid-container-torneos img {
+	justify-self: center;
+	align-self: center;
+}
+
+.grid-container-torneos form{
+	width: 20%;
+	margin: auto;
+}
+
+
+/*=====================INICIA SESION==========================*/
+
+.login{
+	background-color: rgb(39, 87, 90);
+	padding: 1%;
+	max-width: 45%;
+	margin: auto;
+	color: white;
+}
+
+.grid-container-login{
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 50% 50%;
+	align-content: center;
+	justify-content: center;
+}
+
+.grid-container-login *{
+	margin: 2%;
+	padding: 2%;
+	justify-content: center;
+	align-content: center;
+}
+
+.align input{
+	margin: 4% 45%;
+}
+
+.align p{
+	margin: 0;
+	text-align: center;
+}
+
+/*======================REGISTRO==============================*/
+
+.grid-container-registro{
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 15% 15% 15% 15% 15% 15% 15%;
+	align-content: center;
+	justify-content: center;
+}
+
+.grid-container-registro *{
+	margin: 2%;
+}
+
+
+
+/*=====================Galería y carrusel=====================*/
+
+.galeria{
+	background-color: rgb(64, 183, 219);
+ }
+
+.titulo{
+	margin: 2%;
+	font-size: 250%;
+}
+
+.slider{
+	position: relative;
+	background-color: red;
+	width: 70%;
+	height: 80%;
+	top: 2%;
+	margin: auto; 
+}
+
+.slider_item{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+
+.slider_item img{
+	width: 100%;
+	height: 100%;
+}
+
+#i1, #i2, #i3, #i4, #i5{
+	display:none;
+}
+
+.previous, .next{
+	width: 8%;
+	height: 100%;
+	top: 0;
+	position: absolute;
+	z-index: 70;
+	background: rgba(37, 37, 37, 0.034);
+	transition: .5s;
+}
+
+.previous:hover, .next:hover{
+	background: rgba(37, 37, 37, 0.438);
+}
+
+.previous{
+	left:0;
+}
+
+.next{
+	right:0;
+}
+
+.dotnav{
+	width: 100%;
+	height: 7%;
+	bottom: 2%;
+	z-index: 70;
+	position: absolute;
+}
+
+.dots{
+	background: rgba(37, 37, 37, 0.822);
+	top: 15%;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	position: relative;
+	display: inline-block;
+	transition: .5s;
+}
+
+.dots:hover{
+	background: rgba(155, 155, 155, 0.822);
+}
+
+#i1:checked ~ #uno, #i2:checked ~ #dos, #i3:checked ~ #tres,
+#i4:checked ~ #cuatro, #i5:checked ~ #cinco{
+	z-index: 50;
+} 
+
+#i1:checked ~ .dotnav #dot1, #i2:checked ~ .dotnav #dot2, #i3:checked ~ .dotnav #dot3,
+#i4:checked ~ .dotnav #dot4, #i5:checked ~ .dotnav #dot5{
+	background:  white;
+} 
+
+
+
