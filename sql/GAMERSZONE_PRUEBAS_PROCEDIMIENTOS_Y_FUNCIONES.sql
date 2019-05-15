@@ -1,0 +1,107 @@
+SET SERVEROUTPUT ON;
+
+EXECUTE NUEVO_USUARIO('12345678A', 'Pepito', 'Passdepepito1', 'correodepepito@yahoo.com', TO_DATE ('1940/06/25','yyyy/mm/dd'), 'Tarjeta');
+EXECUTE NUEVO_PASE('Consola generica');
+EXECUTE NUEVO_CONSUMIBLE('Cocacola','Bebida generica');
+EXECUTE NUEVO_TORNEO(25,'Fortnike',250,'Torneo Fortknike', TO_DATE ('2019/06/25','yyyy/mm/dd'));
+EXECUTE INSCRIPCION('12345678A',1);
+EXECUTE NUEVO_BONO('Bono gaming',33,'TRUE');
+EXECUTE BONO_NO_DISPONIBLE(1);
+EXECUTE INTRODUCIR_PASE_EN_BONO(1,1,10);       
+EXECUTE INTRODUCIR_CONSUMIBLE_EN_BONO(1,1,10); 
+EXECUTE BONO_DISPONIBLE(1); 
+EXECUTE NUEVA_VENTA('12345678A');
+EXECUTE INTRODUCIR_LINEA_VENTA(1,1,1,50);  
+EXECUTE NUEVO_JUEGO_MESA('Jungle speed');
+EXECUTE NUEVA_PARTICIPACION_SORTEO('Fabulas',10);
+EXECUTE NUEVA_PARTICIPACION_SORTEO('Zombizide',1);
+EXECUTE DONACION('12345678A', 'Jungle speed', 50);
+EXECUTE DONACION('12345678A', 'Patatoide', 120);
+EXECUTE DONACION_CONOCIENDO_SORTEO_ID('12345678A','1',450);
+EXECUTE ANADIR_ALMACEN_PASES('12345678A',1,10);
+EXECUTE ANADIR_ALMACEN_CONSUMIBLES('12345678A',1,2);
+EXECUTE CAMBIAR_EMAIL('12345678A','patata@gmail.com','contraseñaEquivocada');
+EXECUTE CAMBIAR_EMAIL('12345678A','patata@gmail.com','Passdepepito1');
+EXECUTE DARSE_BAJA('12345678A');
+EXECUTE DARSE_ALTA('12345678A');
+EXECUTE BONO_NO_DISPONIBLE(1);
+EXECUTE BONO_DISPONIBLE(2);
+EXECUTE USA_PASE('12345678A','Consola generica');
+EXECUTE USA_CONSUMIBLE ('12345678A', 'Cocacola');
+EXECUTE FINALIZAR_VENTA(1);
+EXECUTE OBT_CONTENIDO_BONO(1,'12345678A');
+EXECUTE CAMBIAR_CONTRASENA('12345678A','Passdeperrito1','Pass1234');
+EXECUTE CAMBIAR_CONTRASENA('12345678A','Passdepepito1','Pass1234');
+EXECUTE OBT_VENTAS_CLIENTE('12345678A');
+EXECUTE OBT_DONACIONES_CLIENTE('12345678A');
+EXECUTE OBT_TORNEOS_CLIENTE('12345678A');
+EXECUTE PARTICIPANTES_TORNEOS(1);
+EXECUTE OBT_LINEAS_VENTA (1);
+EXECUTE OBT_CONSUMIBLES_CLIENTE('12345678A');
+EXECUTE OBT_PASES_CLIENTE('12345678A');
+EXECUTE VACIAR_PART_SORTEOS;
+
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('El numero de participantes en el torneo con id ' || 1 || ' es: '|| OBT_NUM_PART_TORNEO(1));
+END;
+/
+
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('El numero de ventas realizadas antes de ' || '2019/01/13' || ' es: '|| OBT_NUM_VENTAS_DESDE(TO_DATE('20190113' ,'yyyymmdd')));
+END;
+/
+
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('El numero de usuarios inactivos es: '|| OBT_NUM_USUARIOS_INAC);
+END;
+/
+
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('El numero de usuarios activos es: '|| OBT_NUM_USUARIOS_ACT);
+END;
+/
+
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('El numero de ventas de usuario con dni ' || '123456789A' || ' es: '|| OBT_NUM_VENTAS_CLIENTE('12345678A'));
+END;
+/
+
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('La cantidad de dinero donada por el cliente con dni ' || '123456789A' || ' es: '|| OBT_DINERO_DONADO_CLIENTE('12345678A'));
+END;
+/
+
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('El juego de mesa que actualmente ha sido mas votado es: '|| OBT_JUEGO_MAS_VOTADO);
+END;
+/
+
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('El numero de clientes que ha adquirido un bono con ID ' || 1 || ' es: '|| OBT_N_CLIENTES_AD_BONO(1));
+END;
+/
+
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('El precio total de la venta con id ' || 1 || ' es: '|| OBT_PRECIO_VENTA(1));
+END;
+/
+
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('La edad de la persona con el dni ' || '12345678A' || ' es: '|| OBT_EDAD('12345678A'));
+END;
+/
+
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('El importe total mensual obtenido por las donaciones a ' || '2019/01/13' || ' es: '|| OBT_DONACION_TOTAL(TO_DATE('20190113', 'yyyymmdd')));
+END;
+/
+
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('El ganador del sorteo es: '|| OBT_GANADOR_SORTEO);
+END;
+/
+
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('¿La siguiente bebida es alcoholica?: ' || BOOLEAN_TO_CHAR(ES_BEBIDA_ALCOHOLICA(1)));
+END;
+/
