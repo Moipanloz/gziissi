@@ -3,6 +3,8 @@
 require_once ("gestionBD.php");
 require_once ("gestionBonos.php");
 require_once ("gestionConsumibles.php");
+require_once ("gestionPases.php");
+
 
 
 $conexion = crearConexionBD();
@@ -32,7 +34,11 @@ $todosLosBonos = consultarTodosBonos ($conexion);
 
             if (empty($todosLosBonos)) { ?> <?php } else {
 
+                $count = 0;
+
                 foreach ($todosLosBonos as $b ) {
+
+                    $count = $count +1;
 
                 $bonoId = $b ["BONOS_ID"];
                 $bonoAvailable = $b ["DISPONIBLE"];
@@ -43,6 +49,7 @@ $todosLosBonos = consultarTodosBonos ($conexion);
 
 
              ?>
+                    <?php if ($count%2 == 1) { ?>
 
 				<div class="subgrid" id="c1">
 					<img src="imagenes\Telegram.png">
@@ -50,12 +57,16 @@ $todosLosBonos = consultarTodosBonos ($conexion);
 						<h3><?php print ($b ["NOMBREBONO"]) ?></h3>
 						<ul>
 
+                            <h4> Consumibles:</h4>
+
                         <?php foreach ($todosLosConsumibles as $c) { ?>
 							<li><?php print ($c["NOMBRECONSUMIBLE"]) ?> </li>
                             <?php } ?>
 
+                            <h4> Pases:</h4>
+
                             <?php foreach ($todosLosPases as $c) { ?>
-                                <li><?php print ($c["NOMBREPASE"]) ?> </li>
+                                <li><?php print ($c["TIPOMEDIO"]) ?> </li>
                             <?php } ?>
 
 						</ul>
@@ -64,6 +75,35 @@ $todosLosBonos = consultarTodosBonos ($conexion);
 						<input type="submit" value="Adquirir">
 					</form>
 				</div>
+
+                    <?php } else { ?>
+
+                        <div class="subgrid" id="c2">
+                            <form>
+                                <input type="submit" value="Adquirir">
+                            </form>
+                            <div id="right">
+                                <h3><?php print ($b ["NOMBREBONO"]) ?></h3>
+                                <ul>
+
+                                    <h4> Consumibles:</h4>
+
+                                    <?php foreach ($todosLosConsumibles as $c) { ?>
+                                        <li><?php print ($c["NOMBRECONSUMIBLE"]) ?> </li>
+                                    <?php } ?>
+
+                                    <h4> Pases:</h4>
+
+                                    <?php foreach ($todosLosPases as $c) { ?>
+                                        <li><?php print ($c["TIPOMEDIO"]) ?> </li>
+                                    <?php } ?>
+
+                                </ul>
+                            </div>
+                            <img src="imagenes\Telegram.png">
+                        </div>
+
+                    <?php } ?>
 
 			<?php } }
 
