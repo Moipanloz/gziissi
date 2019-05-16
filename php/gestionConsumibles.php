@@ -31,9 +31,6 @@ function consultarConsumiblesDeBono($conexion, $OidBono) {
 
     }
 
-
-
-
     if (empty($res)) {
         $empty ["NOMBRECONSUMIBLE"] = "No contiene ningún consumible";
         $res [0] = $empty;

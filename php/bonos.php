@@ -43,8 +43,8 @@ $todosLosBonos = consultarTodosBonos ($conexion);
                 $bonoId = $b ["BONOS_ID"];
                 $bonoAvailable = $b ["DISPONIBLE"];
 
-                if (!is_null($bonoId))$todosLosConsumibles = consultarConsumiblesDeBono ($conexion, $bonoId);
-                if (!is_null($bonoId))$todosLosPases = consultarPasesDeBono ($conexion, $bonoId);
+                if (isset($bonoId))$todosLosConsumibles = consultarConsumiblesDeBono ($conexion, $bonoId);
+                if (isset($bonoId))$todosLosPases = consultarPasesDeBono ($conexion, $bonoId);
 
 
 
@@ -59,13 +59,13 @@ $todosLosBonos = consultarTodosBonos ($conexion);
 
                             <h4> Consumibles:</h4>
 
-                        <?php foreach ($todosLosConsumibles as $c) { ?>
+                        <?php if (isset ($todosLosConsumibles)) foreach ($todosLosConsumibles as $c) { ?>
 							<li><?php print ($c["NOMBRECONSUMIBLE"]) ?> </li>
                             <?php } ?>
 
                             <h4> Pases:</h4>
 
-                            <?php foreach ($todosLosPases as $c) { ?>
+                            <?php if (isset ($todosLosPases)) foreach ($todosLosPases as $c) { ?>
                                 <li><?php print ($c["TIPOMEDIO"]) ?> </li>
                             <?php } ?>
 
