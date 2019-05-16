@@ -7,18 +7,19 @@
      */
 
  function alta_usuario($conexion,$usuario) {
-	//$fechaNacimiento = date('d/m/Y', strtotime($usuario["fechaNacimiento"]));
+	$fechaNacimiento = date('d/m/Y', strtotime($usuario["fechaNacimiento"]));
 
 	try {
-		$consulta = "CALL INSERTAR_USUARIO(:nif, :nombre :email, :pass)";
+		$consulta = "CALL INSERTAR_USUARIO(:dni, :nombre, :pass, :correo, :fechaNacimiento, :tipoPago)";
 		$stmt=$conexion->prepare($consulta);
-		$stmt->bindParam(':nif',$usuario["nif"]);
+		$stmt->bindParam(':dni',$usuario["dni"]);
 		$stmt->bindParam(':nombre',$usuario["nombre"]);
-		//$stmt->bindParam(':fec',$fechaNacimiento);
-		$stmt->bindParam(':email',$usuario["email"]);
 		$stmt->bindParam(':pass',$usuario["pass"]);
-		
-		$stmt->execute();
+        $stmt->bindParam(':correo',$usuario["correo"]);
+        $stmt->bindParam(':fechaNacimiento',$fechaNacimiento);
+        $stmt->bindParam(':tipoPago',$usuario["tipoPago"]);
+
+        $stmt->execute();
 		
 		return true;
 	} catch(PDOException $e) {
@@ -31,11 +32,20 @@
 
   
 function consultarUsuario($conexion,$email,$pass) {
- 	$consulta = "SELECT COUNT(*) AS TOTAL FROM USUARIOS WHERE EMAIL=:email AND PASS=:pass";
+ 	$consulta = "SELECT COUNT(*) AS TOTAL FROM USUARIOS WHERE CORREO=:email AND PASS=:pass";
 	$stmt = $conexion->prepare($consulta);
 	$stmt->bindParam(':email',$email);
 	$stmt->bindParam(':pass',$pass);
 	$stmt->execute();
 	return $stmt->fetchColumn();
+}
+
+function getNombreUsuario($conexion,$email,$pass) {
+    $consulta = "SELECT NOMBRE FROM USUARIOS WHERE CORREO=:email AND PASS=:pass";
+    $stmt = $conexion->prepare($consulta);
+    $stmt->bindParam(':email',$email);
+    $stmt->bindParam(':pass',$pass);
+    $stmt->execute();
+    return $stmt->fetchColumn();
 }
 

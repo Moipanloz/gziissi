@@ -1,4 +1,4 @@
-<?php session_start();
+<?php
 
 require_once("gestion/gestionBD.php");
 require_once("gestion/gestionBonos.php");
