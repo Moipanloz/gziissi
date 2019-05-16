@@ -1,6 +1,6 @@
 <?php
-require_once ("gestionBD.php");
-require_once ("gestionTorneos.php");
+require_once("gestion/gestionBD.php");
+require_once("gestion/gestionTorneos.php");
 
 $conexion = crearConexionBD();
 

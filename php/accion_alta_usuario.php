@@ -1,8 +1,8 @@
 <?php
 	session_start();
 
-	require_once("gestionBD.php");
-	require_once("gestionarUsuarios.php");
+	require_once("gestion/gestionBD.php");
+	require_once("gestion/gestionUsuarios.php");
 		
 	// Comprobar que hemos llegado a esta página porque se ha rellenado el formulario
 	if (isset($_SESSION["formulario"])) {

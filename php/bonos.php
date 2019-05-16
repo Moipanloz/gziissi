@@ -1,9 +1,9 @@
 <?php session_start();
 
-require_once ("gestionBD.php");
-require_once ("gestionBonos.php");
-require_once ("gestionConsumibles.php");
-require_once ("gestionPases.php");
+require_once("gestion/gestionBD.php");
+require_once("gestion/gestionBonos.php");
+require_once("gestion/gestionConsumibles.php");
+require_once("gestion/gestionPases.php");
 
 
 
