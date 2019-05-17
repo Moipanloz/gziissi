@@ -44,6 +44,7 @@ header{
 	top: 0;
 	position: sticky;
 	z-index: 99;
+	box-shadow: 0px 1px 10px;
 }
 
 header strong{
@@ -56,24 +57,38 @@ header::after{
 	clear: both;
 }
 
+.ul-item{
+	font-family: "Audiowide", sans-serif, Verdana;
+	font-size: 120%;
+}
+
+
+
 /*=====================Body y grid=====================*/
 
 body{
 	margin:0;
 	background: rgb(172, 172, 172);  
-	font-family: sans-serif; /*<!/////////CAMBIAR ESTO Y ARRIBA/////////*/
-	
+}
+
+p{
+	font-family: "Nunito", sans-serif, Verdana;
+	margin: 0 3%;
 }
   
 .grid-container {
 	display: grid;
 	grid-template-columns: auto;
-	grid-template-rows: 50% 50% 50% 50%;
+	grid-template-rows: 30% 50% 50% 50%;
   }
   
+ .grid-container h2{
+ 	text-align: center;
+ 	margin-bottom: 4%;
+ }
+  
 .grid-container > div {
-	text-align: center;
-	padding: 20px 0;
+	padding: 2% 0;
   }
 
 .info{
@@ -84,6 +99,10 @@ body{
 .carta{
 	  background-color: rgb(255, 255, 255);
   }
+
+.localizanos{
+	background-color: blue;
+}
 
 
 /*//////// BONOS ///////////*/
@@ -207,6 +226,41 @@ body{
 	margin: 2%;
 }
 
+/*=====================ADMINSITRACION=====================*/
+
+.grid-container-administracion{
+	display: grid;
+	grid-template-columns: 30% 30% 30%;
+	grid-template-rows:50% 50%;
+	margin: 2%;
+	background-color: orange;
+}
+
+.grid-container-administracion> div{
+	background-color: red;
+}
+
+#bonosdiv{
+		background-color: red;
+
+}
+
+#pasesdiv{
+		background-color: red;
+
+}
+
+#torneosdiv{
+		background-color: red;
+
+}
+
+#consumiblesdiv{
+		background-color: red;
+
+}
+
+
 
 
 /*=====================Galería y carrusel=====================*/
@@ -216,8 +270,9 @@ body{
  }
 
 .titulo{
+	font-family: "Audiowide", sans-serif, Verdana;
 	margin: 2%;
-	font-size: 250%;
+	font-size: 170%;
 }
 
 .slider{
