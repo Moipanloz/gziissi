@@ -52,19 +52,16 @@ function quitar_consumible($conexion,$OidConsumible) {
     }
 }
 
-//THIS NEITHER
-/*
-function modificar_bono($conexion,$OidLibro,$TituloLibro) {
+
+function modificar_bono($conexion,$OidConsumible,$NombreConsumible, $TipoConsumible) {
 	try {
-		$stmt=$conexion->prepare('CALL MODIFICAR_TITULO(:OidLibro,:TituloLibro)');
-		$stmt->bindParam(':OidLibro',$OidLibro);
-		$stmt->bindParam(':TituloLibro',$TituloLibro);
-		$stmt->execute();
-		return "";
+
+	    $consulta = "UPDATE CONSUMIBLES SET NOMBRECONSUMIBLE=" . $NombreConsumible . ", TIPOCONSUMIBLE=" . $TipoConsumible . " WHERE CONSUMIBLES_ID = " . $OidConsumible;
+
+        return $conexion -> query ($consulta);
 	} catch(PDOException $e) {
 		return $e->getMessage();
     }
 }
-*/
     
 ?>
