@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
         $login = "error";
         cerrarConexionBD($conexion);
     } else {
-        $_SESSION['USUARIO'] = getNombreUsuario($conexion, $email, $pass);
+        $_SESSION["USUARIO"] = getNombreUsuario($conexion, $email, $pass);
         cerrarConexionBD($conexion);
         Header("Location: index.php");
     }

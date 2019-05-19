@@ -5,8 +5,17 @@
 		<a href="index.php"><img src="imagenes/GZ-logo.png" alt="Logo" class="logo"></a>
 		<nav>
 			<ul>
+
+                <?php
+
+                session_start();
+
+                if (isset($_SESSION ["ADMIN"])) { ?>
+
                 <!-- MOSTRAR SOLO CUANDO SE INICIA SESION CON ADMIN-->
                 <li class="ul-item"><a href="administracion.php">Administración</a></li>
+
+                <?php } ?>
 
                 <!---->
 
@@ -14,7 +23,6 @@
 				<li class="ul-item"><a href="torneos.php">Torneos</a></li>
 
                 <?php
-                session_start();
 
                 if (!isset($_SESSION ["USUARIO"])) {
 
