@@ -110,6 +110,9 @@ p{
 	text-align: center;
 }
 
+/*//////////////////////////  CARTA //////////////////////*/
+
+
 
 /*//////// BONOS ///////////*/
 
@@ -233,43 +236,35 @@ p{
 
 /*=====================ADMINSITRACION=====================*/
 
-.grid-container-administracion{
-	display: grid;
-	grid-template-columns: 32% 35% 32%;
-	grid-template-rows:50% 50%;
+.boton_admin{
+	justify-content: center;
+	width: 50%;
+	margin: auto;
+}
+
+.boton_admin a{
+	padding: 3% 4%;
+	background-color: aqua;
 	margin: 2%;
-	grid-gap: 10px;
-	overflow: hidden;
+	color: purple;
+	text-decoration: none;
 }
 
-.grid-container-administracion div{
+.admin_class{
+	margin:3% 3%;
 	background-color: rgb(89, 163, 255);
-	padding: 5%;
 }
 
-.grid-container-administracion h2{
-	font-family: "Audiowide", sans-serif, Verdana;
+.grid-container-admin-class{
+	display: grid;
+	grid-template-columns: 33% 34% 33%;
 }
 
-#bonos-div{
-
+.grid-container-admin-consumible{
+	display: grid;
+	grid-template-columns: 20% 20% 20% 20%;
+	grid-template-rows: 50% 50%;
 }
-
-#pases-div{
-
-}
-
-#torneos-div{
-
-}
-
-#consumibles-div{
-	grid-column: 1/4;
-	padding: 2%;
-
-}
-
-
 
 
 /*=====================Galería y carrusel=====================*/
@@ -301,8 +296,8 @@ p{
     float: left;
     margin: 0;
     padding: 0;
-    width: 500px;
-    height: 300px;
+    width: 100%;
+    height: 100%;
     background: #ccc;
     text-align: center;
     line-height: 300px;
