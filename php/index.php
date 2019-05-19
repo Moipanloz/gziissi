@@ -7,6 +7,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css.css">
         <link rel="icon" type="image/png"  href="imagenes/favicon-32x32.png">
+        <script language="JavaScript" src="js/slider.js"></script>
 	</head>
     <?php include_once ("cabecera.php") ?>
     <body>
@@ -29,51 +30,17 @@
 			</div>
 			<div class="galeria">
 				<h1 class="titulo">Galería</h1>
-				<div class="slider">
-					<!--Cambiar imagen-->
-					<input type="radio" name="imagenes" id="i1" checked>
-					<input type="radio" name="imagenes" id="i2">
-					<input type="radio" name="imagenes" id="i3">
-					<input type="radio" name="imagenes" id="i4">					
-					<input type="radio" name="imagenes" id="i5">					
-					
-					<!--Imagenes-->
-
-					<div class="slider_item" id="uno">
-						<img src="imagenes/GZ-Slider1.jpeg" alt="n1"/>
-						<label for="i5" class="previous"></label>
-						<label for="i2" class="next"></label>
-					</div>
-					<div class="slider_item" id="dos">
-						<img src="imagenes/GZ-Slider2.png" alt="n2"/>
-						<label for="i1" class="previous"></label>
-						<label for="i3" class="next"></label>							
-					</div>
-					<div class="slider_item" id="tres">
-						<img src="imagenes/GZ-Slider3.jpeg" alt="n3"/>
-						<label for="i2" class="previous"></label>
-						<label for="i4" class="next"></label>							
-					</div>
-					<div class="slider_item" id="cuatro">
-						<img src="imagenes/GZ-Slider4.png" alt="n4"/>
-						<label for="i3" class="previous"></label>
-						<label for="i5" class="next"></label>							
-					</div>
-					<div class="slider_item" id="cinco">
-						<img src="imagenes/GZ-Slider5.jpeg" alt="n5"/>
-						<label for="i4" class="previous"></label>
-						<label for="i1" class="next"></label>							
-					</div>
-					<!--Navegador de puntos-->
-					<div class="dotnav">
-						<label class="dots" id="dot1" for="i1"></label>
-						<label class="dots" id="dot2" for="i2"></label>
-						<label class="dots" id="dot3" for="i3"></label>	
-						<label class="dots" id="dot4" for="i4"></label>
-						<label class="dots" id="dot5" for="i5"></label>																											
-					</div>
-				</div>
-			</div>
+                <div id="slider">
+                    <a class="control_next">></a>
+                    <a   class="control_prev"><</a>
+                    <ul>
+                        <li>SLIDE 1</li>
+                        <li>SLIDE 2</li>
+                        <li>SLIDE 3</li>
+                        <li>SLIDE 4</li>
+                    </ul>
+                </div>
+            </div>
 			<div class="localizanos">
 				<h1 class="titulo">Localizanos</h1>
                 <div class="mapouter">
