@@ -132,13 +132,13 @@ p{
 
 #left{
 	justify-items: left;
-	align-items: auto;
+	/*align-items: auto;*/      /*///////////////////VER SI HAY QUE BORRAR */
 	margin-left: 6%; 
 }
 
 #right{
 	justify-items: right;
-	align-items: auto;
+	/*align-items: auto;*/
 	margin-right: 6%; 
 	text-align: right;
 }
@@ -273,6 +273,7 @@ p{
 	font-family: "Audiowide", sans-serif, Verdana;
 	margin: 2%;
 	font-size: 170%;
+	text-align: center;
 }
 
 .slider{

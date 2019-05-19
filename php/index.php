@@ -6,20 +6,18 @@
         <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css.css">
-        <link rel="shortcut icon" href="imagenes/favicon.png" type="image/x-icon" />
+        <link rel="icon" type="image/png"  href="imagenes/favicon-32x32.png">
 	</head>
-	<body>
-		
-		<?php include_once ("cabecera.php") ?>
-
-		<div class="grid-container">
-			<div class="info">
-				<h1 class="titulo">Sobre nosotros</h1>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
-				   labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-			   		nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-			   		esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-			   		in culpa qui officia deserunt mollit anim id est laborum</p>
+    <?php include_once ("cabecera.php") ?>
+    <body>
+        <div class="grid-container">
+            <div class="info">
+		            <h1 class="titulo">Sobre nosotros</h1>
+			   		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+                        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+                        in culpa qui officia deserunt mollit anim id est laborum</p>
 			</div>
 			<div class="carta">
 				<h1 class="titulo">Nuestra carta</h1>
