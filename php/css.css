@@ -78,8 +78,7 @@ p{
 .grid-container {
 	display: grid;
 	grid-template-columns: auto;
-	grid-template-rows: 30% 50% 50% 50%;
-	max-height: max-content;
+	grid-template-rows: 15% 50% 40% 40%;
   }
   
  .grid-container h2{
@@ -89,6 +88,7 @@ p{
   
 .grid-container > div {
 	padding: 2% 0;
+	margin-bottom: 1%;
   }
 
 .info{
