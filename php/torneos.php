@@ -17,7 +17,7 @@ $todosLosTorneos = consultarTodosTorneos ($conexion);
     <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css.css">
-    <link rel="shortcut icon" href="imagenes/favicon.png" type="image/x-icon" />
+    <link rel="icon" type="image/png"  href="imagenes/favicon-32x32.png">
 </head>
 <body>
 <?php include_once ("cabecera.php") ?>
