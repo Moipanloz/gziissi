@@ -21,7 +21,7 @@ require_once ("gestion/gestionUsuarios.php");
 <?php include_once ("cabecera.php")?>
 
 <div>
-    <h1 id="torneos">Regístrate</h1>
+    <h1 class="titulo">Regístrate</h1>
     <div class="login">
         <form>
             <div class="grid-container-registro">

@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
 
 
 <div>
-    <h1 id="torneos">Inicia sesión</h1>
+    <h1 class="titulo">Inicia sesión</h1>
     <div class="login">
         <form>
             <div class="grid-container-login">

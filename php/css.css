@@ -47,9 +47,6 @@ header{
 	box-shadow: 0px 1px 10px;
 }
 
-header strong{
-	color: rgb(0, 238, 255);
-}
 
 header::after{
 	content: '';
@@ -68,7 +65,9 @@ header::after{
 
 body{
 	margin:0;
-	background: rgb(172, 172, 172);  
+	background-color: rgb(161, 207, 255);
+	font-family: "Nunito", sans-serif, Verdana;
+	color: rgb(43, 43, 43);
 }
 
 p{
@@ -182,11 +181,10 @@ p{
 /*=====================INICIA SESION==========================*/
 
 .login{
-	background-color: rgb(39, 87, 90);
+	background-color: rgb(89, 163, 255);
 	padding: 1%;
 	max-width: 45%;
 	margin: auto;
-	color: white;
 }
 
 .grid-container-login{
@@ -239,7 +237,7 @@ p{
 }
 
 .grid-container-administracion div{
-	background-color: red;
+	background-color: rgb(89, 163, 255);
 	padding: 5%;
 }
 
@@ -252,17 +250,14 @@ p{
 }
 
 #pases-div{
-		background-color: red;
 
 }
 
 #torneos-div{
-		background-color: red;
 
 }
 
 #consumibles-div{
-	background-color: red;
 	grid-column: 1/4;
 	padding: 2%;
 
