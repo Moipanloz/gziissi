@@ -6,18 +6,22 @@
 		<nav>
 			<ul>
 
+
+
                 <?php
 
                 session_start();
 
-                if (isset($_SESSION ["ADMIN"])) { ?>
 
-                <!-- MOSTRAR SOLO CUANDO SE INICIA SESION CON ADMIN-->
+
+                //if (isset($_SESSION ["ADMIN"])) { ?>
+
+
                 <li class="ul-item"><a href="administracion.php">Administración</a></li>
 
-                <?php } ?>
+                <?php //} ?>
 
-                <!---->
+
 
 				<li class="ul-item"><a href="bonos.php">Bonos</a></li>
 				<li class="ul-item"><a href="torneos.php">Torneos</a></li>
