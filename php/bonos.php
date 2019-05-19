@@ -41,6 +41,8 @@ $todosLosBonos = consultarTodosBonos($conexion);
 
         foreach ($todosLosBonos as $b) {
 
+            if ($b ["DISPONIBLE"] == "TRUE") {
+
             $count = $count + 1;
 
             $bonoId = $b ["BONOS_ID"];
@@ -122,7 +124,7 @@ $todosLosBonos = consultarTodosBonos($conexion);
 
             <?php } ?>
 
-        <?php }
+        <?php } }
     }
 
     cerrarConexionBD($conexion);
