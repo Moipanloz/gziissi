@@ -75,12 +75,12 @@
 				</div>
 			</div>
 			<div>
-				<h1>Localizanos</h1>
+				<h1 class="titulo">Localizanos</h1>
                 <div class="mapouter">
                     <div class="gmap_canvas">
-                        <iframe width="900" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=gamers%20zone&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                        <iframe width="900" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=gamers%20zone&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                     </div>
-                    <style>.mapouter{margin:auto;position:relative;text-align:right;height:500px;width:900px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:900px;}</style>
+                    <style>.mapouter{margin:auto;position:relative;text-align:right;height:400px;width:900px;}.gmap_canvas {overflow:hidden;background:none!important;height:400px;width:900px;}</style>
                 </div>
 			</div>
 		</div>
