@@ -11,17 +11,16 @@
         <link rel="icon" type="image/png"  href="imagenes/favicon-32x32.png">
 	</head>
 
-	<!--
 		<?php include_once ("cabecera.php");
 
-		if (!isset($_SESSION ["ADMIN"]))
+		/*if (!isset($_SESSION ["ADMIN"]))
 
             Header("Location: index.php");
 
+		*/
 
 		?>
 
--->
 
 	<body>
 
