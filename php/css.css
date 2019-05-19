@@ -92,17 +92,18 @@ p{
   }
 
 .info{
-	background-color: rgb(28, 76, 209);
-	
+	background-color: rgb(255, 255, 255);
+
   }
 
 .carta{
-	  background-color: rgb(255, 255, 255);
+	background-color: rgb(98, 149, 255);
   }
 
 .localizanos{
-	background-color: blue;
+	background-color: rgb(98, 149, 255);
 }
+
 
 
 /*//////// BONOS ///////////*/
@@ -273,7 +274,7 @@ p{
 /*=====================Galería y carrusel=====================*/
 
 .galeria{
-	background-color: rgb(64, 183, 219);
+	background-color: rgb(255, 255, 255);
  }
 
 .titulo{

@@ -74,7 +74,7 @@
 					</div>
 				</div>
 			</div>
-			<div>
+			<div class="localizanos">
 				<h1 class="titulo">Localizanos</h1>
                 <div class="mapouter">
                     <div class="gmap_canvas">

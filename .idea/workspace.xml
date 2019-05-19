@@ -65,8 +65,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="82" column="174" selection-start-line="82" selection-start-column="174" selection-end-line="82" selection-end-column="174" />
+            <state relative-caret-position="409">
+              <caret line="77" column="42" selection-start-line="77" selection-start-column="42" selection-end-line="77" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -128,8 +128,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/php/css.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="200" column="16" lean-forward="true" selection-start-line="200" selection-start-column="16" selection-end-line="200" selection-end-column="16" />
+            <state relative-caret-position="170">
+              <caret line="276" column="39" selection-start-line="276" selection-start-column="39" selection-end-line="276" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -255,7 +255,7 @@
       <workItem from="1557931899232" duration="4903000" />
       <workItem from="1558023890287" duration="1136000" />
       <workItem from="1558026727454" duration="6562000" />
-      <workItem from="1558261688912" duration="2413000" />
+      <workItem from="1558261688912" duration="2858000" />
     </task>
     <task id="LOCAL-00001" summary="Added pases to the bonos">
       <created>1558026847453</created>
@@ -289,7 +289,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15732000" />
+    <option name="totallyTimeSpent" value="16177000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -489,15 +489,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/php/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="82" column="174" selection-start-line="82" selection-start-column="174" selection-end-line="82" selection-end-column="174" />
+        <state relative-caret-position="409">
+          <caret line="77" column="42" selection-start-line="77" selection-start-column="42" selection-end-line="77" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/css.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="200" column="16" lean-forward="true" selection-start-line="200" selection-start-column="16" selection-end-line="200" selection-end-column="16" />
+        <state relative-caret-position="170">
+          <caret line="276" column="39" selection-start-line="276" selection-start-column="39" selection-end-line="276" selection-end-column="39" />
         </state>
       </provider>
     </entry>
