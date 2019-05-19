@@ -12,12 +12,16 @@ $todosLosTorneos = consultarTodosTorneos($conexion);
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<<<<<<< HEAD
     <meta charset="UTF-8">
+=======
+>>>>>>> master
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gamers Zone</title>
-    <!--<link href="FUENTE" rel="font"> REVISAR FUENTE-->
+    <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css.css">
-    <link rel="icon" type="image/x-icon" href="faviconURL">
+    <link rel="shortcut icon" href="imagenes/favicon.png" type="image/x-icon" />
 </head>
 <body>
 <?php include_once("cabecera.php") ?>

@@ -5,6 +5,11 @@
 		<a href="index.php"><img src="imagenes/GZ-logo.png" alt="Logo" class="logo"></a>
 		<nav>
 			<ul>
+                <!-- MOSTRAR SOLO CUANDO SE INICIA SESION CON ADMIN-->
+                <li class="ul-item"><a href="administracion.php">Administración</a></li>
+
+                <!---->
+
 				<li class="ul-item"><a href="bonos.php">Bonos</a></li>
 				<li class="ul-item"><a href="torneos.php">Torneos</a></li>
 
