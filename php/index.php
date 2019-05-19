@@ -33,17 +33,79 @@
                         <label class="botones" id="b3" for="i3" >Sandwiches</label>
                         <label class="botones" id="b4" for="i4" >Postres</label>
                     </div>
-                    <div class="carta_item" id="bebidas">
-                        <img src="imagenes/GZ-Slider1.jpeg">
-                    </div>
-                    <div class="carta_item" id="hamburguesas">
-                        <img src="imagenes/GZ-Slider2.PNG">
-                    </div>
-                    <div class="carta_item" id="sandwiches">
-                        <img src="imagenes/GZ-Slider3.jpeg">
-                    </div>
-                    <div class="carta_item" id="postres">
-                        <img src="imagenes/GZ-Slider4.PNG">
+                    <div class="carta_container">
+                        <div class="carta_item" id="bebidas">
+                            <img src="imagenes/GZ-Slider2.PNG" width="100%" height="100%">
+                            <img src="imagenes/GZ-Slider2.PNG" width="100%" height="100%">
+                            <img src="imagenes/GZ-Slider2.PNG" width="100%" height="100%">
+                            <img src="imagenes/GZ-Slider2.PNG" width="100%" height="100%">
+                            <p>Beopis</p>
+                            <p>Beopis</p>
+                            <p>Beopis</p>
+                            <p>Beopis</p>
+                            <img src="imagenes/GZ-Slider2.PNG" width="100%" height="100%">
+                            <img src="imagenes/GZ-Slider2.PNG" width="100%" height="100%">
+                            <img src="imagenes/GZ-Slider2.PNG" width="100%" height="100%">
+                            <img src="imagenes/GZ-Slider2.PNG" width="100%" height="100%">
+                            <p>Beopis</p>
+                            <p>Beopis</p>
+                            <p>Beopis</p>
+                            <p>Beopis</p>
+                        </div>
+                        <div class="carta_item" id="hamburguesas">
+                            <img src="imagenes/GZ-Slider4.PNG" width="100%" height="100%">
+                            <img src="imagenes/GZ-Slider2.PNG" width="100%" height="100%">
+                            <img src="imagenes/GZ-Slider2.PNG" width="100%" height="100%">
+                            <img src="imagenes/GZ-Slider2.PNG" width="100%" height="100%">
+                            <p>Beopis</p>
+                            <p>Beopis</p>
+                            <p>Beopis</p>
+                            <p>Beopis</p>
+                            <img src="imagenes/GZ-Slider2.PNG" width="100%" height="100%">
+                            <img src="imagenes/GZ-Slider2.PNG" width="100%" height="100%">
+                            <img src="imagenes/GZ-Slider2.PNG" width="100%" height="100%">
+                            <img src="imagenes/GZ-Slider2.PNG" width="100%" height="100%">
+                            <p>Beopis</p>
+                            <p>Beopis</p>
+                            <p>Beopis</p>
+                            <p>Beopis</p>
+                        </div>
+                        <div class="carta_item" id="sandwiches">
+                            <img src="imagenes/GZ-Slider2.PNG" width="100%" height="100%">
+                            <img src="imagenes/GZ-Slider4.PNG" width="100%" height="100%">
+                            <img src="imagenes/GZ-Slider2.PNG" width="100%" height="100%">
+                            <img src="imagenes/GZ-Slider2.PNG" width="100%" height="100%">
+                            <p>Beopis</p>
+                            <p>Beopis</p>
+                            <p>Beopis</p>
+                            <p>Beopis</p>
+                            <img src="imagenes/GZ-Slider2.PNG" width="100%" height="100%">
+                            <img src="imagenes/GZ-Slider2.PNG" width="100%" height="100%">
+                            <img src="imagenes/GZ-Slider2.PNG" width="100%" height="100%">
+                            <img src="imagenes/GZ-Slider2.PNG" width="100%" height="100%">
+                            <p>Beopis</p>
+                            <p>Beopis</p>
+                            <p>Beopis</p>
+                            <p>Beopis</p>
+                        </div>
+                        <div class="carta_item" id="postres">
+                            <img src="imagenes/GZ-Slider2.PNG" width="100%" height="100%">
+                            <img src="imagenes/GZ-Slider2.PNG" width="100%" height="100%">
+                            <img src="imagenes/GZ-Slider4.PNG" width="100%" height="100%">
+                            <img src="imagenes/GZ-Slider2.PNG" width="100%" height="100%">
+                            <p>Beopis</p>
+                            <p>Beopis</p>
+                            <p>Beopis</p>
+                            <p>Beopis</p>
+                            <img src="imagenes/GZ-Slider2.PNG" width="100%" height="100%">
+                            <img src="imagenes/GZ-Slider2.PNG" width="100%" height="100%">
+                            <img src="imagenes/GZ-Slider2.PNG" width="100%" height="100%">
+                            <img src="imagenes/GZ-Slider2.PNG" width="100%" height="100%">
+                            <p>Beopis</p>
+                            <p>Beopis</p>
+                            <p>Beopis</p>
+                            <p>Beopis</p>
+                        </div>
                     </div>
                 </div>
 			</div>
