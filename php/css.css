@@ -142,12 +142,12 @@ p{
 
 .botones{
 	padding: 2% 4%;
-	background-color: rgb(77, 88, 255);
+	background-color: rgb(0, 131, 255);
 	float: left;
 }
 
 .botones:hover{
-	background-color: #8787ff;
+	background-color: #5f8aff;
 }
 
 .carta_container{
@@ -190,7 +190,7 @@ p{
 
 #i1:checked ~ .botones_carta #b1, #i2:checked ~ .botones_carta #b2, #i3:checked ~ .botones_carta #b3,
 #i4:checked ~ .botones_carta #b4{
-	background: #004bff;
+	background: #3b5fff;
 }
 
 /*//////// BONOS ///////////*/
