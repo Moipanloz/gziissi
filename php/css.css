@@ -112,7 +112,149 @@ p{
 
 /*//////////////////////////  CARTA //////////////////////*/
 
+.div_centrado{
+	background-color: aquamarine;
+	position: relative;
+	width: 70%;
+	height: 80%;
+	margin: auto;
+}
 
+
+.carta_item{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.carta_item img{
+	width: 100%;
+	height: 100%;
+}
+
+#i1, #i2, #i3, #i4{
+	display: none;
+}
+
+.botones_carta{
+	background-color: red;
+	width: 100%;
+	height: 7%;
+	z-index: 80;
+	position: relative;
+}
+
+.botones{
+	padding: 2% 4%;
+	background-color: yellow;
+	float: left;
+}
+
+.botones:hover{
+	background-color: white;
+}
+
+
+.slide_item{
+	z-index: -1;
+}
+
+#i1:checked ~ #bebidas, #i2:checked ~ #hamburguesas, #i3:checked ~ #sandwiches, #i4:checked ~ #postres{
+	z-index: 50;
+}
+
+#i1:checked ~ .botones_carta #b1, #i2:checked ~ .botones_carta #b2, #i3:checked ~ .botones_carta #b3,
+#i4:checked ~ .botones_carta #b4{
+	background:  white;
+}
+
+
+
+
+
+/*
+.slider{
+	position: relative;
+	background-color: red;
+	width: 70%;
+	height: 80%;
+	top: 2%;
+	margin: auto;
+}
+
+.slider_item{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+
+.slider_item img{
+	width: 100%;
+	height: 100%;
+}
+
+#i1, #i2, #i3, #i4, #i5{
+	display:none;
+}
+
+.previous, .next{
+	width: 8%;
+	height: 100%;
+	top: 0;
+	position: absolute;
+	z-index: 70;
+	background: rgba(37, 37, 37, 0.034);
+	transition: .5s;
+}
+
+.previous:hover, .next:hover{
+	background: rgba(37, 37, 37, 0.438);
+}
+
+.previous{   /////NO
+	left:0;
+}
+
+.next{ /////////////7NO
+	right:0;
+}
+
+.dotnav{
+	width: 100%;
+	height: 7%;
+	bottom: 2%;
+	z-index: 70;
+	position: absolute;
+}
+
+.dots{
+	background: rgba(37, 37, 37, 0.822);
+	top: 15%;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	position: relative;
+	display: inline-block;
+	transition: .5s;
+}
+
+.dots:hover{
+	background: rgba(155, 155, 155, 0.822);
+}
+
+#i1:checked ~ #uno, #i2:checked ~ #dos, #i3:checked ~ #tres,
+#i4:checked ~ #cuatro, #i5:checked ~ #cinco{
+	z-index: 50;
+}
+
+#i1:checked ~ .dotnav #dot1, #i2:checked ~ .dotnav #dot2, #i3:checked ~ .dotnav #dot3,
+#i4:checked ~ .dotnav #dot4, #i5:checked ~ .dotnav #dot5{
+	background:  white;
+}
+
+
+*/
 
 /*//////// BONOS ///////////*/
 
@@ -333,88 +475,4 @@ a.control_next {
     right: 0;
     border-radius: 2px 0 0 2px;
 }
-
-
-/*
-.slider{
-	position: relative;
-	background-color: red;
-	width: 70%;
-	height: 80%;
-	top: 2%;
-	margin: auto; 
-}
-
-.slider_item{
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	z-index: -1;
-}
-
-.slider_item img{
-	width: 100%;
-	height: 100%;
-}
-
-#i1, #i2, #i3, #i4, #i5{
-	display:none;
-}
-
-.previous, .next{
-	width: 8%;
-	height: 100%;
-	top: 0;
-	position: absolute;
-	z-index: 70;
-	background: rgba(37, 37, 37, 0.034);
-	transition: .5s;
-}
-
-.previous:hover, .next:hover{
-	background: rgba(37, 37, 37, 0.438);
-}
-
-.previous{
-	left:0;
-}
-
-.next{
-	right:0;
-}
-
-.dotnav{
-	width: 100%;
-	height: 7%;
-	bottom: 2%;
-	z-index: 70;
-	position: absolute;
-}
-
-.dots{
-	background: rgba(37, 37, 37, 0.822);
-	top: 15%;
-	width: 15px;
-	height: 15px;
-	border-radius: 50%;
-	position: relative;
-	display: inline-block;
-	transition: .5s;
-}
-
-.dots:hover{
-	background: rgba(155, 155, 155, 0.822);
-}
-
-#i1:checked ~ #uno, #i2:checked ~ #dos, #i3:checked ~ #tres,
-#i4:checked ~ #cuatro, #i5:checked ~ #cinco{
-	z-index: 50;
-} 
-
-#i1:checked ~ .dotnav #dot1, #i2:checked ~ .dotnav #dot2, #i3:checked ~ .dotnav #dot3,
-#i4:checked ~ .dotnav #dot4, #i5:checked ~ .dotnav #dot5{
-	background:  white;
-} 
-
-*/
 
