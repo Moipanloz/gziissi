@@ -1,13 +1,6 @@
 <?php
 
-session_start();
+if (isset($_SESSION["USUARIO"]))
+    unset($_SESSION["USUARIO"]);
 
-//TODO Desconectar al usuario, es decir, borrarle de $_SESSION
-
-if (isset($_SESSION ["DISCONNECT_ATTEMPT"])) {
-
-unset($_SESSION ["USUARIO"]);
-unset ($_SESSION ["DISCONNECT_ATTEMPT"]);
-}
-
-header("index.php");
+header("Location: index.php");
