@@ -92,17 +92,17 @@ p{
   }
 
 .info{
-	background-color: rgb(255, 255, 255);
+	background-color: rgb(81, 93, 255);
 
   }
 
 .carta{
-	background-color: rgb(98, 149, 255);
+	background-color: rgb(87, 157, 255);
   }
 
 .localizanos{
-	background-color: rgb(98, 149, 255);
-}
+	background-color: rgb(87, 157, 255);
+	}
 
 
 
@@ -274,7 +274,7 @@ p{
 /*=====================Galería y carrusel=====================*/
 
 .galeria{
-	background-color: rgb(255, 255, 255);
+	background-color: rgb(81, 93, 255);
  }
 
 .titulo{
