@@ -31,10 +31,7 @@ function consultarConsumiblesDeBono($conexion, $OidBono) {
 
     }
 
-    if (empty($res)) {
-        $empty ["NOMBRECONSUMIBLE"] = "No contiene ningún consumible";
-        $res [0] = $empty;
-    }
+    if (empty($res)) $res = null;
 
     return $res;
 }
@@ -53,7 +50,7 @@ function quitar_consumible($conexion,$OidConsumible) {
 }
 
 
-function modificar_bono($conexion,$OidConsumible,$NombreConsumible, $TipoConsumible) {
+function modificar_consumible($conexion,$OidConsumible,$NombreConsumible, $TipoConsumible) {
 	try {
 
 	    $consulta = "UPDATE CONSUMIBLES SET NOMBRECONSUMIBLE=" . $NombreConsumible . ", TIPOCONSUMIBLE=" . $TipoConsumible . " WHERE CONSUMIBLES_ID = " . $OidConsumible;

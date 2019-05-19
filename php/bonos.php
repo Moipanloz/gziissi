@@ -60,14 +60,22 @@ $todosLosBonos = consultarTodosBonos($conexion);
 
                             <h4> Consumibles:</h4>
 
-                            <?php foreach ($todosLosConsumibles as $c) { ?>
+                            <?php if ($todosLosConsumibles != null) foreach ($todosLosConsumibles as $c) { ?>
                                 <li><?php print ($c["NOMBRECONSUMIBLE"]) ?> </li>
+                            <?php } else { ?>
+
+                                <li>Este bono no contiene consumibles</li>
+
                             <?php } ?>
 
                             <h4> Pases:</h4>
 
-                            <?php foreach ($todosLosPases as $c) { ?>
-                                <li><?php print ($c["TIPOMEDIO"]) ?> </li>
+                            <?php if ($todosLosPases != null) foreach ($todosLosPases as $p) { ?>
+                                <li><?php print ($p["TIPOMEDIO"]) ?> </li>
+                            <?php } else { ?>
+
+                                <li>Este pase no contiene consumibles</li>
+
                             <?php } ?>
 
                         </ul>
@@ -89,14 +97,22 @@ $todosLosBonos = consultarTodosBonos($conexion);
 
                             <h4> Consumibles:</h4>
 
-                            <?php foreach ($todosLosConsumibles as $c) { ?>
+                            <?php if ($todosLosConsumibles != null) foreach ($todosLosConsumibles as $c) { ?>
                                 <li><?php print ($c["NOMBRECONSUMIBLE"]) ?> </li>
+                            <?php } else { ?>
+
+                                <li>Este bono no contiene consumibles</li>
+
                             <?php } ?>
 
                             <h4> Pases:</h4>
 
-                            <?php foreach ($todosLosPases as $c) { ?>
-                                <li><?php print ($c["TIPOMEDIO"]) ?> </li>
+                            <?php if ($todosLosPases != null) foreach ($todosLosPases as $p) { ?>
+                                <li><?php print ($p["TIPOMEDIO"]) ?> </li>
+                            <?php } else { ?>
+
+                                <li>Este pase no contiene consumibles</li>
+
                             <?php } ?>
 
                         </ul>
