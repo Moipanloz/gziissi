@@ -12,7 +12,14 @@
 	</head>
 
 	
-		<?php include_once ("cabecera.php") ?>
+		<?php include_once ("cabecera.php");
+
+		if (!isset($_SESSION ["ADMIN"]))
+
+            Header("Location: index.php");
+
+
+		?>
 
 
 	<body>

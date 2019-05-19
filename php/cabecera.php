@@ -10,7 +10,7 @@
 
                 session_start();
 
-                if (isset($_SESSION)) { ?>
+                if (isset($_SESSION ["ADMIN"])) { ?>
 
                 <!-- MOSTRAR SOLO CUANDO SE INICIA SESION CON ADMIN-->
                 <li class="ul-item"><a href="administracion.php">Administración</a></li>
