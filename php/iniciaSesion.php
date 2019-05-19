@@ -6,7 +6,7 @@
     <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css.css">
-    <link rel="icon" type="image/png"  href="imagenes/favicon-32x32.png">
+    <link rel="icon" type="image/png" href="imagenes/favicon-32x32.png">
 </head>
 <body>
 
@@ -17,8 +17,6 @@ require_once("gestion/gestionBD.php");
 require_once("gestion/gestionUsuarios.php");
 
 $conexion = crearConexionBD();
-
-session_start();
 
 if (isset($_POST['submit'])) {
     $email = $_POST['email'];

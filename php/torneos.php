@@ -12,10 +12,7 @@ $todosLosTorneos = consultarTodosTorneos($conexion);
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<<<<<<< HEAD
     <meta charset="UTF-8">
-=======
->>>>>>> master
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gamers Zone</title>
     <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
