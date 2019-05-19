@@ -230,33 +230,40 @@ p{
 
 .grid-container-administracion{
 	display: grid;
-	grid-template-columns: 30% 30% 30%;
+	grid-template-columns: 32% 35% 32%;
 	grid-template-rows:50% 50%;
 	margin: 2%;
-	background-color: orange;
+	grid-gap: 10px;
+	overflow: hidden;
 }
 
-.grid-container-administracion> div{
+.grid-container-administracion div{
 	background-color: red;
+	padding: 5%;
 }
 
-#bonosdiv{
+.grid-container-administracion h2{
+	font-family: "Audiowide", sans-serif, Verdana;
+}
+
+#bonos-div{
+
+}
+
+#pases-div{
 		background-color: red;
 
 }
 
-#pasesdiv{
+#torneos-div{
 		background-color: red;
 
 }
 
-#torneosdiv{
-		background-color: red;
-
-}
-
-#consumiblesdiv{
-		background-color: red;
+#consumibles-div{
+	background-color: red;
+	grid-column: 1/4;
+	padding: 2%;
 
 }
 
@@ -271,7 +278,7 @@ p{
 
 .titulo{
 	font-family: "Audiowide", sans-serif, Verdana;
-	margin: 2%;
+	margin: 2% 2% 4% 2%;
 	font-size: 170%;
 	text-align: center;
 }

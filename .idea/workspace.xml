@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f04e2ddd-3dab-40cd-a9ec-e3d3fe4bb698" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/php/administracion.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/administracion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/bonos.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/bonos.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/iniciaSesion.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/iniciaSesion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/registrate.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/registrate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/torneos.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/torneos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/css.css" beforeDir="false" afterPath="$PROJECT_DIR$/php/css.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,6 +63,15 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="494">
+              <caret line="82" column="174" selection-start-line="82" selection-start-column="174" selection-end-line="82" selection-end-column="174" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/cabecera.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
@@ -75,28 +81,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="75" selection-start-line="8" selection-end-line="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/administracion.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
+            <state relative-caret-position="102">
               <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/bonos.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="77" selection-start-line="24" selection-start-column="77" selection-end-line="24" selection-end-column="77" />
+            <state relative-caret-position="-1121">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -128,11 +125,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/php/css.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="266" lean-forward="true" selection-start-line="266" selection-end-line="266" />
+            <state relative-caret-position="426">
+              <caret line="200" column="16" lean-forward="true" selection-start-line="200" selection-start-column="16" selection-end-line="200" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -143,6 +140,7 @@
     <findStrings>
       <find>consumibles</find>
       <find>TITULO</find>
+      <find>titulo</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -165,13 +163,13 @@
         <option value="$PROJECT_DIR$/php/gestion/gestionUsuarios.php" />
         <option value="$PROJECT_DIR$/php/accion_login_usuario.php" />
         <option value="$PROJECT_DIR$/php/cabecera.php" />
-        <option value="$PROJECT_DIR$/php/index.php" />
-        <option value="$PROJECT_DIR$/php/css.css" />
         <option value="$PROJECT_DIR$/php/administracion.php" />
         <option value="$PROJECT_DIR$/php/torneos.php" />
         <option value="$PROJECT_DIR$/php/iniciaSesion.php" />
         <option value="$PROJECT_DIR$/php/registrate.php" />
         <option value="$PROJECT_DIR$/php/bonos.php" />
+        <option value="$PROJECT_DIR$/php/index.php" />
+        <option value="$PROJECT_DIR$/php/css.css" />
       </list>
     </option>
   </component>
@@ -257,7 +255,7 @@
       <workItem from="1557931899232" duration="4903000" />
       <workItem from="1558023890287" duration="1136000" />
       <workItem from="1558026727454" duration="6562000" />
-      <workItem from="1558261688912" duration="1566000" />
+      <workItem from="1558261688912" duration="2413000" />
     </task>
     <task id="LOCAL-00001" summary="Added pases to the bonos">
       <created>1558026847453</created>
@@ -291,7 +289,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14885000" />
+    <option name="totallyTimeSpent" value="15732000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -454,27 +452,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/css.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="266" lean-forward="true" selection-start-line="266" selection-end-line="266" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="75" selection-start-line="8" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/administracion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/torneos.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -498,8 +475,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/php/bonos.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="77" selection-start-line="24" selection-start-column="77" selection-end-line="24" selection-end-column="77" />
+        <state relative-caret-position="-1121">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/administracion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="82" column="174" selection-start-line="82" selection-start-column="174" selection-end-line="82" selection-end-column="174" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/css.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="200" column="16" lean-forward="true" selection-start-line="200" selection-start-column="16" selection-end-line="200" selection-end-column="16" />
         </state>
       </provider>
     </entry>
