@@ -27,6 +27,8 @@ if (isset($_POST['submit'])) {
 
     if ($num_usuarios == 0) {
         $login = "error";
+        $pass = null;
+
         cerrarConexionBD($conexion);
     } else {
         $_SESSION["USUARIO"] = getNombreUsuario($conexion, $email, $pass);
@@ -34,6 +36,12 @@ if (isset($_POST['submit'])) {
         Header("Location: index.php");
     }
 
+}
+
+if (isset($login)) {
+    echo "<div class=\"error\">";
+    echo "Error en la contraseña o no existe el usuario.";
+    echo "</div>";
 }
 
 ?>
@@ -45,7 +53,7 @@ if (isset($_POST['submit'])) {
         <form>
             <div class="grid-container-login">
                 <label for="email">Correo electrónico: </label>
-                <input type="email" name="email" id="email" placeholder="correo@dominio.com">
+                <input type="email" name="email" id="email" <?php if (isset($email)) print ("value = \"".$email."\"") ?> placeholder="correo@dominio.com">
                 <label for="pass">Contraseña: </label>
                 <input type="password" name="pass" id="pass" placeholder="contraseña">
             </div>
