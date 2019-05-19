@@ -4,8 +4,6 @@ require_once ("gestion/gestionBD.php");
 require_once ("gestion/gestionUsuarios.php");
 
 
-session_start();
-
 ?>
 
 <!DOCTYPE html>

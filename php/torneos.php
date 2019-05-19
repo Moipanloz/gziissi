@@ -4,7 +4,7 @@ require_once("gestion/gestionTorneos.php");
 
 $conexion = crearConexionBD();
 
-$todosLosTorneos = consultarTodosTorneos ($conexion);
+$todosLosTorneos = consultarTodosTorneos($conexion);
 
 
 ?>
@@ -12,6 +12,7 @@ $todosLosTorneos = consultarTodosTorneos ($conexion);
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gamers Zone</title>
     <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
@@ -20,7 +21,7 @@ $todosLosTorneos = consultarTodosTorneos ($conexion);
     <link rel="icon" type="image/png"  href="imagenes/favicon-32x32.png">
 </head>
 <body>
-<?php include_once ("cabecera.php") ?>
+<?php include_once("cabecera.php") ?>
 <div>
     <h1 id="torneos">Torneos</h1>
     <p id="torneos">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
@@ -33,19 +34,26 @@ $todosLosTorneos = consultarTodosTorneos ($conexion);
 
         <?php
 
-        if (empty($todosLosTorneos)) { ?> <?php } else { foreach ($todosLosTorneos as $t) {?>
+        if (!is_null($todosLosTorneos)) { ?>
 
-            <!-- TODO Hay que modificar tablas para meter url a imagenes para torneos y bonos y descripcion a torneos -->
-        <img src="imagenes\Telegram.png">
-        <div>
-            <h3><?php print $t ["NOMBRETORNEO"] ?></h3>
-            <p>Moi inutil que los torneos no tienen descripcion ni imagen y nos vas a hacer modificar las tablas en sql pa ponerselas. Los bonos tampoco tienen imagen reputo.</p>
-            <form>
-                <input type="submit" value="Apúntate">
-            </form>
-        </div>
+            <p id="torneos">No tournaments are currently open.</p>
 
-        <?php } } ?>
+        <?php } else {
+            foreach ($todosLosTorneos as $t) { ?>
+
+                <!-- TODO Hay que modificar tablas para meter url a imagenes para torneos y bonos y descripcion a torneos -->
+                <img src="imagenes\Telegram.png">
+                <div>
+                    <h3><?php print $t ["NOMBRETORNEO"] ?></h3>
+                    <p>Moi inutil que los torneos no tienen descripcion ni imagen y nos vas a hacer modificar las tablas
+                        en sql pa ponerselas. Los bonos tampoco tienen imagen reputo.</p>
+                    <form>
+                        <input type="submit" value="Apúntate">
+                    </form>
+                </div>
+
+            <?php }
+        } ?>
 
     </div>
 

@@ -2,8 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f04e2ddd-3dab-40cd-a9ec-e3d3fe4bb698" name="Default Changelist" comment="">
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/bonos.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/bonos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/gestion/gestionPases.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/gestion/gestionPases.php" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/php/administracion.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/administracion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/bonos.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/bonos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/iniciaSesion.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/iniciaSesion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/registrate.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/registrate.php" afterDir="false" />
+>>>>>>> master
+      <change beforePath="$PROJECT_DIR$/php/torneos.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/torneos.php" afterDir="false" />
+=======
       <change beforePath="$PROJECT_DIR$/php/css.css" beforeDir="false" afterPath="$PROJECT_DIR$/php/css.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/php/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/index.php" afterDir="false" />
+>>>>>>> master
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +62,21 @@
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="GZ: schema" type="3abd1b6a:OraImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="ALMACENESCONSUMIBLES: table" type="942f455b:OraImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="GZ: schema" type="3abd1b6a:OraImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="BONOS: table" type="942f455b:OraImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="GZ: schema" type="3abd1b6a:OraImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="PASES: table" type="942f455b:OraImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -62,8 +90,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
+      <file pinned="false" current-in-tab="true">
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/php/bonos.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="561">
+              <caret line="87" selection-start-line="87" selection-end-line="87" />
+=======
         <entry file="file://$PROJECT_DIR$/php/index.php">
+=======
+      <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/php/cabecera.php">
+>>>>>>> master
+=======
+        <entry file="file://$PROJECT_DIR$/php/index.php">
+>>>>>>> master
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="409">
               <caret line="77" column="42" selection-start-line="77" selection-start-column="42" selection-end-line="77" selection-end-column="42" />
@@ -110,15 +153,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/iniciaSesion.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="136">
+              <caret line="8" column="80" selection-start-line="8" selection-start-column="80" selection-end-line="8" selection-end-column="80" />
+>>>>>>> master
+=======
             <state relative-caret-position="153">
               <caret line="9" selection-start-line="9" selection-end-line="9" />
+>>>>>>> master
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/php/gestion/gestionPases.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="37" column="26" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
+=======
         <entry file="file://$PROJECT_DIR$/php/registrate.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="238">
+              <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+>>>>>>> master
+=======
             <state relative-caret-position="187">
               <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
             </state>
@@ -128,8 +188,19 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/php/css.css">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="170">
               <caret line="276" column="39" selection-start-line="276" selection-start-column="39" selection-end-line="276" selection-end-column="39" />
+=======
+<<<<<<< HEAD
+            <state relative-caret-position="307">
+              <caret line="266" lean-forward="true" selection-start-line="266" selection-end-line="266" />
+>>>>>>> master
+=======
+            <state relative-caret-position="426">
+              <caret line="200" column="16" lean-forward="true" selection-start-line="200" selection-start-column="16" selection-end-line="200" selection-end-column="16" />
+>>>>>>> master
+>>>>>>> master
             </state>
           </provider>
         </entry>
@@ -149,7 +220,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../index.php" />
         <option value="$PROJECT_DIR$/php/excepcion.php" />
         <option value="$PROJECT_DIR$/php/gestionBD.php" />
         <option value="$PROJECT_DIR$/php/gestionBonos.php" />
@@ -158,7 +228,11 @@
         <option value="$PROJECT_DIR$/php/gestionTorneos.php" />
         <option value="$PROJECT_DIR$/php/gestionConsumibles.php" />
         <option value="$PROJECT_DIR$/php/accion_alta_usuario.php" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/php/registrate.php" />
+=======
         <option value="$PROJECT_DIR$/php/gestion/gestionConsumibles.php" />
+>>>>>>> master
         <option value="$PROJECT_DIR$/php/accion_desconexion_usuario.php" />
         <option value="$PROJECT_DIR$/php/gestion/gestionUsuarios.php" />
         <option value="$PROJECT_DIR$/php/accion_login_usuario.php" />
@@ -166,10 +240,27 @@
         <option value="$PROJECT_DIR$/php/administracion.php" />
         <option value="$PROJECT_DIR$/php/torneos.php" />
         <option value="$PROJECT_DIR$/php/iniciaSesion.php" />
-        <option value="$PROJECT_DIR$/php/registrate.php" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/php/torneos.php" />
+        <option value="$PROJECT_DIR$/../index.php" />
+        <option value="$PROJECT_DIR$/php/gestion/gestionConsumibles.php" />
+        <option value="$PROJECT_DIR$/php/gestion/gestionPases.php" />
+        <option value="$PROJECT_DIR$/php/cabecera.php" />
         <option value="$PROJECT_DIR$/php/bonos.php" />
+=======
+        <option value="$PROJECT_DIR$/php/registrate.php" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/php/cabecera.php" />
+        <option value="$PROJECT_DIR$/php/index.php" />
+>>>>>>> master
+=======
+        <option value="$PROJECT_DIR$/php/bonos.php" />
+<<<<<<< HEAD
+>>>>>>> master
+=======
         <option value="$PROJECT_DIR$/php/index.php" />
         <option value="$PROJECT_DIR$/php/css.css" />
+>>>>>>> master
       </list>
     </option>
   </component>
@@ -198,6 +289,14 @@
             <path>
               <item name="gziissi" type="b2602c69:ProjectViewProjectNode" />
               <item name="gziissi" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
+              <item name="php" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gziissi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gziissi" type="462c0819:PsiDirectoryNode" />
+=======
+>>>>>>> master
               <item name="php" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -289,7 +388,23 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="16177000" />
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="14736000" />
+=======
+    <option name="totallyTimeSpent" value="13593000" />
+>>>>>>> master
+=======
+    <option name="totallyTimeSpent" value="14885000" />
+>>>>>>> master
+=======
+    <option name="totallyTimeSpent" value="15732000" />
+>>>>>>> master
+>>>>>>> master
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -304,7 +419,11 @@
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
+<<<<<<< HEAD
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19395973" />
+=======
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13355705" />
+>>>>>>> master
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Console" order="0" weight="0.3297587" />
@@ -317,14 +436,18 @@
       <window_info anchor="bottom" id="TODO" order="7" weight="0.3289689" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.3297587" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3289689" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32841823" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.3297587" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.3289689" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+<<<<<<< HEAD
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.18590604" />
+=======
       <window_info anchor="right" id="Database" order="3" visible="true" weight="0.13825503" />
+>>>>>>> master
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -342,7 +465,6 @@
     <entry file="file://$PROJECT_DIR$/.vs/VSWorkspaceState.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/../index.php" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Temp2_IISSI-ESP-2C-LAB-13 - Solución Integral de Prácticas IISSI [2019-01](2).zip/gestionBD.php" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Temp2_IISSI-ESP-2C-LAB-13 - Solución Integral de Prácticas IISSI [2019-01](2).zip/index.php" />
     <entry file="file://$PROJECT_DIR$/php/excepcion.php">
@@ -363,6 +485,10 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/html/bonos.html" />
+    <entry file="file://$PROJECT_DIR$/html/torneos.html" />
+=======
     <entry file="das://8e026da9-d061-48cb-8ff1-56e5afe2b6b5/schema/GZ/table/PASES">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -381,6 +507,7 @@
         </state>
       </provider>
     </entry>
+>>>>>>> master
     <entry file="file://$PROJECT_DIR$/php/gestion/gestionTorneos.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -395,11 +522,17 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/php/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-765" />
+=======
     <entry file="file://$PROJECT_DIR$/php/gestion/gestionPases.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="10" column="39" lean-forward="true" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
         </state>
+>>>>>>> master
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/prueba.txt">
@@ -414,6 +547,9 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/php/registrate.php">
+=======
     <entry file="dbSrc:///d1a6afde/8e026da9-d061-48cb-8ff1-56e5afe2b6b5/schema/GZ/routine/DARSE_ALTA.sql" />
     <entry file="dbSrc:///d1a6afde/8e026da9-d061-48cb-8ff1-56e5afe2b6b5/schema/GZ/routine/NUEVO_USUARIO.sql" />
     <entry file="file://$PROJECT_DIR$/php/accion_login_usuario.php" />
@@ -425,12 +561,16 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/accion_desconexion_usuario.php">
+>>>>>>> master
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="dbSrc:///d1a6afde/8e026da9-d061-48cb-8ff1-56e5afe2b6b5/schema/GZ/routine/DARSE_ALTA.sql">
+=======
     <entry file="file://$PROJECT_DIR$/php/gestion/gestionUsuarios.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
@@ -439,6 +579,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/gestion/gestionConsumibles.php">
+>>>>>>> master
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="32" selection-start-line="32" selection-end-line="32" />
@@ -461,8 +602,94 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/php/iniciaSesion.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <state relative-caret-position="714">
+          <caret line="47" column="21" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/iniciaSesion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/accion_login_usuario.php" />
+    <entry file="das://8e026da9-d061-48cb-8ff1-56e5afe2b6b5/schema/GZ/table/PASES">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="360c3ba4-172d-4c36-9aaf-c3af06c74f7a">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://8e026da9-d061-48cb-8ff1-56e5afe2b6b5/schema/GZ/table/BONOS">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="360c3ba4-172d-4c36-9aaf-c3af06c74f7a">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://8e026da9-d061-48cb-8ff1-56e5afe2b6b5/schema/GZ/table/TORNEOS">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="360c3ba4-172d-4c36-9aaf-c3af06c74f7a">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/torneos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://8e026da9-d061-48cb-8ff1-56e5afe2b6b5/schema/GZ/table/LINEAPASES">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="360c3ba4-172d-4c36-9aaf-c3af06c74f7a">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://8e026da9-d061-48cb-8ff1-56e5afe2b6b5/schema/GZ/table/USUARIOS">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="360c3ba4-172d-4c36-9aaf-c3af06c74f7a">
+          <filtering />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="2" lean-forward="true" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/gestion/gestionConsumibles.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+=======
+        <state relative-caret-position="323">
+          <caret line="19" column="80" selection-start-line="19" selection-start-column="80" selection-end-line="19" selection-end-column="80" />
+=======
+        <state relative-caret-position="136">
+          <caret line="8" column="75" selection-start-line="8" selection-end-line="9" />
+>>>>>>> master
+=======
         <state relative-caret-position="153">
           <caret line="9" selection-start-line="9" selection-end-line="9" />
+>>>>>>> master
         </state>
       </provider>
     </entry>
@@ -482,22 +709,75 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/php/administracion.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <state relative-caret-position="51">
+          <caret line="3" column="9" lean-forward="true" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+>>>>>>> master
+=======
+        <state relative-caret-position="153">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+>>>>>>> master
+=======
         <state relative-caret-position="102">
           <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+>>>>>>> master
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/index.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="409">
           <caret line="77" column="42" selection-start-line="77" selection-start-column="42" selection-end-line="77" selection-end-column="42" />
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <state relative-caret-position="204">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/gestion/gestionPases.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="37" column="26" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
+=======
+        <state relative-caret-position="187">
+          <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+>>>>>>> master
+=======
+        <state relative-caret-position="494">
+          <caret line="82" column="174" selection-start-line="82" selection-start-column="174" selection-end-line="82" selection-end-column="174" />
+>>>>>>> master
+>>>>>>> master
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/css.css">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="170">
           <caret line="276" column="39" selection-start-line="276" selection-start-column="39" selection-end-line="276" selection-end-column="39" />
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <state relative-caret-position="561">
+          <caret line="87" selection-start-line="87" selection-end-line="87" />
+=======
+        <state relative-caret-position="565">
+          <caret line="84" column="48" selection-start-line="84" selection-start-column="48" selection-end-line="84" selection-end-column="48" />
+>>>>>>> master
+=======
+        <state relative-caret-position="408">
+          <caret line="24" column="77" selection-start-line="24" selection-start-column="77" selection-end-line="24" selection-end-column="77" />
+>>>>>>> master
+=======
+        <state relative-caret-position="426">
+          <caret line="200" column="16" lean-forward="true" selection-start-line="200" selection-start-column="16" selection-end-line="200" selection-end-column="16" />
+>>>>>>> master
+>>>>>>> master
         </state>
       </provider>
     </entry>

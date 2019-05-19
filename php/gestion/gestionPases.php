@@ -35,7 +35,7 @@ function consultarPasesDeBono($conexion, $OidBono) {
 
 
     if (empty($res)) {
-        $empty ["NOMBREPASE"] = "No contiene ningún pase";
+        $empty ["TIPOMEDIO"] = "No contiene ningún pase";
         $res [0] = $empty;
     }
 

@@ -6,10 +6,9 @@ require_once("gestion/gestionConsumibles.php");
 require_once("gestion/gestionPases.php");
 
 
-
 $conexion = crearConexionBD();
 
-$todosLosBonos = consultarTodosBonos ($conexion);
+$todosLosBonos = consultarTodosBonos($conexion);
 
 
 ?>
@@ -26,91 +25,94 @@ $todosLosBonos = consultarTodosBonos ($conexion);
 	</head>
 	<body>
 
-    <?php include_once ("cabecera.php"); ?>
+<?php include_once("cabecera.php"); ?>
 
-		<div class="grid-container-bonos">
+<div class="grid-container-bonos">
 
-            <?php
+    <?php
 
-            if (empty($todosLosBonos)) { ?> <?php } else {
+    if (is_null($todosLosBonos)) { ?>
 
-                $count = 0;
+        <h4>No hay ningún bono disponible.</h4>
 
-                foreach ($todosLosBonos as $b ) {
+    <?php } else {
 
-                    $count = $count +1;
+        $count = 0;
 
-                $bonoId = $b ["BONOS_ID"];
-                $bonoAvailable = $b ["DISPONIBLE"];
+        foreach ($todosLosBonos as $b) {
 
-                if (isset($bonoId))$todosLosConsumibles = consultarConsumiblesDeBono ($conexion, $bonoId);
-                if (isset($bonoId))$todosLosPases = consultarPasesDeBono ($conexion, $bonoId);
+            $count = $count + 1;
+
+            $bonoId = $b ["BONOS_ID"];
+            $bonoAvailable = $b ["DISPONIBLE"];
+
+            if (!is_null($bonoId)) $todosLosConsumibles = consultarConsumiblesDeBono($conexion, $bonoId);
+            if (!is_null($bonoId)) $todosLosPases = consultarPasesDeBono($conexion, $bonoId);
 
 
+            if ($count % 2 == 1) { ?>
 
-             ?>
-                    <?php if ($count%2 == 1) { ?>
-
-				<div class="subgrid" id="c1">
-					<img src="imagenes\Telegram.png">
-					<div id="left">
-						<h3><?php print ($b ["NOMBREBONO"]) ?></h3>
-						<ul>
+                <div class="subgrid" id="c1">
+                    <img src="imagenes\Telegram.png">
+                    <div id="left">
+                        <h3><?php print ($b ["NOMBREBONO"] . " - " . $b ["PRECIOBONO"] . " euros") ?></h3>
+                        <ul>
 
                             <h4> Consumibles:</h4>
 
-                        <?php if (isset ($todosLosConsumibles)) foreach ($todosLosConsumibles as $c) { ?>
-							<li><?php print ($c["NOMBRECONSUMIBLE"]) ?> </li>
+                            <?php foreach ($todosLosConsumibles as $c) { ?>
+                                <li><?php print ($c["NOMBRECONSUMIBLE"]) ?> </li>
                             <?php } ?>
 
                             <h4> Pases:</h4>
 
-                            <?php if (isset ($todosLosPases)) foreach ($todosLosPases as $c) { ?>
+                            <?php foreach ($todosLosPases as $c) { ?>
                                 <li><?php print ($c["TIPOMEDIO"]) ?> </li>
                             <?php } ?>
 
-						</ul>
-					</div>
-					<form>
-						<input type="submit" value="Adquirir">
-					</form>
-				</div>
+                        </ul>
+                    </div>
+                    <form>
+                        <input type="submit" value="Adquirir">
+                    </form>
+                </div>
 
-                    <?php } else { ?>
+            <?php } else { ?>
 
-                        <div class="subgrid" id="c2">
-                            <form>
-                                <input type="submit" value="Adquirir">
-                            </form>
-                            <div id="right">
-                                <h3><?php print ($b ["NOMBREBONO"]) ?></h3>
-                                <ul>
+                <div class="subgrid" id="c2">
+                    <form>
+                        <input type="submit" value="Adquirir">
+                    </form>
+                    <div id="right">
+                        <h3><?php print ($b ["NOMBREBONO"] . " - " . $b ["PRECIOBONO"] . " euros") ?></h3>
+                        <ul>
 
-                                    <h4> Consumibles:</h4>
+                            <h4> Consumibles:</h4>
 
-                                    <?php foreach ($todosLosConsumibles as $c) { ?>
-                                        <li><?php print ($c["NOMBRECONSUMIBLE"]) ?> </li>
-                                    <?php } ?>
+                            <?php foreach ($todosLosConsumibles as $c) { ?>
+                                <li><?php print ($c["NOMBRECONSUMIBLE"]) ?> </li>
+                            <?php } ?>
 
-                                    <h4> Pases:</h4>
+                            <h4> Pases:</h4>
 
-                                    <?php foreach ($todosLosPases as $c) { ?>
-                                        <li><?php print ($c["TIPOMEDIO"]) ?> </li>
-                                    <?php } ?>
+                            <?php foreach ($todosLosPases as $c) { ?>
+                                <li><?php print ($c["TIPOMEDIO"]) ?> </li>
+                            <?php } ?>
 
-                                </ul>
-                            </div>
-                            <img src="imagenes\Telegram.png">
-                        </div>
+                        </ul>
+                    </div>
+                    <img src="imagenes\Telegram.png">
+                </div>
 
-                    <?php } ?>
+            <?php } ?>
 
-			<?php } }
+        <?php }
+    }
 
-            cerrarConexionBD($conexion);
+    cerrarConexionBD($conexion);
 
-?>
+    ?>
 
-		</div>
-	</body>
+</div>
+</body>
 </html>
