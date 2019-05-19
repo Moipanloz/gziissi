@@ -15,15 +15,15 @@ $todosLosBonos = consultarTodosBonos($conexion);
 
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gamers Zone</title>
-    <!--<link href="FUENTE" rel="font"> REVISAR FUENTE-->
-    <link rel="stylesheet" type="text/css" href="css.css">
-    <link rel="icon" type="image/x-icon" href="faviconURL">
-</head>
-<body>
+	<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gamers Zone</title>
+        <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css.css">
+        <link rel="icon" type="image/png"  href="imagenes/favicon-32x32.png">
+	</head>
+	<body>
 
 <?php include_once("cabecera.php"); ?>
 
