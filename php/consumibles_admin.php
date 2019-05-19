@@ -35,6 +35,35 @@ $conexion = crearConexionBD();
 <div>
     <h2 class="titulo">Administración Consumibles</h2>
     <div class="admin_class">
+
+        <div class="moishit">
+
+            <form>
+
+            <span>
+
+                <label for="CONSUMIBLE_NAME">Nombre de Consumible</label>
+                <input type="text" name="CONSUMIBLE_NAME" value="" id="CONSUMIBLE_NAME"/>
+
+            </span>
+
+                <span>
+                    <label for="CONSUMIBLE_TYPE">Tipo de Consumible</label>
+                    <select name="OS">
+
+                    <option value="1">Windows Vista</option>
+                    <option value="2">Windows 7</option>
+                    <option value="3">Windows XP</option>
+                    <option value="10">Fedora</option>
+                    <option value="11">Debian</option>
+                    <option value="12">Suse</option>
+</select>
+            </span>
+            </form>
+
+        </div>
+
+
         <div id="consumibles-div">
             <h2>Consumibles</h2>
             <span>
