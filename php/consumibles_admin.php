@@ -147,7 +147,7 @@ $todosLosConsumibles = consultarTodosConsumibles($conexion);
 </html>
 
 <?php /*
- 
+
  dis was there before
 
  <div class="moishit">
