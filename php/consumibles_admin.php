@@ -38,12 +38,6 @@ $todosLosConsumibles = consultarTodosConsumibles($conexion);
     <div class="admin_class">
 
 
-
-
-
-
-
-
         <!-- DE LA PRACTICA -->
 
         <?php
@@ -84,7 +78,7 @@ $todosLosConsumibles = consultarTodosConsumibles($conexion);
 
                                 <!-- Insertar aqui desplegable -->
 
-                                <h4><?php echo $fila["NOMBRE"] . " " . $fila["APELLIDOS"]; ?></h4>
+                                <h4><?php echo $fila["TIPOCONSUMIBLE"]; ?></h4>
 
                             <?php } else { ?>
 
@@ -95,7 +89,7 @@ $todosLosConsumibles = consultarTodosConsumibles($conexion);
 
                                 <div class="nombre"><b><?php echo $fila["NOMBRECONSUMIBLE"]; ?></b></div>
 
-                                <div class="tipo">By <em><?php echo $fila["TIPOCONSUMIBLE"]; ?></em></div>
+                                <div class="tipo"><em><?php echo $fila["TIPOCONSUMIBLE"]; ?></em></div>
 
                             <?php } ?>
 
@@ -116,7 +110,7 @@ $todosLosConsumibles = consultarTodosConsumibles($conexion);
 
                                 <button id="editar" name="editar" type="submit" class="editar_fila">
 
-                                    <img src="imagenes/pencil_menuito.bmp" class="editar_fila" alt="Editar libro">
+                                    <img src="imagenes/pencil_menuito.bmp" class="editar_fila" alt="Editar consumible">
 
                                 </button>
 
@@ -124,7 +118,7 @@ $todosLosConsumibles = consultarTodosConsumibles($conexion);
 
                             <button id="borrar" name="borrar" type="submit" class="editar_fila">
 
-                                <img src="imagenes/remove_menuito.bmp" class="editar_fila" alt="Borrar libro">
+                                <img src="imagenes/remove_menuito.bmp" class="editar_fila" alt="Borrar consumible">
 
                             </button>
 

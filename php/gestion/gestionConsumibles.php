@@ -37,15 +37,13 @@ function consultarConsumiblesDeBono($conexion, $OidBono) {
 }
 
 function quitar_consumible($conexion,$OidConsumible) {
-	try {
+    try {
 
-        //IDUNO ABOUT THIS YET
-		$stmt=$conexion->prepare('CALL QUITAR_CONSUMIBLE(:OidConsumible)');
-		$stmt->bindParam(':OidConsumible',$OidConsumible);
-		$stmt->execute();
-		return "";
-	} catch(PDOException $e) {
-		return $e->getMessage();
+        $consulta = "DELETE * FROM CONSUMIBLES WHERE CONSUMIBLES_ID = " . $OidConsumible;
+
+        return $conexion -> query ($consulta);
+    } catch(PDOException $e) {
+        return $e->getMessage();
     }
 }
 
