@@ -13,6 +13,6 @@ if (isset($_REQUEST["CONSUMIBLES_ID"])){
     else  if (isset($_REQUEST["borrar"]))  Header("Location: accion_borrar_consumible.php");
 }
 else
-    Header("Location: bonos_admin.php");
+    Header("Location: consumibles_admin.php");
 
 
