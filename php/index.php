@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Gamers Zone</title>
         <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
@@ -115,10 +116,10 @@
                     <a class="control_next">></a>
                     <a   class="control_prev"><</a>
                     <ul>
-                        <li>SLIDE 1</li>
-                        <li>SLIDE 2</li>
-                        <li>SLIDE 3</li>
-                        <li>SLIDE 4</li>
+                        <li><img src="imagenes/GZ-Slider2.PNG"></li>
+                        <li><img src="imagenes/GZ-Slider4.PNG"></li>
+                        <li><img src="imagenes/GZ-Slider1.jpeg"></li>
+                        <li><img src="imagenes/GZ-Slider3.jpeg"></li>
                     </ul>
                 </div>
             </div>

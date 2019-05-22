@@ -27,7 +27,7 @@ nav li{
 	font-weight: 500;
 	position: relative;
 	padding-right: 20px;
-}	
+}
 
 nav a{
 	text-decoration: none;
@@ -74,18 +74,18 @@ p{
 	font-family: "Nunito", sans-serif, Verdana;
 	margin: 0 3%;
 }
-  
+
 .grid-container {
 	display: grid;
 	grid-template-columns: auto;
 	grid-template-rows: 15% 50% 40% 40%;
   }
-  
+
  .grid-container h2{
  	text-align: center;
  	margin-bottom: 4%;
  }
-  
+
 .grid-container > div {
 	padding: 2% 0;
 	margin-bottom: 1%;
@@ -221,13 +221,13 @@ p{
 #left{
 	justify-items: left;
 	/*align-items: auto;*/      /*///////////////////VER SI HAY QUE BORRAR */
-	margin-left: 6%; 
+	margin-left: 6%;
 }
 
 #right{
 	justify-items: right;
 	/*align-items: auto;*/
-	margin-right: 6%; 
+	margin-right: 6%;
 	text-align: right;
 }
 
@@ -358,14 +358,14 @@ p{
     overflow: hidden;
     margin: 20px auto 0 auto;
     border-radius: 4px;
-    width: 50%;
+	height: 50%;
 }
 
 #slider ul {
     position: relative;
     margin: 0;
     padding: 0;
-    height: 200px;
+    height: 100%;
     list-style: none;
 }
 
@@ -375,11 +375,18 @@ p{
     float: left;
     margin: 0;
     padding: 0;
-    width: 100%;
+    width: 75%;
     height: 100%;
-    background: #ccc;
     text-align: center;
     line-height: 300px;
+}
+
+#slider ul li img{
+	width: 1000px;
+	height: 600px;
+	position: relative;
+	margin: 0;
+	padding: 0;
 }
 
 a.control_prev, a.control_next {
