@@ -10,7 +10,9 @@ if (isset($_SESSION["CONSUMIBLE"])) {
 
     $conexion = crearConexionBD();
 
-    if (cantidad_de_bonos_con_consumible ($conexion, $CONSUMIBLE["CONSUMIBLES_ID"])== 0)  {
+    $count = cantidad_de_bonos_con_consumible ($conexion, $CONSUMIBLE["CONSUMIBLES_ID"]);
+
+    if ($count == 0)  {
 
         $excepcion = quitar_consumible($conexion,$CONSUMIBLE["CONSUMIBLES_ID"]);
         cerrarConexionBD($conexion);
@@ -26,8 +28,12 @@ if (isset($_SESSION["CONSUMIBLE"])) {
 
     } else {
 
-        $_SESSION["consumible_en_uso"] = "El consumible se utiliza en algun bono. Por favor eliminelo de cualquier bono antes de borrar el consumible.";
+        $_SESSION["consumible_en_uso"] = "El consumible \"".$CONSUMIBLE ["NOMBRECONSUMIBLE"]."\" se utiliza en algun bono. Por favor eliminelo de cualquier bono antes de borrar el consumible.";
+
         Header("Location: consumibles_admin.php");
+
+        cerrarConexionBD($conexion);
+
 
     }
 

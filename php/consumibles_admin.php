@@ -15,8 +15,6 @@
 require_once("gestion/gestionBD.php");
 require_once("gestion/gestionBonos.php");
 require_once("gestion/gestionConsumibles.php");
-require_once("gestion/gestionPases.php");
-require_once("gestion/gestionTorneos.php");
 
 if (isset($_SESSION["CONSUMIBLE"])) {
     $CONSUMIBLE = $_SESSION["CONSUMIBLE"];
@@ -77,17 +75,19 @@ $todosLosConsumibles = consultarTodosConsumibles($conexion);
 
                                    type="hidden" value="<?php echo $fila["CONSUMIBLES_ID"]; ?>"/>
 
-                            <input id="TIPOCONSUMIBLE" name="TIPOCONSUMIBLE"
-
-                                   type="hidden" value="<?php echo $fila["TIPOCONSUMIBLE"]; ?>"/>
-
                             <?php
 
                             if (isset($CONSUMIBLE) and ($CONSUMIBLE["CONSUMIBLES_ID"] == $fila["CONSUMIBLES_ID"])) { ?>
 
                                 <!-- Editando título -->
 
-                                <h3><input id="NOMBRECONSUMIBLE" name="NOMBRECONSUMIBLE" type="text" value="<?php echo $fila["NOMBRECONSUMIBLE"]; ?>"/>	</h3>
+                                <h3><input maxlength="20" id="NOMBRECONSUMIBLE" name="NOMBRECONSUMIBLE" type="text" value="<?php echo $fila["NOMBRECONSUMIBLE"]; ?>"/>	</h3>
+
+                                <select name="TIPOCONSUMIBLE">
+                                    <option value="Bebida generica">Bebida generica</option>
+                                    <option value="Bebida alcoholica">Bebida alcoholica</option>
+                                    <option value="Comida">Comida</option>
+                                </select>
 
                                 <h4><?php echo $fila["TIPOCONSUMIBLE"]; ?></h4>
 
@@ -96,6 +96,8 @@ $todosLosConsumibles = consultarTodosConsumibles($conexion);
                                 <!-- mostrando título -->
 
                                 <input id="NOMBRECONSUMIBLE" name="NOMBRECONSUMIBLE" type="hidden" value="<?php echo $fila["NOMBRECONSUMIBLE"]; ?>"/>
+
+                                <input id="TIPOCONSUMIBLE" name="TIPOCONSUMIBLE" type="hidden" value="<?php echo $fila["TIPOCONSUMIBLE"]; ?>"/>
 
                                 <div class="nombre"><b><?php echo $fila["NOMBRECONSUMIBLE"]; ?></b></div>
 
@@ -147,6 +149,23 @@ $todosLosConsumibles = consultarTodosConsumibles($conexion);
 
 
     </div>
+
+    <div>
+
+        <form method="post" action="controlador_consumibles.php">
+
+            <button id="nuevo" name="nuevo" type="submit">
+
+                Crear un consumible nuevo
+
+                <img src="imagenes/create.png" class="editar_fila" alt="Borrar consumible">
+
+            </button>
+
+        </form>
+
+    </div>
+
 </div>
 
 <?php cerrarConexionBD($conexion) ?>

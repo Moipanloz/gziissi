@@ -12,7 +12,21 @@ function consultarTodosConsumibles($conexion) {
     return $conexion->query($consulta);
 }
 
+function nuevoConsumible ($conexion, $NombreConsumible, $TipoConsumible) {
+    try {
+        $stmt=$conexion->prepare('CALL NUEVO_CONSUMIBLE(:Nombre, :Tipo)');
+        $stmt->bindParam(':Nombre',$NombreConsumible);
+        $stmt->bindParam(':Tipo',$TipoConsumible);
+
+        $stmt->execute();
+        return "";
+    } catch(PDOException $e) {
+        return $e->getMessage();
+    }
+}
+
 function consultarConsumiblesDeBono($conexion, $OidBono) {
+    try {
     $consulta1 = "SELECT * FROM LINEACONSUMIBLES WHERE BONOS_ID = " . $OidBono;
     $lineasConsumibles = $conexion -> query ($consulta1);
 
@@ -34,20 +48,17 @@ function consultarConsumiblesDeBono($conexion, $OidBono) {
     if (empty($res)) $res = null;
 
     return $res;
-}
 
-function cantidad_de_bonos_con_consumible ($conexion, $OidConsumible) {
-
-    try {
-        $stmt=$conexion->prepare("SELECT COUNT (*) FROM LINEACONSUMIBLES");
-        $stmt->bindParam(':ConsumibleId',$OidConsumible);
-
-
-        return $stmt->execute();;
     } catch(PDOException $e) {
         return $e->getMessage();
     }
+}
 
+function cantidad_de_bonos_con_consumible ($conexion, $OidConsumible) {
+    $stmt=$conexion->prepare("SELECT COUNT (*) AS TOTAL FROM LINEACONSUMIBLES WHERE CONSUMIBLES_ID = :ConsumibleId" );
+    $stmt->bindParam(':ConsumibleId',$OidConsumible);
+    $stmt->execute();
+    return $stmt->fetchColumn();
 }
 
 function quitar_consumible($conexion,$OidConsumible) {
