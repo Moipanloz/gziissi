@@ -113,7 +113,7 @@ $todosLosBonos = consultarTodosBonos($conexion);
                                 <li><?php print ($p["TIPOMEDIO"]) ?> </li>
                             <?php } else { ?>
 
-                                <li>Este pase no contiene consumibles</li>
+                                <li>Este bono no contiene pases</li>
 
                             <?php } ?>
 
