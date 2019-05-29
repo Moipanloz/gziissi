@@ -34,7 +34,7 @@ $todosLosTorneos = consultarTodosTorneos($conexion);
 
         <?php
 
-        if (!is_null($todosLosTorneos)) { ?>
+        if (is_null($todosLosTorneos)) { ?>
 
             <p id="torneos">No tournaments are currently open.</p>
 

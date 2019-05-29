@@ -36,27 +36,42 @@ function consultarConsumiblesDeBono($conexion, $OidBono) {
     return $res;
 }
 
+function cantidad_de_bonos_con_consumible ($conexion, $OidConsumible) {
+
+    try {
+        $stmt=$conexion->prepare("SELECT COUNT (*) FROM LINEACONSUMIBLES");
+        $stmt->bindParam(':ConsumibleId',$OidConsumible);
+
+
+        return $stmt->execute();;
+    } catch(PDOException $e) {
+        return $e->getMessage();
+    }
+
+}
+
 function quitar_consumible($conexion,$OidConsumible) {
     try {
+        $stmt=$conexion->prepare("DELETE FROM CONSUMIBLES WHERE CONSUMIBLES_ID = :OidConsumible");
+        $stmt->bindParam(':OidConsumible',$OidConsumible);
+        $stmt->execute();
 
-        $consulta = "DELETE * FROM CONSUMIBLES WHERE CONSUMIBLES_ID = " . $OidConsumible;
-
-        return $conexion -> query ($consulta);
+        return "";
     } catch(PDOException $e) {
         return $e->getMessage();
     }
 }
 
-
 function modificar_consumible($conexion,$OidConsumible,$NombreConsumible, $TipoConsumible) {
-	try {
+    try {
+        $stmt=$conexion->prepare("UPDATE CONSUMIBLES SET NOMBRECONSUMIBLE= :NombreConsumible, TIPOCONSUMIBLE=:TipoConsumible WHERE CONSUMIBLES_ID = :Consumible_ID");
+        $stmt->bindParam(':NombreConsumible',$NombreConsumible);
+        $stmt->bindParam(':TipoConsumible',$TipoConsumible);
+        $stmt->bindParam(':Consumible_ID',$OidConsumible);
 
-	    $consulta = "UPDATE CONSUMIBLES SET NOMBRECONSUMIBLE=" . $NombreConsumible . ", TIPOCONSUMIBLE=" . $TipoConsumible . " WHERE CONSUMIBLES_ID = " . $OidConsumible;
-
-        return $conexion -> query ($consulta);
-	} catch(PDOException $e) {
-		return $e->getMessage();
+        $stmt->execute();
+        return "";
+    } catch(PDOException $e) {
+        return $e->getMessage();
     }
 }
-    
-?>

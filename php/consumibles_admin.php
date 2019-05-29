@@ -18,6 +18,11 @@ require_once("gestion/gestionConsumibles.php");
 require_once("gestion/gestionPases.php");
 require_once("gestion/gestionTorneos.php");
 
+if (isset($_SESSION["CONSUMIBLE"])) {
+    $CONSUMIBLE = $_SESSION["CONSUMIBLE"];
+    unset($_SESSION["CONSUMIBLE"]);
+}
+
 $conexion = crearConexionBD();
 
 $todosLosConsumibles = consultarTodosConsumibles($conexion);
@@ -33,6 +38,18 @@ $todosLosConsumibles = consultarTodosConsumibles($conexion);
 
 <body>
 
+<?php if (isset($_SESSION ["consumible_en_uso"])) {?>
+
+    <div ><?php print ($_SESSION ["consumible_en_uso"])?></div>
+
+<?php
+
+    unset($_SESSION ["consumible_en_uso"]);
+
+} ?>
+
+
+
 <div>
     <h2 class="titulo">Administración Consumibles</h2>
     <div class="admin_class">
@@ -42,50 +59,43 @@ $todosLosConsumibles = consultarTodosConsumibles($conexion);
 
         <?php
 
-        foreach ($todosLosConsumibles as $fila) {
+        foreach($todosLosConsumibles as $fila) {
 
             ?>
 
-            <article class="consumible">
+
+
+            <article class="consumibles">
 
                 <form method="post" action="controlador_consumibles.php">
 
-                    <div class="fila_consumible">
+                    <div class="fila_consumibles">
 
-                        <div class="datos_consumible">
+                        <div class="datos_libro">
 
                             <input id="CONSUMIBLES_ID" name="CONSUMIBLES_ID"
 
                                    type="hidden" value="<?php echo $fila["CONSUMIBLES_ID"]; ?>"/>
 
-                            <input id="NOMBRECONSUMIBLE" name="NOMBRECONSUMIBLE"
-
-                                   type="hidden" value="<?php echo $fila["NOMBRECONSUMIBLE"]; ?>"/>
-
                             <input id="TIPOCONSUMIBLE" name="TIPOCONSUMIBLE"
 
                                    type="hidden" value="<?php echo $fila["TIPOCONSUMIBLE"]; ?>"/>
 
-
                             <?php
 
-                            if (isset($consumible) and ($consumible["CONSUMIBLES_ID"] == $fila["CONSUMIBLES_ID"])) { ?>
+                            if (isset($CONSUMIBLE) and ($CONSUMIBLE["CONSUMIBLES_ID"] == $fila["CONSUMIBLES_ID"])) { ?>
 
                                 <!-- Editando título -->
 
-                                <h3><input id="NOMBRE" name="NOMBRE" type="text"
-                                           value="<?php echo $fila["NOMBRECONSUMIBLE"]; ?>"/></h3>
-
-                                <!-- Insertar aqui desplegable -->
+                                <h3><input id="NOMBRECONSUMIBLE" name="NOMBRECONSUMIBLE" type="text" value="<?php echo $fila["NOMBRECONSUMIBLE"]; ?>"/>	</h3>
 
                                 <h4><?php echo $fila["TIPOCONSUMIBLE"]; ?></h4>
 
-                            <?php } else { ?>
+                            <?php }	else { ?>
 
                                 <!-- mostrando título -->
 
-                                <input id="NOMBRE" name="NOMBRE" type="hidden"
-                                       value="<?php echo $fila["NOMBRECONSUMIBLE"]; ?>"/>
+                                <input id="NOMBRECONSUMIBLE" name="NOMBRECONSUMIBLE" type="hidden" value="<?php echo $fila["NOMBRECONSUMIBLE"]; ?>"/>
 
                                 <div class="nombre"><b><?php echo $fila["NOMBRECONSUMIBLE"]; ?></b></div>
 
@@ -96,9 +106,10 @@ $todosLosConsumibles = consultarTodosConsumibles($conexion);
                         </div>
 
 
+
                         <div id="botones_fila">
 
-                            <?php if (isset($consumible) and ($consumible["CONSUMIBLES_ID"] == $fila["CONSUMIBLES_ID"])) { ?>
+                            <?php if (isset($CONSUMIBLE) and ($CONSUMIBLE["CONSUMIBLES_ID"] == $fila["CONSUMIBLES_ID"])) { ?>
 
                                 <button id="grabar" name="grabar" type="submit" class="editar_fila">
 
@@ -129,6 +140,8 @@ $todosLosConsumibles = consultarTodosConsumibles($conexion);
                 </form>
 
             </article>
+
+
 
         <?php } ?>
 
