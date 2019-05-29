@@ -28,7 +28,7 @@ if (isset($_SESSION["CONSUMIBLE"])) {
 
     } else {
 
-        $_SESSION["warning"] = "El consumible \"".$CONSUMIBLE ["NOMBRECONSUMIBLE"]."\" se utiliza en algun bono. Por favor eliminelo de cualquier bono antes de borrar el consumible.";
+        $_SESSION["warning"] = "El consumible \"".$CONSUMIBLE ["NOMBRECONSUMIBLE"]."\" se utiliza en algun bono. Por favor eliminelo de cualquier bono antes de borrarlo.";
 
         Header("Location: ../consumibles_admin.php");
 

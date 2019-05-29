@@ -73,5 +73,22 @@ function modificarPase($conexion,$PaseId,$TipoMedio) {
     }
 }
 
+function cantidadDeBonosConPase ($conexion, $IdPase) {
+    $stmt=$conexion->prepare("SELECT COUNT (*) AS TOTAL FROM LINEAPASES WHERE PASES_ID = :PaseId" );
+    $stmt->bindParam(':PaseId',$IdPase);
+    $stmt->execute();
+    return $stmt->fetchColumn();
+}
 
+function quitarPase($conexion,$IdPase) {
+    try {
+        $stmt=$conexion->prepare("DELETE FROM pases WHERE PASES_ID = :IdPase");
+        $stmt->bindParam(':IdPase',$IdPase);
+        $stmt->execute();
+
+        return "";
+    } catch(PDOException $e) {
+        return $e->getMessage();
+    }
+}
 
