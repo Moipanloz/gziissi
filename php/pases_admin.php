@@ -163,7 +163,7 @@ $todosLosPases = consultarTodosPases($conexion);
 
                     <input id="PASES_ID" name="PASES_ID" type="hidden" value="Fake id"/>
 
-                    <h3><input maxlength="40" id="TIPOMEDIO" name="TIPOMEDIO" type="text" placeholder="Nuevo Pase"/></h3>
+                    <h3><input maxlength="20" id="TIPOMEDIO" name="TIPOMEDIO" type="text" placeholder="Nuevo Pase"/></h3>
 
                     <button id="nuevo" name="nuevo" type="submit">
 
