@@ -81,15 +81,13 @@ $todosLosConsumibles = consultarTodosConsumibles($conexion);
 
                                 <!-- Editando título -->
 
-                                <h3><input maxlength="20" id="NOMBRECONSUMIBLE" name="NOMBRECONSUMIBLE" type="text" value="<?php echo $fila["NOMBRECONSUMIBLE"]; ?>"/>	</h3>
+                                <h3><input maxlength="40" id="NOMBRECONSUMIBLE" name="NOMBRECONSUMIBLE" type="text" value="<?php echo $fila["NOMBRECONSUMIBLE"]; ?>"/>	</h3>
 
                                 <select name="TIPOCONSUMIBLE">
                                     <option value="Bebida generica">Bebida generica</option>
                                     <option value="Bebida alcoholica">Bebida alcoholica</option>
                                     <option value="Comida">Comida</option>
                                 </select>
-
-                                <h4><?php echo $fila["TIPOCONSUMIBLE"]; ?></h4>
 
                             <?php }	else { ?>
 
@@ -115,25 +113,41 @@ $todosLosConsumibles = consultarTodosConsumibles($conexion);
 
                                 <button id="grabar" name="grabar" type="submit" class="editar_fila">
 
-                                    <img src="imagenes/bag_menuito.bmp" class="editar_fila" alt="Guardar modificación">
+                                    <!--<img src="imagenes/bag_menuito.bmp" class="editar_fila" alt="Guardar modificación">
+                                    -->
 
+                                    Guardar
+
+                                </button>
+
+                                <button id="cancelar" name="cancelar" type="submit" class="cancelar">
+
+                                    <!--<img src="imagenes/remove_menuito.bmp" class="editar_fila" alt="Borrar consumible">
+-->
+                                    Cancelar
                                 </button>
 
                             <?php } else { ?>
 
                                 <button id="editar" name="editar" type="submit" class="editar_fila">
 
-                                    <img src="imagenes/pencil_menuito.bmp" class="editar_fila" alt="Editar consumible">
+                                    <!--<img src="imagenes/pencil_menuito.bmp" class="editar_fila" alt="Editar consumible">
+                                    -->
+                                    Editar
+
+                                </button>
+
+                                <button id="borrar" name="borrar" type="submit" class="editar_fila">
+
+                                    <!--<img src="imagenes/remove_menuito.bmp" class="editar_fila" alt="Borrar consumible">
+-->
+                                    Borrar
 
                                 </button>
 
                             <?php } ?>
 
-                            <button id="borrar" name="borrar" type="submit" class="editar_fila">
 
-                                <img src="imagenes/remove_menuito.bmp" class="editar_fila" alt="Borrar consumible">
-
-                            </button>
 
                         </div>
 
@@ -147,24 +161,41 @@ $todosLosConsumibles = consultarTodosConsumibles($conexion);
 
         <?php } ?>
 
-
     </div>
+
+    <?php if (!isset($CONSUMIBLE)) {?>
 
     <div>
 
-        <form method="post" action="controlador_consumibles.php">
+        <article class="consumibles">
 
-            <button id="nuevo" name="nuevo" type="submit">
+            <form method="post" action="controlador_consumibles.php">
 
-                Crear un consumible nuevo
+                <input id="CONSUMIBLES_ID" name="CONSUMIBLES_ID" type="hidden" value="Fake id"/>
 
-                <img src="imagenes/create.png" class="editar_fila" alt="Borrar consumible">
+                <h3><input maxlength="40" id="NOMBRECONSUMIBLE" name="NOMBRECONSUMIBLE" type="text" placeholder="Nuevo Consumible"/></h3>
 
-            </button>
+                <select name="TIPOCONSUMIBLE">
+                    <option value="Bebida generica">Bebida generica</option>
+                    <option value="Bebida alcoholica">Bebida alcoholica</option>
+                    <option value="Comida">Comida</option>
+                </select>
 
-        </form>
+                <button id="nuevo" name="nuevo" type="submit">
+
+                    Crear un consumible nuevo
+
+                    <img src="imagenes/create.png" class="editar_fila" alt="Borrar consumible">
+
+                </button>
+
+            </form>
+
+        </article>
 
     </div>
+
+    <?php }?>
 
 </div>
 

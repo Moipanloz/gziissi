@@ -42,7 +42,7 @@ CREATE TABLE pases(
 CREATE TABLE consumibles(   
     Consumibles_ID smallint  not null,
     nombreConsumible varchar2(20)   not null,
-    tipoConsumible varchar2(20) CONSTRAINT "Consumible_CHK" CHECK (tipoConsumible IN('Bebida alcoholica', 'Bebida generica', 'Comida'))    not null,
+    tipoConsumible varchar2(40) CONSTRAINT "Consumible_CHK" CHECK (tipoConsumible IN('Bebida alcoholica', 'Bebida generica', 'Comida'))    not null,
     UNIQUE (nombreConsumible),
     PRIMARY KEY (Consumibles_ID)
 );

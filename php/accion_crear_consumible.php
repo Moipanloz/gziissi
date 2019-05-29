@@ -1,14 +1,15 @@
 <?php
 session_start();
 
-if (isset($_SESSION["nuevo"])) {
-    unset($_SESSION["nuevo"]);
+if (isset($_SESSION["CONSUMIBLE"])) {
+    $CONSUMIBLE = $_SESSION["CONSUMIBLE"];
+    unset($_SESSION["CONSUMIBLE"]);
 
     require_once("gestion/gestionBD.php");
     require_once("gestion/gestionConsumibles.php");
 
     $conexion = crearConexionBD();
-    $excepcion = nuevoConsumible($conexion,"Nuevo ".rand(0,100), "Comida");
+    $excepcion = nuevoConsumible($conexion,$CONSUMIBLE ["NOMBRECONSUMIBLE"], $CONSUMIBLE ["TIPOCONSUMIBLE"]);
 
 
     cerrarConexionBD($conexion);
