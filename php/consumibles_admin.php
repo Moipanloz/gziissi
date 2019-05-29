@@ -42,7 +42,7 @@ $todosLosConsumibles = consultarTodosConsumibles($conexion);
 
 <?php
 
-    unset($_SESSION ["consumible_en_uso"]);
+    unset($_SESSION ["warning"]);
 
 } ?>
 
@@ -65,7 +65,7 @@ $todosLosConsumibles = consultarTodosConsumibles($conexion);
 
             <article class="consumibles">
 
-                <form method="post" action="controlador_consumibles.php">
+                <form method="post" action="controlador_consumibles.php" autocomplete="off">
 
                     <div class="fila_consumibles">
 
@@ -202,85 +202,3 @@ $todosLosConsumibles = consultarTodosConsumibles($conexion);
 <?php cerrarConexionBD($conexion) ?>
 </body>
 </html>
-
-<?php /*
-
- dis was there before
-
- <div class="moishit">
-
-            <form>
-
-            <span>
-
-                <label for="CONSUMIBLE_NAME">Nombre de Consumible</label>
-                <input type="text" name="CONSUMIBLE_NAME" value="" id="CONSUMIBLE_NAME"/>
-
-            </span>
-
-                <span>
-                    <label for="CONSUMIBLE_TYPE">Tipo de Consumible</label>
-                    <select name="OS">
-
-                        <option value="1">Windows Vista</option>
-                        <option value="2">Windows 7</option>
-                        <option value="3">Windows XP</option>
-                        <option value="10">Fedora</option>
-                        <option value="11">Debian</option>
-                        <option value="12">Suse</option>
-
-                    </select>
-                </span>
-            </form>
-
-        </div>
-
-
-        <div id="consumibles-div">
-            <h2>Consumibles</h2>
-            <span>
-
-					<!--FOR EACH CONUSMIBLE-->
-                            <h3>Nombre Consumible</h3>
-
-
-                    <?php
-
-                    foreach ($todosLosConsumibles as $c) {
-
-
-                        if (isset($editandoConsumible) && ($editandoConsumible ["c"] == $c)) { ?>
-
-                            <h3><input type="text" name="CONUSMIBLE" value="<?php print $c ["NOMBRECONSUMIBLE"] ?>"
-                                       id="CONUSMIBLE"/></h3>
-
-
-                            <input id="guardar" name="guardar" type="submit" value="Guardar"
-                                   class="boton_administracion">
-
-
-                        <?php } else { ?>
-
-
-                            <ul>
-							<!-- FOR EACH ELEMENTO -->
-						<li><?php print ($c ["NOMBRECONSUMIBLE"] . " - " . $c["TIPOCONSUMIBLE"]) ?></li>
-                                <!---->
-					</ul>
-
-                            <input id="editar" name="editar" type="submit" value="Editar" class="boton_administracion">
-						<!---->
-						<input id="borrar" name="borrar" type="submit" value="Borrar" class="boton_administracion">
-
-
-                        <?php }
-
-
-                    }
-
-                    ?>
-
-            </span>
-        </div>
-
- */

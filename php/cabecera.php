@@ -37,7 +37,7 @@
 
                 <?php } else { ?>
 
-                <li class="ul-item"><a href="accion_desconexion_usuario.php">Desconectarse</a> </li>
+                <li class="ul-item"><a href="accion/accion_desconexion_usuario.php">Desconectarse</a> </li>
 
                 <?php } ?>
 

@@ -7,8 +7,8 @@
    */
 
 function consultarTodosPases($conexion) {
-    $consulta = "SELECT * FROM CONSUMIBLES"
-        . " ORDER BY NOMBRECONSUMIBLE";
+    $consulta = "SELECT * FROM PASES"
+        . " ORDER BY TIPOMEDIO";
     return $conexion->query($consulta);
 }
 
@@ -39,12 +39,18 @@ function consultarPasesDeBono($conexion, $OidBono) {
     return $res;
 }
 
-function quitar_pase($conexion,$OidPase) {
-    try {
+function cantidadDeConsumiblesConTipoMedio ($conexion, $Tipo) {
+    $stmt=$conexion->prepare("SELECT COUNT (*) AS TOTAL FROM PASES WHERE TIPOMEDIO = :Tipo" );
+    $stmt->bindParam(':Tipo',$Tipo);
+    $stmt->execute();
+    return $stmt->fetchColumn();
+}
 
-        //IDUNO ABOUT THIS YET
-        $stmt=$conexion->prepare('CALL QUITAR_PASE(:OidPase)');
-        $stmt->bindParam(':OidPase',$OidPase);
+function nuevoPase ($conexion, $Tipo) {
+    try {
+        $stmt=$conexion->prepare('CALL NUEVO_PASE(:Tipo)');
+        $stmt->bindParam(':Tipo',$Tipo);
+
         $stmt->execute();
         return "";
     } catch(PDOException $e) {
@@ -52,19 +58,20 @@ function quitar_pase($conexion,$OidPase) {
     }
 }
 
-//THIS NEITHER
-/*
-function modificar_bono($conexion,$OidLibro,$TituloLibro) {
-	try {
-		$stmt=$conexion->prepare('CALL MODIFICAR_TITULO(:OidLibro,:TituloLibro)');
-		$stmt->bindParam(':OidLibro',$OidLibro);
-		$stmt->bindParam(':TituloLibro',$TituloLibro);
-		$stmt->execute();
-		return "";
-	} catch(PDOException $e) {
-		return $e->getMessage();
+
+
+function modificarPase($conexion,$PaseId,$TipoMedio) {
+    try {
+        $stmt=$conexion->prepare("UPDATE PASES SET TIPOMEDIO= :Tipo WHERE PASES_ID = :PaseId");
+        $stmt->bindParam(':PaseId',$PaseId);
+        $stmt->bindParam(':Tipo',$TipoMedio);
+
+        $stmt->execute();
+        return "";
+    } catch(PDOException $e) {
+        return $e->getMessage();
     }
 }
-*/
 
-?>
+
+

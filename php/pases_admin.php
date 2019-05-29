@@ -14,12 +14,16 @@
 
 require_once("gestion/gestionBD.php");
 require_once("gestion/gestionBonos.php");
-require_once("gestion/gestionConsumibles.php");
 require_once("gestion/gestionPases.php");
-require_once("gestion/gestionTorneos.php");
+
+if (isset($_SESSION["PASE"])) {
+    $PASE = $_SESSION["PASE"];
+    unset($_SESSION["PASE"]);
+}
 
 $conexion = crearConexionBD();
 
+$todosLosPases = consultarTodosPases($conexion);
 
 /*if (!isset($_SESSION ["ADMIN"]))
 
@@ -32,43 +36,151 @@ $conexion = crearConexionBD();
 
 <body>
 
+<?php if (isset($_SESSION ["warning"])) {?>
+
+    <div ><?php print ($_SESSION ["warning"])?></div>
+
+    <?php
+
+    unset($_SESSION ["warning"]);
+
+} ?>
+
+
+
 <div>
     <h2 class="titulo">Administración Pases</h2>
     <div class="admin_class">
-        <div class="grid-container-admin-class">
-            <!--FOR EACH BONO HASTA MAXIMO DE 3 POR PAG-->
-            <div>
-                <!-- CUANDO ESTE EDITANDO -->
-                <h3><input type="text" name="PASE" value="" id="PASE"/></h3>
-                <ul>
-                    <!-- FOR EACH ELEMENTO -->
-                    <li>Elemento</li>
-                    <!---->
-                </ul>
-                <!-- CUANDO SE MUESTRE -->
-                <h3>NombreBono</h3>
-                <ul>
-                    <!-- FOR EACH ELEMENTO -->
-                    <li>Elemento</li>
-                    <!---->
-                </ul>
-                <!---->
-                <!---->
-                <div class="botones_administracion">
-                    <!-- SI ESTA EDITANDO -->
-                    <input id="guardar" name="guardar" type="submit" value="Guardar" class="boton_administracion">
-                    <!-- SI NO -->
-                    <input id="editar" name="editar" type="submit" value="Editar" class="boton_administracion">
-                    <!---->
-                    <input id="borrar" name="borrar" type="submit" value="Borrar" class="boton_administracion">
-                </div>
-            </div>
 
-            <div>
-                Pagniacion
-            </div>
-        </div>
+
+        <!-- DE LA PRACTICA -->
+
+        <?php
+
+        foreach($todosLosPases as $fila) {
+
+            ?>
+
+
+
+            <article class="pases">
+
+                <form method="post" action="controlador_pases.php" autocomplete="off">
+
+                    <div class="fila_pases">
+
+                        <div class="datos_pase">
+
+                            <input id="PASES_ID" name="PASES_ID"
+
+                                   type="hidden" value="<?php echo $fila["PASES_ID"]; ?>"/>
+
+                            <?php
+
+                            if (isset($PASE) and ($PASE["PASES_ID"] == $fila["PASES_ID"])) { ?>
+
+                                <!-- Editando título -->
+
+                                <h3><input maxlength="40" id="TIPOMEDIO" name="TIPOMEDIO" type="text" value="<?php echo $fila["TIPOMEDIO"]; ?>"/>	</h3>
+
+                            <?php }	else { ?>
+
+                                <!-- mostrando título -->
+
+                                <input id="TIPOMEDIO" name="TIPOMEDIO" type="hidden" value="<?php echo $fila["TIPOMEDIO"]; ?>"/>
+
+                                <div class="TIPOMEDIO"><b><?php echo $fila["TIPOMEDIO"]; ?></b></div>
+
+                            <?php } ?>
+
+                        </div>
+
+
+
+                        <div id="botones_fila">
+
+                            <?php if (isset($PASE) and ($PASE["PASES_ID"] == $fila["PASES_ID"])) { ?>
+
+                                <button id="grabar" name="grabar" type="submit" class="editar_fila">
+
+                                    <!--<img src="imagenes/bag_menuito.bmp" class="editar_fila" alt="Guardar modificación">
+                                    -->
+
+                                    Guardar
+
+                                </button>
+
+                                <button id="cancelar" name="cancelar" type="submit" class="cancelar">
+
+                                    <!--<img src="imagenes/remove_menuito.bmp" class="editar_fila" alt="Borrar consumible">
+-->
+                                    Cancelar
+                                </button>
+
+                            <?php } else { ?>
+
+                                <button id="editar" name="editar" type="submit" class="editar_fila">
+
+                                    <!--<img src="imagenes/pencil_menuito.bmp" class="editar_fila" alt="Editar consumible">
+                                    -->
+                                    Editar
+
+                                </button>
+
+                                <button id="borrar" name="borrar" type="submit" class="editar_fila">
+
+                                    <!--<img src="imagenes/remove_menuito.bmp" class="editar_fila" alt="Borrar consumible">
+-->
+                                    Borrar
+
+                                </button>
+
+                            <?php } ?>
+
+
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </article>
+
+
+
+        <?php } ?>
+
     </div>
+
+    <?php if (!isset($PASE)) {?>
+
+        <div>
+
+            <article class="admin_class">
+
+                <form autocomplete="off" method="post" action="controlador_pases.php">
+
+                    <input id="PASES_ID" name="PASES_ID" type="hidden" value="Fake id"/>
+
+                    <h3><input maxlength="40" id="TIPOMEDIO" name="TIPOMEDIO" type="text" placeholder="Nuevo Pase"/></h3>
+
+                    <button id="nuevo" name="nuevo" type="submit">
+
+                        Crear un pase nuevo
+
+                        <img src="imagenes/create.png" class="editar_fila" alt="Borrar consumible">
+
+                    </button>
+
+                </form>
+
+            </article>
+
+        </div>
+
+    <?php }?>
+
 </div>
 
 <?php cerrarConexionBD($conexion) ?>

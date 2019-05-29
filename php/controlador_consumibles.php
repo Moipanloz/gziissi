@@ -12,10 +12,10 @@ session_start();
         unset($_SESSION ["CONSUMIBLE"]);
         Header("Location: consumibles_admin.php");
     }
-    else if (isset ($_REQUEST ["nuevo"]))     Header("Location: accion_crear_consumible.php");
+    else if (isset ($_REQUEST ["nuevo"]))     Header("Location: accion/accion_crear_consumible.php");
     else if (isset($_REQUEST["editar"])) Header("Location: consumibles_admin.php");
-    else if (isset($_REQUEST["grabar"])) Header("Location: accion_modificar_consumible.php");
-    else if (isset($_REQUEST["borrar"])) Header("Location: accion_borrar_consumible.php");
+    else if (isset($_REQUEST["grabar"])) Header("Location: accion/accion_modificar_consumible.php");
+    else if (isset($_REQUEST["borrar"])) Header("Location: accion/accion_borrar_consumible.php");
 }
 else Header("Location: consumibles_admin.php");
 

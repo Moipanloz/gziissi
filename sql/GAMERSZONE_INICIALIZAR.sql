@@ -34,7 +34,7 @@ CREATE TABLE usuarios(
 
 CREATE TABLE pases(
     Pases_ID smallint not null,
-    tipoMedio varchar2(20) CONSTRAINT "Medio_CHK1" CHECK (tipoMedio IN('PC', 'Consola generica', 'PS4', 'GameCube', 'Switch', 'XBOX One'))     not null,
+    tipoMedio varchar2(20) not null,
     UNIQUE (tipoMedio),
     PRIMARY KEY (Pases_ID)
 );
