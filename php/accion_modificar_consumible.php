@@ -9,7 +9,7 @@ if (isset($_SESSION["CONSUMIBLE"])) {
     require_once("gestion/gestionConsumibles.php");
 
     $conexion = crearConexionBD();
-    $excepcion = modificar_consumible($conexion,$CONSUMIBLE["CONSUMIBLES_ID"],$CONSUMIBLE["NOMBRECONSUMIBLE"], $CONSUMIBLE ["TIPOCONSUMIBLE"]);
+    $excepcion = modificarConsumible($conexion,$CONSUMIBLE["CONSUMIBLES_ID"],$CONSUMIBLE["NOMBRECONSUMIBLE"], $CONSUMIBLE ["TIPOCONSUMIBLE"]);
 
 
     cerrarConexionBD($conexion);

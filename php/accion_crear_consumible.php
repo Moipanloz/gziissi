@@ -9,17 +9,31 @@ if (isset($_SESSION["CONSUMIBLE"])) {
     require_once("gestion/gestionConsumibles.php");
 
     $conexion = crearConexionBD();
-    $excepcion = nuevoConsumible($conexion,$CONSUMIBLE ["NOMBRECONSUMIBLE"], $CONSUMIBLE ["TIPOCONSUMIBLE"]);
 
 
-    cerrarConexionBD($conexion);
+    $count = cantidadDeConsumiblesConNombre($conexion, $CONSUMIBLE["NOMBRECONSUMIBLE"]);
 
-    if ($excepcion<>"") {
-        $_SESSION["excepcion"] = $excepcion;
-        $_SESSION["destino"] = "consumibles_admin.php";
-        Header("Location: excepcion.php");
-    }
-    else
+    if ($count == 0) {
+
+        $excepcion = nuevoConsumible($conexion,$CONSUMIBLE ["NOMBRECONSUMIBLE"], $CONSUMIBLE ["TIPOCONSUMIBLE"]);
+
+        cerrarConexionBD($conexion);
+
+        if ($excepcion <> "") {
+            $_SESSION["excepcion"] = $excepcion;
+            $_SESSION["destino"] = "consumibles_admin.php";
+            Header("Location: excepcion.php");
+        } else
+            Header("Location: consumibles_admin.php");
+
+    } else {
+
+        $_SESSION["warning"] = "Ya existe un consumible con nombre \"" . $CONSUMIBLE ["NOMBRECONSUMIBLE"] . "\"";
+
         Header("Location: consumibles_admin.php");
-}
-else Header("Location: consumibles_admin.php"); // Se ha tratado de acceder directamente a este PHP
+
+        cerrarConexionBD($conexion);
+
+
+    }
+} else Header("Location: consumibles_admin.php"); // Se ha tratado de acceder directamente a este PHP

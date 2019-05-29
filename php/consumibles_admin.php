@@ -36,9 +36,9 @@ $todosLosConsumibles = consultarTodosConsumibles($conexion);
 
 <body>
 
-<?php if (isset($_SESSION ["consumible_en_uso"])) {?>
+<?php if (isset($_SESSION ["warning"])) {?>
 
-    <div ><?php print ($_SESSION ["consumible_en_uso"])?></div>
+    <div ><?php print ($_SESSION ["warning"])?></div>
 
 <?php
 
@@ -69,7 +69,7 @@ $todosLosConsumibles = consultarTodosConsumibles($conexion);
 
                     <div class="fila_consumibles">
 
-                        <div class="datos_libro">
+                        <div class="datos_consumible">
 
                             <input id="CONSUMIBLES_ID" name="CONSUMIBLES_ID"
 
@@ -167,9 +167,9 @@ $todosLosConsumibles = consultarTodosConsumibles($conexion);
 
     <div>
 
-        <article class="consumibles">
+        <article class="admin_class">
 
-            <form method="post" action="controlador_consumibles.php">
+            <form autocomplete="off" method="post" action="controlador_consumibles.php">
 
                 <input id="CONSUMIBLES_ID" name="CONSUMIBLES_ID" type="hidden" value="Fake id"/>
 

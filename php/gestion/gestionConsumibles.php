@@ -12,6 +12,13 @@ function consultarTodosConsumibles($conexion) {
     return $conexion->query($consulta);
 }
 
+function cantidadDeConsumiblesConNombre ($conexion, $Nombre) {
+    $stmt=$conexion->prepare("SELECT COUNT (*) AS TOTAL FROM CONSUMIBLES WHERE NOMBRECONSUMIBLE = :Nombre" );
+    $stmt->bindParam(':Nombre',$Nombre);
+    $stmt->execute();
+    return $stmt->fetchColumn();
+}
+
 function nuevoConsumible ($conexion, $NombreConsumible, $TipoConsumible) {
     try {
         $stmt=$conexion->prepare('CALL NUEVO_CONSUMIBLE(:Nombre, :Tipo)');
@@ -54,14 +61,14 @@ function consultarConsumiblesDeBono($conexion, $OidBono) {
     }
 }
 
-function cantidad_de_bonos_con_consumible ($conexion, $OidConsumible) {
+function cantidadDeBonosConConsumible ($conexion, $OidConsumible) {
     $stmt=$conexion->prepare("SELECT COUNT (*) AS TOTAL FROM LINEACONSUMIBLES WHERE CONSUMIBLES_ID = :ConsumibleId" );
     $stmt->bindParam(':ConsumibleId',$OidConsumible);
     $stmt->execute();
     return $stmt->fetchColumn();
 }
 
-function quitar_consumible($conexion,$OidConsumible) {
+function quitarConsumible($conexion,$OidConsumible) {
     try {
         $stmt=$conexion->prepare("DELETE FROM CONSUMIBLES WHERE CONSUMIBLES_ID = :OidConsumible");
         $stmt->bindParam(':OidConsumible',$OidConsumible);
@@ -73,7 +80,7 @@ function quitar_consumible($conexion,$OidConsumible) {
     }
 }
 
-function modificar_consumible($conexion,$OidConsumible,$NombreConsumible, $TipoConsumible) {
+function modificarConsumible($conexion,$OidConsumible,$NombreConsumible, $TipoConsumible) {
     try {
         $stmt=$conexion->prepare("UPDATE CONSUMIBLES SET NOMBRECONSUMIBLE= :NombreConsumible, TIPOCONSUMIBLE=:TipoConsumible WHERE CONSUMIBLES_ID = :Consumible_ID");
         $stmt->bindParam(':NombreConsumible',$NombreConsumible);
