@@ -6,6 +6,11 @@ $conexion = crearConexionBD();
 
 $todosLosTorneos = consultarTodosTorneos($conexion);
 
+$usuario = $_SESSION["usuario"];
+
+$dni = $usuario["dni"];
+
+$participando =  estaParticipando($conexion, $dni);
 
 ?>
 
@@ -24,6 +29,7 @@ $todosLosTorneos = consultarTodosTorneos($conexion);
 <?php include_once("cabecera.php") ?>
 <div>
     <h1 class="titulo">Torneos</h1>
+
     <p id="torneos">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
         labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
         nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
@@ -36,21 +42,24 @@ $todosLosTorneos = consultarTodosTorneos($conexion);
 
         if (is_null($todosLosTorneos)) { ?>
 
-            <p id="torneos">No tournaments are currently open.</p>
+            <p style="text-align: center;">No hay torneos actualmente.</p>
 
         <?php } else {
             foreach ($todosLosTorneos as $t) { ?>
 
-                <!-- TODO Hay que modificar tablas para meter url a imagenes para torneos y bonos y descripcion a torneos -->
-                <img src="imagenes\Telegram.png">
-                <div>
-                    <h3><?php print $t ["NOMBRETORNEO"] ?></h3>
-                    <p>Moi inutil que los torneos no tienen descripcion ni imagen y nos vas a hacer modificar las tablas
-                        en sql pa ponerselas. Los bonos tampoco tienen imagen reputo.</p>
-                    <form>
-                        <input type="submit" value="Apúntate">
+                <h3><?php print $t ["NOMBRETORNEO"] ?></h3>
+                <?php if(!isset($participando))  /*Si no está participando*/ {?>
+                    <form method="post" action="accion/accion_alta_torneo.php">
+                        <input type="hidden" name="DNI" id="DNI" value="<?php echo $dni?>"
+                        <input type="hidden" name="TORNEOS_ID" id="TORNEOS_ID" value="<?php echo $t["TORNEOS_ID"];?>">
+                        <input type="submit" id="joinTorneo" name="joinTorneo" value="Apúntate">
                     </form>
-                </div>
+
+                <?php }else{  /*Ya esta participando*/ ?>
+                    <p>Ya estás participando en este torneo.</p>
+                <?php }   ?>
+
+
 
             <?php }
         } ?>
