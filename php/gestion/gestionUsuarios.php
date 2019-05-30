@@ -50,6 +50,15 @@ function getNombreUsuario($conexion,$email,$pass) {
     return $stmt->fetchColumn();
 }
 
+function getDNIUsuario($conexion,$email,$pass) {
+    $consulta = "SELECT DNI FROM USUARIOS WHERE CORREO=:email AND PASS=:pass";
+    $stmt = $conexion->prepare($consulta);
+    $stmt->bindParam(':email',$email);
+    $stmt->bindParam(':pass',$pass);
+    $stmt->execute();
+    return $stmt->fetchColumn();
+}
+
 function existeEmailEnBD ($conexion, $Email) {
 
     $consulta = "SELECT COUNT(*) AS TOTAL FROM USUARIOS WHERE CORREO=:email";

@@ -28,7 +28,7 @@
 
                 <?php
 
-                if (!isset($_SESSION ["USUARIO"])) {
+                if (!isset($_SESSION ["login_name"])) {
 
                     ?>
 

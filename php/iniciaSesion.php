@@ -18,9 +18,9 @@ require_once("gestion/gestionUsuarios.php");
 
 $conexion = crearConexionBD();
 
-if (isset($_POST['submit'])) {
-    $email = $_POST['email'];
-    $pass = $_POST['pass'];
+if (isset($_REQUEST['submit'])) {
+    $email = $_REQUEST['email'];
+    $pass = $_REQUEST['pass'];
 
     $conexion = crearConexionBD();
     $num_usuarios = consultarUsuario($conexion, $email, $pass);
@@ -31,7 +31,8 @@ if (isset($_POST['submit'])) {
 
         cerrarConexionBD($conexion);
     } else {
-        $_SESSION["USUARIO"] = getNombreUsuario($conexion, $email, $pass);
+        $_SESSION ["login_dni"] = getDNIusuario ($conexion, $email, $pass);
+        $_SESSION ["login_name"] = getNombreUsuario($conexion, $email, $pass);
         cerrarConexionBD($conexion);
         Header("Location: index.php");
     }
@@ -50,7 +51,7 @@ if (isset($login)) {
 <div>
     <h1 class="titulo">Inicia sesión</h1>
     <div class="login">
-        <form>
+        <form id="loginUsuario" method="post" action="iniciaSesion.php">
             <div class="grid-container-login">
                 <label for="email">Correo electrónico: </label>
                 <input type="email" name="email" id="email" <?php if (isset($email)) print ("value = \"".$email."\"") ?> placeholder="correo@dominio.com">

@@ -1,6 +1,9 @@
 <?php
 
-if (isset($_SESSION["USUARIO"]))
-    unset($_SESSION["USUARIO"]);
+session_start();
+
+    unset($_SESSION["login_name"]);
+    unset($_SESSION["login_dni"]);
+
 
 header("Location: ../index.php");
