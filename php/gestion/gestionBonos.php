@@ -35,18 +35,17 @@ function lineasPasesDeBono($conexion, $ConsumibleId)
 
 }
 
-function anadirConsumibleABono($conexion, $IdBono, $IdConsumible)
+function anadirConsumibleABono($conexion, $IdConsumible, $IdBono)
 {
 
     try {
-        $stmt = $conexion->prepare('CALL INTRODUCIR_CONSUMIBLE_EN_BONO(:IdConsumible, :IdBono, :Cantidad)');
-        $stmt->bindParam(':IdConsumible', $IdConsumible);
-        $stmt->bindParam(':IdBono', $IdBono);
-        $stmt->bindParam(':Cantidad', 1);
 
+        $consulta = "CALL INTRODUCIR_CONSUMIBLE_EN_BONO (:ConsumiblesId, :BonosId)";
+        $stmt = $conexion->prepare($consulta);
+        $stmt->bindValue(':ConsumiblesId', $IdConsumible);
+        $stmt->bindValue(':BonosId', $IdBono);
 
-        $stmt->execute();
-        return "";
+        return $stmt -> execute();
     } catch (PDOException $e) {
         return $e->getMessage();
     }

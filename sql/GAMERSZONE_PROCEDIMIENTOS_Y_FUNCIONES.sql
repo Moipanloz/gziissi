@@ -68,9 +68,27 @@ p_consumibles_ID IN consumibles.consumibles_ID%TYPE,
 p_bonos_ID IN bonos.bonos_ID%TYPE,
 p_cantidadLC IN lineaConsumibles.cantidadLC%TYPE
 )
+
+
+
 IS
+
+    numero smallint;
+
 BEGIN
-    INSERT INTO lineaConsumibles(consumibles_ID, bonos_ID, cantidadLC) VALUES (p_consumibles_ID, p_bonos_ID, p_cantidadLC);
+
+    SELECT COUNT (*) INTO numero FROM LINEACONSUMIBLES WHERE CONSUMIBLES_ID = p_consumibles_ID AND BONOS_ID = p_bonos_ID;
+
+    IF (numero = 0) THEN
+
+        INSERT INTO LINEACONSUMIBLES (CONSUMIBLES_ID, BONOS_ID, CANTIDADLC) VALUES (p_consumibles_ID, p_bonos_ID, p_cantidadLC) ;
+
+    ELSE
+
+        UPDATE LINEACONSUMIBLES SET CANTIDADLC = CANTIDADLC + 1 WHERE CONSUMIBLES_ID = p_consumibles_ID AND BONOS_ID = p_bonos_ID;
+
+END IF;
+
 END INTRODUCIR_CONSUMIBLE_EN_BONO;
 /
 
