@@ -3,34 +3,27 @@
 
 	// Importar librerías necesarias para gestionar usuarios
 	require_once("gestion/gestionBD.php");
+	require_once("gestion/gestionUsuarios.php");
 
-	// Comprobar que hemos llegado a esta página porque se ha rellenado el formulario
+
+// Comprobar que hemos llegado a esta página porque se ha rellenado el formulario
 	if (isset($_SESSION["formulario"])) {
 		// Recogemos los datos del formulario
-		$nuevoUsuario["nif"] = $_REQUEST["nif"];
+		$nuevoUsuario["dni"] = $_REQUEST["dni"];
 		$nuevoUsuario["nombre"] = $_REQUEST["nombre"];
 		$nuevoUsuario["apellidos"] = $_REQUEST["apellidos"];
 		$nuevoUsuario["email"] = $_REQUEST["email"];
-		$nuevoUsuario["perfil"] = $_REQUEST["perfil"];
 		$nuevoUsuario["fechaNacimiento"] = $_REQUEST["fechaNacimiento"];
 		$nuevoUsuario["pass"] = $_REQUEST["pass"];
 		$nuevoUsuario["confirmpass"] = $_REQUEST["confirmpass"];
-		
-		$nuevoUsuario["municipio"] = $_REQUEST["municipio"];
-		$nuevoUsuario["provincia"] = $_REQUEST["provincia"];
-		$nuevoUsuario["calle"] = $_REQUEST["calle"];
-	
-		if(isset($_REQUEST["generoLiterario"])){
-			$nuevoUsuario["generoLiterario"] = $_REQUEST["generoLiterario"];
-		}else{
-			$nuevoUsuario["generoLiterario"] = array();
-		}
-		
+		$nuevoUsuario["pago"] = $_REQUEST["pago"];
+
+
 		// Guardar la variable local con los datos del formulario en la sesión.
 		$_SESSION["formulario"] = $nuevoUsuario;		
 	}
 	else // En caso contrario, vamos al formulario
-		Header("Location: form_alta_usuario.php");
+		Header("Location: registrate.php");
 
 	// Validamos el formulario en servidor
 	$conexion = crearConexionBD(); 
@@ -41,21 +34,21 @@
 	if (count($errores)>0) {
 		// Guardo en la sesión los mensajes de error y volvemos al formulario
 		$_SESSION["errores"] = $errores;
-		Header('Location: form_alta_usuario.php');
+		Header('Location: registrate.php');
 	} else
 		// Si todo va bien, vamos a la página de acción (inserción del usuario en la base de datos)
-		Header('Location: accion_alta_usuario.php');
+		Header('Location: accion/accion_alta_usuario.php');
 
 ///////////////////////////////////////////////////////////
 // Validación en servidor del formulario de alta de usuario
 ///////////////////////////////////////////////////////////
 function validarDatosUsuario($conexion, $nuevoUsuario){
 	$errores=array();
-	// Validación del NIF
-	if($nuevoUsuario["nif"]=="") 
-		$errores[] = "<p>El NIF no puede estar vacío</p>";
-	else if(!preg_match("/^[0-9]{8}[A-Z]$/", $nuevoUsuario["nif"])){
-		$errores[] = "<p>El NIF debe contener 8 números y una letra mayúscula: " . $nuevoUsuario["nif"]. "</p>";
+	// Validación del DNI
+	if($nuevoUsuario["dni"]=="")
+		$errores[] = "<p>El DNI no puede estar vacío</p>";
+	else if(!preg_match("/^[0-9]{8}[A-Z]$/", $nuevoUsuario["dni"])){
+		$errores[] = "<p>El DNI debe contener 8 números y una letra mayúscula: " . $nuevoUsuario["dni"]. "</p>";
 	}
 
 	// Validación del Nombre			
@@ -67,13 +60,8 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 		$errores[] = "<p>El email no puede estar vacío</p>";
 	}else if(!filter_var($nuevoUsuario["email"], FILTER_VALIDATE_EMAIL)){
 		$errores[] = "<p>El email es incorrecto: " . $nuevoUsuario["email"]. "</p>";
-	}
-		
-	// Validación del perfil
-	if($nuevoUsuario["perfil"] != "ALUMNO" &&
-		$nuevoUsuario["perfil"] != "PAS" && 
-		$nuevoUsuario["perfil"] != "PDI") {
-		$errores[] = "<p>El perfil debe ser ALUMNO, PAS o PDI</p>";
+	}else if (existeEmailEnBD ($conexion, $nuevoUsuario["email"])) {
+		$errores[] = "<p>Ya existe un usuario con el email: " . $nuevoUsuario["email"]. "</p>";
 	}
 		
 	// Validación de la contraseña
@@ -85,55 +73,14 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 	}else if($nuevoUsuario["pass"] != $nuevoUsuario["confirmpass"]){
 		$errores[] = "<p>La confirmación de contraseña no coincide con la contraseña</p>";
 	}
-	
-	// Validación de la dirección
-	if($nuevoUsuario["calle"]==""){
-		$errores[] = "<p>La dirección no puede estar vacía</p>";	
-	}
-	
-	// Validar municipio y provincia
-	$error = validarProvinciaMunicipio($conexion, $nuevoUsuario["provincia"], $nuevoUsuario["municipio"]);
-	if($error!="")
-		$errores[] = $error;
-	
-	// Validar géneros literarios
-	$error = validarGenerosLiterarios($conexion, $nuevoUsuario["generoLiterario"]);
-	if($error!="")
-		$errores[] = $error;
+
+	/*
+    // Validación del método de pago
+    if (!isset ($nuevoUsuario["pago"]) || $nuevoUsuario["pago"] != "Paypal" || $nuevoUsuario["pago"] != "Tarjeta")
+        $errores [] = "<p>Método de pago no válido.</p>";
+*/
 	
 	return $errores;
 }
 
-// Comprueba si los géneros literarios pasados por el usuario están en la BD
-function validarGenerosLiterarios($conexion, $generos){
-	$error="";
-	$generos_db = array(); 
-	$db = listarGeneros($conexion);
-	foreach ($db as $gen_db){
-		$generos_db[] = $gen_db["OID_GENERO"];
-	}
-	
-	if(count(array_intersect($generos_db, $generos)) < count($generos)){
-		$error = $error ."<p>Los géneros no son válidos</p>";
-	}
-	
-	return $error;
-}
-
-// Comprueba que la pareja municipio-provincia están en la BD
-function validarProvinciaMunicipio($conexion, $provincia, $municipio){
-	$error="";
-	$mun = buscarMunicipioProvincia($conexion, $provincia, $municipio);
-	$cont = 0;
-	foreach($mun as $m){
-		$cont = $cont + 1;
-	}
-	
-	if($cont != 1){
-		$error =  "<p>El municipo y la provincia no son válidos</p>";
-	}
-	return $error;
-}
-
-?>
 

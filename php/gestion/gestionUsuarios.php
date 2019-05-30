@@ -7,23 +7,24 @@
      */
 
  function alta_usuario($conexion,$usuario) {
-	$fechaNacimiento = date('d/m/Y', strtotime($usuario["fechaNacimiento"]));
+	$fechaNacimiento = date('d/M/Y', strtotime($usuario["fechaNacimiento"]));
+
 
 	try {
-		$consulta = "CALL INSERTAR_USUARIO(:dni, :nombre, :pass, :correo, :fechaNacimiento, :tipoPago)";
+		$consulta = "CALL NUEVO_USUARIO(:dni, :nombre, :pass, :email, :fechaNacimiento, :tipoPago)";
 		$stmt=$conexion->prepare($consulta);
 		$stmt->bindParam(':dni',$usuario["dni"]);
 		$stmt->bindParam(':nombre',$usuario["nombre"]);
 		$stmt->bindParam(':pass',$usuario["pass"]);
-        $stmt->bindParam(':correo',$usuario["correo"]);
+        $stmt->bindParam(':email',$usuario["email"]);
         $stmt->bindParam(':fechaNacimiento',$fechaNacimiento);
-        $stmt->bindParam(':tipoPago',$usuario["tipoPago"]);
+        $stmt->bindParam(':tipoPago',$usuario["pago"]);
 
         $stmt->execute();
 		
 		return true;
 	} catch(PDOException $e) {
-		return false;
+		return $e->getMessage();
 		// Si queremos visualizar la excepción durante la depuración: $e->getMessage();
     }
 }
@@ -47,5 +48,15 @@ function getNombreUsuario($conexion,$email,$pass) {
     $stmt->bindParam(':pass',$pass);
     $stmt->execute();
     return $stmt->fetchColumn();
+}
+
+function existeEmailEnBD ($conexion, $Email) {
+
+    $consulta = "SELECT COUNT(*) AS TOTAL FROM USUARIOS WHERE CORREO=:email";
+    $stmt = $conexion->prepare($consulta);
+    $stmt->bindParam(':email',$Email);
+    $stmt->execute();
+    return $stmt->fetchColumn() > 0;
+
 }
 

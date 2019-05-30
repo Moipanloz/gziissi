@@ -1,7 +1,8 @@
 <?php
 
-require_once ("gestion/gestionBD.php");
-require_once ("gestion/gestionUsuarios.php");
+require_once("gestion/gestionBD.php");
+require_once("gestion/gestionUsuarios.php");
+
 
 
 ?>
@@ -11,40 +12,108 @@ require_once ("gestion/gestionUsuarios.php");
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gamers Zone</title>
+    <script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
     <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css.css">
-    <link rel="icon" type="image/png"  href="imagenes/favicon-32x32.png">
+    <link rel="icon" type="image/png" href="imagenes/favicon-32x32.png">
 </head>
 <body>
 
-<?php include_once ("cabecera.php")?>
+<?php include_once("cabecera.php");
+
+if (!isset($_SESSION["formulario"])) {
+    $formulario['dni'] = "";
+    $formulario['nombre'] = "";
+    $formulario['fechaNacimiento'] = "";
+    $formulario['email'] = "";
+    $formulario['pass'] = "";
+    $formulario['pago'] = "";
+
+    $_SESSION["formulario"] = $formulario;
+} // Si ya existían valores, los cogemos para inicializar el formulario
+else
+    $formulario = $_SESSION["formulario"];
+
+// Si hay errores de validación, hay que mostrarlos y marcar los campos (El estilo viene dado y ya se explicará)
+if (isset($_SESSION["errores"])) {
+    $errores = $_SESSION["errores"];
+    unset($_SESSION["errores"]);
+}
+
+// Creamos una conexión con la BD
+$conexion = crearConexionBD();
+
+?>
+
+
+<script>
+    // Inicialización de elementos y eventos cuando el documento se carga completamente
+    $(document).ready(function () {
+        $("#altaUsuario").on("submit", function () {
+            return validateForm();
+        });
+
+        // EJERCICIO 3: Manejador de evento del color de la contraseña
+        $("#pass").on("keyup", function () {
+            // Calculo el color
+            passwordColor();
+        });
+    });
+</script>
+
+
+<?php
+// Mostrar los errores de validación (Si los hay)
+if (isset($errores) && count($errores) > 0) { ?>
+
+    <div id=\div_errores\ class=\error\>
+        <h4> Errores en el formulario:</h4>
+        <?php
+        foreach ($errores as $error) {
+            echo $error;
+        }
+        ?>
+    </div>
+    <?php
+}
+?>
 
 <div>
     <h1 class="titulo">Regístrate</h1>
     <div class="login">
-        <form>
+        <form id="altaUsuario" method="get" action="validacion_alta_usuario.php">
             <div class="grid-container-registro">
-                <label for="nombre">Nombre: </label>
-                <input type="text" name="nombre" id="nombre" placeholder="Nombre">
 
-                <label for="apellidos">Apellidos: </label>
-                <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos">
+                <label for="dni">DNI:</label>
+                <input type="text" name="dni" id="dni" size="9" placeholder="12345678X" pattern="^[0-9]{8}[A-Z]"
+                       value="<?php echo $formulario['dni']; ?>" required>
+                <label for="nombre">Nombre:</label>
+                <input id="nombre" name="nombre" type="text" size="40" value="<?php echo $formulario['nombre']; ?>"
+                       required/>
+                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento"
+                       required value="<?php echo $formulario['fechaNacimiento']; ?>"/>
+                <label for="email">Correo electrónico:</label>
+                <input id="email" name="email" type="email" placeholder="usuario@dominio.extension"
+                       value="<?php echo $formulario['email']; ?>" required/><br>
+                <label for="pass">Contraseña:</label>
+                <input type="password" name="pass" id="pass" placeholder="Mínimo 8 caracteres entre letras y dígitos"
+                       required oninput="passwordValidation(); "/>
+                <label for="passConfirm">Confirma tu contraseña:</label>
+                <input type="password" name="confirmpass" id="confirmpass" placeholder="Confirmación de contraseña"
+                       oninput="passwordConfirmation();" required/>
 
-                <label for="fechaNacimiento">Fecha de Nacimiento: </label>
-                <input type="date" name="fechaNacimiento" id="fechaNacimiento" placeholder="01/01/2000">
 
-                <label for="nick">Nick: </label>
-                <input type="text" name="nick" id="nick" placeholder="nick">
+                <div>
+                    <h3>Método de pago</h3>
+                    <label>
+                        <input <?php if ($formulario ["pago"] == "Tarjeta") print ("checked")?> type="radio" value="Tarjeta" name="pago"/>Tarjeta</label>
+                    <label>
+                        <input <?php if ($formulario ["pago"] == "Paypal") print ("checked")?> type="radio" value="Paypal" name="pago"/>Paypal</label>
+                </div>
 
-                <label for="email">Correo electrónico: </label>
-                <input type="email" name="email" id="email" placeholder="ejemplo@dominio.com">
-
-                <label for="pass">Contraseña: </label>
-                <input type="password" name="pass" id="pass" placeholder="contraseña">
-
-                <label for="passConfirm">Confirma tu contraseña: </label>
-                <input type="password" name="passConfirm" id="passConfirm" placeholder="contraseña">
             </div>
             <div class="align">
                 <input type="submit" value="Enviar" id="submit" name="submit">
