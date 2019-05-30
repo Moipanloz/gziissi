@@ -96,7 +96,7 @@ if (isset($errores) && count($errores) > 0) { ?>
                 <input type="date" id="fechaNacimiento" name="fechaNacimiento"
                        required value="<?php echo $formulario['fechaNacimiento']; ?>"/>
                 <label for="email">Correo electrónico:</label>
-                <input id="email" name="email" type="email" placeholder="usuario@dominio.extension"
+                <input id="email" name="email" type="email" placeholder="usuario@dominio.com"
                        value="<?php echo $formulario['email']; ?>" required/><br>
                 <label for="pass">Contraseña:</label>
                 <input type="password" name="pass" id="pass" placeholder="Mínimo 8 caracteres entre letras y dígitos"

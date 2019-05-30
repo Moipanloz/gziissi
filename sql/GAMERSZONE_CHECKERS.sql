@@ -39,7 +39,7 @@ DECLARE
 BEGIN
     SELECT disponible INTO checker FROM bonos WHERE bonos_ID=:NEW.bonos_ID;
     IF checker = 'TRUE' THEN
-        raise_application_error(-20602,:NEW.bonos_ID || ' No se puede añadir consumibles a un bono que esta activo');
+        raise_application_error(-20602,:NEW.bonos_ID || ' No se puede aï¿½adir consumibles a un bono que esta activo');
     END IF;
 END;
 /
@@ -52,7 +52,7 @@ DECLARE
 BEGIN
     SELECT disponible INTO checker FROM bonos WHERE bonos_ID=:NEW.bonos_ID;
     IF checker = 'TRUE' THEN
-        raise_application_error(-20603,:NEW.bonos_ID || ' No se puede añadir pases a un bono que esta activo');
+        raise_application_error(-20603,:NEW.bonos_ID || ' No se puede aï¿½adir pases a un bono que esta activo');
     END IF;
 END;
 / 
@@ -104,7 +104,7 @@ FOR EACH ROW
 DECLARE
 	p_correo VARCHAR2(50) := :NEW.correo;
 BEGIN
-    IF p_correo not like '%@%.com'
+    IF p_correo not like '%_@__%.__%'
     THEN
         raise_application_error(-20607,:NEW.correo || ' El correo no es valido');
     END IF;

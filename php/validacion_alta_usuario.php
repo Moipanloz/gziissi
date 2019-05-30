@@ -61,8 +61,11 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 	}else if(!filter_var($nuevoUsuario["email"], FILTER_VALIDATE_EMAIL)){
 		$errores[] = "<p>El email es incorrecto: " . $nuevoUsuario["email"]. "</p>";
 	}else if (existeEmailEnBD ($conexion, $nuevoUsuario["email"])) {
-		$errores[] = "<p>Ya existe un usuario con el email: " . $nuevoUsuario["email"]. "</p>";
-	}
+        $errores[] = "<p>Ya existe un usuario con el email: " . $nuevoUsuario["email"]. "</p>";
+    //}else if(!preg_match(".+\.com", $nuevoUsuario["pass"])) {
+    //    $errores[] = "<p>El email debe acabar en \".com\": " . $nuevoUsuario["email"]. "</p>";
+    }
+
 		
 	// Validación de la contraseña
 	if(!isset($nuevoUsuario["pass"]) || strlen($nuevoUsuario["pass"])<8){

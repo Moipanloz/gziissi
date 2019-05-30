@@ -11,7 +11,7 @@
                 session_start();
 
 
-                if (isset($_SESSION ["login_dni"]) && $_SESSION ["login_dni"] != "00000000A") { ?>
+                if (isset($_SESSION ["login_dni"]) && $_SESSION ["login_dni"] == "00000000A") { ?>
 
                     <li class="ul-item"><a href="administracion.php">Administración</a></li>
 
