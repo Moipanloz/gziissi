@@ -69,8 +69,6 @@ p_bonos_ID IN bonos.bonos_ID%TYPE,
 p_cantidadLC IN lineaConsumibles.cantidadLC%TYPE
 )
 
-
-
 IS
 
     numero smallint;
