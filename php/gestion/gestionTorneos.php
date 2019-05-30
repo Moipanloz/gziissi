@@ -25,8 +25,8 @@ function inscripcionTorneo($conexion,$dni,$torneosID) {
 }*/
 
 function estaParticipando($conexion, $dni, $tID){
-    $stmt = $conexion->prepare("SELECT COUNT (*) DNI FROM PARTICIPANTESTORNEO WHERE (PARTICIPANTESTORNEO.DNI = :dni"
-        . " AND PARTICIPANTESTORNEO.TORNEOS_ID = :tID");
+    $stmt = $conexion->prepare("SELECT COUNT (*) FROM PARTICIPANTESTORNEOS WHERE (PARTICIPANTESTORNEOS.DNI = :dni"
+        . " AND PARTICIPANTESTORNEOS.TORNEOS_ID = :tID)");
     $stmt->bindParam(':tID',$tID);
     $stmt->bindParam(':dni',$dni);
     $stmt->execute();
