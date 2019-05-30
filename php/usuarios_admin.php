@@ -11,92 +11,108 @@
 </head>
 
 <?php include_once("cabecera.php");
-
+require_once("gestion/gestionUsuarios.php");
 require_once("gestion/gestionBD.php");
-require_once("gestion/gestionBonos.php");
-require_once("gestion/gestionConsumibles.php");
-require_once("gestion/gestionPases.php");
 
 $conexion = crearConexionBD();
 
 
-if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
+if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A") {
 
     Header("Location: index.php");
+}
 
 
+$todosLosUsuarios = consultarTodosUsuarios($conexion);
 
-?>
-
-$todosLosBonos = consultarTodosBonos($conexion);
-
-if (isset ($_SESSION ["BONO"])) unset ($_SESSION ["BONO"]);
-
+if (isset($_SESSION["USUARIO"])) {
+    $USUARIO = $_SESSION["USUARIO"];
+    unset($_SESSION["USUARIO"]);
+}
 
 ?>
 
 <body>
 
 <div>
-    <h2 class="titulo">Administración Bonos</h2>
+    <h2 class="titulo">Administración Usuarios</h2>
     <div class="admin_class">
 
 
-        <?php foreach ($todosLosBonos
+        <?php foreach ($todosLosUsuarios
 
         as $fila) { ?>
 
-        <article class="bonos">
+            <article class="consumibles">
 
-            <form method="post" action="modificar_bonos_admin.php" autocomplete="off">
+                <form method="post" action="controlador_usuarios.php" autocomplete="off">
 
-                <div class="fila_bonos">
+                    <div class="fila_consumibles">
 
-                    <div class="datos_bonos">
+                        <div class="datos_consumible">
 
-                        <input id="BONOS_ID" name="BONOS_ID" type="hidden"
-                               value="<?php echo $fila["BONOS_ID"]; ?>"/>
+                            <input id="DNI" name="DNI"
 
-                        <input id="NOMBREBONO" name="NOMBREBONO" type="hidden"
-                               value="<?php echo $fila["NOMBREBONO"]; ?>"/>
+                                   type="hidden" value="<?php echo $fila["DNI"]; ?>"/>
 
-                        <input id="PRECIOBONO" name="PRECIOBONO" type="hidden"
-                               value="<?php echo $fila["PRECIOBONO"]; ?>"/>
+                                <!-- mostrando título -->
 
-                        <input id="DISPONIBLE" name="DISPONIBLE" type="hidden"
-                               value="<?php echo $fila["DISPONIBLE"]; ?>"/>
+                                <input id="NOMBRE" name="NOMBRE" type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
+                                <input id="CORREO" name="CORREO" type="hidden" value="<?php echo $fila["CORREO"]; ?>"/>
+                                <input id="FECHANACIMIENTO" name="FECHANACIMIENTO" type="hidden" value="<?php echo $fila["FECHANACIMIENTO"]; ?>"/>
+                                <input id="FECHAINSCRIPCION" name="FECHAINSCRIPCION" type="hidden" value="<?php echo $fila["FECHAINSCRIPCION"]; ?>"/>
+                                <input id="TIPOPAGO" name="TIPOPAGO" type="hidden" value="<?php echo $fila["TIPOPAGO"]; ?>"/>
+                                <input id="ACTIVO" name="ACTIVO" type="hidden" value="<?php echo $fila["ACTIVO"]; ?>"/>
 
-                        <div class="nombre">
-                            <b><?php print ($fila["NOMBREBONO"] . " - " . $fila ["PRECIOBONO"] . " euros"); ?></b></div>
 
-                        <div class="tipo">
-                            <em><?php if ($fila["DISPONIBLE"] == "TRUE") print ("Disponible"); else print ("No disponible"); ?></em>
+                            <div class="nombre"><?php echo "<strong>Nombre: </strong>".$fila["NOMBRE"]; ?></div>
+                            <div class="nombre"><?php echo "<strong>Correo: </strong>".$fila["CORREO"]; ?></div>
+                            <div class="nombre"><?php echo "<strong>Fecha de nacimiento: </strong>".$fila["FECHANACIMIENTO"]; ?></div>
+                            <div class="nombre"><?php echo "<strong>Fecha de inscripción: </strong>".$fila["FECHAINSCRIPCION"]; ?></div>
+                            <div class="nombre"><?php echo "<strong>Tipo de pago: </strong>".$fila["TIPOPAGO"]; ?></div>
+                            <div class="nombre"><?php echo "<strong>Activo: </strong>".$fila["ACTIVO"]; ?></div>
+
+
+
                         </div>
 
 
+
+                        <div id="botones_fila">
+
+                                <button id="borrar" name="borrar" type="submit" class="editar_fila">
+
+                                    <!--<img src="imagenes/remove_menuito.bmp" class="editar_fila" alt="Borrar consumible">
+-->
+                                    Borrar
+
+                                </button>
+
+                            <?php
+
+                            $dni = $fila["DNI"];
+
+                            if (esActivo($conexion, $dni) == "FALSE" ) { ?>
+
+
+                            <button id="activar" name="activar" type="submit" class="editar_fila">Activar</button>
+
+                            <?php } else { ?>
+
+                            <button id="desactivar" name="desactivar" type="submit" class="editar_fila">Desactivar</button>
+                            <?php } ?>
+
+                        </div>
+
                     </div>
 
-                    <div id="botones_fila">
+                </form>
 
-                        <button id="editar" name="editar" type="submit" class="editar_fila">
-
-                            <!--<img src="imagenes/pencil_menuito.bmp" class="editar_fila" alt="Editar consumible">
-                            -->
-                            Editar
-
-                        </button>
+            </article>
 
 
-                    </div>
-
-                </div>
-
-            </form>
-
-        </article>
 
         <?php } ?>
-
 
     </div>
 
@@ -104,4 +120,3 @@ if (isset ($_SESSION ["BONO"])) unset ($_SESSION ["BONO"]);
 
 <?php cerrarConexionBD($conexion) ?>
 </body>
-</html>

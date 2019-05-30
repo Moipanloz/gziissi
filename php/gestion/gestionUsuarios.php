@@ -6,6 +6,14 @@
      * #==========================================================#
      */
 
+
+
+function consultarTodosUsuarios($conexion) {
+    $consulta = "SELECT * FROM USUARIOS";
+    return $conexion->query($consulta);
+}
+
+
  function alta_usuario($conexion,$usuario) {
 	$fechaNacimiento = date('d/M/Y', strtotime($usuario["fechaNacimiento"]));
 
@@ -67,5 +75,26 @@ function existeEmailEnBD ($conexion, $Email) {
     $stmt->execute();
     return $stmt->fetchColumn() > 0;
 
+}
+
+function esActivo($conexion, $dni){
+    $consulta = "SELECT ACTIVO FROM USUARIOS WHERE DNI=:dni";
+    $stmt = $conexion->prepare($consulta);
+    $stmt->bindParam(':dni',$dni);
+    $stmt->execute();
+    return $stmt->fetchColumn();
+}
+
+
+function borrarUsuario($conexion,$dni) {
+    try {
+        $stmt=$conexion->prepare("DELETE FROM USUARIOS WHERE DNI = :dni");
+        $stmt->bindParam(':dni',$dni);
+        $stmt->execute();
+
+        return "";
+    } catch(PDOException $e) {
+        return $e->getMessage();
+    }
 }
 
