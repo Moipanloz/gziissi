@@ -11,7 +11,7 @@ function consultarTodosTorneos($conexion) {
         . " ORDER BY FECHATORNEO DESC";
     return $conexion->query($consulta);
 }
-/*
+
 function inscripcionTorneo($conexion,$dni,$torneosID) {
     try {
         $stmt=$conexion->prepare('CALL INSCRIPCION(:dni,:torneosID)');
@@ -22,7 +22,7 @@ function inscripcionTorneo($conexion,$dni,$torneosID) {
     } catch(PDOException $e) {
         return $e->getMessage();
     }
-}*/
+}
 
 function estaParticipando($conexion, $dni, $tID){
     $stmt = $conexion->prepare("SELECT COUNT (*) FROM PARTICIPANTESTORNEOS WHERE (PARTICIPANTESTORNEOS.DNI = :dni"

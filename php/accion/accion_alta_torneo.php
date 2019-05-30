@@ -21,29 +21,26 @@ if (isset($_REQUEST["joinTorneo"])) {
         Header("Location: iniciaSesion.php");
     }
 
-    cerrarConexionBD($conexion);
 
     $res = inscripcionTorneo($conexion, $dni, $torneosID);
     return $res;
     /*mensaje*/
-
-    /*
-
-    <script language="javascript">
-        $(document).ready(function(){
+/*
+    $popup = "<script language="javascript">
+            $(document).ready(function(){
             alert("Registro en el torneo realizado.");
         });
-    </script>
+    </script>"  */
+
+    cerrarConexionBD($conexion);
 
 
-
-      */
-}
-else
+}else {
     /*mensaje*/
     cerrarConexionBD($conexion);
 
 
-Header("Location: torneos.php");
+    Header("Location: torneos.php");
+}
 
 ?>
