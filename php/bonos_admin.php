@@ -34,19 +34,7 @@ if (isset ($_SESSION ["BONO"])) unset ($_SESSION ["BONO"]);
 
 <body>
 
-<?php
 
-if (isset ($_SESSION ["saved_succesfully"])) {
-
-
-    print ("<div>" . $_SESSION ["saved_succesfully"] . "</div>");
-
-
-    unset($_SESSION["saved_succesfully"]);
-
-}
-
-?>
 
 <div>
     <h2 class="titulo">Administración Bonos</h2>
