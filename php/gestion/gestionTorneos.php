@@ -24,10 +24,13 @@ function inscripcionTorneo($conexion,$dni,$torneosID) {
     }
 }*/
 
-function estaParticipando($conexion, $dni){
-    $consulta = "SELECT DNI FROM PARTICIPANTESTORNEO"
-        . " WHERE (PARTICIPANTESTORNEO.DNI == $dni";
-    return $conexion->query($consulta);
+function estaParticipando($conexion, $dni, $tID){
+    $stmt = $conexion->prepare("SELECT COUNT (*) DNI FROM PARTICIPANTESTORNEO WHERE (PARTICIPANTESTORNEO.DNI = :dni"
+        . " AND PARTICIPANTESTORNEO.TORNEOS_ID = :tID");
+    $stmt->bindParam(':tID',$tID);
+    $stmt->bindParam(':dni',$dni);
+    $stmt->execute();
+    return $stmt->fetchColumn();
 }
 
 

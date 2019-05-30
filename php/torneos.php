@@ -1,18 +1,4 @@
-<?php
-require_once("gestion/gestionBD.php");
-require_once("gestion/gestionTorneos.php");
 
-$conexion = crearConexionBD();
-
-$todosLosTorneos = consultarTodosTorneos($conexion);
-
-$usuario = $_SESSION["login_name"];
-
-$dni = $usuario["login_dni"];
-/*
-$participando =  estaParticipando($conexion, $dni);*/
-
-?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -28,6 +14,14 @@ $participando =  estaParticipando($conexion, $dni);*/
 <body>
 <?php include_once("cabecera.php") ?>
 <div>
+
+    <?php
+    require_once("gestion/gestionBD.php");
+    require_once("gestion/gestionTorneos.php");
+
+    $conexion = crearConexionBD();
+    $todosLosTorneos = consultarTodosTorneos($conexion);
+?>
     <h1 class="titulo">Torneos</h1>
 
     <p id="torneos">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
@@ -48,7 +42,18 @@ $participando =  estaParticipando($conexion, $dni);*/
             foreach ($todosLosTorneos as $t) { ?>
 
                 <h3><?php print $t ["NOMBRETORNEO"] ?></h3>
-                <?php if(!isset($participando))  /*Si no está participando*/ {?>
+                <?php
+
+                if (isset($_SESSION["login_name"]) and isset($_SESSION["login_dni"]) and isset($t["TORNEOS_ID"])) {
+                    $usuario = $_SESSION["login_name"];
+                    $dni = $_SESSION["login_dni"];
+                    $tID = $t["TORNEOS_ID"];
+
+                    $participando = estaParticipando($conexion, $dni, $tID);
+                }
+
+
+                if($participando == 0)  /*Si no está participando*/ {?>
                     <form method="post" action="accion/accion_alta_torneo.php">
                         <input type="hidden" name="DNI" id="DNI" value="<?php echo $dni?>"
                         <input type="hidden" name="TORNEOS_ID" id="TORNEOS_ID" value="<?php echo $t["TORNEOS_ID"];?>">
