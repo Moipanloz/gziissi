@@ -135,7 +135,7 @@ cerrarConexionBD($conexion);
 
             <?php if ($BONO ["DISPONIBLE"] != "TRUE") { ?>
 
-                <form autocomplete="off" method="post" action="accion/accion_anadir_consumible_a_bono.php">
+                <form autocomplete="off" method="post" action="controlador_bonos.php">
 
                     <h4>El pase contiene:</h4>
 
@@ -157,20 +157,28 @@ cerrarConexionBD($conexion);
                         <?php }
                     } ?>
 
-                    <select>
+                    <select name="CONSUMIBLES_ID">
                         <?php foreach ($allConsumibles as $c) { ?>
                             <option name="CONSUMIBLES_ID"
+
+                                    <?php if (isset ($_SESSION ["CONSUMIBLES_ID"])&&($_SESSION ["CONSUMIBLES_ID"] == $c ["CONSUMIBLES_ID"])) print (" selected ") ?>
+
                                     value="<?php print $c ["CONSUMIBLES_ID"] ?>"><?php print $c ["NOMBRECONSUMIBLE"] ?></option>
                         <?php } ?>
                     </select>
 
+                    <!--
+
                     <button id="anadir_c" name="anadir_c" type="submit" class="editar_fila">
 
-                        <!--<img src="imagenes/remove_menuito.bmp" class="editar_fila" alt="Borrar consumible">
-    -->
+
                         Añadir
 
                     </button>
+                    -->
+
+                    <input type="submit" value="Añadir" name="anadir_c"/>
+                    <input type="submit" value="Borrar" name="borrar_c"/>
 
                 </form>
 

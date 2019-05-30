@@ -28,6 +28,7 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
 $todosLosBonos = consultarTodosBonos($conexion);
 
 if (isset ($_SESSION ["BONO"])) unset ($_SESSION ["BONO"]);
+if (isset ($_SESSION ["CONSUMIBLES_ID"])) unset ($_SESSION ["CONSUMIBLES_ID"]);
 
 
 ?>

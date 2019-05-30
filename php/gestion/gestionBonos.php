@@ -40,14 +40,15 @@ function anadirConsumibleABono($conexion, $IdConsumible, $IdBono)
 
     try {
 
-        $consulta = "CALL INTRODUCIR_CONSUMIBLE_EN_BONO (:ConsumiblesId, :BonosId)";
+        $consulta = "CALL INTRODUCIR_CONSUMIBLE_EN_BONO(:ConsumiblesId, :BonosId)";
         $stmt = $conexion->prepare($consulta);
         $stmt->bindParam(':ConsumiblesId', $IdConsumible);
         $stmt->bindParam(':BonosId', $IdBono);
-
-        return $stmt -> execute();
+        $stmt -> execute();
+        return "";
     } catch (PDOException $e) {
-        return $e->getMessage();
+        return "IdCons: ".$IdConsumible.", IdBono: ".$IdConsumible;
+        //return $e->getMessage();
     }
 
 }

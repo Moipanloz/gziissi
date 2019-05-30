@@ -65,8 +65,7 @@ END NUEVA_VENTA;
 /
 CREATE OR REPLACE PROCEDURE INTRODUCIR_CONSUMIBLE_EN_BONO (
 p_consumibles_ID IN consumibles.consumibles_ID%TYPE,
-p_bonos_ID IN bonos.bonos_ID%TYPE,
-p_cantidadLC IN lineaConsumibles.cantidadLC%TYPE
+p_bonos_ID IN bonos.bonos_ID%TYPE
 )
 
 IS
@@ -79,7 +78,7 @@ BEGIN
 
     IF (numero = 0) THEN
 
-        INSERT INTO LINEACONSUMIBLES (CONSUMIBLES_ID, BONOS_ID, CANTIDADLC) VALUES (p_consumibles_ID, p_bonos_ID, p_cantidadLC) ;
+        INSERT INTO LINEACONSUMIBLES (CONSUMIBLES_ID, BONOS_ID, CANTIDADLC) VALUES (p_consumibles_ID, p_bonos_ID, 1) ;
 
     ELSE
 

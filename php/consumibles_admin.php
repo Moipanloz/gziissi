@@ -33,16 +33,13 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
 
 ?>
 
-?>
 
 
 <body>
 
-<?php if (isset($_SESSION ["warning"])) {?>
+<?php if (isset($_SESSION ["warning"])) {
 
-    <div ><?php print ($_SESSION ["warning"])?></div>
-
-<?php
+     print ("<div>".($_SESSION ["warning"])."</div>");
 
     unset($_SESSION ["warning"]);
 

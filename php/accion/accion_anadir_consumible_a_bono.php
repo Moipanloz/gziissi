@@ -1,9 +1,11 @@
 <?php
 session_start();
 
-if (isset($_REQUEST["CONSUMIBLES_ID"]) && isset($_SESSION["BONO"])) {
+if (isset($_SESSION["CONSUMIBLES_ID"]) && isset($_SESSION["BONO"])) {
 
-    $CONSUMIBLES_ID = $_REQUEST ["CONSUMIBLES_ID"];
+
+
+    $CONSUMIBLES_ID = $_SESSION ["CONSUMIBLES_ID"];
     $BONO = $_SESSION ["BONO"];
     $BONO_ID = $BONO ["BONOS_ID"];
 
@@ -23,9 +25,10 @@ if (isset($_REQUEST["CONSUMIBLES_ID"]) && isset($_SESSION["BONO"])) {
     else
         Header("Location: ../modificar_bonos_admin.php");
 }
+/*
 else {
 
 
     Header("Location: ../modificar_bonos_admin.php"); // Se ha tratado de acceder directamente a este PHP
 
-}
+}*/
