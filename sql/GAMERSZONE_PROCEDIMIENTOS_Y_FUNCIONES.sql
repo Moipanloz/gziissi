@@ -89,6 +89,32 @@ END IF;
 END INTRODUCIR_CONSUMIBLE_EN_BONO;
 /
 
+CREATE OR REPLACE PROCEDURE BORRAR_CONSUMIBLE_DE_BONO (
+    p_consumibles_ID IN consumibles.consumibles_ID%TYPE,
+    p_bonos_ID IN bonos.bonos_ID%TYPE
+)
+
+    IS
+
+    numero smallint;
+
+BEGIN
+
+    SELECT CANTIDADLC INTO numero FROM LINEACONSUMIBLES WHERE CONSUMIBLES_ID = p_consumibles_ID AND BONOS_ID = p_bonos_ID;
+
+    IF (numero = 1) THEN
+
+        DELETE FROM LINEACONSUMIBLES WHERE CONSUMIBLES_ID = p_consumibles_ID AND BONOS_ID = p_bonos_ID;
+
+    ELSE
+
+        UPDATE LINEACONSUMIBLES SET CANTIDADLC = CANTIDADLC - 1 WHERE CONSUMIBLES_ID = p_consumibles_ID AND BONOS_ID = p_bonos_ID;
+
+    END IF;
+
+END BORRAR_CONSUMIBLE_DE_BONO;
+/
+
 CREATE OR REPLACE PROCEDURE INTRODUCIR_PASE_EN_BONO(
 p_pases_ID IN pases.pases_ID%TYPE,
 p_bonos_ID IN bonos.bonos_ID%TYPE,

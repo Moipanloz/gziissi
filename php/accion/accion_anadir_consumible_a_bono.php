@@ -3,8 +3,6 @@ session_start();
 
 if (isset($_SESSION["CONSUMIBLES_ID"]) && isset($_SESSION["BONO"])) {
 
-
-
     $CONSUMIBLES_ID = $_SESSION ["CONSUMIBLES_ID"];
     $BONO = $_SESSION ["BONO"];
     $BONO_ID = $BONO ["BONOS_ID"];
