@@ -25,7 +25,7 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
 $conexion = crearConexionBD();
 
 //Se llega por primera vez desde bonos_admin
-        //Se construye el objeto Bono y se pasa a $_SESSION
+//Se construye el objeto Bono y se pasa a $_SESSION
 if (isset ($_REQUEST["BONOS_ID"])) {
 
     $BONO ["BONOS_ID"] = $_REQUEST ["BONOS_ID"];
@@ -40,25 +40,42 @@ if (isset ($_REQUEST["BONOS_ID"])) {
     $BONO = $_SESSION ["BONO"];
 
 
-    $lineasConsumiblesDelBono = lineasConsumiblesDeBono($conexion, $BONO ["BONOS_ID"]);
+$lineasConsumiblesDelBono = lineasConsumiblesDeBono($conexion, $BONO ["BONOS_ID"]);
 
-    $lineasPasesDelBono = lineasPasesDeBono($conexion, $BONO ["BONOS_ID"]);
+$lineasPasesDelBono = lineasPasesDeBono($conexion, $BONO ["BONOS_ID"]);
 
-    $allConsumibles = consultarTodosConsumibles($conexion);
+$allConsumibles = consultarTodosConsumibles($conexion);
 
-    $allPases = consultarTodosPases($conexion);
+$allPases = consultarTodosPases($conexion);
 
-    cerrarConexionBD($conexion);
+cerrarConexionBD($conexion);
 
 
-    ?>
+?>
 
-    <body>
+<body>
 
+<div>
+    <h2 class="titulo">Administración Bonos</h2>
     <div>
-        <h2 class="titulo">Administración Bonos</h2>
-        <div>
-            <div class="admin_class">
+
+        <?php
+
+        if (isset ($_SESSION ["saved_succesfully"])) {
+
+
+            print ("<div>" . $_SESSION ["saved_succesfully"] . "</div>");
+
+
+            unset($_SESSION["saved_succesfully"]);
+
+        }
+
+        ?>
+
+        <div class="admin_class">
+
+            <?php if (isset ($_REQUEST ["modificando_datos"])) { ?>
 
                 <form autocomplete="off" method="post" action="accion/accion_modificar_datos_bono.php">
 
@@ -74,11 +91,7 @@ if (isset ($_REQUEST["BONOS_ID"])) {
 
                         <h4> Disponible:</h4>
                         <input type="checkbox" name="DISPONIBLE" value="TRUE"
-                                <?php if ($BONO ["DISPONIBLE"] == "TRUE") print " checked"; ?>></h4>
-
-                    </div>
-
-                    <div>
+                            <?php if ($BONO ["DISPONIBLE"] == "TRUE") print " checked"; ?>></h4>
 
                     </div>
 
@@ -90,10 +103,37 @@ if (isset ($_REQUEST["BONOS_ID"])) {
 
                 </form>
 
+            <?php } else { ?>
 
-            </div>
+                <h3>Id del bono: <?php print $BONO ["BONOS_ID"] ?></h3>
+                <div>
 
-            <div class="admin_class">
+                    <h3>Nombre: <?php print ($BONO ["NOMBREBONO"]) ?>"</h3>
+
+                    <h4>Precio:<?php print ($BONO ["PRECIOBONO"]) ?> euros</h4>
+
+                    <h4> Disponible: <?php print $BONO ["DISPONIBLE"]; ?></h4>
+
+                </div>
+
+                <form method="post" action="modificar_bonos_admin.php">
+
+                    <button id="modificando_datos" name="modificando_datos" type="submit">
+
+                        Modificar datos
+
+                    </button>
+
+                </form>
+
+            <?php } ?>
+
+
+        </div>
+
+        <div class="admin_class">
+
+            <?php if ($BONO ["DISPONIBLE"] != "TRUE") { ?>
 
                 <form autocomplete="off" method="post" action="accion/accion_anadir_consumible_a_bono.php">
 
@@ -127,20 +167,45 @@ if (isset ($_REQUEST["BONOS_ID"])) {
                     <button id="anadir_c" name="anadir_c" type="submit" class="editar_fila">
 
                         <!--<img src="imagenes/remove_menuito.bmp" class="editar_fila" alt="Borrar consumible">
--->
+    -->
                         Añadir
 
                     </button>
 
                 </form>
 
-            </div>
+            <?php } else {
+
+                ?>
+
+                <div>Para modificar el contenido del bono, por favor desactívelo antes.</div>
+
+                <h4>El pase contiene:</h4>
+
+                <?php
+
+                if ($lineasConsumiblesDelBono == null || !isset($lineasConsumiblesDelBono)) { ?>
+
+                    El bono no contiene ningun consumible.
+
+                <?php } else {
+
+                    foreach ($lineasConsumiblesDelBono as $lc) { ?>
+
+                        <h5><?php print ($lc ["NOMBRECONSUMIBLE"] . " - " . $lc ["CANTIDADLC"]) ?></h5>
+
+                    <?php }
+                }
+
+            } ?>
 
         </div>
 
     </div>
 
-    </body>
+</div>
+
+</body>
 </html>
 
 

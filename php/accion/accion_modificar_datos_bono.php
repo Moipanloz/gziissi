@@ -32,6 +32,6 @@ if (isset($_REQUEST ["NOMBREBONO"])) {
 
         $_SESSION ["saved_succesfully"] = "El bono ".$BONO["NOMBREBONO"]."se guardó correctamente.";
 
-        Header("Location: ../bonos_admin.php");
+        Header("Location: ../modificar_bonos_admin.php");
     }
 } else Header("Location: ../bonos_admin.php"); // Se ha tratado de acceder directamente a este PHP
