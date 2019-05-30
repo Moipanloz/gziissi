@@ -21,11 +21,11 @@ require_once("gestion/gestionTorneos.php");
 $conexion = crearConexionBD();
 
 
-/*if (!isset($_SESSION ["ADMIN"]))
+if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
 
     Header("Location: index.php");
 
-*/
+
 
 ?>
 

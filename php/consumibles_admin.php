@@ -25,11 +25,13 @@ $conexion = crearConexionBD();
 
 $todosLosConsumibles = consultarTodosConsumibles($conexion);
 
-/*if (!isset($_SESSION ["ADMIN"]))
+if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
 
     Header("Location: index.php");
 
-*/
+
+
+?>
 
 ?>
 

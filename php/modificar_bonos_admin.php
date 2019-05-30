@@ -17,6 +17,12 @@ require_once("gestion/gestionBonos.php");
 require_once("gestion/gestionConsumibles.php");
 require_once("gestion/gestionPases.php");
 
+if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
+
+    Header("Location: index.php");
+
+
+
 $conexion = crearConexionBD();
 
 if (isset ($_REQUEST["BONOS_ID"])) {
