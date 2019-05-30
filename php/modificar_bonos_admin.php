@@ -82,11 +82,11 @@ cerrarConexionBD($conexion);
                     <h3>Id del bono: <?php print $BONO ["BONOS_ID"] ?></h3>
                     <div>
                         <h3>Nombre:<input maxlength="20" id="NOMBREBONO" name="NOMBREBONO" type="text"
-                                          value="<?php print ($BONO ["NOMBREBONO"]) ?>" placeholder="Nombre del Bono"/>
+                                          value="<?php print ($BONO ["NOMBREBONO"]) ?>"/>
                         </h3>
 
-                        <h4>Precio:<input maxlength="2" id="PRECIOBONO" name="PRECIOBONO" type="text"
-                                          value="<?php print ($BONO ["PRECIOBONO"]) ?>" placeholder="Precio del Bono"/>
+                        <h4>Precio:<input maxlength="5" id="PRECIOBONO" name="PRECIOBONO" type="text"
+                                          value="<?php print ($BONO ["PRECIOBONO"]) ?>"/>
                             euros</h4>
 
                         <h4> Disponible:</h4>
@@ -108,9 +108,9 @@ cerrarConexionBD($conexion);
                 <h3>Id del bono: <?php print $BONO ["BONOS_ID"] ?></h3>
                 <div>
 
-                    <h3>Nombre: <?php print ($BONO ["NOMBREBONO"]) ?>"</h3>
+                    <h3>Nombre: <?php print ($BONO ["NOMBREBONO"]) ?></h3>
 
-                    <h4>Precio:<?php print ($BONO ["PRECIOBONO"]) ?> euros</h4>
+                    <h4>Precio: <?php print ($BONO ["PRECIOBONO"]) ?> euros</h4>
 
                     <h4> Disponible: <?php print $BONO ["DISPONIBLE"]; ?></h4>
 
