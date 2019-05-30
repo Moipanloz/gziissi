@@ -12,6 +12,26 @@ function consultarTodosTorneos($conexion) {
     return $conexion->query($consulta);
 }
 /*
+function inscripcionTorneo($conexion,$dni,$torneosID) {
+    try {
+        $stmt=$conexion->prepare('CALL INSCRIPCION(:dni,:torneosID)');
+        $stmt->bindParam(':dni',$dni);
+        $stmt->bindParam(':torneosID',$torneosID);
+        $stmt->execute();
+        return "";
+    } catch(PDOException $e) {
+        return $e->getMessage();
+    }
+}*/
+
+function estaParticipando($conexion, $dni){
+    $consulta = "SELECT DNI FROM PARTICIPANTESTORNEO"
+        . " WHERE (PARTICIPANTESTORNEO.DNI == $dni";
+    return $conexion->query($consulta);
+}
+
+
+/*
 
 function quitar_bono($conexion,$OidBono) {
     try {
