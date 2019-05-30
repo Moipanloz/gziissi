@@ -1,7 +1,8 @@
 
 
 <header>
-	<div>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div>
 		<a href="index.php"><img src="imagenes/GZ-logo.png" alt="Logo" class="logo"></a>
 		<nav>
 			<ul>

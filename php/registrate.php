@@ -16,7 +16,7 @@ require_once("gestion/gestionUsuarios.php");
     <script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
     <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css.css">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <link rel="icon" type="image/png" href="imagenes/favicon-32x32.png">
 </head>
 <body>
