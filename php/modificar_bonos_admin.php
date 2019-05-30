@@ -22,9 +22,10 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
     Header("Location: index.php");
 
 
-
 $conexion = crearConexionBD();
 
+//Se llega por primera vez desde bonos_admin
+        //Se construye el objeto Bono y se pasa a $_SESSION
 if (isset ($_REQUEST["BONOS_ID"])) {
 
     $BONO ["BONOS_ID"] = $_REQUEST ["BONOS_ID"];
@@ -33,6 +34,10 @@ if (isset ($_REQUEST["BONOS_ID"])) {
     $BONO ["DISPONIBLE"] = $_REQUEST ["DISPONIBLE"];
 
     $_SESSION ["BONO"] = $BONO;
+
+    //Se llega tras añadir un consumible o pase
+} else if (isset ($_SESSION ["BONO"]))
+    $BONO = $_SESSION ["BONO"];
 
 
     $lineasConsumiblesDelBono = lineasConsumiblesDeBono($conexion, $BONO ["BONOS_ID"]);
@@ -67,14 +72,13 @@ if (isset ($_REQUEST["BONOS_ID"])) {
                                           value="<?php print ($BONO ["PRECIOBONO"]) ?>" placeholder="Precio del Bono"/>
                             euros</h4>
 
-                        <h4> Disponible:<input type="checkbox" name="DISPONIBLE"
-                                               <?php if ($BONO ["DISPONIBLE"] == "TRUE") print " checked";?>></h4>
-
+                        <h4> Disponible:</h4>
+                        <input type="checkbox" name="DISPONIBLE" value="TRUE"
+                                <?php if ($BONO ["DISPONIBLE"] == "TRUE") print " checked"; ?>></h4>
 
                     </div>
 
                     <div>
-
 
                     </div>
 
@@ -137,16 +141,6 @@ if (isset ($_REQUEST["BONOS_ID"])) {
     </div>
 
     </body>
-
-
-    <?php
-}
- else {
-
-    Header("Location: bonos_admin.php");
-
-}
-
-?>
+</html>
 
 

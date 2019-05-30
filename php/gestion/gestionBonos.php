@@ -70,15 +70,15 @@ function modificarBono($conexion, $BONOS_ID, $NOMBRE, $PRECIO, $DISPONIBLE)
 
 
     try {
-        $stmt = $conexion->prepare('UPDATE BONOS SET NOMBREBONO = :Nombre, PRECIOBONO = :precio, DISPONIBLE = :Disponible WHERE BONOS_ID = :Id');
+        $stmt=$conexion->prepare("UPDATE BONOS SET PRECIOBONO= :Precio, NOMBREBONO=:Nombre, DISPONIBLE=:Disponible  WHERE BONOS_ID = :Bonoid");
         $stmt->bindParam(':Nombre', $NOMBRE);
         $stmt->bindParam(':Precio', $PRECIO);
 
-        if ($DISPONIBLE == "TRUE" || $DISPONIBLE == true) $bool = "TRUE";
-        else $bool = "FALSE";
+        if ($DISPONIBLE == "TRUE" || $DISPONIBLE == true) $bool = 'TRUE';
+        else $bool = 'FALSE';
 
         $stmt->bindParam(':Disponible', $bool);
-        $stmt->bindParam(':Id', $BONOS_ID);
+        $stmt->bindParam(':Bonoid', $BONOS_ID);
         $stmt->execute();
         return "";
     } catch (PDOException $e) {

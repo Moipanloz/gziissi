@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_SESSION["BONO"])) {
+if (isset($_REQUEST ["NOMBREBONO"])) {
     $BONO = $_SESSION["BONO"];
     $ID = $BONO ["BONOS_ID"];
     $NOMBRE = $_REQUEST ["NOMBREBONO"];
@@ -13,22 +13,25 @@ if (isset($_SESSION["BONO"])) {
     require_once("../gestion/gestionBonos.php");
 
     $conexion = crearConexionBD();
-    $excepcion = modificarBono($conexion,$ID, $NOMBRE, $PRECIO, $DISPONIBLE);
-
-    unset ($_SESSION ["NOMBREBONO"]);
-    unset ($_SESSION ["PRECIOBONO"]);
-    unset ($_SESSION ["DISPONIBLE"]);
-
-
+    $excepcion = modificarBono($conexion, $ID, $NOMBRE, $PRECIO, $DISPONIBLE);
 
     cerrarConexionBD($conexion);
 
-    if ($excepcion<>"") {
+    if ($excepcion <> "") {
+
         $_SESSION["excepcion"] = $excepcion;
         $_SESSION["destino"] = "../modificar_bonos_admin.php";
         Header("Location: ../excepcion.php");
+    } else {
+
+        $BONO ["NOMBREBONO"] = $NOMBRE;
+        $BONO ["PRECIOBONO"] = $PRECIO;
+        $BONO ["DISPONIBLE"] = $DISPONIBLE;
+
+        $_SESSION  ["BONO"] = $BONO;
+
+        $_SESSION ["saved_succesfully"] = "El bono ".$BONO["NOMBREBONO"]."se guardó correctamente.";
+
+        Header("Location: ../bonos_admin.php");
     }
-    else
-        Header("Location: ../modificar_bonos_admin.php");
-}
-else Header("Location: ../bonos_admin.php"); // Se ha tratado de acceder directamente a este PHP
+} else Header("Location: ../bonos_admin.php"); // Se ha tratado de acceder directamente a este PHP
