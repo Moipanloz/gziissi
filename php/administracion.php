@@ -47,6 +47,12 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
         <span>
             <a href="consumibles_admin.php">Consumibles</a>
         </span>
+        <span>
+            <a href="usuarios_admin.php">Usuarios</a>
+        </span>
+        <span>
+            <a href="lineasventa_admin.php">LineasVenta</a>
+        </span>
     </div>
 </div>
 

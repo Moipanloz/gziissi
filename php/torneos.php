@@ -40,8 +40,15 @@
 
         <?php } else {
             foreach ($todosLosTorneos as $t) { ?>
-
-                <h3><?php print $t ["NOMBRETORNEO"] ?></h3>
+                <div>
+                    <h3><?php print $t ["NOMBRETORNEO"] ?></h3>
+                    <ul>
+                        <li><strong>Juego: </strong><?php print $t["VIDEOJUEGO"]?></li>
+                        <li><strong>Precio: </strong><?php print $t["PRECIOTORNEO"]?>€</li>
+                        <li><strong>Fecha: </strong><?php print $t["FECHATORNEO"]?></li>
+                        <li><strong>Número máximo de participantes: </strong><?php print $t["MAXPARTICIPANTES"]?></li>
+                    </ul>
+                </div>
                 <?php
 
                 if (isset($_SESSION["login_name"]) and isset($_SESSION["login_dni"]) and isset($t["TORNEOS_ID"])) {
