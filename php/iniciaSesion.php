@@ -26,14 +26,14 @@ if (isset($_REQUEST['submit'])) {
 
 
 
-    if (!consultarUsuario($conexion, $email, password_hash($pass, PASSWORD_BCRYPT))) {
+    if (!consultarUsuario($conexion, $email, $pass )) {
         $login = "error";
-        //$pass = null;
+        $pass = null;
 
         cerrarConexionBD($conexion);
     } else {
-        $_SESSION ["login_dni"] = getDNIusuario ($conexion, $email, $pass);
-        $_SESSION ["login_name"] = getNombreUsuario($conexion, $email, $pass);
+        $_SESSION ["login_dni"] = getDNIusuario ($conexion, $email);
+        $_SESSION ["login_name"] = getNombreUsuario($conexion, $email);
         cerrarConexionBD($conexion);
         Header("Location: index.php");
     }
@@ -42,8 +42,7 @@ if (isset($_REQUEST['submit'])) {
 
 if (isset($login)) {
     echo "<div class=\"error\">";
-    //echo "Error en la contraseña o no existe el usuario.";
-    print ("Pass: ".$pass.", Hash: ".password_hash($pass, PASSWORD_DEFAULT).", Result: ".consultarUsuario($conexion, $email, password_hash($pass, PASSWORD_DEFAULT)).".");
+    echo "Error en la contraseña o no existe el usuario.";
     echo "</div>";
 }
 

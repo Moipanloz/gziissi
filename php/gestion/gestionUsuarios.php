@@ -82,9 +82,7 @@ function consultarUsuario($conexion,$email,$pass) {
     $stmt = $conexion->prepare("SELECT PASS FROM USUARIOS WHERE CORREO=:email AND ACTIVO = 'TRUE'");
     $stmt->bindParam(':email',$email);
     $stmt->execute();
-    $user = $stmt->fetch();
-
-    $userPass = substr( $user ["PASS"], 0, 60 );
+    $userPass = $stmt->fetchColumn();
 
     if (password_verify($pass, $userPass))
     {
@@ -95,20 +93,18 @@ function consultarUsuario($conexion,$email,$pass) {
 
 }
 
-function getNombreUsuario($conexion,$email,$pass) {
-    $consulta = "SELECT NOMBRE FROM USUARIOS WHERE CORREO=:email AND PASS=:pass";
+function getNombreUsuario($conexion,$email) {
+    $consulta = "SELECT NOMBRE FROM USUARIOS WHERE CORREO=:email";
     $stmt = $conexion->prepare($consulta);
     $stmt->bindParam(':email',$email);
-    $stmt->bindParam(':pass',$pass);
     $stmt->execute();
     return $stmt->fetchColumn();
 }
 
-function getDNIUsuario($conexion,$email,$pass) {
-    $consulta = "SELECT DNI FROM USUARIOS WHERE CORREO=:email AND PASS=:pass";
+function getDNIUsuario($conexion,$email) {
+    $consulta = "SELECT DNI FROM USUARIOS WHERE CORREO=:email";
     $stmt = $conexion->prepare($consulta);
     $stmt->bindParam(':email',$email);
-    $stmt->bindParam(':pass',$pass);
     $stmt->execute();
     return $stmt->fetchColumn();
 }
