@@ -24,6 +24,8 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
 
 $conexion = crearConexionBD();
 
+if (isset ($_REQUEST["BONOS_ID"]) || isset ($_SESSION ["BONO"])) {
+
 //Se llega por primera vez desde bonos_admin
 //Se construye el objeto Bono y se pasa a $_SESSION
 if (isset ($_REQUEST["BONOS_ID"])) {
@@ -112,7 +114,7 @@ cerrarConexionBD($conexion);
 
                     <h4>Precio: <?php print ($BONO ["PRECIOBONO"]) ?> euros</h4>
 
-                    <h4> Disponible: <?php print $BONO ["DISPONIBLE"]; ?></h4>
+                    <h4> Disponible: <?php isset($BONO ["DISPONIBLE"]) ? print "True" : print "False"; ?></h4>
 
                 </div>
 
@@ -151,7 +153,7 @@ cerrarConexionBD($conexion);
                             <form autocomplete="off" method="post" action="controlador_bonos.php">
 
 
-                            <h5><?php print ($lc ["NOMBRECONSUMIBLE"] . " - " . $lc ["CANTIDADLC"]." - " . $lc ["LINEACONSUMIBLES_ID"]) ?></h5>
+                            <h5><?php print ($lc ["NOMBRECONSUMIBLE"] . " - " . $lc ["CANTIDADLC"]) ?></h5>
 
                             <input type="hidden" value = "<?php print ($lc["LINEACONSUMIBLES_ID"]) ?>" name="LINEACONSUMIBLES_ID"/>
 
@@ -216,4 +218,8 @@ cerrarConexionBD($conexion);
 </body>
 </html>
 
+<?php } else {
 
+    Header("Location: bonos_admin.php");
+
+}

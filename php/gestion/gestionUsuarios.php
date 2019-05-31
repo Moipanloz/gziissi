@@ -28,9 +28,9 @@ function consultarTodosUsuarios($conexion) {
         $stmt->bindParam(':fechaNacimiento',$fechaNacimiento);
         $stmt->bindParam(':tipoPago',$usuario["pago"]);
 
-        $stmt->execute();
+
 		
-		return true;
+		return $stmt->execute();;
 	} catch(PDOException $e) {
 		return $e->getMessage();
 		// Si queremos visualizar la excepción durante la depuración: $e->getMessage();
@@ -65,6 +65,16 @@ function getDNIUsuario($conexion,$email,$pass) {
     $stmt->bindParam(':pass',$pass);
     $stmt->execute();
     return $stmt->fetchColumn();
+}
+
+function existeDNIEnBD ($conexion, $DNI) {
+
+    $consulta = "SELECT COUNT(*) AS TOTAL FROM USUARIOS WHERE DNI=:dni";
+    $stmt = $conexion->prepare($consulta);
+    $stmt->bindParam(':dni',$DNI);
+    $stmt->execute();
+    return $stmt->fetchColumn() > 0;
+
 }
 
 function existeEmailEnBD ($conexion, $Email) {

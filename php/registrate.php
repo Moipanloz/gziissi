@@ -4,7 +4,6 @@ require_once("gestion/gestionBD.php");
 require_once("gestion/gestionUsuarios.php");
 
 
-
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +21,9 @@ require_once("gestion/gestionUsuarios.php");
 <body>
 
 <?php include_once("cabecera.php");
+
+if (isset ($_SESSION ["login_dni"])) Header('Location: index.php');
+
 
 if (!isset($_SESSION["formulario"])) {
     $formulario['dni'] = "";
@@ -109,9 +111,13 @@ if (isset($errores) && count($errores) > 0) { ?>
                 <div>
                     <h3>Método de pago</h3>
                     <label>
-                        <input <?php if ($formulario ["pago"] == "Tarjeta") print ("checked")?> type="radio" value="Tarjeta" name="pago"/>Tarjeta</label>
+                        <input <?php if ($formulario ["pago"] == "Tarjeta") print ("checked") ?> type="radio"
+                                                                                                 value="Tarjeta"
+                                                                                                 name="pago"/>Tarjeta</label>
                     <label>
-                        <input <?php if ($formulario ["pago"] == "Paypal") print ("checked")?> type="radio" value="Paypal" name="pago"/>Paypal</label>
+                        <input <?php if ($formulario ["pago"] == "Paypal") print ("checked") ?> type="radio"
+                                                                                                value="Paypal"
+                                                                                                name="pago"/>Paypal</label>
                 </div>
 
             </div>
