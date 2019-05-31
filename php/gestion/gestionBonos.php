@@ -52,16 +52,15 @@ function anadirConsumibleABono($conexion, $IdConsumible, $IdBono)
 
 }
 
-function borrarConsumibleDeBono($conexion, $IdConsumible, $IdBono)
+function borrarConsumibleDeBono($conexion, $IdLineaConsumible)
 {
 
     try {
 
-        $consulta = "CALL BORRAR_CONSUMIBLE_DE_BONO(:ConsumiblesId, :BonosId)";
+        $consulta = "CALL BORRAR_CONSUMIBLE_DE_BONO(:IdLineaConsumible)";
         $stmt = $conexion->prepare($consulta);
-        $stmt->bindParam(':ConsumiblesId', $IdConsumible);
-        $stmt->bindParam(':BonosId', $IdBono);
-        $stmt -> execute();
+        $stmt->bindParam(':IdLineaConsumible', $IdLineaConsumible);
+        $stmt->execute();
         return "";
     } catch (PDOException $e) {
         return $e->getMessage();

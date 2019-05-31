@@ -135,12 +135,8 @@ cerrarConexionBD($conexion);
 
             <?php if ($BONO ["DISPONIBLE"] != "TRUE") { ?>
 
-                <form autocomplete="off" method="post" action="controlador_bonos.php">
 
                     <h4>El pase contiene:</h4>
-
-                    <input id="BONOS_ID" name="BONOS_ID" type="hidden"
-                           value="<?php echo $BONO["BONOS_ID"]; ?>"/>
 
                     <?php
 
@@ -152,12 +148,27 @@ cerrarConexionBD($conexion);
 
                         foreach ($lineasConsumiblesDelBono as $lc) { ?>
 
-                            <h5><?php print ($lc ["NOMBRECONSUMIBLE"] . " - " . $lc ["CANTIDADLC"]) ?></h5>
+                            <form autocomplete="off" method="post" action="controlador_bonos.php">
+
+
+                            <h5><?php print ($lc ["NOMBRECONSUMIBLE"] . " - " . $lc ["CANTIDADLC"]." - " . $lc ["LINEACONSUMIBLES_ID"]) ?></h5>
+
+                            <input type="hidden" value = "<?php print ($lc["LINEACONSUMIBLES_ID"]) ?>" name="LINEACONSUMIBLES_ID"/>
+
+                            <input type="submit" value="Borrar" name="borrar_c"/>
+
+                            </form>
+
 
                         <?php }
                     } ?>
 
-                    <select name="CONSUMIBLES_ID">
+
+
+                <form autocomplete="off" method="post" action="controlador_bonos.php">
+
+
+                <select name="CONSUMIBLES_ID">
                         <?php foreach ($allConsumibles as $c) { ?>
                             <option name="CONSUMIBLES_ID"
 
@@ -167,18 +178,7 @@ cerrarConexionBD($conexion);
                         <?php } ?>
                     </select>
 
-                    <!--
-
-                    <button id="anadir_c" name="anadir_c" type="submit" class="editar_fila">
-
-
-                        Añadir
-
-                    </button>
-                    -->
-
                     <input type="submit" value="Añadir" name="anadir_c"/>
-                    <input type="submit" value="Borrar" name="borrar_c"/>
 
                 </form>
 
