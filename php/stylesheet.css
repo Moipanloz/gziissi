@@ -1,6 +1,62 @@
 /*~~~~~~~~~~~~~~~~~~~~GAMERS ZONE~~~~~~~~~~~~~~~~~~~~*/
 
 /*=====================Navegador=====================*/
+* {
+	box-sizing: border-box;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+.row::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+[class*="col-"] {
+	float: left;
+	padding: 15px;
+}
+
+/* For mobile phones: */
+[class*="col-"] {
+	width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+	/* For tablets: */
+	.col-s-1 {width: 8.33%;}
+	.col-s-2 {width: 16.66%;}
+	.col-s-3 {width: 25%;}
+	.col-s-4 {width: 33.33%;}
+	.col-s-5 {width: 41.66%;}
+	.col-s-6 {width: 50%;}
+	.col-s-7 {width: 58.33%;}
+	.col-s-8 {width: 66.66%;}
+	.col-s-9 {width: 75%;}
+	.col-s-10 {width: 83.33%;}
+	.col-s-11 {width: 91.66%;}
+	.col-s-12 {width: 100%;}
+}
+
+@media only screen and (min-width: 768px) {
+	/* For desktop: */
+	.col-1 {width: 8.33%;}
+	.col-2 {width: 16.66%;}
+	.col-3 {width: 25%;}
+	.col-4 {width: 33.33%;}
+	.col-5 {width: 41.66%;}
+	.col-6 {width: 50%;}
+	.col-7 {width: 58.33%;}
+	.col-8 {width: 66.66%;}
+	.col-9 {width: 75%;}
+	.col-10 {width: 83.33%;}
+	.col-11 {width: 91.66%;}
+	.col-12 {width: 100%;}
+}
 
 .logo{
 	float : left;
@@ -59,6 +115,13 @@ header::after{
 	font-size: 120%;
 }
 
+@media screen and (max-width: 600px){
+
+	nav {
+		display:none;
+	}
+
+}
 
 
 /*=====================Body y grid=====================*/
@@ -79,36 +142,43 @@ p{
 	display: grid;
 	grid-template-columns: auto;
 	grid-template-rows: 15% 50% 40% 40%;
-  }
+}
 
- .grid-container h2{
- 	text-align: center;
- 	margin-bottom: 4%;
- }
+.grid-container h2{
+	text-align: center;
+	margin-bottom: 4%;
+}
 
 .grid-container > div {
 	padding: 2% 0;
 	margin-bottom: 1%;
-  }
+}
 
 .info{
 	background-color: rgb(89, 163, 255);
 
-  }
+}
 
 .carta{
 	background-color: rgb(161, 207, 255);
-  }
+}
 
 .localizanos{
 	background-color: rgb(161, 207, 255);
-	}
+}
 
 .titulo{
 	font-family: "Audiowide", sans-serif, Verdana;
 	margin: 2% 2% 4% 2%;
 	font-size: 170%;
 	text-align: center;
+}
+
+@media screen and (max-width: 1100px){
+	.grid-container {
+		display: block;
+	}
+
 }
 
 /*//////////////////////////  CARTA //////////////////////*/
@@ -192,6 +262,23 @@ p{
 #i4:checked ~ .botones_carta #b4{
 	background: #3b5fff;
 }
+
+
+@media screen and (max-width: 1100px){
+	.botones_carta{
+		display:none;
+	}
+
+	.carta_container {
+		display: none;
+	}
+
+	.div_centrado{
+		display:none;
+	}
+
+}
+
 
 /*//////// BONOS ///////////*/
 
@@ -351,34 +438,34 @@ p{
 .galeria{
 	background-color: rgb(89, 163, 255);
 
- }
+}
 
 #slider {
-    position: relative;
-    overflow: hidden;
-    margin: 20px auto 0 auto;
-    border-radius: 4px;
+	position: relative;
+	overflow: hidden;
+	margin: 20px auto 0 auto;
+	border-radius: 4px;
 	height: 50%;
 }
 
 #slider ul {
-    position: relative;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    list-style: none;
+	position: relative;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	list-style: none;
 }
 
 #slider ul li {
-    position: relative;
-    display: block;
-    float: left;
-    margin: 0;
-    padding: 0;
-    width: 75%;
-    height: 100%;
-    text-align: center;
-    line-height: 300px;
+	position: relative;
+	display: block;
+	float: left;
+	margin: 0;
+	padding: 0;
+	width: 75%;
+	height: 100%;
+	text-align: center;
+	line-height: 300px;
 }
 
 #slider ul li img{
@@ -390,33 +477,51 @@ p{
 }
 
 a.control_prev, a.control_next {
-    position: absolute;
-    top: 40%;
-    z-index: 999;
-    display: block;
-    padding: 4% 3%;
-    width: auto;
-    height: auto;
-    background: #2a2a2a;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 18px;
-    opacity: 0.8;
-    cursor: pointer;
+	position: absolute;
+	top: 40%;
+	z-index: 999;
+	display: block;
+	padding: 4% 3%;
+	width: auto;
+	height: auto;
+	background: #2a2a2a;
+	color: #fff;
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 18px;
+	opacity: 0.8;
+	cursor: pointer;
 }
 
 a.control_prev:hover, a.control_next:hover {
-    opacity: 1;
-    -webkit-transition: all 0.2s ease;
+	opacity: 1;
+	-webkit-transition: all 0.2s ease;
 }
 
 a.control_prev {
-    border-radius: 0 2px 2px 0;
+	border-radius: 0 2px 2px 0;
 }
 
 a.control_next {
-    right: 0;
-    border-radius: 2px 0 0 2px;
+	right: 0;
+	border-radius: 2px 0 0 2px;
+}
+
+@media screen and (max-width: 1480px){
+	#slider ul{
+		display:none;
+	}
+
+	a.control_prev, a.control_next {
+		display: none;
+	}
+}
+
+/*=====================Mapa=====================*/
+
+@media screen and (max-width: 1480px){
+	.mapouter{
+		display:none;
+	}
 }
 
