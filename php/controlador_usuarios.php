@@ -14,8 +14,8 @@ session_start();
 
 
     if (isset($_REQUEST["borrar"])) Header("Location: accion/accion_borrar_usuario.php");
-    else if (isset($_REQUEST["grabar"])) Header("Location: accion/accion_activar_usuario.php");
-    else if (isset($_REQUEST["grabar"])) Header("Location: accion/accion_desactivar_usuario.php");
+    else if (isset($_REQUEST["activar"])) Header("Location: accion/accion_activar_usuario.php");
+    else if (isset($_REQUEST["desactivar"])) Header("Location: accion/accion_desactivar_usuario.php");
  }
 else Header("Location: usuarios_admin.php");
 

@@ -36,12 +36,43 @@ function consultarTodosUsuarios($conexion) {
 		// Si queremos visualizar la excepción durante la depuración: $e->getMessage();
     }
 }
+
+function darseDeAlta ($conexion, $dni) {
+
+    try {
+        $consulta = "CALL DARSE_ALTA(:dni)";
+        $stmt=$conexion->prepare($consulta);
+        $stmt->bindParam(':dni',$dni);
+        $stmt->execute();
+        return "";
+    } catch(PDOException $e) {
+        return $e->getMessage();
+        // Si queremos visualizar la excepción durante la depuración: $e->getMessage();
+    }
+
+}
+
+function darseDeBaja ($conexion, $dni) {
+
+    try {
+        $consulta = "CALL DARSE_BAJA(:dni)";
+        $stmt=$conexion->prepare($consulta);
+        $stmt->bindParam(':dni',$dni);
+
+        $stmt->execute();
+        return "";
+    } catch(PDOException $e) {
+        return $e->getMessage();
+        // Si queremos visualizar la excepción durante la depuración: $e->getMessage();
+    }
+
+}
  
 
 
   
 function consultarUsuario($conexion,$email,$pass) {
- 	$consulta = "SELECT COUNT(*) AS TOTAL FROM USUARIOS WHERE CORREO=:email AND PASS=:pass";
+ 	$consulta = "SELECT COUNT(*) AS TOTAL FROM USUARIOS WHERE CORREO=:email AND PASS=:pass AND ACTIVO = 'TRUE'";
 	$stmt = $conexion->prepare($consulta);
 	$stmt->bindParam(':email',$email);
 	$stmt->bindParam(':pass',$pass);

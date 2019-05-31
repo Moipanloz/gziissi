@@ -10,23 +10,18 @@ if (isset($_SESSION["USUARIO"])) {
 
     $conexion = crearConexionBD();
 
+    $excepcion = borrarUsuario($conexion, $USUARIO["DNI"]);
+    cerrarConexionBD($conexion);
 
 
-        $excepcion = borrarUsuario($conexion,$USUARIO["DNI"]);
-        cerrarConexionBD($conexion);
+    if ($excepcion <> "")
+        $_SESSION ["USUARIO_BORRAR_MSG"] = "No se puede borrar un usuario que aun contenga pases o consumibles en su almacén.";
+
+    else
+        $_SESSION ["USUARIO_BORRAR_MSG"] = "El usuario " . $USUARIO ["NOMBRE"] . " fue borrado satisfactoriamente.";
 
 
+    Header("Location: ../usuarios_admin.php");
 
-        if ($excepcion<>"") {
-            $_SESSION["excepcion"] = $excepcion;
-            $_SESSION["destino"] = "usuarios_admin.php";
-            Header("Location: ../excepcion.php");
-        }
-        else Header("Location: ../usuarios_admin.php");
-
-
-
-
-}
-else Header("Location: ../usuarios_admin.php"); // Se ha tratado de acceder directamente a este PHP
+} else Header("Location: ../usuarios_admin.php"); // Se ha tratado de acceder directamente a este PHP
 

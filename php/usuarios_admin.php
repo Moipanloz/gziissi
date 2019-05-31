@@ -38,81 +38,91 @@ if (isset($_SESSION["USUARIO"])) {
     <h2 class="titulo">Administración Usuarios</h2>
     <div class="admin_class">
 
+        <?php if (isset ($_SESSION ["USUARIO_BORRAR_MSG"])) {
+
+            print ("<div>" . $_SESSION ["USUARIO_BORRAR_MSG"] . "</div>");
+
+            unset ($_SESSION ["USUARIO_BORRAR_MSG"]);
+
+        } ?>
 
         <?php foreach ($todosLosUsuarios
 
-        as $fila) { ?>
+                       as $fila) {
+            if ($fila ["DNI"] != "00000000A") { ?>
 
-            <article class="consumibles">
+                <article class="consumibles">
 
-                <form method="post" action="controlador_usuarios.php" autocomplete="off">
+                    <form method="post" action="controlador_usuarios.php" autocomplete="off">
 
-                    <div class="fila_consumibles">
+                        <div class="fila_consumibles">
 
-                        <div class="datos_consumible">
+                            <div class="datos_consumible">
 
-                            <input id="DNI" name="DNI"
-
-                                   type="hidden" value="<?php echo $fila["DNI"]; ?>"/>
+                                <input id="DNI" name="DNI" type="hidden" value="<?php echo $fila["DNI"]; ?>"/>
 
                                 <!-- mostrando título -->
 
                                 <input id="NOMBRE" name="NOMBRE" type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
                                 <input id="CORREO" name="CORREO" type="hidden" value="<?php echo $fila["CORREO"]; ?>"/>
-                                <input id="FECHANACIMIENTO" name="FECHANACIMIENTO" type="hidden" value="<?php echo $fila["FECHANACIMIENTO"]; ?>"/>
-                                <input id="FECHAINSCRIPCION" name="FECHAINSCRIPCION" type="hidden" value="<?php echo $fila["FECHAINSCRIPCION"]; ?>"/>
-                                <input id="TIPOPAGO" name="TIPOPAGO" type="hidden" value="<?php echo $fila["TIPOPAGO"]; ?>"/>
+                                <input id="FECHANACIMIENTO" name="FECHANACIMIENTO" type="hidden"
+                                       value="<?php echo $fila["FECHANACIMIENTO"]; ?>"/>
+                                <input id="FECHAINSCRIPCION" name="FECHAINSCRIPCION" type="hidden"
+                                       value="<?php echo $fila["FECHAINSCRIPCION"]; ?>"/>
+                                <input id="TIPOPAGO" name="TIPOPAGO" type="hidden"
+                                       value="<?php echo $fila["TIPOPAGO"]; ?>"/>
                                 <input id="ACTIVO" name="ACTIVO" type="hidden" value="<?php echo $fila["ACTIVO"]; ?>"/>
 
 
-                            <div class="nombre"><?php echo "<strong>Nombre: </strong>".$fila["NOMBRE"]; ?></div>
-                            <div class="nombre"><?php echo "<strong>Correo: </strong>".$fila["CORREO"]; ?></div>
-                            <div class="nombre"><?php echo "<strong>Fecha de nacimiento: </strong>".$fila["FECHANACIMIENTO"]; ?></div>
-                            <div class="nombre"><?php echo "<strong>Fecha de inscripción: </strong>".$fila["FECHAINSCRIPCION"]; ?></div>
-                            <div class="nombre"><?php echo "<strong>Tipo de pago: </strong>".$fila["TIPOPAGO"]; ?></div>
-                            <div class="nombre"><?php echo "<strong>Activo: </strong>".$fila["ACTIVO"]; ?></div>
+                                <div class="nombre"><?php echo "<strong>Nombre: </strong>" . $fila["NOMBRE"]; ?></div>
+                                <div class="nombre"><?php echo "<strong>Correo: </strong>" . $fila["CORREO"]; ?></div>
+                                <div class="nombre"><?php echo "<strong>Fecha de nacimiento: </strong>" . $fila["FECHANACIMIENTO"]; ?></div>
+                                <div class="nombre"><?php echo "<strong>Fecha de inscripción: </strong>" . $fila["FECHAINSCRIPCION"]; ?></div>
+                                <div class="nombre"><?php echo "<strong>Tipo de pago: </strong>" . $fila["TIPOPAGO"]; ?></div>
+                                <div class="nombre"><?php echo "<strong>Activo: </strong>" . $fila["ACTIVO"]; ?></div>
 
 
-
-                        </div>
-
+                            </div>
 
 
-                        <div id="botones_fila">
+                            <div id="botones_fila">
 
                                 <button id="borrar" name="borrar" type="submit" class="editar_fila">
 
                                     <!--<img src="imagenes/remove_menuito.bmp" class="editar_fila" alt="Borrar consumible">
--->
+    -->
                                     Borrar
 
                                 </button>
 
-                            <?php
+                                <?php
 
-                            $dni = $fila["DNI"];
+                                $dni = $fila["DNI"];
 
-                            if (esActivo($conexion, $dni) == "FALSE" ) { ?>
+                                if (esActivo($conexion, $dni) == "FALSE") { ?>
 
 
-                            <button id="activar" name="activar" type="submit" class="editar_fila">Activar</button>
+                                    <button id="activar" name="activar" type="submit" class="editar_fila">Activar
+                                    </button>
 
-                            <?php } else { ?>
+                                <?php } else { ?>
 
-                            <button id="desactivar" name="desactivar" type="submit" class="editar_fila">Desactivar</button>
-                            <?php } ?>
+                                    <button id="desactivar" name="desactivar" type="submit" class="editar_fila">
+                                        Desactivar
+                                    </button>
+                                <?php } ?>
+
+                            </div>
 
                         </div>
 
-                    </div>
+                    </form>
 
-                </form>
-
-            </article>
+                </article>
 
 
-
-        <?php } ?>
+            <?php }
+        } ?>
 
     </div>
 
