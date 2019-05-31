@@ -67,17 +67,32 @@ function darseDeBaja ($conexion, $dni) {
     }
 
 }
- 
-
-
   
 function consultarUsuario($conexion,$email,$pass) {
- 	$consulta = "SELECT COUNT(*) AS TOTAL FROM USUARIOS WHERE CORREO=:email AND PASS=:pass AND ACTIVO = 'TRUE'";
+    /*
+ 	$consulta = "SELECT PASS FROM USUARIOS WHERE CORREO=:email AND PASS=:pass AND ACTIVO = 'TRUE'";
 	$stmt = $conexion->prepare($consulta);
 	$stmt->bindParam(':email',$email);
 	$stmt->bindParam(':pass',$pass);
 	$stmt->execute();
-	return $stmt->fetchColumn();
+    $hash = $stmt->fetchColumn();
+	return password_verify ($pass, $hash);
+    */
+
+    $stmt = $conexion->prepare("SELECT PASS FROM USUARIOS WHERE CORREO=:email AND ACTIVO = 'TRUE'");
+    $stmt->bindParam(':email',$email);
+    $stmt->execute();
+    $user = $stmt->fetch();
+
+    $userPass = substr( $user ["PASS"], 0, 60 );
+
+    if (password_verify($pass, $userPass))
+    {
+        return true;
+    } else {
+        return false;
+    }
+
 }
 
 function getNombreUsuario($conexion,$email,$pass) {

@@ -19,7 +19,7 @@ CREATE TABLE usuarios(
     CONSTRAINT "dni_CHK2" CHECK (REGEXP_LIKE(dni, '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][A-Z]')),
     nombre varchar2(50)     not null,
     CONSTRAINT "Nombre_CHK" CHECK (length(nombre) > 3),
-    pass varchar2(20)   not null,
+    pass varchar2(255)   not null,
     CONSTRAINT "Pass_CHK" CHECK ((REGEXP_INSTR(pass, '[0-9]') > 0) AND (REGEXP_INSTR(pass, '[A-Z]') > 0)),
     CONSTRAINT "Pass_CHK2" CHECK (length(pass) >= 8),
     correo varchar2(50)     not null,

@@ -23,11 +23,12 @@ if (isset($_REQUEST['submit'])) {
     $pass = $_REQUEST['pass'];
 
     $conexion = crearConexionBD();
-    $num_usuarios = consultarUsuario($conexion, $email, $pass);
 
-    if ($num_usuarios == 0) {
+
+
+    if (!consultarUsuario($conexion, $email, password_hash($pass, PASSWORD_BCRYPT))) {
         $login = "error";
-        $pass = null;
+        //$pass = null;
 
         cerrarConexionBD($conexion);
     } else {
@@ -41,7 +42,8 @@ if (isset($_REQUEST['submit'])) {
 
 if (isset($login)) {
     echo "<div class=\"error\">";
-    echo "Error en la contraseña o no existe el usuario.";
+    //echo "Error en la contraseña o no existe el usuario.";
+    print ("Pass: ".$pass.", Hash: ".password_hash($pass, PASSWORD_DEFAULT).", Result: ".consultarUsuario($conexion, $email, password_hash($pass, PASSWORD_DEFAULT)).".");
     echo "</div>";
 }
 

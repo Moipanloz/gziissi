@@ -36,6 +36,8 @@ $conexion = crearConexionBD();
 
     <?php
 
+    $nuevoUsuario ["pass"] = password_hash($nuevoUsuario["pass"], PASSWORD_BCRYPT);
+
     if (alta_usuario($conexion, $nuevoUsuario)) {
         $_SESSION['login_dni'] = $nuevoUsuario['dni'];
         $_SESSION['login_name'] = $nuevoUsuario['nombre'];
