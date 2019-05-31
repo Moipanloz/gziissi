@@ -29,10 +29,19 @@ function lineasConsumiblesDeBono($conexion, $BonoId)
 
 }
 
-function lineasPasesDeBono($conexion, $ConsumibleId)
+function lineasPasesDeBono($conexion, $BonoId)
 {
 
+    try {
+        $stmt = $conexion->prepare("SELECT LINEAPASES.LINEAPASES_ID, PASES.TIPOMEDIO, LINEAPASES.CANTIDADLP FROM LINEAPASES INNER JOIN PASES ON LINEAPASES.PASES_ID = PASES.PASES_ID WHERE LINEAPASES.BONOS_ID = :BonosId");
+        $stmt->bindParam(':BonosId', $BonoId);
+        $stmt->execute();
 
+        return $stmt;
+
+    } catch (PDOException $e) {
+        return $e->getMessage();
+    }
 }
 
 function anadirConsumibleABono($conexion, $IdConsumible, $IdBono)
@@ -44,7 +53,7 @@ function anadirConsumibleABono($conexion, $IdConsumible, $IdBono)
         $stmt = $conexion->prepare($consulta);
         $stmt->bindParam(':ConsumiblesId', $IdConsumible);
         $stmt->bindParam(':BonosId', $IdBono);
-        $stmt -> execute();
+        $stmt->execute();
         return "";
     } catch (PDOException $e) {
         return $e->getMessage();
@@ -60,6 +69,39 @@ function borrarConsumibleDeBono($conexion, $IdLineaConsumible)
         $consulta = "CALL BORRAR_CONSUMIBLE_DE_BONO(:IdLineaConsumible)";
         $stmt = $conexion->prepare($consulta);
         $stmt->bindParam(':IdLineaConsumible', $IdLineaConsumible);
+        $stmt->execute();
+        return "";
+    } catch (PDOException $e) {
+        return $e->getMessage();
+    }
+
+}
+
+function anadirPaseABono($conexion, $IdPase, $IdBono)
+{
+
+    try {
+
+        $consulta = "CALL INTRODUCIR_PASE_EN_BONO(:PaseId, :BonosId)";
+        $stmt = $conexion->prepare($consulta);
+        $stmt->bindParam(':PaseId', $IdPase);
+        $stmt->bindParam(':BonosId', $IdBono);
+        $stmt->execute();
+        return "";
+    } catch (PDOException $e) {
+        return $e->getMessage();
+    }
+
+}
+
+function borrarPaseDeBono($conexion, $IdLineaPase)
+{
+
+    try {
+
+        $consulta = "CALL BORRAR_PASE_DE_BONO(:IdLineaPase)";
+        $stmt = $conexion->prepare($consulta);
+        $stmt->bindParam(':IdLineaPase', $IdLineaPase);
         $stmt->execute();
         return "";
     } catch (PDOException $e) {
@@ -85,7 +127,7 @@ function modificarBono($conexion, $BONOS_ID, $NOMBRE, $PRECIO, $DISPONIBLE)
 
 
     try {
-        $stmt=$conexion->prepare("UPDATE BONOS SET PRECIOBONO= :Precio, NOMBREBONO=:Nombre, DISPONIBLE=:Disponible  WHERE BONOS_ID = :Bonoid");
+        $stmt = $conexion->prepare("UPDATE BONOS SET PRECIOBONO= :Precio, NOMBREBONO=:Nombre, DISPONIBLE=:Disponible  WHERE BONOS_ID = :Bonoid");
         $stmt->bindParam(':Nombre', $NOMBRE);
         $stmt->bindParam(':Precio', $PRECIO);
 
@@ -100,7 +142,8 @@ function modificarBono($conexion, $BONOS_ID, $NOMBRE, $PRECIO, $DISPONIBLE)
         return $e->getMessage();
     }
 
+
 }
 
-;
+
 

@@ -48,8 +48,8 @@ $todosLosBonos = consultarTodosBonos($conexion);
             $bonoId = $b ["BONOS_ID"];
             $bonoAvailable = $b ["DISPONIBLE"];
 
-            if (!is_null($bonoId)) $todosLosConsumibles = consultarConsumiblesDeBono($conexion, $bonoId);
-            if (!is_null($bonoId)) $todosLosPases = consultarPasesDeBono($conexion, $bonoId);
+            if (!is_null($bonoId)) $todosLosConsumibles = lineasConsumiblesDeBono($conexion, $bonoId);
+            if (!is_null($bonoId)) $todosLosPases = lineasPasesDeBono($conexion, $bonoId);
 
 
             if ($count % 2 == 1) { ?>
@@ -63,7 +63,7 @@ $todosLosBonos = consultarTodosBonos($conexion);
                             <h4> Consumibles:</h4>
 
                             <?php if ($todosLosConsumibles != null) foreach ($todosLosConsumibles as $c) { ?>
-                                <li><?php print ($c["NOMBRECONSUMIBLE"]) ?> </li>
+                                <li><?php print ($c["NOMBRECONSUMIBLE"] . " - " . $c["CANTIDADLC"]) ?> </li>
                             <?php } else { ?>
 
                                 <li>Este bono no contiene consumibles</li>
@@ -73,7 +73,7 @@ $todosLosBonos = consultarTodosBonos($conexion);
                             <h4> Pases:</h4>
 
                             <?php if ($todosLosPases != null) foreach ($todosLosPases as $p) { ?>
-                                <li><?php print ($p["TIPOMEDIO"]) ?> </li>
+                                <li><?php print ($p["TIPOMEDIO"] . " - " . $p["CANTIDADLP"]) ?> </li>
                             <?php } else { ?>
 
                                 <li>Este pase no contiene consumibles</li>

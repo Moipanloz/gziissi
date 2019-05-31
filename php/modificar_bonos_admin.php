@@ -114,7 +114,7 @@ cerrarConexionBD($conexion);
 
                     <h4>Precio: <?php print ($BONO ["PRECIOBONO"]) ?> euros</h4>
 
-                    <h4> Disponible: <?php isset($BONO ["DISPONIBLE"]) ? print "True" : print "False"; ?></h4>
+                    <h4> Disponible: <?php (isset($BONO ["DISPONIBLE"])&&$BONO["DISPONIBLE"]!="FALSE") ? print "True" : print "False"; ?></h4>
 
                 </div>
 
@@ -133,16 +133,21 @@ cerrarConexionBD($conexion);
 
         </div>
 
+        <?php if (!$BONO ["DISPONIBLE"] != "TRUE") { ?>
+        <div>Para modificar el contenido del bono, por favor desactívelo antes.</div>
+        <?php }?>
+
+
         <div class="admin_class">
 
             <?php if ($BONO ["DISPONIBLE"] != "TRUE") { ?>
 
 
-                    <h4>El pase contiene:</h4>
+                    <h4>Consumibles:</h4>
 
                     <?php
 
-                    if ($lineasConsumiblesDelBono == null || !isset($lineasConsumiblesDelBono)) { ?>
+                    if (!isset($lineasConsumiblesDelBono) || $lineasConsumiblesDelBono == null ) { ?>
 
                         El bono no contiene ningun consumible.
 
@@ -188,9 +193,7 @@ cerrarConexionBD($conexion);
 
                 ?>
 
-                <div>Para modificar el contenido del bono, por favor desactívelo antes.</div>
-
-                <h4>El pase contiene:</h4>
+                <h4>Consumibles:</h4>
 
                 <?php
 
@@ -210,6 +213,86 @@ cerrarConexionBD($conexion);
             } ?>
 
         </div>
+
+
+
+
+
+
+        <div class="admin_class">
+
+            <?php if ($BONO ["DISPONIBLE"] != "TRUE") { ?>
+
+                <h4>Pases:</h4>
+
+                <?php
+
+                if ($lineasPasesDelBono == null || !isset($lineasPasesDelBono)) { ?>
+
+                    El bono no contiene ningun pase.
+
+                <?php } else {
+
+                    foreach ($lineasPasesDelBono as $lp) { ?>
+
+                        <form autocomplete="off" method="post" action="controlador_bonos.php">
+
+                            <h5><?php print ($lp ["TIPOMEDIO"] . " - " . $lp ["CANTIDADLP"]) ?></h5>
+
+                            <input type="hidden" value = "<?php print ($lp["LINEAPASES_ID"]) ?>" name="LINEAPASES_ID"/>
+
+                            <input type="submit" value="Borrar" name="borrar_P"/>
+
+                        </form>
+
+                    <?php }
+                } ?>
+
+
+
+                <form autocomplete="off" method="post" action="controlador_bonos.php">
+
+
+                    <select name="PASES_ID">
+                        <?php foreach ($allPases as $p) { ?>
+                            <option name="PASES_ID"
+
+                                <?php if (isset ($_SESSION ["PASES_ID"])&&($_SESSION ["PASES_ID"] == $p ["PASES_ID"])) print (" selected ") ?>
+
+                                    value="<?php print $p ["PASES_ID"] ?>"><?php print $p ["TIPOMEDIO"] ?></option>
+                        <?php } ?>
+                    </select>
+
+                    <input type="submit" value="Añadir" name="anadir_p"/>
+
+                </form>
+
+            <?php } else {
+
+                ?>
+
+                <h4>Pases:</h4>
+
+                <?php
+
+                if ($lineasPasesDelBono == null || !isset($lineasPasesDelBono)) { ?>
+
+                    El bono no contiene ningun pase.
+
+                <?php } else {
+
+                    foreach ($lineasPasesDelBono as $lp) { ?>
+
+                        <h5><?php print ($lp ["TIPOMEDIO"] . " - " . $lp ["CANTIDADLP"]) ?></h5>
+
+                    <?php }
+                }
+
+            } ?>
+
+        </div>
+
+
 
     </div>
 

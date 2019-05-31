@@ -32,35 +32,6 @@ function nuevoConsumible ($conexion, $NombreConsumible, $TipoConsumible) {
     }
 }
 
-function consultarConsumiblesDeBono($conexion, $OidBono) {
-    try {
-    $consulta1 = "SELECT * FROM LINEACONSUMIBLES WHERE BONOS_ID = " . $OidBono;
-    $lineasConsumibles = $conexion -> query ($consulta1);
-
-
-    foreach ($lineasConsumibles as $l) {
-
-        $consulta = "SELECT * FROM CONSUMIBLES "
-            . "WHERE CONSUMIBLES_ID = " . $l ["CONSUMIBLES_ID"];
-
-            $consumibles = $conexion->query($consulta);
-
-            foreach ($consumibles as $c) {
-                $res [] = $c;
-            }
-
-
-    }
-
-    if (empty($res)) $res = null;
-
-    return $res;
-
-    } catch(PDOException $e) {
-        return $e->getMessage();
-    }
-}
-
 function cantidadDeBonosConConsumible ($conexion, $OidConsumible) {
     $stmt=$conexion->prepare("SELECT COUNT (*) AS TOTAL FROM LINEACONSUMIBLES WHERE CONSUMIBLES_ID = :ConsumibleId" );
     $stmt->bindParam(':ConsumibleId',$OidConsumible);

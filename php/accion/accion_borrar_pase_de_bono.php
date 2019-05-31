@@ -1,17 +1,17 @@
 <?php
 session_start();
 
-if (isset($_SESSION["CONSUMIBLES_ID"]) && isset($_SESSION["BONO"])) {
 
-    $CONSUMIBLES_ID = $_SESSION ["CONSUMIBLES_ID"];
-    $BONO = $_SESSION ["BONO"];
-    $BONO_ID = $BONO ["BONOS_ID"];
+if (isset($_SESSION["LINEAPASES_ID"])) {
+
+    $LINEAPASEID = $_SESSION ["LINEAPASES_ID"];
+    unset($_SESSION["LINEAPASES_ID"]);
 
     require_once("../gestion/gestionBD.php");
     require_once("../gestion/gestionBonos.php");
 
     $conexion = crearConexionBD();
-    $excepcion = anadirConsumibleABono($conexion,$CONSUMIBLES_ID,$BONO_ID);
+    $excepcion = borrarPaseDeBono($conexion,$LINEAPASEID);
 
     cerrarConexionBD($conexion);
 

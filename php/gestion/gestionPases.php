@@ -12,33 +12,6 @@ function consultarTodosPases($conexion) {
     return $conexion->query($consulta);
 }
 
-function consultarPasesDeBono($conexion, $OidBono) {
-    $consulta1 = "SELECT * FROM LINEAPASES WHERE BONOS_ID = " . $OidBono;
-    $lineasConsumibles = $conexion -> query ($consulta1);
-
-
-    foreach ($lineasConsumibles as $l) {
-
-        $consulta = "SELECT * FROM PASES "
-            . "WHERE PASES_ID = " . $l ["PASES_ID"];
-
-        $pases = $conexion->query($consulta);
-
-        foreach ($pases as $c) {
-            $res [] = $c;
-        }
-
-
-    }
-
-
-
-
-    if (empty($res)) $res = null;
-
-    return $res;
-}
-
 function cantidadDeConsumiblesConTipoMedio ($conexion, $Tipo) {
     $stmt=$conexion->prepare("SELECT COUNT (*) AS TOTAL FROM PASES WHERE TIPOMEDIO = :Tipo" );
     $stmt->bindParam(':Tipo',$Tipo);

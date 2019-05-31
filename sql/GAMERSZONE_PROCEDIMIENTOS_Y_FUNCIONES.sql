@@ -114,15 +114,55 @@ BEGIN
 END BORRAR_CONSUMIBLE_DE_BONO;
 /
 
-CREATE OR REPLACE PROCEDURE INTRODUCIR_PASE_EN_BONO(
-p_pases_ID IN pases.pases_ID%TYPE,
-p_bonos_ID IN bonos.bonos_ID%TYPE,
-p_cantidadLP IN lineaPases.cantidadLP%TYPE
+CREATE OR REPLACE PROCEDURE INTRODUCIR_PASE_EN_BONO (
+    p_pases_ID IN pases.PASES_ID%TYPE,
+    p_bonos_ID IN bonos.bonos_ID%TYPE
 )
-IS
+
+    IS
+
+    numero smallint;
+
 BEGIN
-    INSERT INTO lineaPases(pases_ID, bonos_ID, cantidadLP) VALUES (p_pases_ID, p_bonos_ID, p_cantidadLP);
+
+    SELECT COUNT (*) INTO numero FROM LINEAPASES WHERE PASES_ID = p_pases_ID AND BONOS_ID = p_bonos_ID;
+
+    IF (numero = 0) THEN
+
+        INSERT INTO LINEAPASES (PASES_ID, BONOS_ID, CANTIDADLP) VALUES (p_pases_ID, p_bonos_ID, 1) ;
+
+    ELSE
+
+        UPDATE LINEAPASES SET CANTIDADLP = CANTIDADLP + 1 WHERE PASES_ID = p_pases_ID AND BONOS_ID = p_bonos_ID;
+
+    END IF;
+
 END INTRODUCIR_PASE_EN_BONO;
+/
+
+CREATE OR REPLACE PROCEDURE BORRAR_PASE_DE_BONO (
+    p_lineapases_id IN LINEAPASES.LINEAPASES_ID%TYPE
+)
+
+    IS
+
+    numero smallint;
+
+BEGIN
+
+    SELECT CANTIDADLP INTO numero FROM LINEAPASES WHERE LINEAPASES_ID = p_lineapases_id;
+
+    IF (numero = 1) THEN
+
+        DELETE FROM LINEAPASES WHERE LINEAPASES_ID = p_lineapases_id;
+
+    ELSE
+
+        UPDATE LINEAPASES SET CANTIDADLP = CANTIDADLP - 1 WHERE LINEAPASES_ID = p_lineapases_id;
+
+    END IF;
+
+END BORRAR_PASE_DE_BONO;
 /
 CREATE OR REPLACE PROCEDURE INTRODUCIR_LINEA_VENTA(
 p_bonos_ID IN bonos.bonos_ID%TYPE,
