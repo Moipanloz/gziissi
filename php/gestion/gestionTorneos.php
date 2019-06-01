@@ -34,6 +34,33 @@ function estaParticipando($conexion, $dni, $tID){
 }
 
 
+function cantidadDeTorneosConNombre ($conexion, $Nombre) {
+    $stmt=$conexion->prepare("SELECT COUNT (*) AS TOTAL FROM TORNEOS WHERE NOMBRETORNEO = :Nombre" );
+    $stmt->bindParam(':Nombre',$Nombre);
+    $stmt->execute();
+    return $stmt->fetchColumn();
+}
+
+<!-- MIRA A PARTIR DE AQUI LO TOCAS TU -->
+
+function nuevoTorneo ($conexion, $NombreTorneo) {
+    try {
+        $stmt=$conexion->prepare('CALL NUEVO_CONSUMIBLE(:Nombre, :Tipo)');
+        $stmt->bindParam(':Nombre',$NombreTorneo);
+        $stmt->bindParam(':Tipo',$TipoConsumible);
+        $stmt->bindParam(':Tipo',$TipoConsumible);
+        $stmt->bindParam(':Tipo',$TipoConsumible);
+        $stmt->bindParam(':Tipo',$TipoConsumible);
+
+
+        $stmt->execute();
+        return "";
+    } catch(PDOException $e) {
+        return $e->getMessage();
+    }
+}
+
+
 /*
 
 function quitar_bono($conexion,$OidBono) {
