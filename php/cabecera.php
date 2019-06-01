@@ -6,24 +6,24 @@
         <?php
         session_start();
         if (isset($_SESSION ["login_dni"]) && $_SESSION ["login_dni"] == "00000000A") { ?>
-            <li><a href="administracion.php">Administración</a></li>
+            <li id="headerMenu"><a href="administracion.php">Administración</a></li>
         <?php } ?>
-        <li><a href="bonos.php">Bonos</a></li>
-        <li><a href="torneos.php">Torneos</a></li>
+        <li id="headerMenu"><a href="bonos.php">Bonos</a></li>
+        <li id="headerMenu"><a href="torneos.php">Torneos</a></li>
         <?php
         if (!isset($_SESSION ["login_name"])) {
             ?>
-            <li><a href="iniciaSesion.php">Inicia sesión</a></li>
-            <li><a href="registrate.php">Regístrate</a></li>
+            <li id="headerMenu"><a href="iniciaSesion.php">Inicia sesión</a></li>
+            <li id="headerMenu"><a href="registrate.php">Regístrate</a></li>
         <?php } else { ?>
-            <li><a href="accion/accion_desconexion_usuario.php">Desconectarse</a></li>
+            <li id="headerMenu"><a href="accion/accion_desconexion_usuario.php">Desconectarse</a></li>
         <?php } ?>
     </ul>
 
     <ul id="smallScreen">
-        <li class="dropdown">
-            <a href="javascript:void(0)" class="dropbtn">Dropdown</a>
-            <div class="dropdown-content">
+        <li class="dropdown" id="headerMenu">
+            <a href="javascript:void(0)" class="dropbtn">Menu</a>
+            <div class="dropdown-content" id="headerMenu">
                 <a href="bonos.php">Bonos</a>
                 <a href="torneos.php">Torneos</a>
                 <?php
