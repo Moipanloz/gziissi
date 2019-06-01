@@ -314,12 +314,26 @@ p{
 }
 
 #c1{
-	background-color: rgb(161, 207, 255);
+	background-color: #d1e8ff;
+	margin: 5%;
+	padding: 3%;
+}
+
+.centro{
+	width: 12%;
+	margin: 15% auto;
+}
+
+.grid-torneo{
+	display: grid;
+	grid-template-columns: 50% 50%;
+
 }
 
 #c2{
 	background-color: #d1e8ff;
-}
+	margin: 5%;
+	padding: 3%;}
 
 /*//////////// TORNEOS /////////////*/
 
@@ -489,7 +503,7 @@ p{
 }
 .as-wrap.loaded {
 	opacity: 1;
-	mragin-bottom: 5%;
+	margin-bottom: 5%;
 }
 .as-wrap .as-view {
 	position: relative;

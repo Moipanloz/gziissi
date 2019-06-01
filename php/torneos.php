@@ -33,32 +33,23 @@
 
             <p style="text-align: center;">No hay torneos actualmente.</p>
 
-        <?php } else { ?>
+        <?php } else {
 
-        <div class="galeria">
-            <div class="container">
-                <section class="my-slider">
-                    <ul>
-                        <?php    foreach ($todosLosTorneos as $t) { ?>
+             foreach ($todosLosTorneos as $t) { ?>
 
-                        <li>
-                            <section class="slide_3">
-                                <div class="caption">
-                                    <h2><?php print $t ["NOMBRETORNEO"] ?></h2>
-                                    <ul>
-                                        <li><strong>Juego: </strong><?php print $t["VIDEOJUEGO"] ?></li>
-                                        <li><strong>Precio: </strong><?php print $t["PRECIOTORNEO"] ?>€</li>
-                                        <li><strong>Fecha: </strong><?php print $t["FECHATORNEO"] ?></li>
-                                        <li><strong>Número máximo de participantes: </strong><?php print $t["MAXPARTICIPANTES"] ?></li>
-                                    </ul>
-                                </div>
-                            </section>
-                        </li>
-                    </ul>
-                </section>
+
+        <div class="grid-torneo" id="c1">
+            <div id="left">
+                <h2><?php print $t ["NOMBRETORNEO"] ?></h2>
+                <h4> Consumibles:</h4>
+                <ul>
+                    <li><strong>Juego: </strong><?php print $t["VIDEOJUEGO"] ?></li>
+                    <li><strong>Precio: </strong><?php print $t["PRECIOTORNEO"] ?>€</li>
+                    <li><strong>Fecha: </strong><?php print $t["FECHATORNEO"] ?></li>
+                    <li><strong>Número máximo de participantes: </strong><?php print $t["MAXPARTICIPANTES"] ?></li>
+                </ul>
             </div>
-            <script  src="js/galeria.js"></script>
-
+            <div>
                 <?php
 
                 if (isset($_SESSION["login_dni"])) {
@@ -67,23 +58,26 @@
 
                 if (isset ($participando)) {
 
-                    if ($participando == 0)  /*Si no está participando*/ { ?>
-                        <form method="post" action="accion/accion_alta_torneo.php">
-                            <input type="hidden" name="TORNEOS_ID" id="TORNEOS_ID"
-                                   value="<?php echo $t["TORNEOS_ID"]; ?>">
-                            <input type="submit" id="joinTorneo" name="joinTorneo" value="Apúntate">
-                        </form>
+                if ($participando == 0)  /*Si no está participando*/ { ?>
+                <form class="centro" method="post" action="accion/accion_alta_torneo.php">
+                    <input type="hidden" name="TORNEOS_ID" id="TORNEOS_ID"
+                           value="<?php echo $t["TORNEOS_ID"]; ?>">
+                    <input class="boton" type="submit" id="joinTorneo" name="joinTorneo" value="Apúntate">
+                </form>
 
-                    <?php } else {  /*Ya esta participando*/ ?>
+                <?php } else {  /*Ya esta participando*/ ?>
 
-                        <!-- TODO Boton de quitarse de torneo -->
-                        <p>Ya estás participando en este torneo.</p>
-                    <?php }
+                <!-- TODO Boton de quitarse de torneo -->
+                <p>Ya estás participando en este torneo.</p>
+                <?php }
 
-                }
+                }?>
+            </div>
+        </div>
 
 
-            }
+
+         <?php   }
         } ?>
 
     </div>
