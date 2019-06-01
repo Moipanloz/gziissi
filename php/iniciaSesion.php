@@ -54,9 +54,9 @@ if (isset($login)) {
     <div class="login">
         <form id="loginUsuario" method="post" action="iniciaSesion.php">
             <div class="grid-container-login">
-                <label for="email">Correo electrónico: </label>
+                <label for="email"><strong>Correo electrónico: </strong></label>
                 <input type="email" name="email" id="email" <?php if (isset($email)) print ("value = \"".$email."\"") ?> placeholder="correo@dominio.com">
-                <label for="pass">Contraseña: </label>
+                <label for="pass"><strong>Contraseña: </strong></label>
                 <input type="password" name="pass" id="pass" placeholder="contraseña">
             </div>
             <div class="align">
