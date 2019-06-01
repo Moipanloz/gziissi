@@ -106,7 +106,7 @@
                         <li class="group-4">
                             <figure>
                                 <img src="imagenes/hd2.PNG" alt="placeholder" />
-                                <h3 id="menuText"><R>Lakitu</R></h3>
+                                <h3 id="menuText">Lakitu</h3>
                             </figure>
                         </li>
 
@@ -126,7 +126,7 @@
                         </li>
                         <li class="group-3">
                             <figure>
-                                <img src="imagenes/hd2.PNG" alt="placeholder" />
+                                <img src="imagenes/h2.PNG" alt="placeholder" />
                                 <h3 id="menuText">Rathalos</h3>
                             </figure>
                         </li>
@@ -134,7 +134,7 @@
                         <li class="group-3">
                             <figure>
                                 <img src="imagenes/h3.PNG" alt="placeholder" />
-                                <h3 id="menuText"><R>Rathian</R></h3>
+                                <h3 id="menuText">Rathian</h3>
                             </figure>
                         </li>
 
@@ -170,8 +170,6 @@
                                 <h3 id="menuText">Gul'Dan</h3>
                             </figure>
                         </li>
-                    </ul>
-                    <ul class="portfolio">
                         <li class="group-5">
                             <figure>
                                 <img src="imagenes/s3.PNG" alt="placeholder" />
