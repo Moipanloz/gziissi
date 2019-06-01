@@ -12,20 +12,9 @@
 
 <?php include_once("cabecera.php");
 
-require_once("gestion/gestionBD.php");
-require_once("gestion/gestionBonos.php");
-require_once("gestion/gestionConsumibles.php");
-require_once("gestion/gestionPases.php");
-require_once("gestion/gestionTorneos.php");
-
-$conexion = crearConexionBD();
-
-
 if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
 
     Header("Location: index.php");
-
-
 
 ?>
 
@@ -73,6 +62,5 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
     </div>
 </div>
 
-<?php cerrarConexionBD($conexion) ?>
 </body>
 </html>

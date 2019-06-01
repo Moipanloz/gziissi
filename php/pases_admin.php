@@ -171,8 +171,6 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
 
                         Crear un pase nuevo
 
-                        <img src="imagenes/create.png" class="editar_fila" alt="Borrar consumible">
-
                     </button>
 
                 </form>
