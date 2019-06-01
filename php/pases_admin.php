@@ -33,8 +33,6 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
 
 ?>
 
-?>
-
 
 <body>
 
@@ -165,7 +163,7 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
 
                     <input id="PASES_ID" name="PASES_ID" type="hidden" value="Fake id"/>
 
-                    <h3><input maxlength="20" id="TIPOMEDIO" name="TIPOMEDIO" type="text" placeholder="Nuevo Pase"/></h3>
+                    <input maxlength="20" id="TIPOMEDIO" name="TIPOMEDIO" type="text" placeholder="Nuevo Pase"/>
 
                     <button id="nuevo" name="nuevo" type="submit">
 

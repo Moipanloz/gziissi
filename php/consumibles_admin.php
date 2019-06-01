@@ -172,7 +172,7 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
 
                 <input id="CONSUMIBLES_ID" name="CONSUMIBLES_ID" type="hidden" value="Fake id"/>
 
-                <h3><input required pattern="^[a-zA-Z ]+$" maxlength="40" id="NOMBRECONSUMIBLE" name="NOMBRECONSUMIBLE" type="text" placeholder="Nuevo Consumible"/></h3>
+                <input required pattern="^[a-zA-Z ]+$" maxlength="40" id="NOMBRECONSUMIBLE" name="NOMBRECONSUMIBLE" type="text" placeholder="Nuevo Consumible"/>
 
                 <select name="TIPOCONSUMIBLE">
                     <option value="Bebida generica">Bebida generica</option>
