@@ -79,108 +79,94 @@
                     <ul class="portfolio">
                         <li class="group-2">
                             <figure>
-                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
+                                <img src="imagenes/es1.PNG" alt="placeholder" />
                                 <h3 id="menuText">Ensalada de Bowser</h3>
                             </figure>
                         </li>
 
                         <li class="group-2">
                             <figure>
-                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
+                                <img src="imagenes/es2.PNG" alt="placeholder" />
                                 <h3 id="menuText">Ensalada D.VA</h3>
                             </figure>
                         </li>
 
                         <li class="group-2">
                             <figure>
-                                <img src="imagenes/refrescos.jpg" alt="Monster" />
+                                <img src="imagenes/es3.PNG" alt="Monster" />
                                 <h3 id="menuText">Ensalada de Hyrule</h3>
                             </figure>
                         </li>
-                        <li class="group-3">
-                            <figure>
-                                <img src="imagenes/refrescos.jpg" alt="Cerveza" />
-                                <h3 id="menuText">SinglePlayer</h3>
-                            </figure>
-                        </li>
-                        <li class="group-3">
-                            <figure>
-                                <img src="imagenes/refrescos.jpg" alt="Refrescos" />
-                                <h3 id="menuText">McCree</h3>
-                            </figure>
-                        </li>
-
-                    </ul>
-                    <ul class="portfolio">
-                        <li class="group-3">
-                            <figure>
-                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
-                                <h3 id="menuText">Chocobo</h3>
-                            </figure>
-                        </li>
-                        <li class="group-3">
-                            <figure>
-                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
-                                <h3 id="menuText">Rathalos</h3>
-                            </figure>
-                        </li>
-
-                        <li class="group-3">
-                            <figure>
-                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
-                                <h3 id="menuText"><R>Rathian</R></h3>
-                            </figure>
-                        </li>
-
-                        <li class="group-3">
-                            <figure>
-                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
-                                <h3 id="menuText">Headshot</h3>
-                            </figure>
-                        </li>
-                        <li class="group-3">
-                            <figure>
-                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
-                                <h3 id="menuText">Kog'Maw</h3>
-                            </figure>
-                        </li>
-                    </ul>
-                    <ul class="portfolio">
-                        <li class="group-3">
-                            <figure>
-                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
-                                <h3 id="menuText">Pentakill</h3>
-                            </figure>
-                        </li>
                         <li class="group-4">
                             <figure>
-                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
+                                <img src="imagenes/hd1.PNG" alt="placeholder" />
                                 <h3 id="menuText">Goomba</h3>
                             </figure>
                         </li>
-
                         <li class="group-4">
                             <figure>
-                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
+                                <img src="imagenes/hd2.PNG" alt="placeholder" />
                                 <h3 id="menuText"><R>Lakitu</R></h3>
                             </figure>
                         </li>
 
                         <li class="group-4">
                             <figure>
-                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
+                                <img src="imagenes/hd3.PNG" alt="placeholder" />
                                 <h3 id="menuText">Capitan Toad</h3>
                             </figure>
                         </li>
+                    </ul>
+                    <ul class="portfolio">
+                        <li class="group-3">
+                            <figure>
+                                <img src="imagenes/h1.PNG" alt="placeholder" />
+                                <h3 id="menuText">Chocobo</h3>
+                            </figure>
+                        </li>
+                        <li class="group-3">
+                            <figure>
+                                <img src="imagenes/hd2.PNG" alt="placeholder" />
+                                <h3 id="menuText">Rathalos</h3>
+                            </figure>
+                        </li>
+
+                        <li class="group-3">
+                            <figure>
+                                <img src="imagenes/h3.PNG" alt="placeholder" />
+                                <h3 id="menuText"><R>Rathian</R></h3>
+                            </figure>
+                        </li>
+
+                        <li class="group-3">
+                            <figure>
+                                <img src="imagenes/h4.PNG" alt="placeholder" />
+                                <h3 id="menuText">Headshot</h3>
+                            </figure>
+                        </li>
+                        <li class="group-3">
+                            <figure>
+                                <img src="imagenes/h5.PNG" alt="placeholder" />
+                                <h3 id="menuText">Kog'Maw</h3>
+                            </figure>
+                        </li>
+                        <li class="group-3">
+                            <figure>
+                                <img src="imagenes/h6.PNG" alt="placeholder" />
+                                <h3 id="menuText">Pentakill</h3>
+                            </figure>
+                        </li>
+                    </ul>
+                    <ul class="portfolio">
                         <li class="group-5">
                             <figure>
-                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
+                                <img src="imagenes/s1.PNG" alt="placeholder" />
                                 <h3 id="menuText">Murky</h3>
                             </figure>
                         </li>
                         <li class="group-5">
                             <figure>
-                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
+                                <img src="imagenes/s2.PNG" alt="placeholder" />
                                 <h3 id="menuText">Gul'Dan</h3>
                             </figure>
                         </li>
@@ -188,14 +174,8 @@
                     <ul class="portfolio">
                         <li class="group-5">
                             <figure>
-                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
+                                <img src="imagenes/s3.PNG" alt="placeholder" />
                                 <h3 id="menuText">Tracer</h3>
-                            </figure>
-                        </li>
-                        <li class="group-5">
-                            <figure>
-                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
-                                <h3 id="menuText">Tyrael</h3>
                             </figure>
                         </li>
                     </ul>
