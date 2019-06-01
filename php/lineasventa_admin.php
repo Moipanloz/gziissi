@@ -14,11 +14,19 @@
 
 require_once("gestion/gestionBD.php");
 require_once("gestion/gestionBonos.php");
-require_once("gestion/gestionConsumibles.php");
-require_once("gestion/gestionPases.php");
+require_once("gestion/gestionVentas.php");
 
 $conexion = crearConexionBD();
 
+
+if (isset($_SESSION["LINEAVENTA"])) {
+    $LINEAVENTA = $_SESSION["LINEAVENTA"];
+    unset($_SESSION["LINEAVENTA"]);
+}
+
+$conexion = crearConexionBD();
+
+$todasLasLV = consultarTodasLineasVentas($conexion);
 
 if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
 
@@ -28,80 +36,161 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
 
 ?>
 
-$todosLosBonos = consultarTodosBonos($conexion);
-
-if (isset ($_SESSION ["BONO"])) unset ($_SESSION ["BONO"]);
-
-
-?>
-
 <body>
 
+<?php if (isset($_SESSION ["warning"])) {
+
+    print ("<div>".($_SESSION ["warning"])."</div>");
+
+    unset($_SESSION ["warning"]);
+
+} ?>
+
+
+
 <div>
-    <h2 class="titulo">Administración Bonos</h2>
+    <h2 class="titulo">Administración Lineas de Venta</h2>
     <div class="admin_class">
 
 
-        <?php foreach ($todosLosBonos
+        <!-- DE LA PRACTICA -->
 
-        as $fila) { ?>
+        <?php
 
-        <article class="bonos">
+        foreach($todasLasLV as $fila) {
 
-            <form method="post" action="modificar_bonos_admin.php" autocomplete="off">
+            ?>
 
-                <div class="fila_bonos">
 
-                    <div class="datos_bonos">
 
-                        <input id="BONOS_ID" name="BONOS_ID" type="hidden"
-                               value="<?php echo $fila["BONOS_ID"]; ?>"/>
+            <article class="consumibles">
 
-                        <input id="NOMBREBONO" name="NOMBREBONO" type="hidden"
-                               value="<?php echo $fila["NOMBREBONO"]; ?>"/>
+                <form method="post" action="controlador_lineasventa.php" autocomplete="off">
 
-                        <input id="PRECIOBONO" name="PRECIOBONO" type="hidden"
-                               value="<?php echo $fila["PRECIOBONO"]; ?>"/>
+                    <div class="fila_consumibles">
 
-                        <input id="DISPONIBLE" name="DISPONIBLE" type="hidden"
-                               value="<?php echo $fila["DISPONIBLE"]; ?>"/>
+                        <div class="datos_consumible">
 
-                        <div class="nombre">
-                            <b><?php print ($fila["NOMBREBONO"] . " - " . $fila ["PRECIOBONO"] . " euros"); ?></b></div>
+                            <input id="LINEAVENTAS_ID" name="LINEAVENTAS_ID"
 
-                        <div class="tipo">
-                            <em><?php if ($fila["DISPONIBLE"] == "TRUE") print ("Disponible"); else print ("No disponible"); ?></em>
+                                   type="hidden" value="<?php echo $fila["LINEAVENTAS_ID"]; ?>"/>
+
+                            <?php
+
+                            if (isset($LINEAVENTA) and ($LINEAVENTA["LINEAVENTAS_ID"] == $fila["LINEAVENTAS_ID"])) { ?>
+
+                                <!-- Editando título -->
+
+                                <P><input maxlength="40" id="CANTIDADLV" name="CANTIDADLV" type="text" value="<?php echo $fila["CANTIDADLV"]; ?>"/>	</P>
+                                <P><input maxlength="40" id="PRECIOLV" name="PRECIOLV" type="text" value="<?php echo $fila["PRECIOLV"]; ?>"/>	</P>
+                                <P><input maxlength="40" id="DESCUENTO" name="DESCUENTO" type="text" value="<?php echo $fila["DESCUENTO"]; ?>"/>	</P>
+
+
+                            <?php }	else { ?>
+
+                                <!-- mostrando título -->
+
+                                <input id="CANTIDAD" name="CANTIDADLV" type="hidden" value="<?php echo $fila["CANTIDADLV"]; ?>"/>
+                                <input id="PRECIO" name="PRECIOLV" type="hidden" value="<?php echo $fila["PRECIOLV"]; ?>"/>
+                                <input id="DESCUENTO" name="DESCUENTO" type="hidden" value="<?php echo $fila["DESCUENTO"]; ?>"/>
+
+                                <div class="nombre"><?php echo "<strong>Cantidad: </strong>".$fila["CANTIDADLV"]; ?></div>
+                                <div class="nombre"><?php echo "<strong>Precio: </strong>".$fila["PRECIOLV"]; ?></div>
+                                <div class="nombre"><?php echo "<strong>Descuento: </strong>".$fila["DESCUENTO"]; ?></div>
+
+                            <?php } ?>
+
                         </div>
 
 
+
+                        <div id="botones_fila">
+
+                            <?php if (isset($LINEAVENTA) and ($LINEAVENTA["LINEAVENTAS_ID"] == $fila["LINEAVENTAS_ID"])) { ?>
+
+                                <button id="grabar" name="grabar" type="submit" class="editar_fila">
+
+                                    <!--<img src="imagenes/bag_menuito.bmp" class="editar_fila" alt="Guardar modificación">
+                                    -->
+
+                                    Guardar
+
+                                </button>
+
+                                <button id="cancelar" name="cancelar" type="submit" class="cancelar">
+
+                                    <!--<img src="imagenes/remove_menuito.bmp" class="editar_fila" alt="Borrar consumible">
+-->
+                                    Cancelar
+                                </button>
+
+                            <?php } else { ?>
+
+                                <button id="editar" name="editar" type="submit" class="editar_fila">
+
+                                    <!--<img src="imagenes/pencil_menuito.bmp" class="editar_fila" alt="Editar consumible">
+                                    -->
+                                    Editar
+
+                                </button>
+
+                                <button id="borrar" name="borrar" type="submit" class="editar_fila">
+
+                                    <!--<img src="imagenes/remove_menuito.bmp" class="editar_fila" alt="Borrar consumible">
+-->
+                                    Borrar
+
+                                </button>
+
+                            <?php } ?>
+
+
+
+                        </div>
+
                     </div>
 
-                    <div id="botones_fila">
+                </form>
 
-                        <button id="editar" name="editar" type="submit" class="editar_fila">
-
-                            <!--<img src="imagenes/pencil_menuito.bmp" class="editar_fila" alt="Editar consumible">
-                            -->
-                            Editar
-
-                        </button>
+            </article>
 
 
-                    </div>
-
-                </div>
-
-            </form>
-
-        </article>
 
         <?php } ?>
 
-
     </div>
+
+    <?php if (!isset($LINEAVENTA)) {?>
+
+        <div>
+
+            <article class="admin_class">
+
+                <form autocomplete="off" method="post" action="controlador_lineasventa.php">
+
+                    <input id="LINEAVENTAS_ID" name="LINEAVENTAS_ID" type="hidden" value="Fake id"/>
+
+                    <p>Cantidad: <input required pattern="^[a-zA-Z ]+$" maxlength="40" id="CANTIDADLV" name="CANTIDADLV" type="text" placeholder="Cantidad"/></p>
+                    <p>Precio: <input required pattern="^[a-zA-Z ]+$" maxlength="40" id="PRECIOLV" name="PRECIOLV" type="text" placeholder="Precio"/></p>
+                    <p>Descuento: <input required pattern="^[a-zA-Z ]+$" maxlength="40" id="DESCUENTO" name="DESCUENTO" type="text" placeholder="Descuento"/></p>
+
+
+
+                    <button id="nuevo" name="nuevo" type="submit">
+
+                        Crear una linea de venta nueva
+
+                    </button>
+
+                </form>
+
+            </article>
+
+        </div>
+
+    <?php }?>
 
 </div>
 
 <?php cerrarConexionBD($conexion) ?>
 </body>
-</html>
