@@ -28,7 +28,7 @@ if (isset($_SESSION["TORNEO"])) {
 
         $_SESSION["warning"] = "El torneo \"".$TORNEO ["NOMBRETORNEO"]."\" aun tiene usuarios apuntados. Por favor eliminelos antes de borrar el torneo.";
 
-        Header("Location: ../pases_admin.php");
+        Header("Location: ../torneos_admin.php");
 
         cerrarConexionBD($conexion);
 

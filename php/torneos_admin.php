@@ -32,6 +32,16 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
 
 <body>
 
+<?php if (isset($_SESSION ["warning"])) { ?>
+
+    <div><?php print ($_SESSION ["warning"]) ?></div>
+
+    <?php
+
+    unset($_SESSION ["warning"]);
+
+} ?>
+
 <div>
     <h2 class="titulo">Administración Torneos</h2>
     <div class="admin_class">

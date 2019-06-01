@@ -6,24 +6,29 @@ require_once("../gestion/gestionTorneos.php");
 
 $conexion = crearConexionBD();
 
-
 // Comprobar que hemos llegado a esta página porque se ha rellenado el formulario
 if (isset($_REQUEST["joinTorneo"])) {
-    $dni = $_REQUEST["DNI"];
+
     $torneosID = $_REQUEST["TORNEOS_ID"];
-    unset ($_SESSION["errores"]);
 
     /*Si no está logeado (dni es nulo)*/
 
-    if($dni == null){
+    if(!isset ($_SESSION ["login_dni"])){
         cerrarConexionBD($conexion);
 
         Header("Location: iniciaSesion.php");
     }
 
+    $excepcion = inscripcionTorneo($conexion, $_SESSION["login_dni"], $torneosID);
+    cerrarConexionBD($conexion);
 
-    $res = inscripcionTorneo($conexion, $dni, $torneosID);
-    return $res;
+    if ($excepcion<>"") {
+        $_SESSION["excepcion"] = $excepcion;
+        $_SESSION["destino"] = "torneos.php";
+        Header("Location: ../excepcion.php");
+    }
+    else
+        Header("Location: ../torneos.php");
     /*mensaje*/
 /*
     $popup = "<script language="javascript">
@@ -42,5 +47,3 @@ if (isset($_REQUEST["joinTorneo"])) {
 
     Header("Location: torneos.php");
 }
-
-?>

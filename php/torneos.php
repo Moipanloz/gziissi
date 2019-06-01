@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    <link rel="icon" type="image/png"  href="imagenes/favicon-32x32.png">
+    <link rel="icon" type="image/png" href="imagenes/favicon-32x32.png">
 </head>
 <body>
 <?php include_once("cabecera.php") ?>
@@ -21,7 +19,7 @@
 
     $conexion = crearConexionBD();
     $todosLosTorneos = consultarTodosTorneos($conexion);
-?>
+    ?>
     <h1 class="titulo">Torneos</h1>
 
     <p id="torneos">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
@@ -43,37 +41,37 @@
                 <div>
                     <h3><?php print $t ["NOMBRETORNEO"] ?></h3>
                     <ul>
-                        <li><strong>Juego: </strong><?php print $t["VIDEOJUEGO"]?></li>
-                        <li><strong>Precio: </strong><?php print $t["PRECIOTORNEO"]?>€</li>
-                        <li><strong>Fecha: </strong><?php print $t["FECHATORNEO"]?></li>
-                        <li><strong>Número máximo de participantes: </strong><?php print $t["MAXPARTICIPANTES"]?></li>
+                        <li><strong>Juego: </strong><?php print $t["VIDEOJUEGO"] ?></li>
+                        <li><strong>Precio: </strong><?php print $t["PRECIOTORNEO"] ?>€</li>
+                        <li><strong>Fecha: </strong><?php print $t["FECHATORNEO"] ?></li>
+                        <li><strong>Número máximo de participantes: </strong><?php print $t["MAXPARTICIPANTES"] ?></li>
                     </ul>
                 </div>
                 <?php
 
-                if (isset($_SESSION["login_name"]) and isset($_SESSION["login_dni"]) and isset($t["TORNEOS_ID"])) {
-                    $usuario = $_SESSION["login_name"];
-                    $dni = $_SESSION["login_dni"];
-                    $tID = $t["TORNEOS_ID"];
+                if (isset($_SESSION["login_dni"])) {
+                    $participando = estaParticipando($conexion, $_SESSION["login_dni"], $t ["TORNEOS_ID"]);
+                }
 
-                    $participando = estaParticipando($conexion, $dni, $tID);
+                if (isset ($participando)) {
+
+                    if ($participando == 0)  /*Si no está participando*/ { ?>
+                        <form method="post" action="accion/accion_alta_torneo.php">
+                            <input type="hidden" name="TORNEOS_ID" id="TORNEOS_ID"
+                                   value="<?php echo $t["TORNEOS_ID"]; ?>">
+                            <input type="submit" id="joinTorneo" name="joinTorneo" value="Apúntate">
+                        </form>
+
+                    <?php } else {  /*Ya esta participando*/ ?>
+
+                        <!-- TODO Boton de quitarse de torneo -->
+                        <p>Ya estás participando en este torneo.</p>
+                    <?php }
+
                 }
 
 
-                if($participando == 0)  /*Si no está participando*/ {?>
-                    <form method="post" action="accion/accion_alta_torneo.php">
-                        <input type="hidden" name="DNI" id="DNI" value="<?php echo $dni?>"
-                        <input type="hidden" name="TORNEOS_ID" id="TORNEOS_ID" value="<?php echo $t["TORNEOS_ID"];?>">
-                        <input type="submit" id="joinTorneo" name="joinTorneo" value="Apúntate">
-                    </form>
-
-                <?php }else{  /*Ya esta participando*/ ?>
-                    <p>Ya estás participando en este torneo.</p>
-                <?php }   ?>
-
-
-
-            <?php }
+            }
         } ?>
 
     </div>
