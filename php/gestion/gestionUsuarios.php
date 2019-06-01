@@ -7,7 +7,7 @@
      */
 
 function consultarTodosUsuarios($conexion) {
-    $consulta = "SELECT * FROM USUARIOS";
+    $consulta = "SELECT * FROM USUARIOS WHERE DNI <> '00000000A'";
     return $conexion->query($consulta);
 }
 

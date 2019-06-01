@@ -35,12 +35,9 @@ if (isset ($_REQUEST ["change_user"])) {
     unset($_SESSION ["PASES_ID"]);
     unset ($_SESSION ["CONSUMIBLES_ID"]);
 } else if (!isset ($_SESSION["DNI"]))
-
     $_SESSION["DNI"] = $allUsers->fetch() ["DNI"];
 
-
 $conexion = crearConexionBD();
-
 
 $allUsers = consultarTodosUsuarios($conexion);
 
@@ -54,6 +51,7 @@ cerrarConexionBD($conexion);
 ?>
 
 <body>
+
 
 <div>
     <h2 class="titulo">Administración de Almacenes</h2>

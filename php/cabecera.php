@@ -20,7 +20,7 @@
         <?php } ?>
     </ul>
 
-    <<ul id="smallScreen">
+    <ul id="smallScreen">
         <li class="dropdown">
             <a href="javascript:void(0)" class="dropbtn">Dropdown</a>
             <div class="dropdown-content">
