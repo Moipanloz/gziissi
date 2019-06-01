@@ -56,29 +56,25 @@ $todosLosBonos = consultarTodosBonos($conexion);
                     <img src="imagenes\Telegram.png">
                     <div id="left">
                         <h3><?php print ($b ["NOMBREBONO"] . " - " . $b ["PRECIOBONO"] . " euros") ?></h3>
-                        <ul>
-
                             <h4> Consumibles:</h4>
 
                             <?php if ($todosLosConsumibles != null) foreach ($todosLosConsumibles as $c) { ?>
-                                <li><?php print ($c["NOMBRECONSUMIBLE"] . " - " . $c["CANTIDADLC"]) ?> </li>
+                                <p><?php print ($c["NOMBRECONSUMIBLE"] . " - " . $c["CANTIDADLC"]) ?> </p>
                             <?php } else { ?>
 
-                                <li>Este bono no contiene consumibles</li>
+                                <p>Este bono no contiene consumibles</p>
 
                             <?php } ?>
 
                             <h4> Pases:</h4>
 
                             <?php if ($todosLosPases != null) foreach ($todosLosPases as $p) { ?>
-                                <li><?php print ($p["TIPOMEDIO"] . " - " . $p["CANTIDADLP"]) ?> </li>
+                                <p><?php print ($p["TIPOMEDIO"] . " - " . $p["CANTIDADLP"]) ?> </p>
                             <?php } else { ?>
 
-                                <li>Este pase no contiene consumibles</li>
+                                <p>Este pase no contiene consumibles</p>
 
                             <?php } ?>
-
-                        </ul>
                     </div>
                     <form>
                         <input type="submit" value="Adquirir">
