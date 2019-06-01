@@ -131,7 +131,7 @@ if (isset($errores) && count($errores) > 0) { ?>
 
             </div>
             <div class="align">
-                <input type="submit" value="Enviar" id="submit" name="submit">
+                <input class="boton" type="submit" value="Enviar" id="submit" name="submit">
             </div>
         </form>
     </div>

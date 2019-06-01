@@ -60,7 +60,7 @@ if (isset($login)) {
                 <input type="password" name="pass" id="pass" placeholder="contraseña">
             </div>
             <div class="align">
-                <input type="submit" value="Enviar" id="submit" name="submit">
+                <input class="boton" type="submit" value="Enviar" id="submit" name="submit">
                 <p>¿No tienes una cuenta? Regístrate <a href="registrate.php">aquí</a></p>
             </div>
         </form>

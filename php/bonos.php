@@ -78,7 +78,7 @@ $todosLosBonos = consultarTodosBonos($conexion);
                     </div>
                     <form method="post" action="accion/accion_anadir_bono_a_usuario.php">
                         <input type="hidden" name= "BONOS_ID"  value="<?php $b["BONOS_ID"] ?>">
-                        <input type="submit" id="adquirirBono" name="adquirirBono" value="Adquirir">
+                        <input class="boton" type="submit" id="adquirirBono" name="adquirirBono" value="Adquirir">
                     </form>
                 </div>
 
@@ -87,7 +87,7 @@ $todosLosBonos = consultarTodosBonos($conexion);
                 <div class="subgrid" id="c2">
                     <form method="post" action="accion/accion_anadir_bono_a_usuario.php">
                         <input type="hidden" name= "BONOS_ID" value="<?php $b["BONOS_ID"] ?>">
-                        <input type="submit" id="adquirirBono" name="adquirirBono" value="Adquirir">
+                        <input class="boton" type="submit" id="adquirirBono" name="adquirirBono" value="Adquirir">
                     </form>
                     <div id="right">
 

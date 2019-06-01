@@ -99,12 +99,13 @@ li.dropdown {
         position: relative;
         font-weight: 500;
         padding-right: 5%;
-        padding-top: 3%
+        padding-top: 1%
     }
 
     li a, .dropbtn {
         color: white;
         text-align: center;
+        font-size: larger;
         text-decoration: none;
     }
 
@@ -117,7 +118,7 @@ li.dropdown {
     }
 
     .img-logo{
-        width: 8.33%;
+        width: 5%;
         height: auto;
         float: left;
     }
