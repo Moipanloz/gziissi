@@ -76,8 +76,8 @@ $todosLosBonos = consultarTodosBonos($conexion);
 
                             <?php } ?>
                     </div>
-                    <form>
-                        <input type="submit" value="Adquirir">
+                    <form method="post" action="accion_anadir_bono_a_usuario.php">
+                        <input type="submit" id="adquirirBono" name="adquirirBono" value="Adquirir">
                     </form>
                 </div>
 
