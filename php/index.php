@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -97,6 +98,8 @@
                                 <h3 id="menuText">Ensalada de Hyrule</h3>
                             </figure>
                         </li>
+                    </ul>
+                    <ul class="portfolio">
                         <li class="group-4">
                             <figure>
                                 <img src="imagenes/hd1.PNG" alt="placeholder" />
