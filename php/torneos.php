@@ -28,7 +28,7 @@
         esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
         in culpa qui officia deserunt mollit anim id est laborum</p>
 
-    <div class="grid-container-torneos"> <!-- Esto iría dentro de un carrusel-->
+    <div> <!--class="grid-container-torneos"--> <!-- Esto iría dentro de un carrusel-->
 
         <?php
 
@@ -36,17 +36,32 @@
 
             <p style="text-align: center;">No hay torneos actualmente.</p>
 
-        <?php } else {
-            foreach ($todosLosTorneos as $t) { ?>
-                <div>
-                    <h3><?php print $t ["NOMBRETORNEO"] ?></h3>
+        <?php } else { ?>
+
+        <div class="galeria">
+            <div class="container">
+                <section class="my-slider">
                     <ul>
-                        <li><strong>Juego: </strong><?php print $t["VIDEOJUEGO"] ?></li>
-                        <li><strong>Precio: </strong><?php print $t["PRECIOTORNEO"] ?>€</li>
-                        <li><strong>Fecha: </strong><?php print $t["FECHATORNEO"] ?></li>
-                        <li><strong>Número máximo de participantes: </strong><?php print $t["MAXPARTICIPANTES"] ?></li>
+                        <?php    foreach ($todosLosTorneos as $t) { ?>
+
+                        <li>
+                            <section class="slide_3">
+                                <div class="caption">
+                                    <h2><?php print $t ["NOMBRETORNEO"] ?></h2>
+                                    <ul>
+                                        <li><strong>Juego: </strong><?php print $t["VIDEOJUEGO"] ?></li>
+                                        <li><strong>Precio: </strong><?php print $t["PRECIOTORNEO"] ?>€</li>
+                                        <li><strong>Fecha: </strong><?php print $t["FECHATORNEO"] ?></li>
+                                        <li><strong>Número máximo de participantes: </strong><?php print $t["MAXPARTICIPANTES"] ?></li>
+                                    </ul>
+                                </div>
+                            </section>
+                        </li>
                     </ul>
-                </div>
+                </section>
+            </div>
+            <script  src="js/galeria.js"></script>
+
                 <?php
 
                 if (isset($_SESSION["login_dni"])) {
