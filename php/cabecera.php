@@ -1,42 +1,38 @@
 <header>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <div>
-        <a href="index.php"><img src="imagenes/GZ-logo.png" alt="Logo" class="logo"></a>
-        <nav>
-            <ul>
+    <link rel="stylesheet" type="text/css" href="header.css">
+    <a href="index.php"><img src="imagenes/GZ-logo.png" alt="Logo" class="img-logo"></a>
+    <ul id="bigScreen">
+        <?php
+        session_start();
+        if (isset($_SESSION ["login_dni"]) && $_SESSION ["login_dni"] == "00000000A") { ?>
+            <li><a href="administracion.php">Administración</a></li>
+        <?php } ?>
+        <li><a href="bonos.php">Bonos</a></li>
+        <li><a href="torneos.php">Torneos</a></li>
+        <?php
+        if (!isset($_SESSION ["login_name"])) {
+            ?>
+            <li><a href="iniciaSesion.php">Inicia sesión</a></li>
+            <li><a href="registrate.php">Regístrate</a></li>
+        <?php } else { ?>
+            <li><a href="accion/accion_desconexion_usuario.php">Desconectarse</a></li>
+        <?php } ?>
+    </ul>
 
-
+    <<ul id="smallScreen">
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Dropdown</a>
+            <div class="dropdown-content">
+                <a href="bonos.php">Bonos</a>
+                <a href="torneos.php">Torneos</a>
                 <?php
-
-                session_start();
-
-
-                if (isset($_SESSION ["login_dni"]) && $_SESSION ["login_dni"] == "00000000A") { ?>
-
-                    <li class="ul-item"><a href="administracion.php">Administración</a></li>
-
-                <?php } ?>
-
-
-                <li class="ul-item"><a href="bonos.php">Bonos</a></li>
-                <li class="ul-item"><a href="torneos.php">Torneos</a></li>
-
-                <?php
-
                 if (!isset($_SESSION ["login_name"])) {
-
                     ?>
-
-                    <li class="ul-item"><a href="iniciaSesion.php">Inicia sesión</a></li>
-                    <li class="ul-item"><a href="registrate.php">Regístrate</a></li>
-
+                    <a href="iniciaSesion.php">Inicia sesión</a>
+                    <a href="registrate.php">Regístrate</a>
                 <?php } else { ?>
-
-                    <li class="ul-item"><a href="accion/accion_desconexion_usuario.php">Desconectarse</a></li>
-
+                    <a href="accion/accion_desconexion_usuario.php">Desconectarse</a>
                 <?php } ?>
-
-            </ul>
-        </nav>
-    </div>
+    </ul>
 </header>
