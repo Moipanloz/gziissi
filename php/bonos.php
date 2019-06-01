@@ -76,7 +76,8 @@ $todosLosBonos = consultarTodosBonos($conexion);
 
                             <?php } ?>
                     </div>
-                    <form method="post" action="accion_anadir_bono_a_usuario.php">
+                    <form method="post" action="accion/accion_anadir_bono_a_usuario.php">
+                        <input type="hidden" name= "BONOS_ID"  value="<?php $b["BONOS_ID"] ?>">
                         <input type="submit" id="adquirirBono" name="adquirirBono" value="Adquirir">
                     </form>
                 </div>
@@ -84,8 +85,9 @@ $todosLosBonos = consultarTodosBonos($conexion);
             <?php } else { ?>
 
                 <div class="subgrid" id="c2">
-                    <form>
-                        <input type="submit" value="Adquirir">
+                    <form method="post" action="accion/accion_anadir_bono_a_usuario.php">
+                        <input type="hidden" name= "BONOS_ID" value="<?php $b["BONOS_ID"] ?>">
+                        <input type="submit" id="adquirirBono" name="adquirirBono" value="Adquirir">
                     </form>
                     <div id="right">
                         <h3><?php print ($b ["NOMBREBONO"] . " - " . $b ["PRECIOBONO"] . " euros") ?></h3>

@@ -15,3 +15,15 @@ foreach ($Contras as $s) {
     print ("\n\n\n");
 
 }
+
+
+//--------------------------------
+require_once ("gestion/gestionBD.php");
+
+require_once ("gestion/gestionBonos.php");
+require_once ("gestion/gestionAlmacenes.php");
+
+
+$conexion = crearConexionBD();
+
+anadirBonoAUsuario($conexion, 1, '22345678B');

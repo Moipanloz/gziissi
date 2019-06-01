@@ -1,34 +1,40 @@
 <?php
 session_start();
 
-if (isset($_SESSION["BONOS_ID"]) && isset($_SESSION["BONO"]) && isset($_SESSION["DNI"])) {
+$_SESSION ["TEST"] = "Adquirir bono: ".$_REQUEST["adquirirBono"].", DNI: ".$_SESSION["login_dni"];
 
-    $BONOS_ID = $_SESSION ["BONOS_ID"];
-    $BONO = $_SESSION ["BONO"];
-    $BONO_ID = $BONO ["BONOS_ID"];
+Header("Location: ../test.php");
 
-    $DNI = $_SESSION["DNI"];
+if (isset($_REQUEST["adquirirBono"]) && isset ($_SESSION["login_dni"])) {
+
+    $BONOS_ID = $_REQUEST ["BONOS_ID"];
+
+    $DNI = $_SESSION["login_dni"];
+
+    $_SESSION ["TEST"] = "ID Bono: ".$BONOS_ID.", DNI: ".$DNI;
+
+    Header("Location: ../test.php");
 
     require_once("../gestion/gestionBD.php");
     require_once("../gestion/gestionBonos.php");
 
     $conexion = crearConexionBD();
-    $excepcion = anadirBonoAUsuario($conexion,$BONO_ID,$DNI);
+    $excepcion = anadirBonoAUsuario($conexion,$BONOS_ID,$DNI);
 
     cerrarConexionBD($conexion);
 
     if ($excepcion<>"") {
         $_SESSION["excepcion"] = $excepcion;
-        $_SESSION["destino"] = "bonos_admin.php";
+        $_SESSION["destino"] = "bonos.php";
         Header("Location: ../excepcion.php");
     }
     else
-        Header("Location: ../modificar_bonos_admin.php");
+        Header("Location: ../bonos.php");
 }
 
 else {
 
 
-    Header("Location: ../modificar_bonos_admin.php"); // Se ha tratado de acceder directamente a este PHP
+    Header("Location: ../bonos.php"); // Se ha tratado de acceder directamente a este PHP
 
 }

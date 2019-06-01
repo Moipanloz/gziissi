@@ -6,6 +6,8 @@
    * #==========================================================#
    */
 
+require_once ("gestionAlmacenes.php");
+
 function consultarTodosBonos($conexion)
 {
     $consulta = "SELECT * FROM BONOS"
@@ -164,8 +166,39 @@ function crearNuevoBono ($conexion, $Nombre) {
 function anadirBonoAUsuario($conexion,$BONO_ID,$DNI){
     try{
 
-    }catch (){
+        $stmt = $conexion->prepare("SELECT * FROM LINEAPASES WHERE BONOS_ID = :BonosId");
+        $stmt->bindParam (':BonosId', $BONO_ID);
+        $stmt->execute();
 
+        foreach ($stmt as $item) {
+            $count = $item ["CANTIDADLP"];
+            $_SESSION["TEST"] = $count;
+            while ($count >0) {
+
+                anadirPaseAUsuario($conexion, $item ["PASES_ID"], $DNI);
+
+                $count = $count -1;
+            }
+        }
+
+        $stmt = $conexion->prepare("SELECT * FROM LINEACONSUMIBLES WHERE BONOS_ID = :BonosId");
+        $stmt->bindParam (':BonosId', $BONO_ID);
+        $stmt->execute();
+
+        foreach ($stmt as $item) {
+            $count = $item ["CANTIDADLC"];
+            while ($count >0) {
+
+                anadirConsumibleAUsuario($conexion, $item ["CONSUMIBLES_ID"], $DNI);
+
+                $count = $count -1;
+            }
+        }
+
+        return "";
+
+    } catch (PDOException $e) {
+        return $e->getMessage();
     }
 }
 

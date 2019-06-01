@@ -23,4 +23,3 @@ function cerrarConexionBD($conexion){
 	$conexion=null;
 }
 
-?>
