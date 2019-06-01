@@ -34,91 +34,170 @@
                         <li><a id="menuButtons" data-filter=".group-1" href="#">Entrantes</a></li>
                         <li><a id="menuButtons" data-filter=".group-2" href="#">Ensaladas</a></li>
                         <li><a id="menuButtons" data-filter=".group-3" href="#">Hamburguesas</a></li>
-                        <!-- Añadir uno de perritos calientes y otro de wanwiches-->
-                        <li><a id="menuButtons" data-filter=".group-4" href="#">Bebidas</a></li>
+                        <li><a id="menuButtons" data-filter=".group-4" href="#">Hot-Dogs</a></li>
+                        <li><a id="menuButtons" data-filter=".group-5" href="#">Sandwiches</a></li>
                     </ul>
 
                     <ul class="portfolio">
                         <li class="group-1">
                             <figure>
-                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
-                                <h3 id="menuText">The Title</h3>
-                            </figure>
-                        </li>
-                        <li class="group-2">
-                            <figure>
-                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
-                                <h3 id="menuText">The Title</h3>
-                            </figure>
-                        </li>
-
-                        <li class="group-1">
-                            <figure>
-                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
-                                <h3 id="menuText">The Title</h3>
-                            </figure>
-                        </li>
-
-                        <li class="group-1">
-                            <figure>
-                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
-                                <h3 id="menuText">The Title</h3>
-                            </figure>
-                        </li>
-                        <li class="group-2">
-                            <figure>
-                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
-                                <h3 id="menuText">The Title</h3>
+                                <img src="imagenes/e1.PNG" alt="placeholder" />
+                                <h3 id="menuText">Alitas de Anivia</h3>
                             </figure>
                         </li>
                         <li class="group-1">
                             <figure>
-                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
-                                <h3 id="menuText">The Title</h3>
+                                <img src="imagenes/e2.PNG" alt="placeholder" />
+                                <h3 id="menuText">Lagrimitas de Amumu</h3>
                             </figure>
                         </li>
-
+                        <li class="group-1">
+                            <figure>
+                                <img src="imagenes/e3.PNG" alt="placeholder" />
+                                <h3 id="menuText">Filo Infinito</h3>
+                            </figure>
+                        </li>
+                        <li class="group-1">
+                            <figure>
+                                <img src="imagenes/e4.PNG" alt="placeholder" />
+                                <h3 id="menuText">Aperitivos de URF</h3>
+                            </figure>
+                        </li>
+                        <li class="group-1">
+                            <figure>
+                                <img src="imagenes/e5.PNG" alt="placeholder" />
+                                <h3 id="menuText">Magma del monte del destino</h3>
+                            </figure>
+                        </li>
+                        <li class="group-1">
+                            <figure>
+                                <img src="imagenes/e6.PNG" alt="placeholder" />
+                                <h3 id="menuText">Trifuerza</h3>
+                            </figure>
+                        </li>
                     </ul>
                     <ul class="portfolio">
-                        <li class="group-3">
+                        <li class="group-2">
                             <figure>
                                 <img src="imagenes/refrescos.jpg" alt="placeholder" />
-                                <h3 id="menuText">The Title</h3>
-                            </figure>
-                        </li>
-                        <li class="group-3">
-                            <figure>
-                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
-                                <h3 id="menuText">The Title</h3>
+                                <h3 id="menuText">Ensalada de Bowser</h3>
                             </figure>
                         </li>
 
-                        <li class="group-4">
+                        <li class="group-2">
                             <figure>
                                 <img src="imagenes/refrescos.jpg" alt="placeholder" />
-                                <h3 id="menuText">The Title</h3>
+                                <h3 id="menuText">Ensalada D.VA</h3>
                             </figure>
                         </li>
 
-                        <li class="group-4">
+                        <li class="group-2">
                             <figure>
                                 <img src="imagenes/refrescos.jpg" alt="Monster" />
-                                <h3 id="menuText">The Title</h3>
+                                <h3 id="menuText">Ensalada de Hyrule</h3>
                             </figure>
                         </li>
-                        <li class="group-4">
+                        <li class="group-3">
                             <figure>
                                 <img src="imagenes/refrescos.jpg" alt="Cerveza" />
-                                <h3 id="menuText">The Title</h3>
+                                <h3 id="menuText">SinglePlayer</h3>
                             </figure>
                         </li>
-                        <li class="group-4">
+                        <li class="group-3">
                             <figure>
                                 <img src="imagenes/refrescos.jpg" alt="Refrescos" />
-                                <h3>Refrescos</h3>
+                                <h3 id="menuText">McCree</h3>
                             </figure>
                         </li>
 
+                    </ul>
+                    <ul class="portfolio">
+                        <li class="group-3">
+                            <figure>
+                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
+                                <h3 id="menuText">Chocobo</h3>
+                            </figure>
+                        </li>
+                        <li class="group-3">
+                            <figure>
+                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
+                                <h3 id="menuText">Rathalos</h3>
+                            </figure>
+                        </li>
+
+                        <li class="group-3">
+                            <figure>
+                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
+                                <h3 id="menuText"><R>Rathian</R></h3>
+                            </figure>
+                        </li>
+
+                        <li class="group-3">
+                            <figure>
+                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
+                                <h3 id="menuText">Headshot</h3>
+                            </figure>
+                        </li>
+                        <li class="group-3">
+                            <figure>
+                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
+                                <h3 id="menuText">Kog'Maw</h3>
+                            </figure>
+                        </li>
+                    </ul>
+                    <ul class="portfolio">
+                        <li class="group-3">
+                            <figure>
+                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
+                                <h3 id="menuText">Pentakill</h3>
+                            </figure>
+                        </li>
+                        <li class="group-4">
+                            <figure>
+                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
+                                <h3 id="menuText">Goomba</h3>
+                            </figure>
+                        </li>
+
+                        <li class="group-4">
+                            <figure>
+                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
+                                <h3 id="menuText"><R>Lakitu</R></h3>
+                            </figure>
+                        </li>
+
+                        <li class="group-4">
+                            <figure>
+                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
+                                <h3 id="menuText">Capitan Toad</h3>
+                            </figure>
+                        </li>
+                        <li class="group-5">
+                            <figure>
+                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
+                                <h3 id="menuText">Murky</h3>
+                            </figure>
+                        </li>
+                        <li class="group-5">
+                            <figure>
+                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
+                                <h3 id="menuText">Gul'Dan</h3>
+                            </figure>
+                        </li>
+                    </ul>
+                    <ul class="portfolio">
+                        <li class="group-5">
+                            <figure>
+                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
+                                <h3 id="menuText">Tracer</h3>
+                            </figure>
+                        </li>
+                        <li class="group-5">
+                            <figure>
+                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
+                                <h3 id="menuText">Tyrael</h3>
+                            </figure>
+                        </li>
                     </ul>
                 </div>
                 <script  src="js/carta.js"></script>
