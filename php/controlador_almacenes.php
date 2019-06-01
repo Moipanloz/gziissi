@@ -1,14 +1,14 @@
 <?php
+
 session_start();
 
-
-if (isset($_SESSION["anadir_c"])) {
+if (isset($_REQUEST["anadir_c"])) {
 
     $_SESSION ["CONSUMIBLES_ID"] = $_REQUEST ["CONSUMIBLES_ID"];
 
     Header("Location: accion/accion_anadir_consumible_a_usuario.php");
 
-} else if (isset($_SESSION["anadir_p"])) {
+} else if (isset($_REQUEST["anadir_p"])) {
 
     $_SESSION ["PASES_ID"] = $_REQUEST ["PASES_ID"];
 
@@ -17,19 +17,19 @@ if (isset($_SESSION["anadir_c"])) {
 
 } else if (isset($_REQUEST["borrar_c"])) {
 
-    $ALMACENESPASES_ID = $_REQUEST["ALMACENESPASES_ID"];
+    $ALMACENESCONSUMIBLES_ID = $_REQUEST["ALMACENESCONSUMIBLES_ID"];
 
-    $_SESSION["ALMACENESPASES_ID"] = $ALMACENESPASES_ID;
+    $_SESSION["ALMACENESCONSUMIBLES_ID"] = $ALMACENESCONSUMIBLES_ID;
 
     Header("Location: accion/accion_borrar_consumible_de_usuario.php");
 
 } else if (isset($_REQUEST["borrar_p"])) {
 
-    $LINEAPASES_ID = $_REQUEST["LINEAPASES_ID"];
+    $ALMACENESPASES_ID = $_REQUEST["ALMACENESPASES_ID"];
 
-    $_SESSION["LINEAPASES_ID"] = $LINEAPASES_ID;
+    $_SESSION["ALMACENESPASES_ID"] = $ALMACENESPASES_ID;
 
     Header("Location: accion/accion_borrar_pase_de_usuario.php");
 
-} else Header("Location: almacenes_admin.php");
+} else Header("Location: ../test.php");
 

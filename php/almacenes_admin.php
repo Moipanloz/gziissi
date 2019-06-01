@@ -28,13 +28,16 @@ $conexion = crearConexionBD();
 $allUsers = consultarTodosUsuarios($conexion);
 
 
-if (isset ($_REQUEST ["change_user"]))
+if (isset ($_REQUEST ["change_user"])) {
 
     $_SESSION ["DNI"] = $_REQUEST ["DNI"];
 
-else if (!isset ($_SESSION["DNI"]))
+    unset($_SESSION ["PASES_ID"]);
+    unset ($_SESSION ["CONSUMIBLES_ID"]);
+} else if (!isset ($_SESSION["DNI"]))
 
-    $_SESSION["DNI"] = $allUsers [0] ["DNI"];
+    $_SESSION["DNI"] = $allUsers->fetch() ["DNI"];
+
 
 $conexion = crearConexionBD();
 
@@ -66,14 +69,14 @@ cerrarConexionBD($conexion);
 
                     if ($u ["DNI"] != '00000000A') {
 
-                    ?>
+                        ?>
 
-                    <option name="DNI" <?php if ((isset ($_SESSION ["DNI"]))&& ($_SESSION ["DNI"] == $u["DNI"])) print "selected"?>
-                            value="<?php print $u["DNI"] ?>"><?php print $u ["NOMBRE"] ?>
+                        <option name="DNI" <?php if ((isset ($_SESSION ["DNI"])) && ($_SESSION ["DNI"] == $u["DNI"])) print "selected" ?>
+                                value="<?php print $u["DNI"] ?>"><?php print $u ["NOMBRE"] ?>
 
-                    </option>
+                        </option>
 
-                    <?php
+                        <?php
 
                     }
                 }
@@ -87,7 +90,6 @@ cerrarConexionBD($conexion);
         </form>
 
 
-
         <h2>El usuario contiene en su almacen los siguientes consumibles:</h2>
 
         <?php
@@ -98,20 +100,20 @@ cerrarConexionBD($conexion);
 
             ?>
 
-            <form autocomplete="off" method="post" action="controlador_bonos.php">
+            <form autocomplete="off" method="post" action="controlador_almacenes.php">
 
 
                 <h5><?php print ($c ["NOMBRECONSUMIBLE"] . " - " . $c ["CANTIDADCONSUMIBLE"]) ?></h5>
 
-                <input type="hidden" value = "<?php print ($c["ALMACENESCONSUMIBLES_ID"]) ?>" name="ALMACENESCONSUMIBLES_ID"/>
+                <input type="hidden" value="<?php print ($c["ALMACENESCONSUMIBLES_ID"]) ?>"
+                       name="ALMACENESCONSUMIBLES_ID"/>
 
                 <input type="submit" value="Borrar" name="borrar_c"/>
 
             </form>
 
 
-
-        <?php
+            <?php
 
         }
 
@@ -124,7 +126,7 @@ cerrarConexionBD($conexion);
                 <?php foreach ($allConsumibles as $c) { ?>
                     <option name="CONSUMIBLES_ID"
 
-                        <?php if (isset ($_SESSION ["CONSUMIBLES_ID"])&&($_SESSION ["CONSUMIBLES_ID"] == $c ["CONSUMIBLES_ID"])) print (" selected ") ?>
+                        <?php if (isset ($_SESSION ["CONSUMIBLES_ID"]) && ($_SESSION ["CONSUMIBLES_ID"] == $c ["CONSUMIBLES_ID"])) print (" selected ") ?>
 
                             value="<?php print $c ["CONSUMIBLES_ID"] ?>"><?php print $c ["NOMBRECONSUMIBLE"] ?></option>
                 <?php } ?>
@@ -141,21 +143,20 @@ cerrarConexionBD($conexion);
 
         $pasesDeUsuario = pasesDeUsuario($conexion, $_SESSION["DNI"]);
 
-        foreach ($consumiblesDeUsuario as $p) {
+        foreach ($pasesDeUsuario as $p) {
 
             ?>
 
-            <form autocomplete="off" method="post" action="controlador_bonos.php">
+            <form autocomplete="off" method="post" action="controlador_almacenes.php">
 
 
                 <h5><?php print ($p ["TIPOMEDIO"] . " - " . $p ["CANTIDADPASE"]) ?></h5>
 
-                <input type="hidden" value = "<?php print ($p["ALMACENESPASES_ID"]) ?>" name="ALMACENESPASES_ID"/>
+                <input type="hidden" value="<?php print ($p["ALMACENESPASES_ID"]) ?>" name="ALMACENESPASES_ID"/>
 
                 <input type="submit" value="Borrar" name="borrar_p"/>
 
             </form>
-
 
 
             <?php
@@ -171,7 +172,7 @@ cerrarConexionBD($conexion);
                 <?php foreach ($allPases as $p) { ?>
                     <option name="PASES_ID"
 
-                        <?php if (isset ($_SESSION ["PASES_ID"])&&($_SESSION ["PASES_ID"] == $p ["PASES_ID"])) print (" selected ") ?>
+                        <?php if (isset ($_SESSION ["PASES_ID"]) && ($_SESSION ["PASES_ID"] == $p ["PASES_ID"])) print (" selected ") ?>
 
                             value="<?php print $p ["PASES_ID"] ?>"><?php print $p ["TIPOMEDIO"] ?></option>
                 <?php } ?>

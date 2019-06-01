@@ -30,14 +30,16 @@
         }
     }
 
-function anadirPaseAUsuario($conexion, $IdPase)
+function anadirPaseAUsuario($conexion, $IdPase, $Dni)
 {
 
     try {
 
-        $consulta = "CALL ANADIR_PASE_A_USUARIO(:IdPase)";
+        $consulta = "CALL ANADIR_PASE_A_USUARIO(:IdPase, :Dni)";
         $stmt = $conexion->prepare($consulta);
         $stmt->bindParam(':IdPase', $IdPase);
+        $stmt->bindParam(':Dni', $Dni);
+
         $stmt->execute();
         return "";
     } catch (PDOException $e) {
@@ -46,14 +48,32 @@ function anadirPaseAUsuario($conexion, $IdPase)
 
 }
 
-function borrarPaseDeUsuario($conexion, $IdAlmacen)
+function anadirConsumibleAUsuario($conexion, $IdConsumible, $Dni)
+{
+
+    try {
+
+        $consulta = "CALL ANADIR_CONSUMIBLE_A_USUARIO(:IdCons, :Dni)";
+        $stmt = $conexion->prepare($consulta);
+        $stmt->bindParam(':IdCons', $IdConsumible);
+        $stmt->bindParam(':Dni', $Dni);
+
+        $stmt->execute();
+        return "";
+    } catch (PDOException $e) {
+        return $e->getMessage();
+    }
+
+}
+
+function borrarPaseDeUsuario($conexion, $IdAlmacenP)
 {
 
     try {
 
         $consulta = "CALL BORRAR_PASE_DE_USUARIO(:IdAlmacen)";
         $stmt = $conexion->prepare($consulta);
-        $stmt->bindParam(':IdAlmacen', $IdAlmacen);
+        $stmt->bindParam(':IdAlmacen', $IdAlmacenP);
         $stmt->execute();
         return "";
     } catch (PDOException $e) {
@@ -62,14 +82,14 @@ function borrarPaseDeUsuario($conexion, $IdAlmacen)
 
 }
 
-function borrarConsumibleDeUsuario($conexion, $IdAlmacen)
+function borrarConsumibleDeUsuario($conexion, $IdAlmacenC)
 {
 
     try {
 
         $consulta = "CALL BORRAR_CONSUMIBLE_DE_USUARIO(:IdAlmacen)";
         $stmt = $conexion->prepare($consulta);
-        $stmt->bindParam(':IdAlmacen', $IdAlmacen);
+        $stmt->bindParam(':IdAlmacen', $IdAlmacenC);
         $stmt->execute();
         return "";
     } catch (PDOException $e) {
