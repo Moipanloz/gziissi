@@ -145,5 +145,20 @@ function modificarBono($conexion, $BONOS_ID, $NOMBRE, $PRECIO, $DISPONIBLE)
 
 }
 
+function crearNuevoBono ($conexion, $Nombre) {
+
+    try {
+
+        $stmt = $conexion->prepare("CALL NUEVO_BONO (:Nombre, 10.00, 'TRUE') ");
+        $stmt->bindParam (':Nombre', $Nombre);
+
+        $stmt->execute();
+        return "";
+    } catch (PDOException $e) {
+        return $e->getMessage();
+    }
+
+}
+
 
 

@@ -6,13 +6,10 @@
      * #==========================================================#
      */
 
-
-
 function consultarTodosUsuarios($conexion) {
     $consulta = "SELECT * FROM USUARIOS";
     return $conexion->query($consulta);
 }
-
 
  function alta_usuario($conexion,$usuario) {
 	$fechaNacimiento = date('d/M/Y', strtotime($usuario["fechaNacimiento"]));
@@ -136,7 +133,6 @@ function esActivo($conexion, $dni){
     $stmt->execute();
     return $stmt->fetchColumn();
 }
-
 
 function borrarUsuario($conexion,$dni) {
     try {

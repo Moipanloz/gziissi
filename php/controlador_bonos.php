@@ -1,10 +1,15 @@
 <?php
 session_start();
 
-print ($_REQUEST["CONSUMIBLES_ID_b"]);
+if (isset ($_REQUEST ["crear_b"])) {
 
+    $_SESSION ["NOMBREBONO"] = $_REQUEST ["NOMBREBONO"];
 
-if (isset($_SESSION["BONO"])) {
+    Header("Location: accion/accion_crear_bono.php");
+
+}
+
+else if (isset($_SESSION["BONO"])) {
 
     if (isset($_REQUEST["anadir_c"])) {
 

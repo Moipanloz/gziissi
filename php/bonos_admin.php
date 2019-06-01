@@ -35,12 +35,28 @@ if (isset ($_SESSION ["CONSUMIBLES_ID"])) unset ($_SESSION ["CONSUMIBLES_ID"]);
 
 <body>
 
+<?php if (isset ($_SESSION ["name_taken"])) {
+
+    print ("<div>" . $_SESSION ["name_taken"] . "</div>");
+
+    unset($_SESSION ["name_taken"]);
+
+} ?>
 
 
 <div>
+
     <h2 class="titulo">Administración Bonos</h2>
+
     <div class="admin_class">
 
+        <form action="controlador_bonos.php" method="post">
+
+            <input type="text" name="NOMBREBONO" required placeholder="Nombre del bono nuevo">
+
+            <input type="submit" name="crear_b" value="Crear nuevo bono">
+
+        </form>
 
         <?php foreach ($todosLosBonos
 
