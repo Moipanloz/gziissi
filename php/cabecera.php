@@ -7,22 +7,21 @@
         session_start();
         if (isset($_SESSION ["login_dni"]) && $_SESSION ["login_dni"] == "00000000A") { ?>
             <li><a href="administracion.php ">Administración</a></li>
-        <?php } ?>
-        <li><a href="bonos.php">Bonos</a></li>
-        <li><a href="torneos.php">Torneos</a></li>
-        <?php
+        <?php }
         if (!isset($_SESSION ["login_name"])) {
             ?>
-            <li><a href="iniciaSesion.php">Inicia sesión</a></li>
             <li><a href="registrate.php">Regístrate</a></li>
+            <li><a href="iniciaSesion.php">Inicia sesión</a></li>
         <?php } else { ?>
             <li><a href="accion/accion_desconexion_usuario.php">Desconectarse</a></li>
         <?php } ?>
+        <li><a href="torneos.php">Torneos</a></li>
+        <li><a href="bonos.php">Bonos</a></li>
     </ul>
 
     <ul id="smallScreen">
         <li class="dropdown">
-            <a href="javascript:void(0)" class="dropbtn">Dropdown</a>
+            <a href="javascript:void(0)" class="dropbtn">Menu</a>
             <div class="dropdown-content">
                 <a href="bonos.php">Bonos</a>
                 <a href="torneos.php">Torneos</a>
