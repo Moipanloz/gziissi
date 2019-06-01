@@ -39,10 +39,9 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
 
         <?php
 
-        foreach($todosLosTorneos as $fila) {
+        foreach ($todosLosTorneos as $fila) {
 
             ?>
-
 
 
             <article class="consumibles">
@@ -63,22 +62,34 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
 
                                 <!-- Editando título -->
 
-                                <h3><input maxlength="30" id="NOMBRETORNEO" required name="NOMBRETORNEO" type="text" value="<?php echo $fila["NOMBRETORNEO"]; ?>"/>	</h3>
-                                <P><input maxlength="5" id="PRECIOTORNEO" required name="PRECIOTORNEO" pattern = "^[0-9]+(\.[0-9]{1,2})?$" type="text" value="<?php echo $fila["PRECIOTORNEO"]; ?>"/>	</P>
-                                <P><input maxlength="20" id="VIDEOJUEGO" required name="VIDEOJUEGO" type="text" value="<?php echo $fila["VIDEOJUEGO"]; ?>"/>	</P>
-                                <P><input maxlength="2" id="MAXPARTICIPANTES" required name="MAXPARTICIPANTES" pattern = "^[0-9]{1,2}+$" type="text" value="<?php echo $fila["MAXPARTICIPANTES"]; ?>"/>	</P>
-                                <input id="FECHATORNEO" name="FECHATORNEO" type="date" required value="<?php echo date("Y-m-d", strtotime($fila["FECHATORNEO"])); ?>"/>
+                                <h3><input maxlength="30" id="NOMBRETORNEO" required name="NOMBRETORNEO" type="text"
+                                           value="<?php echo $fila["NOMBRETORNEO"]; ?>"/></h3>
+                                <P><input maxlength="5" id="PRECIOTORNEO" required name="PRECIOTORNEO"
+                                          pattern="^[0-9]+(\.[0-9]{1,2})?$" type="text"
+                                          value="<?php echo $fila["PRECIOTORNEO"]; ?>"/></P>
+                                <P><input maxlength="20" id="VIDEOJUEGO" required name="VIDEOJUEGO" type="text"
+                                          value="<?php echo $fila["VIDEOJUEGO"]; ?>"/></P>
+                                <P><input maxlength="2" id="MAXPARTICIPANTES" required name="MAXPARTICIPANTES"
+                                          pattern="^[0-9]{1,2}+$" type="text"
+                                          value="<?php echo $fila["MAXPARTICIPANTES"]; ?>"/></P>
+                                <input id="FECHATORNEO" name="FECHATORNEO" type="date" required
+                                       value="<?php echo date("Y-m-d", strtotime($fila["FECHATORNEO"])); ?>"/>
 
 
-                            <?php }	else { ?>
+                            <?php } else { ?>
 
                                 <!-- mostrando título -->
 
-                                <input id="NOMBRETORNEO" name="NOMBRETORNEO" type="hidden" value="<?php echo $fila["NOMBRETORNEO"]; ?>"/>
-                                <input id="PRECIOTORNEO" name="PRECIOTORNEO" type="hidden" value="<?php echo $fila["PRECIOTORNEO"]; ?>"/>
-                                <input id="VIDEOJUEGO" name="VIDEOJUEGO" type="hidden" value="<?php echo $fila["VIDEOJUEGO"]; ?>"/>
-                                <input id="MAXPARTICIPANTES" name="MAXPARTICIPANTES" type="hidden" value="<?php echo $fila["MAXPARTICIPANTES"]; ?>"/>
-                                <input id="FECHATORNEO" name="FECHATORNEO" type="hidden" value="<?php echo $fila["FECHATORNEO"]; ?>"/>
+                                <input id="NOMBRETORNEO" name="NOMBRETORNEO" type="hidden"
+                                       value="<?php echo $fila["NOMBRETORNEO"]; ?>"/>
+                                <input id="PRECIOTORNEO" name="PRECIOTORNEO" type="hidden"
+                                       value="<?php echo $fila["PRECIOTORNEO"]; ?>"/>
+                                <input id="VIDEOJUEGO" name="VIDEOJUEGO" type="hidden"
+                                       value="<?php echo $fila["VIDEOJUEGO"]; ?>"/>
+                                <input id="MAXPARTICIPANTES" name="MAXPARTICIPANTES" type="hidden"
+                                       value="<?php echo $fila["MAXPARTICIPANTES"]; ?>"/>
+                                <input id="FECHATORNEO" name="FECHATORNEO" type="hidden"
+                                       value="<?php echo $fila["FECHATORNEO"]; ?>"/>
 
                                 <div class="nombre"><?php echo "<strong>Nombre: </strong>" . $fila["NOMBRETORNEO"]; ?></div>
                                 <div class="nombre"><?php echo "<strong>Precio: </strong>" . $fila["PRECIOTORNEO"]; ?></div>
@@ -90,7 +101,6 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
                             <?php } ?>
 
                         </div>
-
 
 
                         <div id="botones_fila">
@@ -134,7 +144,6 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
                             <?php } ?>
 
 
-
                         </div>
 
                     </div>
@@ -143,13 +152,70 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
 
             </article>
 
+            <article>
 
+                <?php if (isset($TORNEO) and ($TORNEO["TORNEOS_ID"] == $fila["TORNEOS_ID"])) {
+                    ?>
+
+
+                    <p>Usuarios registrados:</p>
+
+                    <?php
+
+                    $usuariosRegistrados = usuariosRegistradosEnTorneo($conexion, $TORNEO ["TORNEOS_ID"]);
+
+                    foreach ($usuariosRegistrados as $u) {
+
+                        ?>
+
+                        <form method="post" action="controlador_torneos.php">
+
+
+                            <input type="hidden" id="PARTICIPANTESTORNEOS_ID" name="PARTICIPANTESTORNEOS_ID"
+                                   value="<?php print $u ["PARTICIPANTESTORNEOS_ID"] ?>">
+
+                            <p><?php print $u["NOMBRE"] ?> <input type="submit" name="borrar_u" value="Eliminar"></p>
+
+                        </form>
+
+
+                        <?php
+
+
+                    }
+
+                    ?>
+
+                <?php } else { ?>
+
+                <p>Usuarios registrados:</p>
+
+                <?php
+
+                $usuariosRegistrados = usuariosRegistradosEnTorneo($conexion, $fila ["TORNEOS_ID"]);
+
+                foreach ($usuariosRegistrados
+
+                as $u) {
+
+                ?>
+
+                <p><?php print $u["NOMBRE"] ?>
+
+                    <?php
+                    }
+
+                    ?>
+
+
+                    <?php } ?>
+            </article>
 
         <?php } ?>
 
     </div>
 
-    <?php if (!isset($TORNEO)) {?>
+    <?php if (!isset($TORNEO)) { ?>
 
         <div>
 
@@ -158,10 +224,14 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
                 <form autocomplete="off" method="post" action="controlador_torneos.php">
 
                     <input id="TORNEOS_ID" name="TORNEOS_ID" type="hidden" value="Fake id"/>
-                    <p>Nombre: <input required pattern="^[a-zA-Z0-9 ]+$" maxlength="40" id="NOMBRETORNEO" name="NOMBRETORNEO" type="text" placeholder="Nombre"/></p>
-                    <p>Precio: <input required pattern = "^[0-9]+(\.[0-9]{1,2})?$" maxlength="5" id="PRECIOTORNEO" name="PRECIOTORNEO" type="text" placeholder="0.0"/></p>
-                    <p>Videojuego: <input required pattern="^[a-zA-Z ]+$" maxlength="20" id="VIDEOJUEGO" name="VIDEOJUEGO" type="text" placeholder="Videojuego"/></p>
-                    <p>Número máximo de participantes: <input required pattern = "^[0-9]{1,2}+$" id="MAXPARTICIPANTES" name="MAXPARTICIPANTES" type="text" placeholder="10"/></p>
+                    <p>Nombre: <input required pattern="^[a-zA-Z0-9 ]+$" maxlength="40" id="NOMBRETORNEO"
+                                      name="NOMBRETORNEO" type="text" placeholder="Nombre"/></p>
+                    <p>Precio: <input required pattern="^[0-9]+(\.[0-9]{1,2})?$" maxlength="5" id="PRECIOTORNEO"
+                                      name="PRECIOTORNEO" type="text" placeholder="0.0"/></p>
+                    <p>Videojuego: <input required pattern="^[a-zA-Z ]+$" maxlength="20" id="VIDEOJUEGO"
+                                          name="VIDEOJUEGO" type="text" placeholder="Videojuego"/></p>
+                    <p>Número máximo de participantes: <input required pattern="^[0-9]{1,2}+$" id="MAXPARTICIPANTES"
+                                                              name="MAXPARTICIPANTES" type="text" placeholder="10"/></p>
                     <p>Fecha: <input required id="FECHATORNEO" name="FECHATORNEO" type="date"/></p>
 
                     <button id="nuevo" name="nuevo" type="submit">
@@ -176,7 +246,7 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
 
         </div>
 
-    <?php }?>
+    <?php } ?>
 </div>
 
 <?php cerrarConexionBD($conexion) ?>

@@ -94,8 +94,17 @@ if (isset($errores) && count($errores) > 0) { ?>
                 <label for="nombre">Nombre:</label>
                 <input id="nombre" name="nombre" type="text" size="40" value="<?php echo $formulario['nombre']; ?>"
                        required/>
+
+                <?php
+
+                $minimalDate = strtotime ( '-18 year' , strtotime ( date("Y-m-d") ) ) ;
+
+                $minimalDate = date ( 'Y-m-d' , $minimalDate );
+
+                ?>
+
                 <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-                <input type="date" id="fechaNacimiento" name="fechaNacimiento"
+                <input type="date" max="<?php print $minimalDate ?>" id="fechaNacimiento" name="fechaNacimiento"
                        required value="<?php echo $formulario['fechaNacimiento']; ?>"/>
                 <label for="email">Correo electrónico:</label>
                 <input id="email" name="email" type="email" placeholder="usuario@dominio.com"

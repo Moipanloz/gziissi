@@ -102,35 +102,32 @@ function nuevoTorneo ($conexion, $PrecioTorneo, $Videojuego, $MaxParticipantes, 
     }
 }
 
+function usuariosRegistradosEnTorneo ($conexion, $TorneosId) {
 
-/*
-
-function quitar_bono($conexion,$OidBono) {
     try {
-
-        //IDUNO ABOUT THIS YET
-        $stmt=$conexion->prepare('CALL QUITAR_RETO(:OidBono)');
-        $stmt->bindParam(':OidBono',$OidBono);
+        $stmt = $conexion->prepare("SELECT PARTICIPANTESTORNEOS.PARTICIPANTESTORNEOS_ID, USUARIOS.NOMBRE FROM PARTICIPANTESTORNEOS INNER JOIN USUARIOS ON PARTICIPANTESTORNEOS.DNI = USUARIOS.DNI WHERE PARTICIPANTESTORNEOS.TORNEOS_ID = :TorneosId");
+        $stmt->bindParam(':TorneosId', $TorneosId);
         $stmt->execute();
-        return "";
-    } catch(PDOException $e) {
+
+        return $stmt;
+
+    } catch (PDOException $e) {
         return $e->getMessage();
     }
 }
 
-//THIS NEITHER
-/*
-function modificar_bono($conexion,$OidLibro,$TituloLibro) {
-	try {
-		$stmt=$conexion->prepare('CALL MODIFICAR_TITULO(:OidLibro,:TituloLibro)');
-		$stmt->bindParam(':OidLibro',$OidLibro);
-		$stmt->bindParam(':TituloLibro',$TituloLibro);
-		$stmt->execute();
-		return "";
-	} catch(PDOException $e) {
-		return $e->getMessage();
-    }
-}
-*/
+function borrarParticipanteDeTorneo($conexion, $IdParticipacionTorneo)
+{
 
-?>
+    try {
+
+        $consulta = "DELETE FROM PARTICIPANTESTORNEOS WHERE PARTICIPANTESTORNEOS_ID = :IdParticipacion";
+        $stmt = $conexion->prepare($consulta);
+        $stmt->bindParam(':IdParticipacion', $IdParticipacionTorneo);
+        $stmt->execute();
+        return "";
+    } catch (PDOException $e) {
+        return $e->getMessage();
+    }
+
+}

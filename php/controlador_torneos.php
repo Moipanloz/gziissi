@@ -1,14 +1,22 @@
 <?php
 session_start();
 
-if (isset($_REQUEST["TORNEOS_ID"])) {
+if (isset($_REQUEST["borrar_u"])) {
+
+    $PARTICIPANTESTORNEOS_ID = $_REQUEST["PARTICIPANTESTORNEOS_ID"];
+    $_SESSION ["PARTICIPANTESTORNEOS_ID"] = $PARTICIPANTESTORNEOS_ID;
+
+    Header("Location: accion/accion_borrar_participacion_torneo.php");
+
+}
+
+else if (isset($_REQUEST["TORNEOS_ID"])) {
     $TORNEO["TORNEOS_ID"] = $_REQUEST["TORNEOS_ID"];
     $TORNEO["NOMBRETORNEO"] = $_REQUEST["NOMBRETORNEO"];
     $TORNEO["PRECIOTORNEO"] = $_REQUEST["PRECIOTORNEO"];
     $TORNEO["VIDEOJUEGO"] = $_REQUEST["VIDEOJUEGO"];
     $TORNEO["MAXPARTICIPANTES"] = $_REQUEST["MAXPARTICIPANTES"];
     $TORNEO["FECHATORNEO"] = $_REQUEST["FECHATORNEO"];
-
 
     $_SESSION["TORNEO"] = $TORNEO;
 
