@@ -10,30 +10,24 @@ if (isset($_SESSION["TORNEO"])) {
 
     $conexion = crearConexionBD();
 
+    /*
+    $_SESSION ["TEST"] = $TORNEO;
 
-    $count = cantidadDeTorneosConNombre($conexion, $TORNEO["NOMBRETORNEO"]);
+    Header("Location: ../test.php");
+*/
 
-    if ($count == 0) {
 
-        $excepcion = nuevoTorneo($conexion,$TORNEO ["NOMBRETORNEO"], $TORNEO ["NOMBRETORNEO"]);
+    $excepcion = nuevoTorneo($conexion, $TORNEO ["PRECIOTORNEO"], $TORNEO ["VIDEOJUEGO"], $TORNEO ["MAXPARTICIPANTES"], $TORNEO ["NOMBRETORNEO"], $TORNEO ["FECHATORNEO"]);
 
-        cerrarConexionBD($conexion);
 
-        if ($excepcion <> "") {
-            $_SESSION["excepcion"] = $excepcion;
-            $_SESSION["destino"] = "torneos_admin.php";
-            Header("Location: ../excepcion.php");
-        } else
-            Header("Location: ../torneos_admin.php");
+    cerrarConexionBD($conexion);
 
-    } else {
-
-        $_SESSION["warning"] = "Ya existe un torneo con nombre \"" . $TORNEO ["NOMBRETORNEO"] . "\"";
-
+    if ($excepcion <> "") {
+        $_SESSION["excepcion"] = $excepcion;
+        $_SESSION["destino"] = "torneos_admin.php";
+        Header("Location: ../excepcion.php");
+    } else
         Header("Location: ../torneos_admin.php");
 
-        cerrarConexionBD($conexion);
 
-
-    }
 } else Header("Location: ../torneos_admin.php"); // Se ha tratado de acceder directamente a este PHP

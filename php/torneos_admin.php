@@ -63,12 +63,11 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
 
                                 <!-- Editando título -->
 
-                                <h3><input maxlength="40" id="NOMBRETORNEO" name="NOMBRETORNEO" type="text" value="<?php echo $fila["NOMBRETORNEO"]; ?>"/>	</h3>
-                                <P><input maxlength="40" id="PRECIOTORNEO" name="PRECIOTORNEO" type="text" value="<?php echo $fila["PRECIOTORNEO"]; ?>"/>	</P>
-                                <P><input maxlength="40" id="VIDEOJUEGO" name="VIDEOJUEGO" type="text" value="<?php echo $fila["VIDEOJUEGO"]; ?>"/>	</P>
-                                <P><input maxlength="40" id="MAXPARTICIPANTES" name="MAXPARTICIPANTES" type="text" value="<?php echo $fila["MAXPARTICIPANTES"]; ?>"/>	</P>
-                                <!-- cambiar el tipo de input?? -->
-                                <P><input maxlength="40" id="FECHATORNEO" name="FECHATORNEO" type="date" value="<?php echo $fila["FECHATORNEO"]; ?>"/>	</P>
+                                <h3><input maxlength="30" id="NOMBRETORNEO" required name="NOMBRETORNEO" type="text" value="<?php echo $fila["NOMBRETORNEO"]; ?>"/>	</h3>
+                                <P><input maxlength="5" id="PRECIOTORNEO" required name="PRECIOTORNEO" pattern = "^[0-9]+(\.[0-9]{1,2})?$" type="text" value="<?php echo $fila["PRECIOTORNEO"]; ?>"/>	</P>
+                                <P><input maxlength="20" id="VIDEOJUEGO" required name="VIDEOJUEGO" type="text" value="<?php echo $fila["VIDEOJUEGO"]; ?>"/>	</P>
+                                <P><input maxlength="2" id="MAXPARTICIPANTES" required name="MAXPARTICIPANTES" pattern = "^[0-9]{1,2}+$" type="text" value="<?php echo $fila["MAXPARTICIPANTES"]; ?>"/>	</P>
+                                <input id="FECHATORNEO" name="FECHATORNEO" type="date" required value="<?php echo date("Y-m-d", strtotime($fila["FECHATORNEO"])); ?>"/>
 
 
                             <?php }	else { ?>
@@ -159,27 +158,15 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
                 <form autocomplete="off" method="post" action="controlador_torneos.php">
 
                     <input id="TORNEOS_ID" name="TORNEOS_ID" type="hidden" value="Fake id"/>
-                    <input id="PRECIOTORNEO" name="PRECIOTORNEO" type="hidden" value="0.0"/>
-                    <input id="VIDEOJUEGO" name="VIDEOJUEGO" type="hidden" value="Videojuego"/>
-                    <input id="MAXPARTICIPANTES" name="MAXPARTICIPANTES" type="hidden" value="10"/>
-                    <input id="FECHATORNEO" name="FECHATORNEO" type="hidden" value="1/1/2019"/>
-
-
-
-                    <p>Nombre: <input required pattern="^[a-zA-Z ]+$" maxlength="40" id="NOMBRETORNEO" name="NOMBRETORNEO" type="text" placeholder="Nombre"/></p>
-                    <p>Precio: <input required pattern="^[a-zA-Z ]+$" maxlength="40" id="PRECIOTORNEO" name="PRECIOTORNEO" type="text" placeholder="0.0"/></p>
-                    <p>Videojuego: <input required pattern="^[a-zA-Z ]+$" maxlength="40" id="VIDEOJUEGO" name="VIDEOJUEGO" type="text" placeholder="Videojuego"/></p>
-                    <p>Número máximo de participantes: <input required pattern="^[a-zA-Z ]+$" maxlength="40" id="MAXPARTICIPANTES" name="MAXPARTICIPANTES" type="text" placeholder="10"/></p>
-                  <!--  PONER QUE SEAN NUMEROS -->
-                    <p>Fecha: <input required pattern="^[a-zA-Z ]+$" maxlength="40" id="FECHATORNEO" name="FECHATORNEO" type="text" placeholder="1/1/2019"/></p>
-
-
+                    <p>Nombre: <input required pattern="^[a-zA-Z0-9 ]+$" maxlength="40" id="NOMBRETORNEO" name="NOMBRETORNEO" type="text" placeholder="Nombre"/></p>
+                    <p>Precio: <input required pattern = "^[0-9]+(\.[0-9]{1,2})?$" maxlength="5" id="PRECIOTORNEO" name="PRECIOTORNEO" type="text" placeholder="0.0"/></p>
+                    <p>Videojuego: <input required pattern="^[a-zA-Z ]+$" maxlength="20" id="VIDEOJUEGO" name="VIDEOJUEGO" type="text" placeholder="Videojuego"/></p>
+                    <p>Número máximo de participantes: <input required pattern = "^[0-9]{1,2}+$" id="MAXPARTICIPANTES" name="MAXPARTICIPANTES" type="text" placeholder="10"/></p>
+                    <p>Fecha: <input required id="FECHATORNEO" name="FECHATORNEO" type="date"/></p>
 
                     <button id="nuevo" name="nuevo" type="submit">
 
                         Crear un torneo nuevo
-
-                        <img src="imagenes/create.png" class="editar_fila" alt="Crear torneo">
 
                     </button>
 

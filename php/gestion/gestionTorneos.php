@@ -24,6 +24,46 @@ function inscripcionTorneo($conexion,$dni,$torneosID) {
     }
 }
 
+function cantidadDeUsuariosEnTorneo ($conexion, $IdTorneo) {
+    $stmt=$conexion->prepare("SELECT COUNT (*) AS TOTAL FROM PARTICIPANTESTORNEOS WHERE TORNEOS_ID = :TorneoId" );
+    $stmt->bindParam(':TorneoId',$IdTorneo);
+    $stmt->execute();
+    return $stmt->fetchColumn();
+}
+
+function quitarTorneo ($conexion,$IdTorneo) {
+    try {
+        $stmt=$conexion->prepare("DELETE FROM TORNEOS WHERE TORNEOS_ID = :IdTorneo");
+        $stmt->bindParam(':IdTorneo',$IdTorneo);
+        $stmt->execute();
+
+        return "";
+    } catch(PDOException $e) {
+        return $e->getMessage();
+    }
+}
+
+function modificarTorneo($conexion,$TorneoId,$Precio, $Videojuego, $MaxPart, $Nombre, $Fecha) {
+    try {
+
+        $fechaTorneo = date('d/M/Y', strtotime($Fecha));
+
+        $stmt=$conexion->prepare("UPDATE TORNEOS SET PRECIOTORNEO= :Precio, VIDEOJUEGO= :Videojuego, MAXPARTICIPANTES= :Maxpart, NOMBRETORNEO= :Nombre, FECHATORNEO= :Fecha WHERE TORNEOS_ID = :TorneoId");
+        $stmt->bindParam(':TorneoId',$TorneoId);
+        $stmt->bindParam(':Precio',$Precio);
+        $stmt->bindParam(':Videojuego',$Videojuego);
+        $stmt->bindParam(':Maxpart',$MaxPart);
+        $stmt->bindParam(':Nombre',$Nombre);
+        $stmt->bindParam(':Fecha',$fechaTorneo);
+
+
+        $stmt->execute();
+        return "";
+    } catch(PDOException $e) {
+        return $e->getMessage();
+    }
+}
+
 function estaParticipando($conexion, $dni, $tID){
     $stmt = $conexion->prepare("SELECT COUNT (*) FROM PARTICIPANTESTORNEOS WHERE (PARTICIPANTESTORNEOS.DNI = :dni"
         . " AND PARTICIPANTESTORNEOS.TORNEOS_ID = :tID)");
@@ -42,14 +82,17 @@ function cantidadDeTorneosConNombre ($conexion, $Nombre) {
 }
 
 
-function nuevoTorneo ($conexion, $NombreTorneo, $PrecioTorneo, $Videojuego, $MaxParticipantes, $FechaTorneo) {
+function nuevoTorneo ($conexion, $PrecioTorneo, $Videojuego, $MaxParticipantes, $NombreTorneo, $FechaTorneo) {
     try {
-        $stmt=$conexion->prepare('CALL NUEVO_CONSUMIBLE(:Precio, :Videojuego, :MaxParticipantes, :Nombre, :FechaTorneo)');
+
+    	$fecha = date('d/M/Y', strtotime($FechaTorneo));
+
+        $stmt=$conexion->prepare('CALL NUEVO_TORNEO(:Precio, :Videojuego, :MaxParticipantes, :Nombre, :FechaTorneo)');
         $stmt->bindParam(':Nombre',$NombreTorneo);
         $stmt->bindParam(':Precio',$PrecioTorneo);
         $stmt->bindParam(':Videojuego',$Videojuego);
         $stmt->bindParam(':MaxParticipantes',$MaxParticipantes);
-        $stmt->bindParam(':FechaTorneo',$FechaTorneo);
+        $stmt->bindParam(':FechaTorneo',$fecha);
 
 
         $stmt->execute();
