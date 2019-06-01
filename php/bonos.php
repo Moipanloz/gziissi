@@ -53,7 +53,7 @@ $todosLosBonos = consultarTodosBonos($conexion);
             if ($count % 2 == 1 ) { ?>
 
                 <div class="subgrid" id="c1">
-                    <img src="imagenes\Telegram.png">
+                    <img src="imagenes\GZ-logo.png">
                     <div id="left">
                         <h3><?php print ($b ["NOMBREBONO"] . " - " . $b ["PRECIOBONO"] . " euros") ?></h3>
                             <h4> Consumibles:</h4>
@@ -90,6 +90,7 @@ $todosLosBonos = consultarTodosBonos($conexion);
                         <input type="submit" id="adquirirBono" name="adquirirBono" value="Adquirir">
                     </form>
                     <div id="right">
+
                         <h3><?php print ($b ["NOMBREBONO"] . " - " . $b ["PRECIOBONO"] . " euros") ?></h3>
                         <ul>
 
@@ -115,7 +116,7 @@ $todosLosBonos = consultarTodosBonos($conexion);
 
                         </ul>
                     </div>
-                    <img src="imagenes\Telegram.png">
+                    <img src="imagenes\GZ-logo.PNG">
                 </div>
 
             <?php } ?>
