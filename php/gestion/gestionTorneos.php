@@ -41,16 +41,15 @@ function cantidadDeTorneosConNombre ($conexion, $Nombre) {
     return $stmt->fetchColumn();
 }
 
-<!-- MIRA A PARTIR DE AQUI LO TOCAS TU -->
 
-function nuevoTorneo ($conexion, $NombreTorneo) {
+function nuevoTorneo ($conexion, $NombreTorneo, $PrecioTorneo, $Videojuego, $MaxParticipantes, $FechaTorneo) {
     try {
-        $stmt=$conexion->prepare('CALL NUEVO_CONSUMIBLE(:Nombre, :Tipo)');
+        $stmt=$conexion->prepare('CALL NUEVO_CONSUMIBLE(:Precio, :Videojuego, :MaxParticipantes, :Nombre, :FechaTorneo)');
         $stmt->bindParam(':Nombre',$NombreTorneo);
-        $stmt->bindParam(':Tipo',$TipoConsumible);
-        $stmt->bindParam(':Tipo',$TipoConsumible);
-        $stmt->bindParam(':Tipo',$TipoConsumible);
-        $stmt->bindParam(':Tipo',$TipoConsumible);
+        $stmt->bindParam(':Precio',$PrecioTorneo);
+        $stmt->bindParam(':Videojuego',$Videojuego);
+        $stmt->bindParam(':MaxParticipantes',$MaxParticipantes);
+        $stmt->bindParam(':FechaTorneo',$FechaTorneo);
 
 
         $stmt->execute();
