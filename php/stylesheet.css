@@ -16,48 +16,6 @@ img {
 	display: table;
 }
 
-[class*="col-"] {
-	float: left;
-	padding: 15px;
-}
-
-/* For mobile phones: */
-[class*="col-"] {
-	width: 100%;
-}
-
-@media only screen and (min-width: 600px) {
-	/* For tablets: */
-	.col-s-1 {width: 8.33%;}
-	.col-s-2 {width: 16.66%;}
-	.col-s-3 {width: 25%;}
-	.col-s-4 {width: 33.33%;}
-	.col-s-5 {width: 41.66%;}
-	.col-s-6 {width: 50%;}
-	.col-s-7 {width: 58.33%;}
-	.col-s-8 {width: 66.66%;}
-	.col-s-9 {width: 75%;}
-	.col-s-10 {width: 83.33%;}
-	.col-s-11 {width: 91.66%;}
-	.col-s-12 {width: 100%;}
-}
-
-@media only screen and (min-width: 768px) {
-	/* For desktop: */
-	.col-1 {width: 8.33%;}
-	.col-2 {width: 16.66%;}
-	.col-3 {width: 25%;}
-	.col-4 {width: 33.33%;}
-	.col-5 {width: 41.66%;}
-	.col-6 {width: 50%;}
-	.col-7 {width: 58.33%;}
-	.col-8 {width: 66.66%;}
-	.col-9 {width: 75%;}
-	.col-10 {width: 83.33%;}
-	.col-11 {width: 91.66%;}
-	.col-12 {width: 100%;}
-}
-
 .logo{
 	float : left;
 	height: 100px;
@@ -115,7 +73,7 @@ header::after{
 	font-size: 120%;
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 700px){
 
 	nav {
 		display:none;
@@ -155,16 +113,22 @@ p{
 }
 
 .info{
-	background-color: rgb(89, 163, 255);
-
+	background-color: rgb(161, 207, 255);
 }
 
 .carta{
-	background-color: rgb(161, 207, 255);
+	padding-top: 3%;
+	background-color: #d1e8ff;
+}
+
+.galeria{
+	padding-top: 3%;
+	background-color: #e2edff;
 }
 
 .localizanos{
-	background-color: rgb(161, 207, 255);
+	padding-top: 3%;
+	background-color: rgb(255, 255, 255);
 }
 
 .titulo{
@@ -183,7 +147,7 @@ p{
 
 
 /*//////////////////////////  CARTA //////////////////////*/
-.wrap {
+.wrapMenu {
 	max-width: 1000px;
 	margin: 0 auto;
 	padding-left: 20px;
@@ -205,6 +169,7 @@ p{
 	-webkit-backface-visibility: hidden;
 }
 .portfolio figure {
+	background-color: rgb(161, 207, 255);
 	margin: 0 20px 20px 0;
 	position: relative;
 	text-align: center;
@@ -213,22 +178,16 @@ p{
 	-webkit-border-radius: 8px;
 	border-radius: 8px;
 	overflow: hidden;
-	background: url("http://www.seanmichael.me/bathtubgin/wp-content/themes/sean-michael-design/images/fancybox_overlay.png") repeat transparent;
 	-moz-transition: all 0.4s ease-in-out;
 	-o-transition: all 0.4s ease-in-out;
 	-webkit-transition: all 0.4s ease-in-out;
 	transition: all 0.4s ease-in-out;
 }
 .portfolio figure:hover {
-	border: 3px solid #D29990;
+	border: 3px solid rgb(138, 151, 208);
 }
 .portfolio figure:hover img {
 	opacity: .3;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-	-moz-transform: scale(5);
-	-ms-transform: scale(5);
-	-webkit-transform: scale(5);
-	transform: scale(5);
 }
 .portfolio figure:hover figcaption {
 	top: 50%;
@@ -249,52 +208,22 @@ p{
 	transition: all 0.2s ease-in-out 0.2s;
 }
 
-a {
-	background-color: #D29990;
+#menuButtons {
+	background-color: rgb(0, 1, 82);
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: bold;
-	text-shadow: 0 -1px 1px #cd452f;
+	text-shadow: 0 -1px 1px #0a0038;
 	text-decoration: none;
 	color: #fff;
-	width: 50px;
-	height: 50px;
 	line-height: 50px;
-	-moz-border-radius: 50%;
-	-webkit-border-radius: 50%;
-	border-radius: 50%;
 	display: inline-block;
 	-moz-transition: all 0.2s ease-in-out;
 	-o-transition: all 0.2s ease-in-out;
 	-webkit-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
 }
-a:hover {
-	background-color: #e28e80;
-}
-
-h3 {
-	color: #fff;
-	font-family: Helvetica, Arial, sans-serif;
-	font-weight: 300;
-	text-transform: uppercase;
-	text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
-	font-weight: 500;
-	padding: 1em .7em;
-	-moz-border-radius: 50%;
-	-webkit-border-radius: 50%;
-	border-radius: 50%;
-	position: absolute;
-	bottom: 100%;
-	left: 0;
-	width: 100%;
-	display: inline-block;
-	padding: 0;
-	margin: 0;
-	-moz-transition: all 0.15s ease-in-out 0.4s;
-	-o-transition: all 0.15s ease-in-out 0.4s;
-	-webkit-transition: all 0.15s ease-in-out;
-	-webkit-transition-delay: 0.4s;
-	transition: all 0.15s ease-in-out 0.4s;
+#menuButtons:hover {
+	background-color: rgb(138, 151, 208);
 }
 
 .tabs {
@@ -315,7 +244,7 @@ h3 {
 	width: auto;
 	height: auto;
 	padding: 0 1em;
-	border-bottom: 4px solid #c3786c;
+	border-bottom: 4px solid rgb(138, 151, 208);
 	position: relative;
 	-moz-transition: none;
 	-o-transition: none;
@@ -327,7 +256,7 @@ h3 {
 	border-bottom: none;
 }
 [data-filter*="group"].active {
-	background-color: #e28e80;
+	background-color: rgb(0, 1, 82);
 }
 
 @media (min-width: 460px) {
@@ -447,6 +376,24 @@ h3 {
 	text-align: center;
 }
 
+@media (max-width: 1100px) {
+	.login{
+		background-color: rgb(89, 163, 255);
+		padding: 1%;
+		max-width: 65%;
+		margin: auto;
+	}
+}
+
+@media (max-width: 600px) {
+	.login{
+		background-color: rgb(89, 163, 255);
+		padding: 1%;
+		max-width: 100%;
+		margin: auto;
+	}
+}
+
 /*======================REGISTRO==============================*/
 
 .grid-container-registro{
@@ -503,10 +450,6 @@ h3 {
 	max-width: 960px;
 	margin: 0 auto;
 }
-.scroll-test p {
-	border-top:1px solid rgba(0,0,0,.1);
-	color:#444;
-}
 
 .slide_1,
 .slide_2,
@@ -516,18 +459,17 @@ h3 {
 }
 
 .slide_1 {
-	background: url('http://lorempixel.com/600/400/nature/2/') no-repeat center center;
+	background: url('imagenes/refrescos.jpg') no-repeat center center;
 	background-size: 100% auto;
 }
 .slide_2 {
-	background: url('http://lorempixel.com/600/400/nature/4/') no-repeat center center;
+	background: url('imagenes/refrescos.jpg') no-repeat center center;
 	background-size: 100% auto;
 }
 .slide_3 {
-	background: url('http://lorempixel.com/600/400/nature/6/') no-repeat center center;
+	background: url('imagenes/refrescos.jpg') no-repeat center center;
 	background-size: 100% auto;
 }
-
 
 /*
  * 		Slider styles
@@ -580,7 +522,7 @@ h3 {
 	min-width: 0;
 	width:0;
 	max-width: 100%;
-	background: lime;
+	background: rgb(0, 1, 82);
 }
 
 /* Navigation */
@@ -610,7 +552,7 @@ h3 {
 	display:block;
 	height:80px;
 	width: 50px;
-	background:lime;
+	background: rgb(0, 1, 82);
 	font-size:2em;
 	line-height: 80px;
 }
@@ -631,7 +573,7 @@ h3 {
 	color:#ccc;
 }
 .as-wrap .as-markers .as-mark a:hover,
-.as-wrap .as-markers .as-mark.active a { color:lime; }
+.as-wrap .as-markers .as-mark.active a { color: rgb(0, 1, 82);  }
 .as-wrap .as-markers .as-mark a span {
 	display:block;
 	width: 10px;
@@ -671,6 +613,5 @@ h3 {
 .map {
 	width: 100%;
 	padding: 0 10%;
-	background: red;
 	border: 10px solid green;
 }

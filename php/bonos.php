@@ -50,9 +50,7 @@ $todosLosBonos = consultarTodosBonos($conexion);
 
             if (!is_null($bonoId)) $todosLosConsumibles = lineasConsumiblesDeBono($conexion, $bonoId);
             if (!is_null($bonoId)) $todosLosPases = lineasPasesDeBono($conexion, $bonoId);
-
-
-            if ($count % 2 == 1) { ?>
+            if ($count % 2 == 1 ) { ?>
 
                 <div class="subgrid" id="c1">
                     <img src="imagenes\Telegram.png">

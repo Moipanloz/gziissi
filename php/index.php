@@ -6,8 +6,6 @@
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Gamers Zone</title>
-        <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="stylesheet.css">
         <link rel="icon" type="image/png"  href="imagenes/favicon-32x32.png">
         <script language="JavaScript" src="js/slider.js"></script>
@@ -17,64 +15,107 @@
         <div class="grid-container">
             <div class="info">
 		            <h1 class="titulo">Sobre nosotros</h1>
-			   		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-                        in culpa qui officia deserunt mollit anim id est laborum</p>
-			</div>
-			<div class="carta">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta quam eget luctus sodales. Nunc ut lorem pharetra, egestas erat sit amet, eleifend lorem. Aenean sapien augue, scelerisque vel est finibus, vestibulum eleifend leo. Proin pellentesque sem est, vel venenatis leo consectetur nec. Morbi ornare vulputate eros, non malesuada sapien pharetra eu. Proin condimentum accumsan iaculis. Nunc eu molestie erat, in commodo mi. Nulla sed vulputate erat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras libero enim, ullamcorper id massa nec, suscipit tempor elit. Quisque nec elementum tellus, quis porta neque.</p>
+                <br>
+                <p>Aliquam eget gravida ligula. Integer cursus dignissim maximus. Cras placerat mauris urna, porttitor rhoncus purus convallis in. Aliquam egestas mauris lobortis sem suscipit interdum. Nunc molestie nibh ac dolor sodales viverra. Sed magna tellus, mattis sed tellus a, ultrices auctor est. Proin non nunc rutrum, placerat neque ut, facilisis nisi. Maecenas fermentum tempus posuere. Donec et dolor eros. Quisque non tortor lectus. Fusce pharetra leo nisl, eget ornare nisl porta ut. Nam feugiat arcu eu nunc posuere vehicula. Ut cursus, orci ac hendrerit scelerisque, mi ipsum scelerisque eros, nec lacinia tortor lectus sit amet ante. Integer nec elit faucibus, lobortis augue vel, sollicitudin est.</p>
+                <br>
+                <p>Phasellus bibendum tortor id tortor aliquet malesuada. In sed lectus a nunc volutpat blandit. Quisque vitae efficitur ligula, vel faucibus odio. Pellentesque sit amet lacus at magna vestibulum euismod. Sed egestas venenatis ligula, vel aliquam mi faucibus in. In elementum nulla et auctor tempus. Sed iaculis interdum ipsum. Maecenas vulputate ipsum sem, a sagittis nisi consequat nec.</p>
+            </div>
+        </div>
+                <div class="carta">
 				<h1 class="titulo">Nuestra carta</h1>
-                <div class="wrap">
+                <div class="wrapMenu">
                     <ul class="tabs">
-                        <li><a data-filter=".group-1" href="#">Group 1</a></li>
-                        <li><a data-filter=".group-2" href="#">Group 2</a></li>
+                        <li><a id="menuButtons" data-filter=".group-1" href="#">Group 1</a></li>
+                        <li><a id="menuButtons" data-filter=".group-2" href="#">Group 2</a></li>
+                        <li><a id="menuButtons" data-filter=".group-3" href="#">Group 3</a></li>
+                        <li><a id="menuButtons" data-filter=".group-4" href="#">Group 4</a></li>
                     </ul>
 
                     <ul class="portfolio">
                         <li class="group-1">
                             <figure>
-                                <img src="http://farm3.staticflickr.com/2675/4029465977_e0ec2d53c6_z.jpg?zz=1" alt="placeholder" />
-                                <h3>The Title</h3><figcaption><a class="" href="#">link</a></figcaption>
+                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
+                                <h3 id="menuText">The Title</h3>
                             </figure>
                         </li>
                         <li class="group-2">
                             <figure>
-                                <img src="http://farm1.staticflickr.com/212/461888176_cd0894c52c_z.jpg?zz=1" alt="placeholder" />
-                                <h3>The Title</h3><figcaption><a href="#">link</a></figcaption>
+                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
+                                <h3 id="menuText">The Title</h3>
                             </figure>
                         </li>
 
                         <li class="group-1">
                             <figure>
-                                <img src="http://farm3.staticflickr.com/2431/3949931873_c5f441a386_b.jpg?zz=1" alt="placeholder" />
-                                <h3>The Title</h3><figcaption><a href="#">link</a></figcaption>
+                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
+                                <h3 id="menuText">The Title</h3>
                             </figure>
                         </li>
 
                         <li class="group-1">
                             <figure>
-                                <img src="http://farm3.staticflickr.com/2431/3949931873_c5f441a386_b.jpg" alt="placeholder" />
-                                <h3>The Title</h3><figcaption><a href="#">link</a></figcaption>
+                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
+                                <h3 id="menuText">The Title</h3>
                             </figure>
                         </li>
                         <li class="group-2">
                             <figure>
-                                <img src="http://farm1.staticflickr.com/212/461888176_cd0894c52c_z.jpg?zz=1" alt="placeholder" />
-                                <h3>The Title</h3><figcaption><a href="#">link</a></figcaption>
+                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
+                                <h3 id="menuText">The Title</h3>
                             </figure>
                         </li>
                         <li class="group-1">
                             <figure>
-                                <img src="http://farm3.staticflickr.com/2675/4029465977_e0ec2d53c6_z.jpg?zz=1" alt="placeholder" />
-                                <h3>The Title</h3><figcaption><a href="#">link</a></figcaption>
+                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
+                                <h3 id="menuText">The Title</h3>
                             </figure>
                         </li>
+
+                    </ul>
+                    <ul class="portfolio">
+                        <li class="group-3">
+                            <figure>
+                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
+                                <h3 id="menuText">The Title</h3>
+                            </figure>
+                        </li>
+                        <li class="group-3">
+                            <figure>
+                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
+                                <h3 id="menuText">The Title</h3>
+                            </figure>
+                        </li>
+
+                        <li class="group-4">
+                            <figure>
+                                <img src="imagenes/refrescos.jpg" alt="placeholder" />
+                                <h3 id="menuText">The Title</h3>
+                            </figure>
+                        </li>
+
+                        <li class="group-4">
+                            <figure>
+                                <img src="imagenes/refrescos.jpg" alt="Monster" />
+                                <h3 id="menuText">The Title</h3>
+                            </figure>
+                        </li>
+                        <li class="group-4">
+                            <figure>
+                                <img src="imagenes/refrescos.jpg" alt="Cerveza" />
+                                <h3 id="menuText">The Title</h3>
+                            </figure>
+                        </li>
+                        <li class="group-4">
+                            <figure>
+                                <img src="imagenes/refrescos.jpg" alt="Refrescos" />
+                                <h3>Refrescos</h3>
+                            </figure>
+                        </li>
+
                     </ul>
                 </div>
-                <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
                 <script  src="js/carta.js"></script>
-			</div>
 			<div class="galeria">
 				<h1 class="titulo">Galería</h1>
                 <div class="container">
@@ -119,13 +160,12 @@
                         </ul>
                     </section>
                 </div>
-                <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
                 <script  src="js/galeria.js"></script>
 			<div class="localizanos">
 				<h1 class="titulo">Localizanos</h1>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d122470.29726937723!2d-115.24122266102181!3d36.232787363024805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80beb782a4f57dd1%3A0x3accd5e6d5b379a3!2sLas+Vegas%2C+NV%2C+USA!5e0!3m2!1sen!2sca!4v1470931103436" class="map" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
                 <script  src="js/mapa.js"></script>
                 </div>
-		</div>
+            </div>
 	</body>
 </html>
