@@ -53,7 +53,7 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
             <a href="usuarios_admin.php">Usuarios</a>
         </span>
         <span>
-            <a href="lineasventa_admin.php">LineasVenta</a>
+            <a href="ventas_admin.php">Ventas</a>
         </span>
         <span>
             <a href="almacenes_admin.php">Almacenes de Usuarios</a>

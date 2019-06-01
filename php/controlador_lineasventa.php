@@ -12,13 +12,13 @@ session_start();
 
     if (isset($_REQUEST["cancelar"])) {
         unset($_SESSION ["LINEAVENTA"]);
-        Header("Location: lineasventa_admin.php");
+        Header("Location: ventas_admin.php");
     }
     else if (isset ($_REQUEST ["nuevo"]))     Header("Location: accion/accion_crear_lineaventa.php");
-    else if (isset($_REQUEST["editar"])) Header("Location: lineasventa_admin.php");
+    else if (isset($_REQUEST["editar"])) Header("Location: ventas_admin.php");
     else if (isset($_REQUEST["grabar"])) Header("Location: accion/accion_modificar_lineaventa.php");
     else if (isset($_REQUEST["borrar"])) Header("Location: accion/accion_borrar_lineaventa.php");
 }
-else Header("Location: lineasventa_admin.php");
+else Header("Location: ventas_admin.php");
 
 
