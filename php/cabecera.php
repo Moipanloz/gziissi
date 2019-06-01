@@ -6,7 +6,7 @@
         <?php
         session_start();
         if (isset($_SESSION ["login_dni"]) && $_SESSION ["login_dni"] == "00000000A") { ?>
-            <li><a href="administracion.php">Administración</a></li>
+            <li><a href="administracion.php ">Administración</a></li>
         <?php } ?>
         <li><a href="bonos.php">Bonos</a></li>
         <li><a href="torneos.php">Torneos</a></li>

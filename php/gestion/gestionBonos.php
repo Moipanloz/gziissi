@@ -161,4 +161,13 @@ function crearNuevoBono ($conexion, $Nombre) {
 }
 
 
+function anadirBonoAUsuario($conexion,$BONO_ID,$DNI){
+    try{
+
+    }catch (){
+
+    }
+}
+
+
 
