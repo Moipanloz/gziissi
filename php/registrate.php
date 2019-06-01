@@ -88,10 +88,10 @@ if (isset($errores) && count($errores) > 0) { ?>
         <form id="altaUsuario" method="get" action="validacion_alta_usuario.php">
             <div class="grid-container-registro">
 
-                <label for="dni">DNI:</label>
+                <label for="dni"><strong>DNI:</strong></label>
                 <input type="text" name="dni" id="dni" size="9" placeholder="12345678X" pattern="^[0-9]{8}[A-Z]"
                        value="<?php echo $formulario['dni']; ?>" required>
-                <label for="nombre">Nombre:</label>
+                <label for="nombre"><strong>Nombre:</strong></label>
                 <input id="nombre" name="nombre" type="text" size="40" value="<?php echo $formulario['nombre']; ?>"
                        required/>
 
@@ -103,22 +103,22 @@ if (isset($errores) && count($errores) > 0) { ?>
 
                 ?>
 
-                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                <label for="fechaNacimiento"><strong>Fecha de Nacimiento:</strong></label>
                 <input type="date" max="<?php print $minimalDate ?>" id="fechaNacimiento" name="fechaNacimiento"
                        required value="<?php echo $formulario['fechaNacimiento']; ?>"/>
-                <label for="email">Correo electrónico:</label>
+                <label for="email"><strong>Correo electrónico:</strong></label>
                 <input id="email" name="email" type="email" placeholder="usuario@dominio.com"
-                       value="<?php echo $formulario['email']; ?>" required/><br>
-                <label for="pass">Contraseña:</label>
+                       value="<?php echo $formulario['email']; ?>" required/>
+                <label for="pass"><strong>Contraseña:</strong></label>
                 <input type="password" name="pass" id="pass" placeholder="Mínimo 8 caracteres entre letras y dígitos"
                        required oninput="passwordValidation(); "/>
-                <label for="passConfirm">Confirma tu contraseña:</label>
+                <label for="passConfirm"><strong>Confirma tu contraseña:</strong></label>
                 <input type="password" name="confirmpass" id="confirmpass" placeholder="Confirmación de contraseña"
                        oninput="passwordConfirmation();" required/>
 
 
                 <div>
-                    <h3>Método de pago</h3>
+                    <p><strong>Método de pago</strong></p>
                     <label>
                         <input <?php if ($formulario ["pago"] == "Tarjeta") print ("checked") ?> type="radio"
                                                                                                  value="Tarjeta"

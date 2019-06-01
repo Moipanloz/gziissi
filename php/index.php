@@ -163,7 +163,7 @@
                 <script  src="js/galeria.js"></script>
 			<div class="localizanos">
 				<h1 class="titulo">Localizanos</h1>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d122470.29726937723!2d-115.24122266102181!3d36.232787363024805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80beb782a4f57dd1%3A0x3accd5e6d5b379a3!2sLas+Vegas%2C+NV%2C+USA!5e0!3m2!1sen!2sca!4v1470931103436" class="map" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <iframe src="https://maps.google.com/maps?q=gamers%20zone&t=&z=15&ie=UTF8&iwloc=&output=embed" class="map" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
                 <script  src="js/mapa.js"></script>
                 </div>
             </div>
