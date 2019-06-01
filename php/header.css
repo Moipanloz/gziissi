@@ -33,7 +33,7 @@ ul {
 
 }
 
-li {
+#bigScreen li {
     float: right;
     position: relative;
     padding-right: 5%;
@@ -45,6 +45,7 @@ li a, .dropbtn {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    font-family: "Audiowide", sans-serif, Verdana;
 }
 
 li a:hover, .dropdown:hover .dropbtn {
@@ -53,6 +54,7 @@ li a:hover, .dropdown:hover .dropbtn {
 
 li.dropdown {
     display: inline-block;
+    margin-right: 4%;
 }
 
 .dropdown-content {
@@ -88,13 +90,14 @@ li.dropdown {
         background: rgb(0, 1, 82);
     }
 
-    #smallScreem{
+    #smallScreen{
         display:none;
     }
 
-    li {
+    #bigScreen li {
         float: right;
         position: relative;
+        font-weight: 500;
         padding-right: 5%;
         padding-top: 3%
     }

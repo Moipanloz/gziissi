@@ -4,6 +4,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Gamers Zone</title>
         <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -15,21 +17,25 @@
         <div class="grid-container">
             <div class="info">
 		            <h1 class="titulo">Sobre nosotros</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta quam eget luctus sodales. Nunc ut lorem pharetra, egestas erat sit amet, eleifend lorem. Aenean sapien augue, scelerisque vel est finibus, vestibulum eleifend leo. Proin pellentesque sem est, vel venenatis leo consectetur nec. Morbi ornare vulputate eros, non malesuada sapien pharetra eu. Proin condimentum accumsan iaculis. Nunc eu molestie erat, in commodo mi. Nulla sed vulputate erat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras libero enim, ullamcorper id massa nec, suscipit tempor elit. Quisque nec elementum tellus, quis porta neque.</p>
+                <p>Gamers Zone es un bar gamer de comida casera de reciente apertura situado en la calle Monzón
+                    paralela a Reina Mercedes. </p>
                 <br>
-                <p>Aliquam eget gravida ligula. Integer cursus dignissim maximus. Cras placerat mauris urna, porttitor rhoncus purus convallis in. Aliquam egestas mauris lobortis sem suscipit interdum. Nunc molestie nibh ac dolor sodales viverra. Sed magna tellus, mattis sed tellus a, ultrices auctor est. Proin non nunc rutrum, placerat neque ut, facilisis nisi. Maecenas fermentum tempus posuere. Donec et dolor eros. Quisque non tortor lectus. Fusce pharetra leo nisl, eget ornare nisl porta ut. Nam feugiat arcu eu nunc posuere vehicula. Ut cursus, orci ac hendrerit scelerisque, mi ipsum scelerisque eros, nec lacinia tortor lectus sit amet ante. Integer nec elit faucibus, lobortis augue vel, sollicitudin est.</p>
-                <br>
-                <p>Phasellus bibendum tortor id tortor aliquet malesuada. In sed lectus a nunc volutpat blandit. Quisque vitae efficitur ligula, vel faucibus odio. Pellentesque sit amet lacus at magna vestibulum euismod. Sed egestas venenatis ligula, vel aliquam mi faucibus in. In elementum nulla et auctor tempus. Sed iaculis interdum ipsum. Maecenas vulputate ipsum sem, a sagittis nisi consequat nec.</p>
+                <p>Contamos con una zona dedicada a la restauración, donde los clientes pueden consumir comida
+                    y bebida, e incluso jugar a los juegos de mesa de los que disponemos el establecimiento; un par
+                    de zonas reservadas para el uso de videoconsolas y por último, una zona dedicada exclusivamente
+                    para el uso de equipos de alto rendimiento, donde se pueden jugar a videojuegos de pc tanto
+                    solo como con tus amigos.</p>
             </div>
         </div>
                 <div class="carta">
 				<h1 class="titulo">Nuestra carta</h1>
                 <div class="wrapMenu">
                     <ul class="tabs">
-                        <li><a id="menuButtons" data-filter=".group-1" href="#">Group 1</a></li>
-                        <li><a id="menuButtons" data-filter=".group-2" href="#">Group 2</a></li>
-                        <li><a id="menuButtons" data-filter=".group-3" href="#">Group 3</a></li>
-                        <li><a id="menuButtons" data-filter=".group-4" href="#">Group 4</a></li>
+                        <li><a id="menuButtons" data-filter=".group-1" href="#">Entrantes</a></li>
+                        <li><a id="menuButtons" data-filter=".group-2" href="#">Ensaladas</a></li>
+                        <li><a id="menuButtons" data-filter=".group-3" href="#">Hamburguesas</a></li>
+                        <!-- Añadir uno de perritos calientes y otro de wanwiches-->
+                        <li><a id="menuButtons" data-filter=".group-4" href="#">Bebidas</a></li>
                     </ul>
 
                     <ul class="portfolio">
@@ -119,41 +125,34 @@
 			<div class="galeria">
 				<h1 class="titulo">Galería</h1>
                 <div class="container">
-                    <h1>As-slider</h1>
                     <section class="my-slider">
                         <ul>
                             <li>
                                 <section class="slide_1">
                                     <div class="caption">
-                                        <h2 style="text-align:center;">This is a very basic and simple slider</h2>
-                                        <p>Most of the style is set in CSS and <strong>not</strong> in the JavaScript as most of the other sliders.</p>
+                                        <h2 style="text-align:center;">Equipos de alto rendimiento</h2>
+                                        <p>Para que juguéis en equipo como verdaderos profesionales.</p>
                                     </div>
                                 </section>
                             </li>
                             <li>
                                 <section class="slide_2">
                                     <div class="caption">
-                                        <h2>It contains</h2>
+                                        <h2>Videoconsolas</h2>
                                         <ul>
-                                            <li>Slider area</li>
-                                            <li>Navigation buttons</li>
-                                            <li>Progress bar</li>
-                                            <li>Markers</li>
+                                            <li>WiiU</li>
+                                            <li>Nintendo Switch</li>
+                                            <li>PS4</li>
+                                            <li>GameCube</li>
                                         </ul>
-                                        <p>Nothing more, nothing less...</p>
                                     </div>
                                 </section>
                             </li>
                             <li>
                                 <section class="slide_3">
                                     <div class="caption">
-                                        <h2>It's...</h2>
-                                        <ul>
-                                            <li>Stabile</li>
-                                            <li>Easy to customize</li>
-                                            <li>Responsive</li>
-                                            <li>Hardware accelerated</li>
-                                        </ul>
+                                        <h2>El local</h2>
+                                        <p>Amplio salón para que tú y tus amigos juguéis, veais streamings y paséis un buen rato.</p>
                                     </div>
                                 </section>
                             </li>

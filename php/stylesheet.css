@@ -459,15 +459,15 @@ p{
 }
 
 .slide_1 {
-	background: url('imagenes/refrescos.jpg') no-repeat center center;
+	background: url('imagenes/ordenadores.jpg') no-repeat center center;
 	background-size: 100% auto;
 }
 .slide_2 {
-	background: url('imagenes/refrescos.jpg') no-repeat center center;
+	background: url('imagenes/consolas.jpg') no-repeat center center;
 	background-size: 100% auto;
 }
 .slide_3 {
-	background: url('imagenes/refrescos.jpg') no-repeat center center;
+	background: url('imagenes/local.PNG') no-repeat center center;
 	background-size: 100% auto;
 }
 
@@ -614,4 +614,5 @@ p{
 	width: 100%;
 	padding: 0 10%;
 	border: 10px solid green;
+	margin-bottom: 5%;
 }
