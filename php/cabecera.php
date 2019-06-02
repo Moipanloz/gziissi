@@ -17,23 +17,25 @@
                     <a href="almacenes_admin.php">Almacenes de Usuarios</a>
                 </div>
         <?php }
+
         if (!isset($_SESSION ["login_name"])) {
             ?>
             <li><a href="registrate.php">Regístrate</a></li>
             <li><a href="iniciaSesion.php">Inicia sesión</a></li>
         <?php } else { ?>
             <li><a href="accion/accion_desconexion_usuario.php">Desconectarse</a></li>
+            <li><a href="almacen.php">Mi almacén</a></li>
         <?php } ?>
         <li><a href="torneos.php">Torneos</a></li>
         <li><a href="bonos.php">Bonos</a></li>
+
     </ul>
 
     <ul id="smallScreen">
         <li class="dropdown">
             <a href="javascript:void(0)" class="dropbtn">Menu</a>
             <div class="dropdown-content">
-                <a href="bonos.php">Bonos</a>
-                <a href="torneos.php">Torneos</a>
+
                 <?php
                 if (!isset($_SESSION ["login_name"])) {
                     ?>
@@ -41,7 +43,10 @@
                     <a href="registrate.php">Regístrate</a>
                 <?php } else { ?>
                     <a href="accion/accion_desconexion_usuario.php">Desconectarse</a>
+                    <a href="almacen.php">Mi almacén</a>
                 <?php } ?>
+                <a href="bonos.php">Bonos</a>
+                <a href="torneos.php">Torneos</a>
             </div>
     </ul>
 </header>
