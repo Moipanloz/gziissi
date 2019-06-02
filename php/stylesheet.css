@@ -432,6 +432,10 @@ p{
 	margin: auto;
 }
 
+.participantes p{
+	margin: 0;
+}
+
 .boton_admin a{
 	padding: 3% 4%;
 	background-color: aqua;
@@ -440,9 +444,21 @@ p{
 	text-decoration: none;
 }
 
+.nuevo input{
+	float: right;
+}
+
 .admin_class{
-	margin:3% 3%;
+	margin: 3% 3%;
+	padding: 2%;
+	display: grid;
+	grid-template-columns: 25% 25% 25% 25%;
+}
+
+.admin_class article{
 	background-color: rgb(89, 163, 255);
+	margin: 0 3%;
+	padding: 5%;
 }
 
 .grid-container-admin-class{
@@ -454,6 +470,10 @@ p{
 	display: grid;
 	grid-template-columns: 20% 20% 20% 20%;
 	grid-template-rows: 50% 50%;
+}
+
+#botones_fila{
+	margin-top: 5%;
 }
 
 
