@@ -191,9 +191,6 @@ p{
 	border: 3px solid rgb(138, 151, 208);
 }
 
-.portfolio figure:hover img {
-	opacity: .3;
-}
 .portfolio figure:hover figcaption {
 	top: 50%;
 	margin-top: -20px;

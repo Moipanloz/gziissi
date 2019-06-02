@@ -6,7 +6,16 @@
         <?php
         session_start();
         if (isset($_SESSION ["login_dni"]) && $_SESSION ["login_dni"] == "00000000A") { ?>
-            <li><a href="administracion.php ">Administración</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Administración</a>
+                <div class="dropdown-content">
+                    <a href="torneos_admin.php">Torneos</a>
+                    <a href="pases_admin.php">Pases</a>
+                    <a href="consumibles_admin.php">Consumibles</a>
+                    <a href="usuarios_admin.php">Usuarios</a>
+                    <a href="ventas_admin.php">Ventas</a>
+                    <a href="almacenes_admin.php">Almacenes de Usuarios</a>
+                </div>
         <?php }
         if (!isset($_SESSION ["login_name"])) {
             ?>
@@ -33,5 +42,8 @@
                 <?php } else { ?>
                     <a href="accion/accion_desconexion_usuario.php">Desconectarse</a>
                 <?php } ?>
+            </div>
     </ul>
 </header>
+
+

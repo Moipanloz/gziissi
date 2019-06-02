@@ -86,7 +86,6 @@ li.dropdown {
         list-style-type: none;
         margin: 0;
         padding: 0;
-        overflow: hidden;
         background: rgb(0, 1, 82);
     }
 
@@ -114,7 +113,8 @@ li.dropdown {
     }
 
     li.dropdown {
-        display: none;
+        display: inline-block;
+        margin-right: 4%;
     }
 
     .img-logo{
