@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <link rel="icon" type="image/png" href="imagenes/favicon-32x32.png">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -42,7 +43,7 @@ if (isset($_REQUEST['submit'])) {
 
 if (isset($login)) {
     echo "<div class=\"error\">";
-    echo "Error en la contraseña o no existe el usuario.";
+    echo "<script type='text/javascript'>jQuery(document).ready(function(){alert('Error en la contraseña o no existe el usuario.')})</script>";
     echo "</div>";
 }
 

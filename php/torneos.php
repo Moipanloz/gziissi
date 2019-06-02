@@ -41,7 +41,6 @@
         <div class="grid-torneo" id="c1">
             <div id="left">
                 <h2><?php print $t ["NOMBRETORNEO"] ?></h2>
-                <h4> Consumibles:</h4>
                 <ul>
                     <li><strong>Juego: </strong><?php print $t["VIDEOJUEGO"] ?></li>
                     <li><strong>Precio: </strong><?php print $t["PRECIOTORNEO"] ?>€</li>
