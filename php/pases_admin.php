@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gamers Zone</title>
+    <title>Gamers Zone - Adm. Pases</title>
     <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -101,7 +101,7 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
 
                             <?php if (isset($PASE) and ($PASE["PASES_ID"] == $fila["PASES_ID"])) { ?>
 
-                                <button id="grabar" name="grabar" type="submit" class="editar_fila">
+                                <button class="boton" id="grabar" name="grabar" type="submit" class="editar_fila">
 
                                     <!--<img src="imagenes/bag_menuito.bmp" class="editar_fila" alt="Guardar modificación">
                                     -->
@@ -110,7 +110,7 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
 
                                 </button>
 
-                                <button id="cancelar" name="cancelar" type="submit" class="cancelar">
+                                <button class="boton" id="cancelar" name="cancelar" type="submit" class="cancelar">
 
                                     <!--<img src="imagenes/remove_menuito.bmp" class="editar_fila" alt="Borrar consumible">
 -->
@@ -119,7 +119,7 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
 
                             <?php } else { ?>
 
-                                <button id="editar" name="editar" type="submit" class="editar_fila">
+                                <button class="boton" id="editar" name="editar" type="submit" class="editar_fila">
 
                                     <!--<img src="imagenes/pencil_menuito.bmp" class="editar_fila" alt="Editar consumible">
                                     -->
@@ -127,7 +127,7 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
 
                                 </button>
 
-                                <button id="borrar" name="borrar" type="submit" class="editar_fila">
+                                <button class="boton" id="borrar" name="borrar" type="submit" class="editar_fila">
 
                                     <!--<img src="imagenes/remove_menuito.bmp" class="editar_fila" alt="Borrar consumible">
 -->
@@ -149,38 +149,22 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
 
 
 
-        <?php } ?>
+        <?php }
 
+         if (!isset($PASE)) {?>
+
+                <article>
+                    <form autocomplete="off" method="post" action="controlador_pases.php">
+                        <input id="PASES_ID" name="PASES_ID" type="hidden" value="Fake id"/>
+                        <input maxlength="20" id="TIPOMEDIO" name="TIPOMEDIO" type="text" placeholder="Nuevo Pase"/>
+                        <div style="margin-top: 5%;">
+                            <button class="boton" id="nuevo" name="nuevo" type="submit">Crear un pase nuevo</button>
+                        </div>
+                    </form>
+                </article>
+        <?php }?>
     </div>
-
-    <?php if (!isset($PASE)) {?>
-
-        <div>
-
-            <article class="admin_class">
-
-                <form autocomplete="off" method="post" action="controlador_pases.php">
-
-                    <input id="PASES_ID" name="PASES_ID" type="hidden" value="Fake id"/>
-
-                    <input maxlength="20" id="TIPOMEDIO" name="TIPOMEDIO" type="text" placeholder="Nuevo Pase"/>
-
-                    <button id="nuevo" name="nuevo" type="submit">
-
-                        Crear un pase nuevo
-
-                    </button>
-
-                </form>
-
-            </article>
-
-        </div>
-
-    <?php }?>
-
 </div>
-
 <?php cerrarConexionBD($conexion) ?>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gamers Zone</title>
+    <title>Gamers Zone - Adm. Usuarios</title>
     <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -87,7 +87,7 @@ if (isset($_SESSION["USUARIO"])) {
 
                             <div id="botones_fila">
 
-                                <button id="borrar" name="borrar" type="submit" class="editar_fila">
+                                <button class="boton" id="borrar" name="borrar" type="submit" class="editar_fila">
 
                                     <!--<img src="imagenes/remove_menuito.bmp" class="editar_fila" alt="Borrar consumible">
     -->
@@ -102,12 +102,12 @@ if (isset($_SESSION["USUARIO"])) {
                                 if (esActivo($conexion, $dni) == "FALSE") { ?>
 
 
-                                    <button id="activar" name="activar" type="submit" class="editar_fila">Activar
+                                    <button class="boton" id="activar" name="activar" type="submit" class="editar_fila">Activar
                                     </button>
 
                                 <?php } else { ?>
 
-                                    <button id="desactivar" name="desactivar" type="submit" class="editar_fila">
+                                    <button class="boton" id="desactivar" name="desactivar" type="submit" class="editar_fila">
                                         Desactivar
                                     </button>
                                 <?php } ?>

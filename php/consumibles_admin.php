@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gamers Zone</title>
+    <title>Gamers Zone - Adm. Consumibles</title>
     <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -30,21 +30,18 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
     Header("Location: index.php");
 
 
-
 ?>
-
 
 
 <body>
 
 <?php if (isset($_SESSION ["warning"])) {
 
-     print ("<div>".($_SESSION ["warning"])."</div>");
+    print ("<div>" . ($_SESSION ["warning"]) . "</div>");
 
     unset($_SESSION ["warning"]);
 
 } ?>
-
 
 
 <div>
@@ -56,10 +53,9 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
 
         <?php
 
-        foreach($todosLosConsumibles as $fila) {
+        foreach ($todosLosConsumibles as $fila) {
 
             ?>
-
 
 
             <article class="consumibles">
@@ -80,7 +76,8 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
 
                                 <!-- Editando título -->
 
-                                <h3><input maxlength="40" id="NOMBRECONSUMIBLE" name="NOMBRECONSUMIBLE" type="text" value="<?php echo $fila["NOMBRECONSUMIBLE"]; ?>"/>	</h3>
+                                <h3><input maxlength="40" id="NOMBRECONSUMIBLE" name="NOMBRECONSUMIBLE" type="text"
+                                           value="<?php echo $fila["NOMBRECONSUMIBLE"]; ?>"/></h3>
 
                                 <select name="TIPOCONSUMIBLE">
                                     <option value="Bebida generica">Bebida generica</option>
@@ -88,13 +85,15 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
                                     <option value="Comida">Comida</option>
                                 </select>
 
-                            <?php }	else { ?>
+                            <?php } else { ?>
 
                                 <!-- mostrando título -->
 
-                                <input id="NOMBRECONSUMIBLE" name="NOMBRECONSUMIBLE" type="hidden" value="<?php echo $fila["NOMBRECONSUMIBLE"]; ?>"/>
+                                <input id="NOMBRECONSUMIBLE" name="NOMBRECONSUMIBLE" type="hidden"
+                                       value="<?php echo $fila["NOMBRECONSUMIBLE"]; ?>"/>
 
-                                <input id="TIPOCONSUMIBLE" name="TIPOCONSUMIBLE" type="hidden" value="<?php echo $fila["TIPOCONSUMIBLE"]; ?>"/>
+                                <input id="TIPOCONSUMIBLE" name="TIPOCONSUMIBLE" type="hidden"
+                                       value="<?php echo $fila["TIPOCONSUMIBLE"]; ?>"/>
 
                                 <div class="nombre"><b><?php echo $fila["NOMBRECONSUMIBLE"]; ?></b></div>
 
@@ -105,12 +104,11 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
                         </div>
 
 
-
                         <div id="botones_fila">
 
                             <?php if (isset($CONSUMIBLE) and ($CONSUMIBLE["CONSUMIBLES_ID"] == $fila["CONSUMIBLES_ID"])) { ?>
 
-                                <button id="grabar" name="grabar" type="submit" class="editar_fila">
+                                <button class="boton" id="grabar" name="grabar" type="submit" class="editar_fila">
 
                                     <!--<img src="imagenes/bag_menuito.bmp" class="editar_fila" alt="Guardar modificación">
                                     -->
@@ -119,80 +117,53 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
 
                                 </button>
 
-                                <button id="cancelar" name="cancelar" type="submit" class="cancelar">
+                                <button class="boton" id="cancelar" name="cancelar" type="submit" class="cancelar">
 
                                     <!--<img src="imagenes/remove_menuito.bmp" class="editar_fila" alt="Borrar consumible">
 -->
                                     Cancelar
                                 </button>
-
                             <?php } else { ?>
-
-                                <button id="editar" name="editar" type="submit" class="editar_fila">
-
-                                    <!--<img src="imagenes/pencil_menuito.bmp" class="editar_fila" alt="Editar consumible">
-                                    -->
+                                <button class="boton"id="editar" name="editar" type="submit" class="editar_fila">
+                                    <!--<img src="imagenes/pencil_menuito.bmp" class="editar_fila" alt="Editar consumible">-->
                                     Editar
-
                                 </button>
-
-                                <button id="borrar" name="borrar" type="submit" class="editar_fila">
-
-                                    <!--<img src="imagenes/remove_menuito.bmp" class="editar_fila" alt="Borrar consumible">
--->
+                                <button class="boton" id="borrar" name="borrar" type="submit" class="editar_fila">
+                                    <!--<img src="imagenes/remove_menuito.bmp" class="editar_fila" alt="Borrar consumible">-->
                                     Borrar
-
                                 </button>
-
                             <?php } ?>
-
-
-
                         </div>
-
                     </div>
-
                 </form>
-
             </article>
 
 
+        <?php }
 
+
+        if (!isset($CONSUMIBLE)) { ?>
+            <article>
+                <form autocomplete="off" method="post" action="controlador_consumibles.php">
+                    <input id="CONSUMIBLES_ID" name="CONSUMIBLES_ID" type="hidden" value="Fake id"/>
+                    <input required pattern="^[a-zA-Z ]+$" maxlength="40" id="NOMBRECONSUMIBLE" name="NOMBRECONSUMIBLE"
+                           type="text" placeholder="Nuevo Consumible"/>
+                    <div>
+                        <select name="TIPOCONSUMIBLE">
+                            <option value="Bebida generica">Bebida generica</option>
+                            <option value="Bebida alcoholica">Bebida alcoholica</option>
+                            <option value="Comida">Comida</option>
+                        </select>
+                    </div>
+                    <div style="margin-top:5%;">
+                        <button class="boton" id="nuevo" name="nuevo" type="submit">Crear un consumible nuevo</button>
+                    </div>
+                </form>
+            </article>
         <?php } ?>
 
     </div>
 
-    <?php if (!isset($CONSUMIBLE)) {?>
-
-    <div>
-
-        <article class="admin_class">
-
-            <form autocomplete="off" method="post" action="controlador_consumibles.php">
-
-                <input id="CONSUMIBLES_ID" name="CONSUMIBLES_ID" type="hidden" value="Fake id"/>
-
-                <input required pattern="^[a-zA-Z ]+$" maxlength="40" id="NOMBRECONSUMIBLE" name="NOMBRECONSUMIBLE" type="text" placeholder="Nuevo Consumible"/>
-
-                <select name="TIPOCONSUMIBLE">
-                    <option value="Bebida generica">Bebida generica</option>
-                    <option value="Bebida alcoholica">Bebida alcoholica</option>
-                    <option value="Comida">Comida</option>
-                </select>
-
-                <button id="nuevo" name="nuevo" type="submit">
-
-                    Crear un consumible nuevo
-
-                </button>
-
-            </form>
-
-        </article>
-
-    </div>
-
-    <?php }?>
 
 </div>
 

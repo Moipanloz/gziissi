@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gamers Zone</title>
+    <title>Gamers Zone - Mi almacén</title>
     <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -31,9 +31,12 @@ cerrarConexionBD($conexion);
 
 ?>
 
-<div class="grid-container-bonos">
+<h2 class="titulo">Mi almacén</h2>
 
-    <h4> Consumibles:</h4>
+
+<div class="divCentro">
+
+    <h4 style="margin-top:0;"> Consumibles:</h4>
 
     <?php if ($consumiblesUsuario != null) foreach ($consumiblesUsuario as $c) { ?>
         <p><?php print ($c["NOMBRECONSUMIBLE"] . " - " . $c["CANTIDADCONSUMIBLE"]) ?> </p>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gamers Zone</title>
+    <title>Gamers Zone - Adm. Almacenes</title>
     <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -55,9 +55,11 @@ cerrarConexionBD($conexion);
 
 <div>
     <h2 class="titulo">Administración de Almacenes</h2>
-    <div>
+    <div class="divCentro">
 
+        <article>
         <form method="post" action="almacenes_admin.php">
+
 
             <select name="DNI">
 
@@ -83,12 +85,12 @@ cerrarConexionBD($conexion);
 
             </select>
 
-            <input type="submit" name="change_user" value="Actualizar">
+            <input class="boton" type="submit" name="change_user" value="Actualizar">
 
         </form>
 
 
-        <h2>El usuario contiene en su almacen los siguientes consumibles:</h2>
+            <p style="margin-top:3%;"><strong>El usuario contiene en su almacen los siguientes consumibles:</strong></p>
 
         <?php
 
@@ -98,15 +100,15 @@ cerrarConexionBD($conexion);
 
             ?>
 
-            <form autocomplete="off" method="post" action="controlador_almacenes.php">
+            <form style="margin: 3% 0;" autocomplete="off" method="post" action="controlador_almacenes.php">
 
 
-                <h5><?php print ($c ["NOMBRECONSUMIBLE"] . " - " . $c ["CANTIDADCONSUMIBLE"]) ?></h5>
+                <p style="width:auto;"><?php print ($c ["NOMBRECONSUMIBLE"] . " - " . $c ["CANTIDADCONSUMIBLE"]) ?></p>
 
                 <input type="hidden" value="<?php print ($c["ALMACENESCONSUMIBLES_ID"]) ?>"
                        name="ALMACENESCONSUMIBLES_ID"/>
 
-                <input type="submit" value="Borrar" name="borrar_c"/>
+                <input style="margin-top:3%;" class="boton" type="submit" value="Borrar" name="borrar_c"/>
 
             </form>
 
@@ -130,12 +132,12 @@ cerrarConexionBD($conexion);
                 <?php } ?>
             </select>
 
-            <input type="submit" value="Añadir" name="anadir_c"/>
+            <input class="boton" type="submit" value="Añadir" name="anadir_c"/>
 
         </form>
 
 
-        <h2>El usuario contiene en su almacen los siguientes pases:</h2>
+            <p style="margin: 3% 0;"><strong>El usuario contiene en su almacen los siguientes pases:</strong></p>
 
         <?php
 
@@ -148,11 +150,11 @@ cerrarConexionBD($conexion);
             <form autocomplete="off" method="post" action="controlador_almacenes.php">
 
 
-                <h5><?php print ($p ["TIPOMEDIO"] . " - " . $p ["CANTIDADPASE"]) ?></h5>
+                <p><?php print ($p ["TIPOMEDIO"] . " - " . $p ["CANTIDADPASE"]) ?></p>
 
                 <input type="hidden" value="<?php print ($p["ALMACENESPASES_ID"]) ?>" name="ALMACENESPASES_ID"/>
 
-                <input type="submit" value="Borrar" name="borrar_p"/>
+                <input style="margin: 3% 0;" class="boton"  type="submit" value="Borrar" name="borrar_p"/>
 
             </form>
 
@@ -176,10 +178,10 @@ cerrarConexionBD($conexion);
                 <?php } ?>
             </select>
 
-            <input type="submit" value="Añadir" name="anadir_p"/>
+            <input class="boton" type="submit" value="Añadir" name="anadir_p"/>
 
         </form>
-
+        </article>
     </div>
 
 </div>

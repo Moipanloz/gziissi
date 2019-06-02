@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gamers Zone</title>
+    <title>Gamers Zone - Adm. Ventas</title>
     <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -70,44 +70,34 @@ else {
 <div>
     <h2 class="titulo">Administración Lineas de Venta</h2>
 
-    <div class="admin_class">
+    <div style="background-color: rgb(89, 163, 255);width:30%;margin:auto;">
 
-        <div id="enlaces">
-
+        <div style="width: 10%;margin:0;display:inline;" >
             <?php
 
             for( $pagina = 1; $pagina <= $total_paginas; $pagina++ )
 
                 if ( $pagina == $pagina_seleccionada) { 	?>
 
-                    <span class="current"><?php echo $pagina; ?></span>
+                    <p class="current"><?php echo $pagina; ?></p>
 
                 <?php }	else { ?>
 
                     <a href="ventas_admin.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
 
                 <?php } ?>
-
         </div>
-
-        <form method="get" action="ventas_admin.php">
-
-            <input id="PAG_NUM" name="PAG_NUM" type="hidden" value="<?php echo $pagina_seleccionada?>"/>
-
-            Mostrando
-
-            <input id="PAG_TAM" name="PAG_TAM" type="number"
-
-                   min="1" max="<?php echo $total_registros; ?>"
-
-                   value="<?php echo $pag_tam?>" autofocus="autofocus" />
-
-            entradas de <?php echo $total_registros?>
-
-            <input type="submit" value="Cambiar">
-
-        </form>
-
+        <div style="width:30%;margin:0;display:inline;">
+            <form  method="get" action="ventas_admin.php">
+                <input id="PAG_NUM" name="PAG_NUM" type="hidden" value="<?php echo $pagina_seleccionada?>"/>
+                Mostrando
+                <input id="PAG_TAM" name="PAG_TAM" type="number"
+                       min="1" max="<?php echo $total_registros; ?>"
+                       value="<?php echo $pag_tam?>" autofocus="autofocus" />
+                entradas de <?php echo $total_registros?>
+                <input class="boton" type="submit" value="Cambiar">
+            </form>
+        </div>
     </div>
 
     <div class="admin_class">

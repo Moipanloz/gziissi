@@ -10,7 +10,7 @@ require_once("gestion/gestionUsuarios.php");
 <html lang="es">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gamers Zone</title>
+    <title>Gamers Zone - Regístrate</title>
     <script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
     <script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
     <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">

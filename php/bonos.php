@@ -17,7 +17,7 @@ $todosLosBonos = consultarTodosBonos($conexion);
 <html lang="es">
 	<head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Gamers Zone</title>
+        <title>Gamers Zone - Bonos</title>
         <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -102,7 +102,8 @@ $todosLosBonos = consultarTodosBonos($conexion);
                         <input class="boton" type="submit" id="adquirirBono" name="adquirirBono" value="Adquirir">
                     </form>
 
-
+                <?php }else{?>
+                    <div></div>
                 <?php }?>
 
                     <div id="right">

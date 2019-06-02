@@ -448,6 +448,13 @@ p{
 	float: right;
 }
 
+.divCentro{
+	background-color: rgb(89, 163, 255);
+	width: 25%;
+	margin: auto;
+	padding: 2%;
+}
+
 .admin_class{
 	margin: 3% 3%;
 	padding: 2%;
@@ -457,7 +464,7 @@ p{
 
 .admin_class article{
 	background-color: rgb(89, 163, 255);
-	margin: 0 3%;
+	margin: 3% 3%;
 	padding: 5%;
 }
 

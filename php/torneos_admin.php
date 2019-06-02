@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gamers Zone</title>
+    <title>Gamers Zone - Adm. Torneos</title>
     <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -213,7 +213,7 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
                                           name="PRECIOTORNEO" type="text" placeholder="0.0"/></p>
                         <p><strong>Videojuego: </strong><input required pattern="^[a-zA-Z ]+$" maxlength="20" id="VIDEOJUEGO"
                                               name="VIDEOJUEGO" type="text" placeholder="Videojuego"/></p>
-                        <p><strong>Máx. de participantes: </strong><input required pattern="^[0-9]{1,2}+$" id="MAXPARTICIPANTES"
+                        <p><strong>Máx. usuarios: </strong><input required pattern="^[0-9]{1,2}+$" id="MAXPARTICIPANTES"
                                                                   name="MAXPARTICIPANTES" type="text" placeholder="10"/></p>
                         <p><strong>Fecha: </strong><input min="<?php print $minimalDate ?>" required id="FECHATORNEO" name="FECHATORNEO" type="date" /></p>
                         <div style="margin-top: 5%;">
