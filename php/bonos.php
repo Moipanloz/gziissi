@@ -76,19 +76,35 @@ $todosLosBonos = consultarTodosBonos($conexion);
 
                             <?php } ?>
                     </div>
+
+                    <?php if (isset ($_SESSION["login_dni"])) { ?>
+
                     <form method="post" action="accion/accion_anadir_bono_a_usuario.php">
-                        <input type="hidden" name= "BONOS_ID"  value="<?php $b["BONOS_ID"] ?>">
+
+                        <input type="hidden" id = "BONOS_ID" name= "BONOS_ID"  value="<?php print $b["BONOS_ID"] ?>">
                         <input class="boton" type="submit" id="adquirirBono" name="adquirirBono" value="Adquirir">
+
                     </form>
+
+                <?php }?>
+
                 </div>
 
             <?php } else { ?>
 
                 <div class="subgrid" id="c2">
+
+                <?php if (isset ($_SESSION["login_dni"])) { ?>
+
+
                     <form method="post" action="accion/accion_anadir_bono_a_usuario.php">
-                        <input type="hidden" name= "BONOS_ID" value="<?php $b["BONOS_ID"] ?>">
+                        <input type="hidden" id = "BONOS_ID" name= "BONOS_ID" value="<?php print $b["BONOS_ID"] ?>">
                         <input class="boton" type="submit" id="adquirirBono" name="adquirirBono" value="Adquirir">
                     </form>
+
+
+                <?php }?>
+
                     <div id="right">
 
                         <h3><?php print ($b ["NOMBREBONO"] . " - " . $b ["PRECIOBONO"] . " euros") ?></h3>

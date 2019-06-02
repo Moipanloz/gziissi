@@ -1,19 +1,11 @@
 <?php
 session_start();
 
-$_SESSION ["TEST"] = "Adquirir bono: ".$_REQUEST["adquirirBono"].", DNI: ".$_SESSION["login_dni"];
-
-Header("Location: ../test.php");
-
 if (isset($_REQUEST["adquirirBono"]) && isset ($_SESSION["login_dni"])) {
 
     $BONOS_ID = $_REQUEST ["BONOS_ID"];
 
     $DNI = $_SESSION["login_dni"];
-
-    $_SESSION ["TEST"] = "ID Bono: ".$BONOS_ID.", DNI: ".$DNI;
-
-    Header("Location: ../test.php");
 
     require_once("../gestion/gestionBD.php");
     require_once("../gestion/gestionBonos.php");
@@ -30,10 +22,11 @@ if (isset($_REQUEST["adquirirBono"]) && isset ($_SESSION["login_dni"])) {
     }
     else
         Header("Location: ../bonos.php");
+
+    print "ID BONO: ".$BONOS_ID.", DNI: ".$DNI;
 }
 
 else {
-
 
     Header("Location: ../bonos.php"); // Se ha tratado de acceder directamente a este PHP
 

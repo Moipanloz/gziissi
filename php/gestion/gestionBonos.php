@@ -166,13 +166,12 @@ function crearNuevoBono ($conexion, $Nombre) {
 function anadirBonoAUsuario($conexion,$BONO_ID,$DNI){
     try{
 
-        $stmt = $conexion->prepare("SELECT * FROM LINEAPASES WHERE BONOS_ID = :BonosId");
-        $stmt->bindParam (':BonosId', $BONO_ID);
-        $stmt->execute();
+        $stmt1 = $conexion->prepare("SELECT * FROM LINEAPASES WHERE BONOS_ID = :BonosId");
+        $stmt1->bindParam (':BonosId', $BONO_ID);
+        $stmt1->execute();
 
-        foreach ($stmt as $item) {
+        foreach ($stmt1 as $item) {
             $count = $item ["CANTIDADLP"];
-            $_SESSION["TEST"] = $count;
             while ($count >0) {
 
                 anadirPaseAUsuario($conexion, $item ["PASES_ID"], $DNI);
@@ -181,11 +180,12 @@ function anadirBonoAUsuario($conexion,$BONO_ID,$DNI){
             }
         }
 
-        $stmt = $conexion->prepare("SELECT * FROM LINEACONSUMIBLES WHERE BONOS_ID = :BonosId");
-        $stmt->bindParam (':BonosId', $BONO_ID);
-        $stmt->execute();
 
-        foreach ($stmt as $item) {
+        $stmt2 = $conexion->prepare("SELECT * FROM LINEACONSUMIBLES WHERE BONOS_ID = :BonosId");
+        $stmt2->bindParam (':BonosId', $BONO_ID);
+        $stmt2->execute();
+
+        foreach ($stmt2 as $item) {
             $count = $item ["CANTIDADLC"];
             while ($count >0) {
 

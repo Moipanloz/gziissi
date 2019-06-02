@@ -26,4 +26,4 @@ require_once ("gestion/gestionAlmacenes.php");
 
 $conexion = crearConexionBD();
 
-anadirBonoAUsuario($conexion, 1, '22345678B');
+anadirBonoAUsuario($conexion, 3, '00000000A');

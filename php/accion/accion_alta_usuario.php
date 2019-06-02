@@ -41,12 +41,10 @@ $conexion = crearConexionBD();
     if (alta_usuario($conexion, $nuevoUsuario)) {
         $_SESSION['login_dni'] = $nuevoUsuario['dni'];
         $_SESSION['login_name'] = $nuevoUsuario['nombre'];
-        ?>
-        <h1>Hola <?php echo $nuevoUsuario["nombre"]; ?>, gracias por registrarte</h1>
-        <div>
-            Pulsa <a href="../index.php">aquí</a> para acceder a la página principal.
-        </div>
-    <?php } else { ?>
+
+        Header ("Location: ../index.php");
+
+         } else { ?>
         <h1>El usuario ya existe en la base de datos.</h1>
         <div>
             Pulsa <a href="../registrate.php">aquí</a> para volver al formulario.
