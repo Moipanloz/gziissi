@@ -75,7 +75,7 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
                                 <h3><input maxlength="30" id="NOMBRETORNEO" required name="NOMBRETORNEO" type="text"
                                            value="<?php echo $fila["NOMBRETORNEO"]; ?>"/></h3>
                                 <P><input maxlength="5" id="PRECIOTORNEO" required name="PRECIOTORNEO"
-                                          pattern="^[0-9]+(\.[0-9]{1,2})?$" type="text"
+                                          pattern="[0-9]?[0-9]?(\.[0-9][0-9]?)?" type="text"
                                           value="<?php echo $fila["PRECIOTORNEO"]; ?>"/></P>
                                 <P><input maxlength="20" id="VIDEOJUEGO" required name="VIDEOJUEGO" type="text"
                                           value="<?php echo $fila["VIDEOJUEGO"]; ?>"/></P>
@@ -197,21 +197,25 @@ if (!isset($_SESSION ["login_dni"]) || $_SESSION ["login_dni"] != "00000000A")
 
         <?php }
 
-         if (!isset($TORNEO)) { ?>
+         if (!isset($TORNEO)) {
+             
+             $minimalDate = date ( 'Y-m-d' );?>
 
             <article>
                     <form class="nuevo" autocomplete="off" method="post" action="controlador_torneos.php">
 
+
+
                         <input id="TORNEOS_ID" name="TORNEOS_ID" type="hidden" value="Fake id"/>
                         <p><strong>Nombre: </strong><input required pattern="^[a-zA-Z0-9 ]+$" maxlength="40" id="NOMBRETORNEO"
                                           name="NOMBRETORNEO" type="text" placeholder="Nombre"/></p>
-                        <p><strong>Precio: </strong><input required pattern="^[0-9]+(\.[0-9]{1,2})?$" maxlength="5" id="PRECIOTORNEO"
+                        <p><strong>Precio: </strong><input required pattern="[0-9]?[0-9]?(\.[0-9][0-9]?)?" maxlength="5" id="PRECIOTORNEO"
                                           name="PRECIOTORNEO" type="text" placeholder="0.0"/></p>
                         <p><strong>Videojuego: </strong><input required pattern="^[a-zA-Z ]+$" maxlength="20" id="VIDEOJUEGO"
                                               name="VIDEOJUEGO" type="text" placeholder="Videojuego"/></p>
                         <p><strong>Máx. de participantes: </strong><input required pattern="^[0-9]{1,2}+$" id="MAXPARTICIPANTES"
                                                                   name="MAXPARTICIPANTES" type="text" placeholder="10"/></p>
-                        <p><strong>Fecha: </strong><input required id="FECHATORNEO" name="FECHATORNEO" type="date"/></p>
+                        <p><strong>Fecha: </strong><input min="<?php print $minimalDate ?>" required id="FECHATORNEO" name="FECHATORNEO" type="date" /></p>
                         <div style="margin-top: 5%;">
                             <button class="boton" id="nuevo" name="nuevo" type="submit">Crear un torneo nuevo</button>
                         </div>
