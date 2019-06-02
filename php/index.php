@@ -38,7 +38,6 @@
                         <li><a id="menuButtons" data-filter=".group-4" href="#">Hot-Dogs</a></li>
                         <li><a id="menuButtons" data-filter=".group-5" href="#">Sandwiches</a></li>
                     </ul>
-
                     <ul class="portfolio">
                         <li class="group-1">
                             <figure>
